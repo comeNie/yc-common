@@ -39,7 +39,7 @@ public final class ServiceNumCacheUtil {
     		String data=cacheClient.hget(CacheNSMapper.CACHE_GN_SERVICE_NUM, key);
             return  JSON.parseObject(data, ServiceNum.class);
     	} catch (Exception e) {
-    		logger.error("获取手机号码端数据[{}]失败.失败原因:{}", serviceNumCode, e.getMessage(),e);
+    		logger.error("获取手机号码端数据失败.失败原因:{}", serviceNumCode,e);
     	    return null;
     	}
     }

@@ -101,4 +101,64 @@ public final class Constants {
 
         public static final String AREA_CODE_SEQ = "GN_AREA$AREA_CODE$SEQ";
     }
+    
+    public final static class SysConfig {
+        private SysConfig() {
+        }
+
+        /**
+         * 显示
+         */
+        public static final String STATE_SHOW = "0";
+
+        /**
+         * 隐藏
+         */
+        public static final String STATE_HIDE = "1";
+    }
+    
+    public final static class SysPurpose {
+        private SysPurpose() {
+        }
+
+        /**
+         * 显示
+         */
+        public static final String STATE_SHOW = "0";
+
+        /**
+         * 隐藏
+         */
+        public static final String STATE_HIDE = "1";
+    }
+    
+    public final static class SysDuad {
+        private SysDuad() {
+        }
+        
+        /**
+         * 口译
+         */
+        public static final String ORDER_TYPE_ORAL = "2";
+
+        /**
+         * 文档翻译
+         */
+        public static final String ORDER_TYPE_DOC = "1";
+
+        /**
+         * 快速翻译
+         */
+        public static final String ORDER_TYPE_FAST = "0";
+        
+        /**
+         * 显示
+         */
+        public static final String STATE_SHOW = "0";
+
+        /**
+         * 隐藏
+         */
+        public static final String STATE_HIDE = "1";
+    }
 }

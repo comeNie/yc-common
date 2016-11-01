@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.SysDuadMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+    <id column="duad_id" property="duadId" jdbcType="VARCHAR" />
+    <result column="language" property="language" jdbcType="VARCHAR" />
+    <result column="site" property="site" jdbcType="VARCHAR" />
+    <result column="order_type" property="orderType" jdbcType="CHAR" />
+    <result column="source_language" property="sourceLanguage" jdbcType="VARCHAR" />
+    <result column="target_language" property="targetLanguage" jdbcType="VARCHAR" />
+    <result column="ordinary" property="ordinary" jdbcType="VARCHAR" />
+    <result column="ordinary_urgent" property="ordinaryUrgent" jdbcType="VARCHAR" />
+    <result column="professional" property="professional" jdbcType="VARCHAR" />
+    <result column="professional_urgent" property="professionalUrgent" jdbcType="VARCHAR" />
+    <result column="publish" property="publish" jdbcType="VARCHAR" />
+    <result column="publish_urgent" property="publishUrgent" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    duad_id, language, site, order_type, source_language, target_language, ordinary, 
+    ordinary_urgent, professional, professional_urgent, publish, publish_urgent, sort, 
+    state
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from sys_duad
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_duad
+    where duad_id = #{duadId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_duad
+    where duad_id = #{duadId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" >
+    delete from sys_duad
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+    insert into sys_duad (duad_id, language, site, 
+      order_type, source_language, target_language, 
+      ordinary, ordinary_urgent, professional, 
+      professional_urgent, publish, publish_urgent, 
+      sort, state)
+    values (#{duadId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
+      #{orderType,jdbcType=CHAR}, #{sourceLanguage,jdbcType=VARCHAR}, #{targetLanguage,jdbcType=VARCHAR}, 
+      #{ordinary,jdbcType=VARCHAR}, #{ordinaryUrgent,jdbcType=VARCHAR}, #{professional,jdbcType=VARCHAR}, 
+      #{professionalUrgent,jdbcType=VARCHAR}, #{publish,jdbcType=VARCHAR}, #{publishUrgent,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+    insert into sys_duad
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="duadId != null" >
+        duad_id,
+      </if>
+      <if test="language != null" >
+        language,
+      </if>
+      <if test="site != null" >
+        site,
+      </if>
+      <if test="orderType != null" >
+        order_type,
+      </if>
+      <if test="sourceLanguage != null" >
+        source_language,
+      </if>
+      <if test="targetLanguage != null" >
+        target_language,
+      </if>
+      <if test="ordinary != null" >
+        ordinary,
+      </if>
+      <if test="ordinaryUrgent != null" >
+        ordinary_urgent,
+      </if>
+      <if test="professional != null" >
+        professional,
+      </if>
+      <if test="professionalUrgent != null" >
+        professional_urgent,
+      </if>
+      <if test="publish != null" >
+        publish,
+      </if>
+      <if test="publishUrgent != null" >
+        publish_urgent,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="state != null" >
+        state,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="duadId != null" >
+        #{duadId,jdbcType=VARCHAR},
+      </if>
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null" >
+        #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null" >
+        #{orderType,jdbcType=CHAR},
+      </if>
+      <if test="sourceLanguage != null" >
+        #{sourceLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="targetLanguage != null" >
+        #{targetLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="ordinary != null" >
+        #{ordinary,jdbcType=VARCHAR},
+      </if>
+      <if test="ordinaryUrgent != null" >
+        #{ordinaryUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="professional != null" >
+        #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalUrgent != null" >
+        #{professionalUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="publish != null" >
+        #{publish,jdbcType=VARCHAR},
+      </if>
+      <if test="publishUrgent != null" >
+        #{publishUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" resultType="java.lang.Integer" >
+    select count(*) from sys_duad
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_duad
+    <set >
+      <if test="record.duadId != null" >
+        duad_id = #{record.duadId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.language != null" >
+        language = #{record.language,jdbcType=VARCHAR},
+      </if>
+      <if test="record.site != null" >
+        site = #{record.site,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderType != null" >
+        order_type = #{record.orderType,jdbcType=CHAR},
+      </if>
+      <if test="record.sourceLanguage != null" >
+        source_language = #{record.sourceLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetLanguage != null" >
+        target_language = #{record.targetLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordinary != null" >
+        ordinary = #{record.ordinary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordinaryUrgent != null" >
+        ordinary_urgent = #{record.ordinaryUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professional != null" >
+        professional = #{record.professional,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionalUrgent != null" >
+        professional_urgent = #{record.professionalUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publish != null" >
+        publish = #{record.publish,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishUrgent != null" >
+        publish_urgent = #{record.publishUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sort != null" >
+        sort = #{record.sort,jdbcType=VARCHAR},
+      </if>
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=CHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_duad
+    set duad_id = #{record.duadId,jdbcType=VARCHAR},
+      language = #{record.language,jdbcType=VARCHAR},
+      site = #{record.site,jdbcType=VARCHAR},
+      order_type = #{record.orderType,jdbcType=CHAR},
+      source_language = #{record.sourceLanguage,jdbcType=VARCHAR},
+      target_language = #{record.targetLanguage,jdbcType=VARCHAR},
+      ordinary = #{record.ordinary,jdbcType=VARCHAR},
+      ordinary_urgent = #{record.ordinaryUrgent,jdbcType=VARCHAR},
+      professional = #{record.professional,jdbcType=VARCHAR},
+      professional_urgent = #{record.professionalUrgent,jdbcType=VARCHAR},
+      publish = #{record.publish,jdbcType=VARCHAR},
+      publish_urgent = #{record.publishUrgent,jdbcType=VARCHAR},
+      sort = #{record.sort,jdbcType=VARCHAR},
+      state = #{record.state,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+    update sys_duad
+    <set >
+      <if test="language != null" >
+        language = #{language,jdbcType=VARCHAR},
+      </if>
+      <if test="site != null" >
+        site = #{site,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null" >
+        order_type = #{orderType,jdbcType=CHAR},
+      </if>
+      <if test="sourceLanguage != null" >
+        source_language = #{sourceLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="targetLanguage != null" >
+        target_language = #{targetLanguage,jdbcType=VARCHAR},
+      </if>
+      <if test="ordinary != null" >
+        ordinary = #{ordinary,jdbcType=VARCHAR},
+      </if>
+      <if test="ordinaryUrgent != null" >
+        ordinary_urgent = #{ordinaryUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="professional != null" >
+        professional = #{professional,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalUrgent != null" >
+        professional_urgent = #{professionalUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="publish != null" >
+        publish = #{publish,jdbcType=VARCHAR},
+      </if>
+      <if test="publishUrgent != null" >
+        publish_urgent = #{publishUrgent,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        state = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where duad_id = #{duadId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+    update sys_duad
+    set language = #{language,jdbcType=VARCHAR},
+      site = #{site,jdbcType=VARCHAR},
+      order_type = #{orderType,jdbcType=CHAR},
+      source_language = #{sourceLanguage,jdbcType=VARCHAR},
+      target_language = #{targetLanguage,jdbcType=VARCHAR},
+      ordinary = #{ordinary,jdbcType=VARCHAR},
+      ordinary_urgent = #{ordinaryUrgent,jdbcType=VARCHAR},
+      professional = #{professional,jdbcType=VARCHAR},
+      professional_urgent = #{professionalUrgent,jdbcType=VARCHAR},
+      publish = #{publish,jdbcType=VARCHAR},
+      publish_urgent = #{publishUrgent,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=VARCHAR},
+      state = #{state,jdbcType=CHAR}
+    where duad_id = #{duadId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -16,8 +16,12 @@ import com.ai.platform.common.dao.mapper.interfaces.GnSubjectFundMapper;
 import com.ai.platform.common.dao.mapper.interfaces.GnSubjectMapper;
 import com.ai.platform.common.dao.mapper.interfaces.GnSysParamMapper;
 import com.ai.platform.common.dao.mapper.interfaces.GnTenantMapper;
+import com.ai.platform.common.dao.mapper.interfaces.SysConfigMapper;
+import com.ai.platform.common.dao.mapper.interfaces.SysDomainMapper;
+import com.ai.platform.common.dao.mapper.interfaces.SysDuadMapper;
 import com.ai.platform.common.dao.mapper.interfaces.SysMenuMapper;
 import com.ai.platform.common.dao.mapper.interfaces.SysOfficeMapper;
+import com.ai.platform.common.dao.mapper.interfaces.SysPurposeMapper;
 import com.ai.platform.common.dao.mapper.interfaces.SysUserMapper;
 import com.ai.platform.common.dao.mapper.interfaces.SysWaitjobsMapper;
 
@@ -92,6 +96,23 @@ public class MapperFactory {
     public static SysMenuMapper getSysMenuMapper() {
         return sqlSessionTemplate.getMapper(SysMenuMapper.class);
     }
+    
+    public static SysConfigMapper getSysConfigMapper() {
+        return sqlSessionTemplate.getMapper(SysConfigMapper.class);
+    }
+    
+    public static SysDuadMapper getSysDuadMapper() {
+        return sqlSessionTemplate.getMapper(SysDuadMapper.class);
+    }
+    
+    public static SysPurposeMapper getSysPurposeMapper() {
+        return sqlSessionTemplate.getMapper(SysPurposeMapper.class);
+    }
+    
+    public static SysDomainMapper getSysDomainMapper() {
+        return sqlSessionTemplate.getMapper(SysDomainMapper.class);
+    }
+    
     
     
 }
