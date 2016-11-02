@@ -10,6 +10,16 @@ import com.ai.opt.base.vo.BaseResponse;
 public class QuerySysPurposeDetailsRes extends BaseResponse {
 	
 	private static final long serialVersionUID = 7039545203523157889L;
+	
+	/**
+	 * 起名标语 是
+	 */
+	public final static String NAME_FLAG_YES = "0";
+
+	/**
+	 * 起名标语 否
+	 */
+	public final static String NAME_FLAG_NO = "1";
 
 	/**
 	 * 用途ID
