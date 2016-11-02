@@ -15,5 +15,7 @@ public interface IQuerySysPurposeBusiSV {
 	 * 查询页面显示的用途
 	 */
 	List<SysPurpose> querySysPurposeList(String language);
+	
+	SysPurpose querySysPurposeDetails(String purposeId);
 
 }

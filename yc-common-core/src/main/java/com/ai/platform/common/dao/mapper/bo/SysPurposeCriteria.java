@@ -613,6 +613,76 @@ public class SysPurposeCriteria {
             addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
+
+        public Criteria andNamedFlagIsNull() {
+            addCriterion("named_flag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagIsNotNull() {
+            addCriterion("named_flag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagEqualTo(String value) {
+            addCriterion("named_flag =", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagNotEqualTo(String value) {
+            addCriterion("named_flag <>", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagGreaterThan(String value) {
+            addCriterion("named_flag >", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagGreaterThanOrEqualTo(String value) {
+            addCriterion("named_flag >=", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagLessThan(String value) {
+            addCriterion("named_flag <", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagLessThanOrEqualTo(String value) {
+            addCriterion("named_flag <=", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagLike(String value) {
+            addCriterion("named_flag like", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagNotLike(String value) {
+            addCriterion("named_flag not like", value, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagIn(List<String> values) {
+            addCriterion("named_flag in", values, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagNotIn(List<String> values) {
+            addCriterion("named_flag not in", values, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagBetween(String value1, String value2) {
+            addCriterion("named_flag between", value1, value2, "namedFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andNamedFlagNotBetween(String value1, String value2) {
+            addCriterion("named_flag not between", value1, value2, "namedFlag");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

@@ -8,6 +8,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.platform.common.api.syspurpose.param.QuerySysPurposeDetailsRes;
 import com.ai.platform.common.api.syspurpose.param.QuerySysPurposeListRes;
 
 /**
@@ -35,5 +36,19 @@ public interface IQuerySysPurposeSV {
 	@POST
 	@Path("/syspurpose")
 	QuerySysPurposeListRes querySysPurposeList(String language)throws BusinessException,SystemException;
+	
+	/**
+     * 用途详情查询
+     * @param purposeId 用途ID
+     * @return  用途列表
+     * @throws BusinessException,SystemException
+     * @author hougang
+     * @ApiDocMethod
+     * @ApiCode GN_0511
+     * @RestRelativeURL syspurpose/querySysPurposeDetails
+	 */
+	@POST
+	@Path("/syspurpose")
+	QuerySysPurposeDetailsRes querySysPurposeDetails(String purposeId)throws BusinessException,SystemException;
 
 }

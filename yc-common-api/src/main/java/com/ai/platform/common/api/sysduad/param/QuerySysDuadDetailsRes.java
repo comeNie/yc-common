@@ -80,6 +80,11 @@ public class QuerySysDuadDetailsRes extends BaseResponse {
 	 * 状态  0显示  1不显示
 	 */
 	private String state;
+	
+	/**
+	 * 币种  1：RMB 2：$
+	 */
+	private String currency;
 
 	public String getDuadId() {
 		return duadId;
@@ -191,6 +196,14 @@ public class QuerySysDuadDetailsRes extends BaseResponse {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public String getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(String currency) {
+		this.currency = currency;
 	}
 	
 	
