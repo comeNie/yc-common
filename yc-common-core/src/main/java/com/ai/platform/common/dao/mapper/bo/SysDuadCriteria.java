@@ -1103,6 +1103,76 @@ public class SysDuadCriteria {
             addCriterion("state not between", value1, value2, "state");
             return (Criteria) this;
         }
+
+        public Criteria andCurrencyIsNull() {
+            addCriterion("currency is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyIsNotNull() {
+            addCriterion("currency is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyEqualTo(String value) {
+            addCriterion("currency =", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyNotEqualTo(String value) {
+            addCriterion("currency <>", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyGreaterThan(String value) {
+            addCriterion("currency >", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyGreaterThanOrEqualTo(String value) {
+            addCriterion("currency >=", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyLessThan(String value) {
+            addCriterion("currency <", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyLessThanOrEqualTo(String value) {
+            addCriterion("currency <=", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyLike(String value) {
+            addCriterion("currency like", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyNotLike(String value) {
+            addCriterion("currency not like", value, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyIn(List<String> values) {
+            addCriterion("currency in", values, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyNotIn(List<String> values) {
+            addCriterion("currency not in", values, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyBetween(String value1, String value2) {
+            addCriterion("currency between", value1, value2, "currency");
+            return (Criteria) this;
+        }
+
+        public Criteria andCurrencyNotBetween(String value1, String value2) {
+            addCriterion("currency not between", value1, value2, "currency");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

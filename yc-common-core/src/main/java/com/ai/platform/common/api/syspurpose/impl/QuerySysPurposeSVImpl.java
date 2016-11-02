@@ -13,6 +13,7 @@ import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.platform.common.api.syspurpose.interfaces.IQuerySysPurposeSV;
+import com.ai.platform.common.api.syspurpose.param.QuerySysPurposeDetailsRes;
 import com.ai.platform.common.api.syspurpose.param.QuerySysPurposeListRes;
 import com.ai.platform.common.api.syspurpose.param.SysPurposeVo;
 import com.ai.platform.common.constants.ResultCodeConstants;
@@ -48,6 +49,22 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 		}
 		QuerySysPurposeListRes res = new QuerySysPurposeListRes();
 		res.setPurposes(vos);
+		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
+		return res;
+	}
+
+	@Override
+	public QuerySysPurposeDetailsRes querySysPurposeDetails(String purposeId)
+			throws BusinessException, SystemException {
+		if(StringUtil.isBlank(purposeId)){
+			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "用途ID不能为空");
+		}
+		SysPurpose sysPurpose = iQuerySysPurposeBusiSV.querySysPurposeDetails(purposeId);
+		if(sysPurpose==null){
+			throw new BusinessException(ExceptCodeConstants.Special.NO_RESULT, "用途信息不存在");
+		}
+		QuerySysPurposeDetailsRes res  = new QuerySysPurposeDetailsRes();
+		BeanUtils.copyProperties(res, sysPurpose);
 		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
 		return res;
 	}

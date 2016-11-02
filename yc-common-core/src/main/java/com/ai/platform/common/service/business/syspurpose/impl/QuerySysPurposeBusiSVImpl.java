@@ -26,4 +26,10 @@ public class QuerySysPurposeBusiSVImpl implements IQuerySysPurposeBusiSV {
 		return iSysPurposeAtomSV.querySysPurposeList(language);
 	}
 
+	@Override
+	public SysPurpose querySysPurposeDetails(String purposeId) {
+
+		return iSysPurposeAtomSV.selectByPrimaryKey(purposeId);
+	}
+
 }

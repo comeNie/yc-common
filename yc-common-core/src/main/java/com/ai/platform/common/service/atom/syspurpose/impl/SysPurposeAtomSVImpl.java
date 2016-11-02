@@ -30,4 +30,9 @@ public class SysPurposeAtomSVImpl implements ISysPurposeAtomSV{
 		return MapperFactory.getSysPurposeMapper().selectByExample(example);
 	}
 
+	@Override
+	public SysPurpose selectByPrimaryKey(String purposeId) {
+		return MapperFactory.getSysPurposeMapper().selectByPrimaryKey(purposeId);
+	}
+
 }

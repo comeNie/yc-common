@@ -15,6 +15,8 @@ public class SysPurpose {
 
     private String state;
 
+    private String namedFlag;
+
     public String getPurposeId() {
         return purposeId;
     }
@@ -69,5 +71,13 @@ public class SysPurpose {
 
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
+    }
+
+    public String getNamedFlag() {
+        return namedFlag;
+    }
+
+    public void setNamedFlag(String namedFlag) {
+        this.namedFlag = namedFlag == null ? null : namedFlag.trim();
     }
 }

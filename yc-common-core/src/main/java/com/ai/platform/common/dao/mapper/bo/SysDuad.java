@@ -29,6 +29,8 @@ public class SysDuad {
 
     private String state;
 
+    private String currency;
+
     public String getDuadId() {
         return duadId;
     }
@@ -139,5 +141,13 @@ public class SysDuad {
 
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency == null ? null : currency.trim();
     }
 }

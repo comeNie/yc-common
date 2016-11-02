@@ -9,6 +9,7 @@
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="sort" property="sort" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="CHAR" />
+    <result column="named_flag" property="namedFlag" jdbcType="CHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    purpose_id, language, site, purpose_name, remarks, sort, state
+    purpose_id, language, site, purpose_name, remarks, sort, state, named_flag
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurposeCriteria" >
     select
@@ -108,10 +109,10 @@
   <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurpose" >
     insert into sys_purpose (purpose_id, language, site, 
       purpose_name, remarks, sort, 
-      state)
+      state, named_flag)
     values (#{purposeId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
       #{purposeName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, 
-      #{state,jdbcType=CHAR})
+      #{state,jdbcType=CHAR}, #{namedFlag,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurpose" >
     insert into sys_purpose
@@ -137,6 +138,9 @@
       <if test="state != null" >
         state,
       </if>
+      <if test="namedFlag != null" >
+        named_flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="purposeId != null" >
@@ -159,6 +163,9 @@
       </if>
       <if test="state != null" >
         #{state,jdbcType=CHAR},
+      </if>
+      <if test="namedFlag != null" >
+        #{namedFlag,jdbcType=CHAR},
       </if>
     </trim>
   </insert>
@@ -192,6 +199,9 @@
       <if test="record.state != null" >
         state = #{record.state,jdbcType=CHAR},
       </if>
+      <if test="record.namedFlag != null" >
+        named_flag = #{record.namedFlag,jdbcType=CHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -205,7 +215,8 @@
       purpose_name = #{record.purposeName,jdbcType=VARCHAR},
       remarks = #{record.remarks,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=VARCHAR},
-      state = #{record.state,jdbcType=CHAR}
+      state = #{record.state,jdbcType=CHAR},
+      named_flag = #{record.namedFlag,jdbcType=CHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -231,6 +242,9 @@
       <if test="state != null" >
         state = #{state,jdbcType=CHAR},
       </if>
+      <if test="namedFlag != null" >
+        named_flag = #{namedFlag,jdbcType=CHAR},
+      </if>
     </set>
     where purpose_id = #{purposeId,jdbcType=VARCHAR}
   </update>
@@ -241,7 +255,8 @@
       purpose_name = #{purposeName,jdbcType=VARCHAR},
       remarks = #{remarks,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=VARCHAR},
-      state = #{state,jdbcType=CHAR}
+      state = #{state,jdbcType=CHAR},
+      named_flag = #{namedFlag,jdbcType=CHAR}
     where purpose_id = #{purposeId,jdbcType=VARCHAR}
   </update>
 </mapper>
