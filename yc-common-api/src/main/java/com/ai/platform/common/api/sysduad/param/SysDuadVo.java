@@ -21,11 +21,30 @@ public class SysDuadVo implements Serializable {
 	 */
 	private String site;
 
+	/**
+	 * 订单类型
+	 */
 	private String orderType;
 
-	private String sourceLanguage;
+	/**
+	 * 源语言中文名称
+	 */
+	private String sourceCn;
 
-	private String targetLanguage;
+	/**
+	 * 源语言英文名称
+	 */
+    private String sourceEn;
+    
+    /**
+     * 目标语言中文名称
+     */
+    private String targetCn;
+    
+    /**
+     * 目标语言英文名称
+     */
+    private String targetEn;
 
 	public String getDuadId() {
 		return duadId;
@@ -59,22 +78,38 @@ public class SysDuadVo implements Serializable {
 		this.orderType = orderType;
 	}
 
-	public String getSourceLanguage() {
-		return sourceLanguage;
+	public String getSourceCn() {
+		return sourceCn;
 	}
 
-	public void setSourceLanguage(String sourceLanguage) {
-		this.sourceLanguage = sourceLanguage;
+	public void setSourceCn(String sourceCn) {
+		this.sourceCn = sourceCn;
 	}
 
-	public String getTargetLanguage() {
-		return targetLanguage;
+	public String getSourceEn() {
+		return sourceEn;
 	}
 
-	public void setTargetLanguage(String targetLanguage) {
-		this.targetLanguage = targetLanguage;
+	public void setSourceEn(String sourceEn) {
+		this.sourceEn = sourceEn;
 	}
-	
+
+	public String getTargetCn() {
+		return targetCn;
+	}
+
+	public void setTargetCn(String targetCn) {
+		this.targetCn = targetCn;
+	}
+
+	public String getTargetEn() {
+		return targetEn;
+	}
+
+	public void setTargetEn(String targetEn) {
+		this.targetEn = targetEn;
+	}
+
 	
 
 }

@@ -32,14 +32,24 @@ public class SysDuad extends BaseResponse {
 	private String orderType;
 
 	/**
-	 * 源语言
+	 * 源语言中文名称
 	 */
-	private String sourceLanguage;
+	private String sourceCn;
 
 	/**
-	 * 目标语言
+	 * 源语言英文名称
 	 */
-	private String targetLanguage;
+    private String sourceEn;
+    
+    /**
+     * 目标语言中文名称
+     */
+    private String targetCn;
+    
+    /**
+     * 目标语言英文名称
+     */
+    private String targetEn;
 
 	/**
 	 * 普通翻译价格
@@ -118,20 +128,36 @@ public class SysDuad extends BaseResponse {
 		this.orderType = orderType;
 	}
 
-	public String getSourceLanguage() {
-		return sourceLanguage;
+	public String getSourceCn() {
+		return sourceCn;
 	}
 
-	public void setSourceLanguage(String sourceLanguage) {
-		this.sourceLanguage = sourceLanguage;
+	public void setSourceCn(String sourceCn) {
+		this.sourceCn = sourceCn;
 	}
 
-	public String getTargetLanguage() {
-		return targetLanguage;
+	public String getSourceEn() {
+		return sourceEn;
 	}
 
-	public void setTargetLanguage(String targetLanguage) {
-		this.targetLanguage = targetLanguage;
+	public void setSourceEn(String sourceEn) {
+		this.sourceEn = sourceEn;
+	}
+
+	public String getTargetCn() {
+		return targetCn;
+	}
+
+	public void setTargetCn(String targetCn) {
+		this.targetCn = targetCn;
+	}
+
+	public String getTargetEn() {
+		return targetEn;
+	}
+
+	public void setTargetEn(String targetEn) {
+		this.targetEn = targetEn;
 	}
 
 	public String getOrdinary() {

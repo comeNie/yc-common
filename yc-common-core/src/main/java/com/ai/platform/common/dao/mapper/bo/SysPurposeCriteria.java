@@ -334,73 +334,143 @@ public class SysPurposeCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameIsNull() {
-            addCriterion("purpose_name is null");
+        public Criteria andPurposeCnIsNull() {
+            addCriterion("purpose_cn is null");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameIsNotNull() {
-            addCriterion("purpose_name is not null");
+        public Criteria andPurposeCnIsNotNull() {
+            addCriterion("purpose_cn is not null");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameEqualTo(String value) {
-            addCriterion("purpose_name =", value, "purposeName");
+        public Criteria andPurposeCnEqualTo(String value) {
+            addCriterion("purpose_cn =", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameNotEqualTo(String value) {
-            addCriterion("purpose_name <>", value, "purposeName");
+        public Criteria andPurposeCnNotEqualTo(String value) {
+            addCriterion("purpose_cn <>", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameGreaterThan(String value) {
-            addCriterion("purpose_name >", value, "purposeName");
+        public Criteria andPurposeCnGreaterThan(String value) {
+            addCriterion("purpose_cn >", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameGreaterThanOrEqualTo(String value) {
-            addCriterion("purpose_name >=", value, "purposeName");
+        public Criteria andPurposeCnGreaterThanOrEqualTo(String value) {
+            addCriterion("purpose_cn >=", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameLessThan(String value) {
-            addCriterion("purpose_name <", value, "purposeName");
+        public Criteria andPurposeCnLessThan(String value) {
+            addCriterion("purpose_cn <", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameLessThanOrEqualTo(String value) {
-            addCriterion("purpose_name <=", value, "purposeName");
+        public Criteria andPurposeCnLessThanOrEqualTo(String value) {
+            addCriterion("purpose_cn <=", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameLike(String value) {
-            addCriterion("purpose_name like", value, "purposeName");
+        public Criteria andPurposeCnLike(String value) {
+            addCriterion("purpose_cn like", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameNotLike(String value) {
-            addCriterion("purpose_name not like", value, "purposeName");
+        public Criteria andPurposeCnNotLike(String value) {
+            addCriterion("purpose_cn not like", value, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameIn(List<String> values) {
-            addCriterion("purpose_name in", values, "purposeName");
+        public Criteria andPurposeCnIn(List<String> values) {
+            addCriterion("purpose_cn in", values, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameNotIn(List<String> values) {
-            addCriterion("purpose_name not in", values, "purposeName");
+        public Criteria andPurposeCnNotIn(List<String> values) {
+            addCriterion("purpose_cn not in", values, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameBetween(String value1, String value2) {
-            addCriterion("purpose_name between", value1, value2, "purposeName");
+        public Criteria andPurposeCnBetween(String value1, String value2) {
+            addCriterion("purpose_cn between", value1, value2, "purposeCn");
             return (Criteria) this;
         }
 
-        public Criteria andPurposeNameNotBetween(String value1, String value2) {
-            addCriterion("purpose_name not between", value1, value2, "purposeName");
+        public Criteria andPurposeCnNotBetween(String value1, String value2) {
+            addCriterion("purpose_cn not between", value1, value2, "purposeCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnIsNull() {
+            addCriterion("purpose_en is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnIsNotNull() {
+            addCriterion("purpose_en is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnEqualTo(String value) {
+            addCriterion("purpose_en =", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnNotEqualTo(String value) {
+            addCriterion("purpose_en <>", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnGreaterThan(String value) {
+            addCriterion("purpose_en >", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnGreaterThanOrEqualTo(String value) {
+            addCriterion("purpose_en >=", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnLessThan(String value) {
+            addCriterion("purpose_en <", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnLessThanOrEqualTo(String value) {
+            addCriterion("purpose_en <=", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnLike(String value) {
+            addCriterion("purpose_en like", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnNotLike(String value) {
+            addCriterion("purpose_en not like", value, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnIn(List<String> values) {
+            addCriterion("purpose_en in", values, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnNotIn(List<String> values) {
+            addCriterion("purpose_en not in", values, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnBetween(String value1, String value2) {
+            addCriterion("purpose_en between", value1, value2, "purposeEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurposeEnNotBetween(String value1, String value2) {
+            addCriterion("purpose_en not between", value1, value2, "purposeEn");
             return (Criteria) this;
         }
 

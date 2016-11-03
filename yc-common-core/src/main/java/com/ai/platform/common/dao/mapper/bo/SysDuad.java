@@ -9,9 +9,13 @@ public class SysDuad {
 
     private String orderType;
 
-    private String sourceLanguage;
+    private String sourceCn;
 
-    private String targetLanguage;
+    private String sourceEn;
+
+    private String targetCn;
+
+    private String targetEn;
 
     private String ordinary;
 
@@ -63,20 +67,36 @@ public class SysDuad {
         this.orderType = orderType == null ? null : orderType.trim();
     }
 
-    public String getSourceLanguage() {
-        return sourceLanguage;
+    public String getSourceCn() {
+        return sourceCn;
     }
 
-    public void setSourceLanguage(String sourceLanguage) {
-        this.sourceLanguage = sourceLanguage == null ? null : sourceLanguage.trim();
+    public void setSourceCn(String sourceCn) {
+        this.sourceCn = sourceCn == null ? null : sourceCn.trim();
     }
 
-    public String getTargetLanguage() {
-        return targetLanguage;
+    public String getSourceEn() {
+        return sourceEn;
     }
 
-    public void setTargetLanguage(String targetLanguage) {
-        this.targetLanguage = targetLanguage == null ? null : targetLanguage.trim();
+    public void setSourceEn(String sourceEn) {
+        this.sourceEn = sourceEn == null ? null : sourceEn.trim();
+    }
+
+    public String getTargetCn() {
+        return targetCn;
+    }
+
+    public void setTargetCn(String targetCn) {
+        this.targetCn = targetCn == null ? null : targetCn.trim();
+    }
+
+    public String getTargetEn() {
+        return targetEn;
+    }
+
+    public void setTargetEn(String targetEn) {
+        this.targetEn = targetEn == null ? null : targetEn.trim();
     }
 
     public String getOrdinary() {

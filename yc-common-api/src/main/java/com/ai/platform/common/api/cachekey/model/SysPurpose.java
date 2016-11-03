@@ -37,9 +37,14 @@ public class SysPurpose implements Serializable {
     private String site;
 
     /**
-     * 名称
+     * 中文名称
      */
-    private String purposeName;
+    private String purposeCn;
+
+    /**
+     * 英文名称
+     */
+    private String purposeEn;
 
     /**
      * 描述
@@ -85,12 +90,20 @@ public class SysPurpose implements Serializable {
 		this.site = site;
 	}
 
-	public String getPurposeName() {
-		return purposeName;
+	public String getPurposeCn() {
+		return purposeCn;
 	}
 
-	public void setPurposeName(String purposeName) {
-		this.purposeName = purposeName;
+	public void setPurposeCn(String purposeCn) {
+		this.purposeCn = purposeCn;
+	}
+
+	public String getPurposeEn() {
+		return purposeEn;
+	}
+
+	public void setPurposeEn(String purposeEn) {
+		this.purposeEn = purposeEn;
 	}
 
 	public String getRemarks() {

@@ -26,10 +26,15 @@ public class SysPurposeVo implements Serializable {
 	 */
 	private String site;
 
-	/**
-	 * 用途名称
-	 */
-	private String purposeName;
+	 /**
+     * 中文名称
+     */
+    private String purposeCn;
+
+    /**
+     * 英文名称
+     */
+    private String purposeEn;
 
 	public String getPurposeId() {
 		return purposeId;
@@ -55,12 +60,22 @@ public class SysPurposeVo implements Serializable {
 		this.site = site == null ? null : site.trim();
 	}
 
-	public String getPurposeName() {
-		return purposeName;
+	public String getPurposeCn() {
+		return purposeCn;
 	}
 
-	public void setPurposeName(String purposeName) {
-		this.purposeName = purposeName == null ? null : purposeName.trim();
+	public void setPurposeCn(String purposeCn) {
+		this.purposeCn = purposeCn;
 	}
+
+	public String getPurposeEn() {
+		return purposeEn;
+	}
+
+	public void setPurposeEn(String purposeEn) {
+		this.purposeEn = purposeEn;
+	}
+
+	
 
 }

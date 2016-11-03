@@ -5,7 +5,8 @@
     <id column="domain_id" property="domainId" jdbcType="VARCHAR" />
     <result column="language" property="language" jdbcType="VARCHAR" />
     <result column="site" property="site" jdbcType="VARCHAR" />
-    <result column="domain_name" property="domainName" jdbcType="VARCHAR" />
+    <result column="domain_cn" property="domainCn" jdbcType="VARCHAR" />
+    <result column="domain_en" property="domainEn" jdbcType="VARCHAR" />
     <result column="remarks" property="remarks" jdbcType="VARCHAR" />
     <result column="sort" property="sort" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="CHAR" />
@@ -69,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    domain_id, language, site, domain_name, remarks, sort, state
+    domain_id, language, site, domain_cn, domain_en, remarks, sort, state
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysDomainCriteria" >
     select
@@ -107,11 +108,11 @@
   </delete>
   <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysDomain" >
     insert into sys_domain (domain_id, language, site, 
-      domain_name, remarks, sort, 
-      state)
+      domain_cn, domain_en, remarks, 
+      sort, state)
     values (#{domainId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
-      #{domainName,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, 
-      #{state,jdbcType=CHAR})
+      #{domainCn,jdbcType=VARCHAR}, #{domainEn,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
+      #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysDomain" >
     insert into sys_domain
@@ -125,8 +126,11 @@
       <if test="site != null" >
         site,
       </if>
-      <if test="domainName != null" >
-        domain_name,
+      <if test="domainCn != null" >
+        domain_cn,
+      </if>
+      <if test="domainEn != null" >
+        domain_en,
       </if>
       <if test="remarks != null" >
         remarks,
@@ -148,8 +152,11 @@
       <if test="site != null" >
         #{site,jdbcType=VARCHAR},
       </if>
-      <if test="domainName != null" >
-        #{domainName,jdbcType=VARCHAR},
+      <if test="domainCn != null" >
+        #{domainCn,jdbcType=VARCHAR},
+      </if>
+      <if test="domainEn != null" >
+        #{domainEn,jdbcType=VARCHAR},
       </if>
       <if test="remarks != null" >
         #{remarks,jdbcType=VARCHAR},
@@ -180,8 +187,11 @@
       <if test="record.site != null" >
         site = #{record.site,jdbcType=VARCHAR},
       </if>
-      <if test="record.domainName != null" >
-        domain_name = #{record.domainName,jdbcType=VARCHAR},
+      <if test="record.domainCn != null" >
+        domain_cn = #{record.domainCn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.domainEn != null" >
+        domain_en = #{record.domainEn,jdbcType=VARCHAR},
       </if>
       <if test="record.remarks != null" >
         remarks = #{record.remarks,jdbcType=VARCHAR},
@@ -202,7 +212,8 @@
     set domain_id = #{record.domainId,jdbcType=VARCHAR},
       language = #{record.language,jdbcType=VARCHAR},
       site = #{record.site,jdbcType=VARCHAR},
-      domain_name = #{record.domainName,jdbcType=VARCHAR},
+      domain_cn = #{record.domainCn,jdbcType=VARCHAR},
+      domain_en = #{record.domainEn,jdbcType=VARCHAR},
       remarks = #{record.remarks,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=CHAR}
@@ -219,8 +230,11 @@
       <if test="site != null" >
         site = #{site,jdbcType=VARCHAR},
       </if>
-      <if test="domainName != null" >
-        domain_name = #{domainName,jdbcType=VARCHAR},
+      <if test="domainCn != null" >
+        domain_cn = #{domainCn,jdbcType=VARCHAR},
+      </if>
+      <if test="domainEn != null" >
+        domain_en = #{domainEn,jdbcType=VARCHAR},
       </if>
       <if test="remarks != null" >
         remarks = #{remarks,jdbcType=VARCHAR},
@@ -238,7 +252,8 @@
     update sys_domain
     set language = #{language,jdbcType=VARCHAR},
       site = #{site,jdbcType=VARCHAR},
-      domain_name = #{domainName,jdbcType=VARCHAR},
+      domain_cn = #{domainCn,jdbcType=VARCHAR},
+      domain_en = #{domainEn,jdbcType=VARCHAR},
       remarks = #{remarks,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=VARCHAR},
       state = #{state,jdbcType=CHAR}

@@ -404,143 +404,283 @@ public class SysDuadCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageIsNull() {
-            addCriterion("source_language is null");
+        public Criteria andSourceCnIsNull() {
+            addCriterion("source_cn is null");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageIsNotNull() {
-            addCriterion("source_language is not null");
+        public Criteria andSourceCnIsNotNull() {
+            addCriterion("source_cn is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageEqualTo(String value) {
-            addCriterion("source_language =", value, "sourceLanguage");
+        public Criteria andSourceCnEqualTo(String value) {
+            addCriterion("source_cn =", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageNotEqualTo(String value) {
-            addCriterion("source_language <>", value, "sourceLanguage");
+        public Criteria andSourceCnNotEqualTo(String value) {
+            addCriterion("source_cn <>", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageGreaterThan(String value) {
-            addCriterion("source_language >", value, "sourceLanguage");
+        public Criteria andSourceCnGreaterThan(String value) {
+            addCriterion("source_cn >", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageGreaterThanOrEqualTo(String value) {
-            addCriterion("source_language >=", value, "sourceLanguage");
+        public Criteria andSourceCnGreaterThanOrEqualTo(String value) {
+            addCriterion("source_cn >=", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageLessThan(String value) {
-            addCriterion("source_language <", value, "sourceLanguage");
+        public Criteria andSourceCnLessThan(String value) {
+            addCriterion("source_cn <", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageLessThanOrEqualTo(String value) {
-            addCriterion("source_language <=", value, "sourceLanguage");
+        public Criteria andSourceCnLessThanOrEqualTo(String value) {
+            addCriterion("source_cn <=", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageLike(String value) {
-            addCriterion("source_language like", value, "sourceLanguage");
+        public Criteria andSourceCnLike(String value) {
+            addCriterion("source_cn like", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageNotLike(String value) {
-            addCriterion("source_language not like", value, "sourceLanguage");
+        public Criteria andSourceCnNotLike(String value) {
+            addCriterion("source_cn not like", value, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageIn(List<String> values) {
-            addCriterion("source_language in", values, "sourceLanguage");
+        public Criteria andSourceCnIn(List<String> values) {
+            addCriterion("source_cn in", values, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageNotIn(List<String> values) {
-            addCriterion("source_language not in", values, "sourceLanguage");
+        public Criteria andSourceCnNotIn(List<String> values) {
+            addCriterion("source_cn not in", values, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageBetween(String value1, String value2) {
-            addCriterion("source_language between", value1, value2, "sourceLanguage");
+        public Criteria andSourceCnBetween(String value1, String value2) {
+            addCriterion("source_cn between", value1, value2, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andSourceLanguageNotBetween(String value1, String value2) {
-            addCriterion("source_language not between", value1, value2, "sourceLanguage");
+        public Criteria andSourceCnNotBetween(String value1, String value2) {
+            addCriterion("source_cn not between", value1, value2, "sourceCn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageIsNull() {
-            addCriterion("target_language is null");
+        public Criteria andSourceEnIsNull() {
+            addCriterion("source_en is null");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageIsNotNull() {
-            addCriterion("target_language is not null");
+        public Criteria andSourceEnIsNotNull() {
+            addCriterion("source_en is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageEqualTo(String value) {
-            addCriterion("target_language =", value, "targetLanguage");
+        public Criteria andSourceEnEqualTo(String value) {
+            addCriterion("source_en =", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageNotEqualTo(String value) {
-            addCriterion("target_language <>", value, "targetLanguage");
+        public Criteria andSourceEnNotEqualTo(String value) {
+            addCriterion("source_en <>", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageGreaterThan(String value) {
-            addCriterion("target_language >", value, "targetLanguage");
+        public Criteria andSourceEnGreaterThan(String value) {
+            addCriterion("source_en >", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageGreaterThanOrEqualTo(String value) {
-            addCriterion("target_language >=", value, "targetLanguage");
+        public Criteria andSourceEnGreaterThanOrEqualTo(String value) {
+            addCriterion("source_en >=", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageLessThan(String value) {
-            addCriterion("target_language <", value, "targetLanguage");
+        public Criteria andSourceEnLessThan(String value) {
+            addCriterion("source_en <", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageLessThanOrEqualTo(String value) {
-            addCriterion("target_language <=", value, "targetLanguage");
+        public Criteria andSourceEnLessThanOrEqualTo(String value) {
+            addCriterion("source_en <=", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageLike(String value) {
-            addCriterion("target_language like", value, "targetLanguage");
+        public Criteria andSourceEnLike(String value) {
+            addCriterion("source_en like", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageNotLike(String value) {
-            addCriterion("target_language not like", value, "targetLanguage");
+        public Criteria andSourceEnNotLike(String value) {
+            addCriterion("source_en not like", value, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageIn(List<String> values) {
-            addCriterion("target_language in", values, "targetLanguage");
+        public Criteria andSourceEnIn(List<String> values) {
+            addCriterion("source_en in", values, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageNotIn(List<String> values) {
-            addCriterion("target_language not in", values, "targetLanguage");
+        public Criteria andSourceEnNotIn(List<String> values) {
+            addCriterion("source_en not in", values, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageBetween(String value1, String value2) {
-            addCriterion("target_language between", value1, value2, "targetLanguage");
+        public Criteria andSourceEnBetween(String value1, String value2) {
+            addCriterion("source_en between", value1, value2, "sourceEn");
             return (Criteria) this;
         }
 
-        public Criteria andTargetLanguageNotBetween(String value1, String value2) {
-            addCriterion("target_language not between", value1, value2, "targetLanguage");
+        public Criteria andSourceEnNotBetween(String value1, String value2) {
+            addCriterion("source_en not between", value1, value2, "sourceEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnIsNull() {
+            addCriterion("target_cn is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnIsNotNull() {
+            addCriterion("target_cn is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnEqualTo(String value) {
+            addCriterion("target_cn =", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnNotEqualTo(String value) {
+            addCriterion("target_cn <>", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnGreaterThan(String value) {
+            addCriterion("target_cn >", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnGreaterThanOrEqualTo(String value) {
+            addCriterion("target_cn >=", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnLessThan(String value) {
+            addCriterion("target_cn <", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnLessThanOrEqualTo(String value) {
+            addCriterion("target_cn <=", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnLike(String value) {
+            addCriterion("target_cn like", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnNotLike(String value) {
+            addCriterion("target_cn not like", value, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnIn(List<String> values) {
+            addCriterion("target_cn in", values, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnNotIn(List<String> values) {
+            addCriterion("target_cn not in", values, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnBetween(String value1, String value2) {
+            addCriterion("target_cn between", value1, value2, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCnNotBetween(String value1, String value2) {
+            addCriterion("target_cn not between", value1, value2, "targetCn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnIsNull() {
+            addCriterion("target_en is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnIsNotNull() {
+            addCriterion("target_en is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnEqualTo(String value) {
+            addCriterion("target_en =", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnNotEqualTo(String value) {
+            addCriterion("target_en <>", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnGreaterThan(String value) {
+            addCriterion("target_en >", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnGreaterThanOrEqualTo(String value) {
+            addCriterion("target_en >=", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnLessThan(String value) {
+            addCriterion("target_en <", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnLessThanOrEqualTo(String value) {
+            addCriterion("target_en <=", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnLike(String value) {
+            addCriterion("target_en like", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnNotLike(String value) {
+            addCriterion("target_en not like", value, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnIn(List<String> values) {
+            addCriterion("target_en in", values, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnNotIn(List<String> values) {
+            addCriterion("target_en not in", values, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnBetween(String value1, String value2) {
+            addCriterion("target_en between", value1, value2, "targetEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetEnNotBetween(String value1, String value2) {
+            addCriterion("target_en not between", value1, value2, "targetEn");
             return (Criteria) this;
         }
 

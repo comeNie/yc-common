@@ -7,7 +7,9 @@ public class SysPurpose {
 
     private String site;
 
-    private String purposeName;
+    private String purposeCn;
+
+    private String purposeEn;
 
     private String remarks;
 
@@ -41,12 +43,20 @@ public class SysPurpose {
         this.site = site == null ? null : site.trim();
     }
 
-    public String getPurposeName() {
-        return purposeName;
+    public String getPurposeCn() {
+        return purposeCn;
     }
 
-    public void setPurposeName(String purposeName) {
-        this.purposeName = purposeName == null ? null : purposeName.trim();
+    public void setPurposeCn(String purposeCn) {
+        this.purposeCn = purposeCn == null ? null : purposeCn.trim();
+    }
+
+    public String getPurposeEn() {
+        return purposeEn;
+    }
+
+    public void setPurposeEn(String purposeEn) {
+        this.purposeEn = purposeEn == null ? null : purposeEn.trim();
     }
 
     public String getRemarks() {

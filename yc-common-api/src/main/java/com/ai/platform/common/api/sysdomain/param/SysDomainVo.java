@@ -22,9 +22,14 @@ public class SysDomainVo implements Serializable{
     private String site;
 
     /**
-     * 名称
+     * 中文名称
      */
-    private String domainName;
+    private String domainCn;
+
+    /**
+     * 英文名称
+     */
+    private String domainEn;
 
     /**
      * 描述
@@ -55,12 +60,20 @@ public class SysDomainVo implements Serializable{
 		this.site = site;
 	}
 
-	public String getDomainName() {
-		return domainName;
+	public String getDomainCn() {
+		return domainCn;
 	}
 
-	public void setDomainName(String domainName) {
-		this.domainName = domainName;
+	public void setDomainCn(String domainCn) {
+		this.domainCn = domainCn;
+	}
+
+	public String getDomainEn() {
+		return domainEn;
+	}
+
+	public void setDomainEn(String domainEn) {
+		this.domainEn = domainEn;
 	}
 
 	public String getRemarks() {

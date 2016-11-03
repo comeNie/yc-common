@@ -7,7 +7,9 @@ public class SysDomain {
 
     private String site;
 
-    private String domainName;
+    private String domainCn;
+
+    private String domainEn;
 
     private String remarks;
 
@@ -39,12 +41,20 @@ public class SysDomain {
         this.site = site == null ? null : site.trim();
     }
 
-    public String getDomainName() {
-        return domainName;
+    public String getDomainCn() {
+        return domainCn;
     }
 
-    public void setDomainName(String domainName) {
-        this.domainName = domainName == null ? null : domainName.trim();
+    public void setDomainCn(String domainCn) {
+        this.domainCn = domainCn == null ? null : domainCn.trim();
+    }
+
+    public String getDomainEn() {
+        return domainEn;
+    }
+
+    public void setDomainEn(String domainEn) {
+        this.domainEn = domainEn == null ? null : domainEn.trim();
     }
 
     public String getRemarks() {
