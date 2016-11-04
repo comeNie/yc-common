@@ -41,5 +41,10 @@ public class CacheKey implements Serializable {
 	 * 英文领域
 	 */
 	public static final String EN_DOMAIN_KEY = "EN_DOMAIN";
+	
+	/**
+	 * 首页数据配置
+	 */
+	public static final String HOME_DATA_CONFIG_KEY = "HOME_DATA_CONFIG";
 
 }
