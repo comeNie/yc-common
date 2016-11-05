@@ -32,4 +32,9 @@ public class SysDomainAtomSVImpl implements ISysDomainAtomSV{
 		return MapperFactory.getSysDomainMapper().selectByExample(example);
 	}
 
+	@Override
+	public SysDomain selectByPrimaryKey(String domainId) {
+		return MapperFactory.getSysDomainMapper().selectByPrimaryKey(domainId);
+	}
+
 }

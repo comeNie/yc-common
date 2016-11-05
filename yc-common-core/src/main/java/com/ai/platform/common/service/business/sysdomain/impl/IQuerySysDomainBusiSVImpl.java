@@ -25,4 +25,9 @@ public class IQuerySysDomainBusiSVImpl implements IQuerySysDomainBusiSV {
 		return iSysDomainAtomSV.querySysDomainList(language);
 	}
 
+	@Override
+	public SysDomain querySysDomainDetails(String domainId) {
+		return iSysDomainAtomSV.selectByPrimaryKey(domainId);
+	}
+
 }

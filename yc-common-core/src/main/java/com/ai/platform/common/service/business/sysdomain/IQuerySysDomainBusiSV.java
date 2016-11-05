@@ -12,5 +12,7 @@ import com.ai.platform.common.dao.mapper.bo.SysDomain;
 public interface IQuerySysDomainBusiSV {
 	
 	List<SysDomain> querySysDomainList(String language);
+	
+	SysDomain querySysDomainDetails(String domainId);
 
 }

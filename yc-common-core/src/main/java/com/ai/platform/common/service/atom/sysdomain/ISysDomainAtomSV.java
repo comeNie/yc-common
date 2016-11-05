@@ -15,5 +15,7 @@ public interface ISysDomainAtomSV {
 	 * 获取显示的列表
 	 */
 	List<SysDomain> querySysDomainList(String language);
+	
+	SysDomain selectByPrimaryKey(String domainId);
 
 }
