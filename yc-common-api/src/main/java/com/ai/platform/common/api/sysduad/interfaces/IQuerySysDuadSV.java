@@ -1,7 +1,10 @@
 package com.ai.platform.common.api.sysduad.interfaces;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
@@ -15,6 +18,9 @@ import com.ai.platform.common.api.sysduad.param.QuerySysDuadListRes;
  * @date 2016年11月1日 下午3:07:13 
  * @version V1.0
  */
+@Path("/querysysduad")
+@Consumes({ MediaType.APPLICATION_JSON })
+@Produces({ MediaType.APPLICATION_JSON, MediaType.TEXT_XML })
 public interface IQuerySysDuadSV {
 	
 	 /**
