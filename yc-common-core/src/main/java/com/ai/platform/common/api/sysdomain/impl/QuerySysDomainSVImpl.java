@@ -13,6 +13,7 @@ import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.platform.common.api.sysdomain.interfaces.IQuerySysDomainSV;
+import com.ai.platform.common.api.sysdomain.param.QuerySysDomainDetailsRes;
 import com.ai.platform.common.api.sysdomain.param.QuerySysDomainListRes;
 import com.ai.platform.common.api.sysdomain.param.SysDomainVo;
 import com.ai.platform.common.constants.ResultCodeConstants;
@@ -53,7 +54,7 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 	}
 
 	@Override
-	public QuerySysDomainListRes querySysDomainDetails(String domainId)
+	public QuerySysDomainDetailsRes querySysDomainDetails(String domainId)
 			throws BusinessException, SystemException {
 		if(StringUtil.isBlank(domainId)){
 			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "领域ID不能为空");
@@ -62,7 +63,7 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 		if(sysDomain==null){
 			throw new BusinessException(ExceptCodeConstants.Special.NO_RESULT, "领域不存在");
 		}
-		QuerySysDomainListRes res = new QuerySysDomainListRes();
+		QuerySysDomainDetailsRes res = new QuerySysDomainDetailsRes();
 		BeanUtils.copyProperties(res, sysDomain);
 		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
 		return res;

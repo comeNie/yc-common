@@ -1,6 +1,6 @@
 package com.ai.platform.common.api.sysdomain.param;
 
-import com.ai.opt.base.vo.BaseInfo;
+import com.ai.opt.base.vo.BaseResponse;
 
 /**
  * @Description: 领域详情
@@ -8,7 +8,7 @@ import com.ai.opt.base.vo.BaseInfo;
  * @date 2016年11月5日 下午1:18:09 
  * @version V1.0
  */
-public class QuerySysDomainDetailsRes extends BaseInfo{
+public class QuerySysDomainDetailsRes extends BaseResponse{
 	
 	private static final long serialVersionUID = 5497031197077843603L;
 
