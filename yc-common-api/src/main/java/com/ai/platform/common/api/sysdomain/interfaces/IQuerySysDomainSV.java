@@ -34,5 +34,19 @@ public interface IQuerySysDomainSV {
 	@POST
 	@Path("/sysdomain")
 	QuerySysDomainListRes querySysDomainList(String language)throws BusinessException,SystemException;
+	
+	/**
+     * 领域详情查询
+     * @param domainId 领域ID
+     * @return 领域详情
+     * @throws BusinessException,SystemException
+     * @author hougang
+     * @ApiDocMethod
+     * @ApiCode GN_0512
+     * @RestRelativeURL sysdomain/querySysDomainDetails
+	 */
+	@POST
+	@Path("/sysdomain")
+	QuerySysDomainListRes querySysDomainDetails(String domainId)throws BusinessException,SystemException;
 
 }
