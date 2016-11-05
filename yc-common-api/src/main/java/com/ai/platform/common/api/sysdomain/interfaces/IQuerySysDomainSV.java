@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
-import com.ai.platform.common.api.sysdomain.param.QuerySysDomainListRes;
+import com.ai.platform.common.api.sysdomain.param.QuerySysDomainDetailsRes;
 
 /**
  * @Description: 领域查询服务
@@ -33,7 +33,7 @@ public interface IQuerySysDomainSV {
 	 */
 	@POST
 	@Path("/sysdomain")
-	QuerySysDomainListRes querySysDomainList(String language)throws BusinessException,SystemException;
+	QuerySysDomainDetailsRes querySysDomainList(String language)throws BusinessException,SystemException;
 	
 	/**
      * 领域详情查询
@@ -47,6 +47,6 @@ public interface IQuerySysDomainSV {
 	 */
 	@POST
 	@Path("/sysdomain")
-	QuerySysDomainListRes querySysDomainDetails(String domainId)throws BusinessException,SystemException;
+	QuerySysDomainDetailsRes querySysDomainDetails(String domainId)throws BusinessException,SystemException;
 
 }
