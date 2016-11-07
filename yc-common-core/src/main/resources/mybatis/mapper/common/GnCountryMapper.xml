@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.ai.platform.common.dao.mapper.interfaces.GnCountryMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.GnCountry" >
+  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.GnCountry" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="COUNTRY_NAME_CN" property="countryNameCn" jdbcType="VARCHAR" />
     <result column="COUNTRY_NAME_EN" property="countryNameEn" jdbcType="VARCHAR" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List" >
     ID, COUNTRY_NAME_CN, COUNTRY_NAME_EN, COUNTRY_VALUE, COUNTRY_CODE, REGULAR_EXPRESSION
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.GnCountryCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.GnCountryCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -98,13 +98,13 @@
     delete from gn_country
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.GnCountryCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnCountryCriteria" >
     delete from gn_country
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.GnCountry" >
+  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.GnCountry" >
     insert into gn_country (ID, COUNTRY_NAME_CN, COUNTRY_NAME_EN, 
       COUNTRY_VALUE, COUNTRY_CODE, REGULAR_EXPRESSION
       )
@@ -112,7 +112,7 @@
       #{countryValue,jdbcType=VARCHAR}, #{countryCode,jdbcType=VARCHAR}, #{regularExpression,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.GnCountry" >
+  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnCountry" >
     insert into gn_country
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -155,7 +155,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.GnCountryCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnCountryCriteria" resultType="java.lang.Integer" >
     select count(*) from gn_country
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -199,7 +199,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.GnCountry" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnCountry" >
     update gn_country
     <set >
       <if test="countryNameCn != null" >
@@ -220,7 +220,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.GnCountry" >
+  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.GnCountry" >
     update gn_country
     set COUNTRY_NAME_CN = #{countryNameCn,jdbcType=VARCHAR},
       COUNTRY_NAME_EN = #{countryNameEn,jdbcType=VARCHAR},
