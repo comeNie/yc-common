@@ -8,11 +8,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ai.opt.base.vo.BaseResponse;
 import com.ai.paas.ipaas.util.JSonUtil;
-import com.ai.platform.common.api.waitjobs.interfaces.ISysWaitjobsMangeSV;
-import com.ai.platform.common.api.waitjobs.param.WaitjobsCompleteRequset;
-import com.ai.platform.common.api.waitjobs.param.WaitjobsInsertRequest;
-import com.ai.platform.common.api.waitjobs.param.WaitjobsInsertResponse;
-import com.ai.platform.common.api.waitjobs.param.WaitjobsVO;
+import com.ai.yc.common.api.waitjobs.interfaces.ISysWaitjobsMangeSV;
+import com.ai.yc.common.api.waitjobs.param.WaitjobsCompleteRequset;
+import com.ai.yc.common.api.waitjobs.param.WaitjobsInsertRequest;
+import com.ai.yc.common.api.waitjobs.param.WaitjobsInsertResponse;
+import com.ai.yc.common.api.waitjobs.param.WaitjobsVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "/context/core-context.xml" })

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.GnSubjectFundMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.GnSubjectFund" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.GnSubjectFundMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.GnSubjectFund" >
     <id column="tenant_id" property="tenantId" jdbcType="VARCHAR" />
     <id column="industry_code" property="industryCode" jdbcType="VARCHAR" />
     <id column="subject_id" property="subjectId" jdbcType="BIGINT" />
@@ -81,7 +81,7 @@
     valid_type, use_pri, refund_rate, can_trans, can_clean_fund, can_del_book, cal_score, 
     print_mode
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFundCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFundCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -99,7 +99,7 @@
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFundKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFundKey" >
     select 
     <include refid="Base_Column_List" />
     from gn_subject_fund
@@ -107,19 +107,19 @@
       and industry_code = #{industryCode,jdbcType=VARCHAR}
       and subject_id = #{subjectId,jdbcType=BIGINT}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFundKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFundKey" >
     delete from gn_subject_fund
     where tenant_id = #{tenantId,jdbcType=VARCHAR}
       and industry_code = #{industryCode,jdbcType=VARCHAR}
       and subject_id = #{subjectId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFundCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFundCriteria" >
     delete from gn_subject_fund
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFund" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFund" >
     insert into gn_subject_fund (tenant_id, industry_code, subject_id, 
       fund_type, is_cash, use_mode, 
       can_settle_all, valid_type, use_pri, 
@@ -133,7 +133,7 @@
       #{canDelBook,jdbcType=VARCHAR}, #{calScore,jdbcType=VARCHAR}, #{printMode,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFund" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFund" >
     insert into gn_subject_fund
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="tenantId != null" >
@@ -230,7 +230,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFundCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFundCriteria" resultType="java.lang.Integer" >
     select count(*) from gn_subject_fund
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -310,7 +310,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFund" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFund" >
     update gn_subject_fund
     <set >
       <if test="fundType != null" >
@@ -354,7 +354,7 @@
       and industry_code = #{industryCode,jdbcType=VARCHAR}
       and subject_id = #{subjectId,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.GnSubjectFund" >
+  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.GnSubjectFund" >
     update gn_subject_fund
     set fund_type = #{fundType,jdbcType=VARCHAR},
       is_cash = #{isCash,jdbcType=VARCHAR},

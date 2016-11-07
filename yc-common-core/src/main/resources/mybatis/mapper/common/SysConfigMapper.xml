@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.SysConfigMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.SysConfig" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.SysConfig" >
     <id column="config_id" property="configId" jdbcType="VARCHAR" />
     <result column="ordinary_member" property="ordinaryMember" jdbcType="VARCHAR" />
     <result column="gold_member" property="goldMember" jdbcType="VARCHAR" />
@@ -94,7 +94,7 @@
     order_num, language_num, oneday, twoday, threeday, fourday, fiveday, sixday, sevenday, 
     eightday, reg_onoff, reg_integration, reg_growth, invite_integrati
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysConfigCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfigCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -122,13 +122,13 @@
     delete from sys_config
     where config_id = #{configId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysConfigCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfigCriteria" >
     delete from sys_config
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysConfig" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfig" >
     insert into sys_config (config_id, ordinary_member, gold_member, 
       platinum_member, masonry_member, cap_value, 
       v1_points, v2_points, v3_points, 
@@ -150,7 +150,7 @@
       #{regIntegration,jdbcType=VARCHAR}, #{regGrowth,jdbcType=VARCHAR}, #{inviteIntegrati,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysConfig" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfig" >
     insert into sys_config
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="configId != null" >
@@ -319,7 +319,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysConfigCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfigCriteria" resultType="java.lang.Integer" >
     select count(*) from sys_config
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -447,7 +447,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysConfig" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfig" >
     update sys_config
     <set >
       <if test="ordinaryMember != null" >
@@ -531,7 +531,7 @@
     </set>
     where config_id = #{configId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.SysConfig" >
+  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfig" >
     update sys_config
     set ordinary_member = #{ordinaryMember,jdbcType=VARCHAR},
       gold_member = #{goldMember,jdbcType=VARCHAR},

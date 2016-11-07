@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.ai.platform.common.api.tenant.interfaces.IGnTenantQuerySV;
-import com.ai.platform.common.api.tenant.param.GnTenantConditon;
-import com.ai.platform.common.api.tenant.param.GnTenantVo;
+import com.ai.yc.common.api.tenant.interfaces.IGnTenantQuerySV;
+import com.ai.yc.common.api.tenant.param.GnTenantConditon;
+import com.ai.yc.common.api.tenant.param.GnTenantVo;
 import com.alibaba.fastjson.JSON;
 
 @RunWith(SpringJUnit4ClassRunner.class)

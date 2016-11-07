@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.SysPurposeMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.SysPurpose" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysPurposeMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.SysPurpose" >
     <id column="purpose_id" property="purposeId" jdbcType="VARCHAR" />
     <result column="language" property="language" jdbcType="VARCHAR" />
     <result column="site" property="site" jdbcType="VARCHAR" />
@@ -73,7 +73,7 @@
   <sql id="Base_Column_List" >
     purpose_id, language, site, purpose_cn, purpose_en, remarks, sort, state, named_flag
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurposeCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurposeCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -101,13 +101,13 @@
     delete from sys_purpose
     where purpose_id = #{purposeId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurposeCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurposeCriteria" >
     delete from sys_purpose
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurpose" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurpose" >
     insert into sys_purpose (purpose_id, language, site, 
       purpose_cn, purpose_en, remarks, 
       sort, state, named_flag)
@@ -115,7 +115,7 @@
       #{purposeCn,jdbcType=VARCHAR}, #{purposeEn,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
       #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, #{namedFlag,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurpose" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurpose" >
     insert into sys_purpose
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="purposeId != null" >
@@ -176,7 +176,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurposeCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurposeCriteria" resultType="java.lang.Integer" >
     select count(*) from sys_purpose
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -232,7 +232,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurpose" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurpose" >
     update sys_purpose
     <set >
       <if test="language != null" >
@@ -262,7 +262,7 @@
     </set>
     where purpose_id = #{purposeId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.SysPurpose" >
+  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurpose" >
     update sys_purpose
     set language = #{language,jdbcType=VARCHAR},
       site = #{site,jdbcType=VARCHAR},

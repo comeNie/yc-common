@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.ai.platform.common.api.ipaddr.interfaces.IIpAddrSV;
-import com.ai.platform.common.api.ipaddr.param.IpAddr;
+import com.ai.yc.common.api.ipaddr.interfaces.IIpAddrSV;
+import com.ai.yc.common.api.ipaddr.param.IpAddr;
 import com.alibaba.fastjson.JSON;
 
 @RunWith(SpringJUnit4ClassRunner.class)

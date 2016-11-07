@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.GnIpAddrMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.GnIpAddr" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.GnIpAddrMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.GnIpAddr" >
     <result column="ORDER_NO" property="orderNo" jdbcType="VARCHAR" />
     <result column="START_IP" property="startIp" jdbcType="VARCHAR" />
     <result column="END_IP" property="endIp" jdbcType="VARCHAR" />
@@ -80,7 +80,7 @@
     ORDER_NO, START_IP, END_IP, START_NUM, END_NUM, PROVINCE_CODE, PROVINCE_NAME, CITY_CODE, 
     CITY_NAME, DISTRICT_CODE, DISTRICT, BASIC_ORG_ID, BASIC_ORG_NAME, LONGITUDE, LATITUDE
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.GnIpAddrCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.GnIpAddrCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -98,13 +98,13 @@
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnIpAddrCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnIpAddrCriteria" >
     delete from gn_ip_addr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.GnIpAddr" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.GnIpAddr" >
     insert into gn_ip_addr (ORDER_NO, START_IP, END_IP, 
       START_NUM, END_NUM, PROVINCE_CODE, 
       PROVINCE_NAME, CITY_CODE, CITY_NAME, 
@@ -118,7 +118,7 @@
       #{basicOrgName,jdbcType=VARCHAR}, #{longitude,jdbcType=VARCHAR}, #{latitude,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnIpAddr" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.GnIpAddr" >
     insert into gn_ip_addr
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderNo != null" >
@@ -215,7 +215,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnIpAddrCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnIpAddrCriteria" resultType="java.lang.Integer" >
     select count(*) from gn_ip_addr
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

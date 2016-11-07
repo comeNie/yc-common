@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.SysWaitjobsMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.SysWaitjobs" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysWaitjobsMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.SysWaitjobs" >
     <result column="id" property="id" jdbcType="VARCHAR" />
     <result column="system_id" property="systemId" jdbcType="VARCHAR" />
     <result column="title" property="title" jdbcType="VARCHAR" />
@@ -75,7 +75,7 @@
     id, system_id, title, url, user_id, present_activiti, arrive_data, last_user, status, 
     tenant_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysWaitjobsCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysWaitjobsCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -93,13 +93,13 @@
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysWaitjobsCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysWaitjobsCriteria" >
     delete from sys_waitjobs
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysWaitjobs" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysWaitjobs" >
     insert into sys_waitjobs (id, system_id, title, 
       url, user_id, present_activiti, 
       arrive_data, last_user, status, 
@@ -109,7 +109,7 @@
       #{arriveData,jdbcType=TIMESTAMP}, #{lastUser,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
       #{tenantId,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysWaitjobs" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysWaitjobs" >
     insert into sys_waitjobs
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -176,7 +176,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysWaitjobsCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysWaitjobsCriteria" resultType="java.lang.Integer" >
     select count(*) from sys_waitjobs
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

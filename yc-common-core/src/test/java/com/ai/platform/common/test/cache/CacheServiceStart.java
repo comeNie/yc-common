@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.ai.opt.sdk.cache.base.AbstractCache;
-import com.ai.platform.common.cache.GnSysParamCache;
+import com.ai.yc.common.cache.GnSysParamCache;
 
 public final class CacheServiceStart {
 

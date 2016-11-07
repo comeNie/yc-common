@@ -7,9 +7,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ai.paas.ipaas.util.JSonUtil;
-import com.ai.platform.common.api.menu.interfaces.ISysMenuQuerySV;
-import com.ai.platform.common.api.menu.param.SysMenuListQueryRequest;
-import com.ai.platform.common.api.menu.param.SysMenuListQueryResponse;
+import com.ai.yc.common.api.menu.interfaces.ISysMenuQuerySV;
+import com.ai.yc.common.api.menu.param.SysMenuListQueryRequest;
+import com.ai.yc.common.api.menu.param.SysMenuListQueryResponse;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "/context/core-context.xml" })

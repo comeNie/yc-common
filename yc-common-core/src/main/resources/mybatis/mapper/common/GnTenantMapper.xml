@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.GnTenantMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.GnTenant" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.GnTenantMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.GnTenant" >
     <id column="TENANT_ID" property="tenantId" jdbcType="VARCHAR" />
     <result column="TENANT_NAME" property="tenantName" jdbcType="VARCHAR" />
     <result column="TENANT_PWD" property="tenantPwd" jdbcType="VARCHAR" />
@@ -75,7 +75,7 @@
     TENANT_ID, TENANT_NAME, TENANT_PWD, STATE, INDUSTRY_CODE, LOGO, FRAME_PAGE_TEMPLATE, 
     MER_NO, debit_side, receiving_side
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.GnTenantCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.GnTenantCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -103,13 +103,13 @@
     delete from gn_tenant
     where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnTenantCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnTenantCriteria" >
     delete from gn_tenant
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.GnTenant" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.GnTenant" >
     insert into gn_tenant (TENANT_ID, TENANT_NAME, TENANT_PWD, 
       STATE, INDUSTRY_CODE, LOGO, 
       FRAME_PAGE_TEMPLATE, MER_NO, debit_side, 
@@ -119,7 +119,7 @@
       #{framePageTemplate,jdbcType=VARCHAR}, #{merNo,jdbcType=VARCHAR}, #{debitSide,jdbcType=VARCHAR}, 
       #{receivingSide,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnTenant" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.GnTenant" >
     insert into gn_tenant
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="tenantId != null" >
@@ -186,7 +186,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnTenantCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnTenantCriteria" resultType="java.lang.Integer" >
     select count(*) from gn_tenant
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -246,7 +246,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnTenant" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.GnTenant" >
     update gn_tenant
     <set >
       <if test="tenantName != null" >
@@ -279,7 +279,7 @@
     </set>
     where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.GnTenant" >
+  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.GnTenant" >
     update gn_tenant
     set TENANT_NAME = #{tenantName,jdbcType=VARCHAR},
       TENANT_PWD = #{tenantPwd,jdbcType=VARCHAR},

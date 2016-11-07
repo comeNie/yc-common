@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.GnSettleRuleMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.GnSettleRuleKey" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.GnSettleRuleMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.GnSettleRuleKey" >
     <id column="TENANT_ID" property="tenantId" jdbcType="VARCHAR" />
     <id column="industry_code" property="industryCode" jdbcType="VARCHAR" />
     <id column="SUBJECT_ID" property="subjectId" jdbcType="BIGINT" />
@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     TENANT_ID, industry_code, SUBJECT_ID, FEE_SUBJECT_ID
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.GnSettleRuleCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.GnSettleRuleCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -86,26 +86,26 @@
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.GnSettleRuleKey" >
+  <delete id="deleteByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.GnSettleRuleKey" >
     delete from gn_settle_rule
     where TENANT_ID = #{tenantId,jdbcType=VARCHAR}
       and industry_code = #{industryCode,jdbcType=VARCHAR}
       and SUBJECT_ID = #{subjectId,jdbcType=BIGINT}
       and FEE_SUBJECT_ID = #{feeSubjectId,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnSettleRuleCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnSettleRuleCriteria" >
     delete from gn_settle_rule
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.GnSettleRuleKey" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.GnSettleRuleKey" >
     insert into gn_settle_rule (TENANT_ID, industry_code, SUBJECT_ID, 
       FEE_SUBJECT_ID)
     values (#{tenantId,jdbcType=VARCHAR}, #{industryCode,jdbcType=VARCHAR}, #{subjectId,jdbcType=BIGINT}, 
       #{feeSubjectId,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnSettleRuleKey" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.GnSettleRuleKey" >
     insert into gn_settle_rule
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="tenantId != null" >
@@ -136,7 +136,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnSettleRuleCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnSettleRuleCriteria" resultType="java.lang.Integer" >
     select count(*) from gn_settle_rule
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

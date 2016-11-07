@@ -8,14 +8,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ai.opt.base.vo.BaseInfo;
 import com.ai.paas.ipaas.util.JSonUtil;
-import com.ai.platform.common.api.office.interfaces.ISysOfficeQuerySV;
-import com.ai.platform.common.api.office.param.OfficeAllQueryResponse;
-import com.ai.platform.common.api.office.param.OfficeChildrenListQueryRequest;
-import com.ai.platform.common.api.office.param.OfficeChildrenListQueryResponse;
-import com.ai.platform.common.api.office.param.OfficeDetailQueryRequest;
-import com.ai.platform.common.api.office.param.OfficeDetailQueryResponse;
-import com.ai.platform.common.api.office.param.OfficeParentListQueryRequest;
-import com.ai.platform.common.api.office.param.OfficeParentListQueryResponse;
+import com.ai.yc.common.api.office.interfaces.ISysOfficeQuerySV;
+import com.ai.yc.common.api.office.param.OfficeAllQueryResponse;
+import com.ai.yc.common.api.office.param.OfficeChildrenListQueryRequest;
+import com.ai.yc.common.api.office.param.OfficeChildrenListQueryResponse;
+import com.ai.yc.common.api.office.param.OfficeDetailQueryRequest;
+import com.ai.yc.common.api.office.param.OfficeDetailQueryResponse;
+import com.ai.yc.common.api.office.param.OfficeParentListQueryRequest;
+import com.ai.yc.common.api.office.param.OfficeParentListQueryResponse;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "/context/core-context.xml" })

@@ -10,14 +10,14 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ai.paas.ipaas.mcs.interfaces.ICacheClient;
-import com.ai.platform.common.api.cache.interfaces.ICacheSV;
-import com.ai.platform.common.api.cache.param.SysParam;
-import com.ai.platform.common.api.cache.param.SysParamMultiCond;
-import com.ai.platform.common.api.cache.param.SysParamSingleCond;
-import com.ai.platform.common.cache.GnSysParamCache;
-import com.ai.platform.common.constants.CacheNSMapper;
-import com.ai.platform.common.util.AreaCacheUtil;
-import com.ai.platform.common.util.CacheFactoryUtil;
+import com.ai.yc.common.api.cache.interfaces.ICacheSV;
+import com.ai.yc.common.api.cache.param.SysParam;
+import com.ai.yc.common.api.cache.param.SysParamMultiCond;
+import com.ai.yc.common.api.cache.param.SysParamSingleCond;
+import com.ai.yc.common.cache.GnSysParamCache;
+import com.ai.yc.common.constants.CacheNSMapper;
+import com.ai.yc.common.util.AreaCacheUtil;
+import com.ai.yc.common.util.CacheFactoryUtil;
 import com.alibaba.fastjson.JSON;
 
 @RunWith(SpringJUnit4ClassRunner.class)

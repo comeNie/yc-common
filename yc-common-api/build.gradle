@@ -76,7 +76,7 @@ for(Map<String,String> apiMap:apiList){
         memberLevel = 'private'
         encoding = 'utf-8'
         belong='yc-common'
-        ownerType='aiplatform'
+        ownerType='yc'
         owner = 'yc-common'
         groupId = 'com.ai.platform.common'
         artifactId = apiArtifactId

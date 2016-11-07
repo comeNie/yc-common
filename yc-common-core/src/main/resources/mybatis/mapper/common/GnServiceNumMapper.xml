@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.GnServiceNumMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.GnServiceNum" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.GnServiceNumMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.GnServiceNum" >
     <result column="ORDER_NO" property="orderNo" jdbcType="VARCHAR" />
     <result column="PROVINCE_CODE" property="provinceCode" jdbcType="VARCHAR" />
     <result column="PROVINCE_NAME" property="provinceName" jdbcType="VARCHAR" />
@@ -76,7 +76,7 @@
     ORDER_NO, PROVINCE_CODE, PROVINCE_NAME, CITY_CODE, CITY_NAME, BASIC_ORG_CODE, BASIC_ORG_NAME, 
     SERVICE_HEAD_CODE, SERVICE_NUM_CODE, BUSI_CODE, REMARK
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.GnServiceNumCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.GnServiceNumCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -94,13 +94,13 @@
       limit #{limitStart} , #{limitEnd}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnServiceNumCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnServiceNumCriteria" >
     delete from gn_service_num
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.GnServiceNum" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.GnServiceNum" >
     insert into gn_service_num (ORDER_NO, PROVINCE_CODE, PROVINCE_NAME, 
       CITY_CODE, CITY_NAME, BASIC_ORG_CODE, 
       BASIC_ORG_NAME, SERVICE_HEAD_CODE, SERVICE_NUM_CODE, 
@@ -110,7 +110,7 @@
       #{basicOrgName,jdbcType=VARCHAR}, #{serviceHeadCode,jdbcType=VARCHAR}, #{serviceNumCode,jdbcType=VARCHAR}, 
       #{busiCode,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.GnServiceNum" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.GnServiceNum" >
     insert into gn_service_num
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="orderNo != null" >
@@ -183,7 +183,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.GnServiceNumCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.GnServiceNumCriteria" resultType="java.lang.Integer" >
     select count(*) from gn_service_num
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
