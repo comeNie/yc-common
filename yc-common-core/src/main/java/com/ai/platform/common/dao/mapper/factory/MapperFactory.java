@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.ai.platform.common.dao.mapper.interfaces.GnAreaMapper;
+import com.ai.platform.common.dao.mapper.interfaces.GnCountryMapper;
 import com.ai.platform.common.dao.mapper.interfaces.GnIndustryMapper;
 import com.ai.platform.common.dao.mapper.interfaces.GnIpAddrMapper;
 import com.ai.platform.common.dao.mapper.interfaces.GnServiceNumMapper;
@@ -112,7 +113,9 @@ public class MapperFactory {
     public static SysDomainMapper getSysDomainMapper() {
         return sqlSessionTemplate.getMapper(SysDomainMapper.class);
     }
-    
+    public static GnCountryMapper getGnCountryMapper() {
+        return sqlSessionTemplate.getMapper(GnCountryMapper.class);
+    }
     
     
 }
