@@ -14,16 +14,16 @@ public class QuerySysDomainListRes extends BaseResponse{
 
 	private static final long serialVersionUID = 6231729312457654148L;
 	
-	private List<SysDomainVo> domains;
+	private List<SysDomainVo> domainVos;
 
-	public List<SysDomainVo> getDomains() {
-		return domains;
+	public List<SysDomainVo> getDomainVos() {
+		return domainVos;
 	}
 
-	public void setDomains(List<SysDomainVo> domains) {
-		this.domains = domains;
+	public void setDomainVos(List<SysDomainVo> domainVos) {
+		this.domainVos = domainVos;
 	}
-	
+
 	
 
 }

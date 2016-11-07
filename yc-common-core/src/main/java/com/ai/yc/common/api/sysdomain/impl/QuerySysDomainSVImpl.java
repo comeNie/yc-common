@@ -48,7 +48,7 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 			vos.add(vo);
 		}
 		QuerySysDomainListRes res = new QuerySysDomainListRes();
-		res.setDomains(vos);
+		res.setDomainVos(vos);
 		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
 		return res;
 	}
