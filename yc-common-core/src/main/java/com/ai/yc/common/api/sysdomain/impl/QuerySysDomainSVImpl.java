@@ -33,6 +33,23 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 	
 	@Autowired
 	private transient IQuerySysDomainBusiSV querySysDomainBusiSV;
+	
+	@Override
+	public QuerySysDomainDetailsRes querySysDomainDetails(String domainId)
+			throws BusinessException, SystemException {
+		if(StringUtil.isBlank(domainId)){
+			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "领域ID不能为空");
+		}
+		SysDomain sysDomain = querySysDomainBusiSV.querySysDomainDetails(domainId);
+		if(sysDomain==null){
+			throw new BusinessException(ExceptCodeConstants.Special.NO_RESULT, "领域不存在");
+		}
+		QuerySysDomainDetailsRes res = new QuerySysDomainDetailsRes();
+		BeanUtils.copyProperties(res, sysDomain);
+		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
+		return res;
+	}
+
 
 	@Override
 	public QuerySysDomainListRes querySysDomainList(String language)
@@ -53,20 +70,5 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 		return res;
 	}
 
-	@Override
-	public QuerySysDomainDetailsRes querySysDomainDetails(String domainId)
-			throws BusinessException, SystemException {
-		if(StringUtil.isBlank(domainId)){
-			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "领域ID不能为空");
-		}
-		SysDomain sysDomain = querySysDomainBusiSV.querySysDomainDetails(domainId);
-		if(sysDomain==null){
-			throw new BusinessException(ExceptCodeConstants.Special.NO_RESULT, "领域不存在");
-		}
-		QuerySysDomainDetailsRes res = new QuerySysDomainDetailsRes();
-		BeanUtils.copyProperties(res, sysDomain);
-		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
-		return res;
-	}
-
+	
 }

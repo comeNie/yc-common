@@ -34,7 +34,7 @@ public interface IQuerySysPurposeSV {
      * @RestRelativeURL syspurpose/querySysPurposeList
 	 */
 	@POST
-	@Path("/syspurpose")
+	@Path("/querySysPurposeList")
 	QuerySysPurposeListRes querySysPurposeList(String language)throws BusinessException,SystemException;
 	
 	/**
@@ -48,7 +48,7 @@ public interface IQuerySysPurposeSV {
      * @RestRelativeURL syspurpose/querySysPurposeDetails
 	 */
 	@POST
-	@Path("/syspurpose")
+	@Path("/querySysPurposeDetails")
 	QuerySysPurposeDetailsRes querySysPurposeDetails(String purposeId)throws BusinessException,SystemException;
 
 }

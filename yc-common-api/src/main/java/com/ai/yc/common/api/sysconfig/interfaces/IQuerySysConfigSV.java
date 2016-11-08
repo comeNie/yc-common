@@ -35,7 +35,7 @@ public interface IQuerySysConfigSV {
      * @RestRelativeURL sysconfig/getMemberConfig
 	 */
 	@POST
-	@Path("/sysconfig")
+	@Path("/getMemberConfig")
 	MemberConfig getMemberConfig()throws BusinessException,SystemException;
 	
 	 /**
@@ -49,7 +49,7 @@ public interface IQuerySysConfigSV {
      * @RestRelativeURL sysconfig/getCommissionConfig
 	 */
 	@POST
-	@Path("/sysconfig")
+	@Path("/getCommissionConfig")
 	CommissionConfig getCommissionConfig()throws BusinessException,SystemException;
 	
 	 /**
@@ -63,7 +63,7 @@ public interface IQuerySysConfigSV {
      * @RestRelativeURL sysconfig/getHomeDataEidtConfig
 	 */
 	@POST
-	@Path("/sysconfig")
+	@Path("/getHomeDataEidtConfig")
 	HomeDataEidtConfig getHomeDataEidtConfig()throws BusinessException,SystemException;
 	
 	 /**
@@ -77,7 +77,7 @@ public interface IQuerySysConfigSV {
      * @RestRelativeURL sysconfig/getDonateIntegralConfig
 	 */
 	@POST
-	@Path("/sysconfig")
+	@Path("/getDonateIntegralConfig")
 	DonateIntegralConfig getDonateIntegralConfig()throws BusinessException,SystemException;
 
 }

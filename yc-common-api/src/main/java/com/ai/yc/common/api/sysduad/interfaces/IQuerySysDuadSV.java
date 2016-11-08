@@ -34,7 +34,7 @@ public interface IQuerySysDuadSV {
      * @RestRelativeURL sysduad/querySysDuadList
 	 */
 	@POST
-	@Path("/sysduad")
+	@Path("/querySysDuadList")
 	QuerySysDuadListRes querySysDuadList(QuerySysDuadListReq req)throws BusinessException,SystemException;
 	
 	 /**
@@ -48,7 +48,7 @@ public interface IQuerySysDuadSV {
      * @RestRelativeURL sysduad/querySysDuadDetails
 	 */
 	@POST
-	@Path("/sysduad")
+	@Path("/querySysDuadDetails")
 	QuerySysDuadDetailsRes querySysDuadDetails(String duadId)throws BusinessException,SystemException;
 
 }

@@ -12,6 +12,7 @@ import com.ai.yc.common.api.sysconfig.param.DonateIntegralConfig;
 import com.ai.yc.common.api.sysconfig.param.HomeDataEidtConfig;
 import com.ai.yc.common.api.sysconfig.param.MemberConfig;
 import com.ai.yc.common.api.sysdomain.interfaces.IQuerySysDomainSV;
+import com.ai.yc.common.api.sysdomain.param.QuerySysDomainDetailsRes;
 import com.ai.yc.common.api.sysdomain.param.QuerySysDomainListRes;
 import com.ai.yc.common.api.sysduad.interfaces.IQuerySysDuadSV;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadDetailsRes;
@@ -73,6 +74,9 @@ public class SysConfigTest {
 	public void testSysDomain(){
 		QuerySysDomainListRes res = iQuerySysDomainSV.querySysDomainList("china");
 		System.out.println("res:"+gson.toJson(res));
+		
+		QuerySysDomainDetailsRes domain = iQuerySysDomainSV.querySysDomainDetails("1");
+		System.out.println("res:"+gson.toJson(domain));
 	}
 	
 	@Test

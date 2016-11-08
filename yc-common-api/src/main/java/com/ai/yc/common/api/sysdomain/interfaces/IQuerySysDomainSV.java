@@ -33,7 +33,7 @@ public interface IQuerySysDomainSV {
      * @RestRelativeURL sysdomain/querySysDomainList
 	 */
 	@POST
-	@Path("/sysdomain")
+	@Path("/querySysDomainList")
 	QuerySysDomainListRes querySysDomainList(String language)throws BusinessException,SystemException;
 	
 	/**
@@ -47,7 +47,7 @@ public interface IQuerySysDomainSV {
      * @RestRelativeURL sysdomain/querySysDomainDetails
 	 */
 	@POST
-	@Path("/sysdomain")
+	@Path("/querySysDomainDetails")
 	QuerySysDomainDetailsRes querySysDomainDetails(String domainId)throws BusinessException,SystemException;
 
 }
