@@ -1,10 +1,9 @@
 package com.ai.yc.common.dao.mapper.interfaces;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
 import com.ai.yc.common.dao.mapper.bo.SysDuad;
 import com.ai.yc.common.dao.mapper.bo.SysDuadCriteria;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysDuadMapper {
     int countByExample(SysDuadCriteria example);

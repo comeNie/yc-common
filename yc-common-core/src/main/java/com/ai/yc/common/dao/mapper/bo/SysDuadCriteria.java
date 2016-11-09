@@ -404,6 +404,76 @@ public class SysDuadCriteria {
             return (Criteria) this;
         }
 
+        public Criteria andSourceCodeIsNull() {
+            addCriterion("source_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeIsNotNull() {
+            addCriterion("source_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeEqualTo(String value) {
+            addCriterion("source_code =", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeNotEqualTo(String value) {
+            addCriterion("source_code <>", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeGreaterThan(String value) {
+            addCriterion("source_code >", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("source_code >=", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeLessThan(String value) {
+            addCriterion("source_code <", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeLessThanOrEqualTo(String value) {
+            addCriterion("source_code <=", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeLike(String value) {
+            addCriterion("source_code like", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeNotLike(String value) {
+            addCriterion("source_code not like", value, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeIn(List<String> values) {
+            addCriterion("source_code in", values, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeNotIn(List<String> values) {
+            addCriterion("source_code not in", values, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeBetween(String value1, String value2) {
+            addCriterion("source_code between", value1, value2, "sourceCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andSourceCodeNotBetween(String value1, String value2) {
+            addCriterion("source_code not between", value1, value2, "sourceCode");
+            return (Criteria) this;
+        }
+
         public Criteria andSourceCnIsNull() {
             addCriterion("source_cn is null");
             return (Criteria) this;
@@ -541,6 +611,76 @@ public class SysDuadCriteria {
 
         public Criteria andSourceEnNotBetween(String value1, String value2) {
             addCriterion("source_en not between", value1, value2, "sourceEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeIsNull() {
+            addCriterion("target_code is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeIsNotNull() {
+            addCriterion("target_code is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeEqualTo(String value) {
+            addCriterion("target_code =", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeNotEqualTo(String value) {
+            addCriterion("target_code <>", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeGreaterThan(String value) {
+            addCriterion("target_code >", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeGreaterThanOrEqualTo(String value) {
+            addCriterion("target_code >=", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeLessThan(String value) {
+            addCriterion("target_code <", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeLessThanOrEqualTo(String value) {
+            addCriterion("target_code <=", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeLike(String value) {
+            addCriterion("target_code like", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeNotLike(String value) {
+            addCriterion("target_code not like", value, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeIn(List<String> values) {
+            addCriterion("target_code in", values, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeNotIn(List<String> values) {
+            addCriterion("target_code not in", values, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeBetween(String value1, String value2) {
+            addCriterion("target_code between", value1, value2, "targetCode");
+            return (Criteria) this;
+        }
+
+        public Criteria andTargetCodeNotBetween(String value1, String value2) {
+            addCriterion("target_code not between", value1, value2, "targetCode");
             return (Criteria) this;
         }
 

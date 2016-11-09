@@ -9,9 +9,13 @@ public class SysDuad {
 
     private String orderType;
 
+    private String sourceCode;
+
     private String sourceCn;
 
     private String sourceEn;
+
+    private String targetCode;
 
     private String targetCn;
 
@@ -67,6 +71,14 @@ public class SysDuad {
         this.orderType = orderType == null ? null : orderType.trim();
     }
 
+    public String getSourceCode() {
+        return sourceCode;
+    }
+
+    public void setSourceCode(String sourceCode) {
+        this.sourceCode = sourceCode == null ? null : sourceCode.trim();
+    }
+
     public String getSourceCn() {
         return sourceCn;
     }
@@ -81,6 +93,14 @@ public class SysDuad {
 
     public void setSourceEn(String sourceEn) {
         this.sourceEn = sourceEn == null ? null : sourceEn.trim();
+    }
+
+    public String getTargetCode() {
+        return targetCode;
+    }
+
+    public void setTargetCode(String targetCode) {
+        this.targetCode = targetCode == null ? null : targetCode.trim();
     }
 
     public String getTargetCn() {

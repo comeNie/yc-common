@@ -45,6 +45,25 @@ public class SysDuadVo implements Serializable {
      * 目标语言英文名称
      */
     private String targetEn;
+    
+    private String sourceCode;
+	  private String targetCode;
+
+	public String getSourceCode() {
+		return sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
+	}
+
+	public String getTargetCode() {
+		return targetCode;
+	}
+
+	public void setTargetCode(String targetCode) {
+		this.targetCode = targetCode;
+	}
 
 	public String getDuadId() {
 		return duadId;

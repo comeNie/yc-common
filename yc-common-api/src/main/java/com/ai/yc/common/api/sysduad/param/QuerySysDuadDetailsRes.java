@@ -95,6 +95,25 @@ public class QuerySysDuadDetailsRes extends BaseResponse {
 	 * 币种  1：RMB 2：$
 	 */
 	private String currency;
+	
+	private String sourceCode;
+	  private String targetCode;
+
+	public String getSourceCode() {
+		return sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
+	}
+
+	public String getTargetCode() {
+		return targetCode;
+	}
+
+	public void setTargetCode(String targetCode) {
+		this.targetCode = targetCode;
+	}
 
 	public String getDuadId() {
 		return duadId;

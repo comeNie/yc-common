@@ -6,8 +6,10 @@
     <result column="language" property="language" jdbcType="VARCHAR" />
     <result column="site" property="site" jdbcType="VARCHAR" />
     <result column="order_type" property="orderType" jdbcType="CHAR" />
+    <result column="source_code" property="sourceCode" jdbcType="VARCHAR" />
     <result column="source_cn" property="sourceCn" jdbcType="VARCHAR" />
     <result column="source_en" property="sourceEn" jdbcType="VARCHAR" />
+    <result column="target_code" property="targetCode" jdbcType="VARCHAR" />
     <result column="target_cn" property="targetCn" jdbcType="VARCHAR" />
     <result column="target_en" property="targetEn" jdbcType="VARCHAR" />
     <result column="ordinary" property="ordinary" jdbcType="VARCHAR" />
@@ -79,16 +81,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    duad_id, language, site, order_type, source_cn, source_en, target_cn, target_en, 
-    ordinary, ordinary_urgent, professional, professional_urgent, publish, publish_urgent, 
-    sort, state, currency
+    duad_id, language, site, order_type, source_code, source_cn, source_en, target_code, 
+    target_cn, target_en, ordinary, ordinary_urgent, professional, professional_urgent, 
+    publish, publish_urgent, sort, state, currency
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" >
     select
     <if test="distinct" >
       distinct
     </if>
-    'true' as QUERYID,
+    'false' as QUERYID,
     <include refid="Base_Column_List" />
     from sys_duad
     <if test="_parameter != null" >
@@ -119,17 +121,19 @@
   </delete>
   <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     insert into sys_duad (duad_id, language, site, 
-      order_type, source_cn, source_en, 
-      target_cn, target_en, ordinary, 
-      ordinary_urgent, professional, professional_urgent, 
-      publish, publish_urgent, sort, 
-      state, currency)
+      order_type, source_code, source_cn, 
+      source_en, target_code, target_cn, 
+      target_en, ordinary, ordinary_urgent, 
+      professional, professional_urgent, publish, 
+      publish_urgent, sort, state, 
+      currency)
     values (#{duadId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
-      #{orderType,jdbcType=CHAR}, #{sourceCn,jdbcType=VARCHAR}, #{sourceEn,jdbcType=VARCHAR}, 
-      #{targetCn,jdbcType=VARCHAR}, #{targetEn,jdbcType=VARCHAR}, #{ordinary,jdbcType=VARCHAR}, 
-      #{ordinaryUrgent,jdbcType=VARCHAR}, #{professional,jdbcType=VARCHAR}, #{professionalUrgent,jdbcType=VARCHAR}, 
-      #{publish,jdbcType=VARCHAR}, #{publishUrgent,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, 
-      #{state,jdbcType=CHAR}, #{currency,jdbcType=VARCHAR})
+      #{orderType,jdbcType=CHAR}, #{sourceCode,jdbcType=VARCHAR}, #{sourceCn,jdbcType=VARCHAR}, 
+      #{sourceEn,jdbcType=VARCHAR}, #{targetCode,jdbcType=VARCHAR}, #{targetCn,jdbcType=VARCHAR}, 
+      #{targetEn,jdbcType=VARCHAR}, #{ordinary,jdbcType=VARCHAR}, #{ordinaryUrgent,jdbcType=VARCHAR}, 
+      #{professional,jdbcType=VARCHAR}, #{professionalUrgent,jdbcType=VARCHAR}, #{publish,jdbcType=VARCHAR}, 
+      #{publishUrgent,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
+      #{currency,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     insert into sys_duad
@@ -146,11 +150,17 @@
       <if test="orderType != null" >
         order_type,
       </if>
+      <if test="sourceCode != null" >
+        source_code,
+      </if>
       <if test="sourceCn != null" >
         source_cn,
       </if>
       <if test="sourceEn != null" >
         source_en,
+      </if>
+      <if test="targetCode != null" >
+        target_code,
       </if>
       <if test="targetCn != null" >
         target_cn,
@@ -199,11 +209,17 @@
       <if test="orderType != null" >
         #{orderType,jdbcType=CHAR},
       </if>
+      <if test="sourceCode != null" >
+        #{sourceCode,jdbcType=VARCHAR},
+      </if>
       <if test="sourceCn != null" >
         #{sourceCn,jdbcType=VARCHAR},
       </if>
       <if test="sourceEn != null" >
         #{sourceEn,jdbcType=VARCHAR},
+      </if>
+      <if test="targetCode != null" >
+        #{targetCode,jdbcType=VARCHAR},
       </if>
       <if test="targetCn != null" >
         #{targetCn,jdbcType=VARCHAR},
@@ -261,11 +277,17 @@
       <if test="record.orderType != null" >
         order_type = #{record.orderType,jdbcType=CHAR},
       </if>
+      <if test="record.sourceCode != null" >
+        source_code = #{record.sourceCode,jdbcType=VARCHAR},
+      </if>
       <if test="record.sourceCn != null" >
         source_cn = #{record.sourceCn,jdbcType=VARCHAR},
       </if>
       <if test="record.sourceEn != null" >
         source_en = #{record.sourceEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.targetCode != null" >
+        target_code = #{record.targetCode,jdbcType=VARCHAR},
       </if>
       <if test="record.targetCn != null" >
         target_cn = #{record.targetCn,jdbcType=VARCHAR},
@@ -311,8 +333,10 @@
       language = #{record.language,jdbcType=VARCHAR},
       site = #{record.site,jdbcType=VARCHAR},
       order_type = #{record.orderType,jdbcType=CHAR},
+      source_code = #{record.sourceCode,jdbcType=VARCHAR},
       source_cn = #{record.sourceCn,jdbcType=VARCHAR},
       source_en = #{record.sourceEn,jdbcType=VARCHAR},
+      target_code = #{record.targetCode,jdbcType=VARCHAR},
       target_cn = #{record.targetCn,jdbcType=VARCHAR},
       target_en = #{record.targetEn,jdbcType=VARCHAR},
       ordinary = #{record.ordinary,jdbcType=VARCHAR},
@@ -340,11 +364,17 @@
       <if test="orderType != null" >
         order_type = #{orderType,jdbcType=CHAR},
       </if>
+      <if test="sourceCode != null" >
+        source_code = #{sourceCode,jdbcType=VARCHAR},
+      </if>
       <if test="sourceCn != null" >
         source_cn = #{sourceCn,jdbcType=VARCHAR},
       </if>
       <if test="sourceEn != null" >
         source_en = #{sourceEn,jdbcType=VARCHAR},
+      </if>
+      <if test="targetCode != null" >
+        target_code = #{targetCode,jdbcType=VARCHAR},
       </if>
       <if test="targetCn != null" >
         target_cn = #{targetCn,jdbcType=VARCHAR},
@@ -387,8 +417,10 @@
     set language = #{language,jdbcType=VARCHAR},
       site = #{site,jdbcType=VARCHAR},
       order_type = #{orderType,jdbcType=CHAR},
+      source_code = #{sourceCode,jdbcType=VARCHAR},
       source_cn = #{sourceCn,jdbcType=VARCHAR},
       source_en = #{sourceEn,jdbcType=VARCHAR},
+      target_code = #{targetCode,jdbcType=VARCHAR},
       target_cn = #{targetCn,jdbcType=VARCHAR},
       target_en = #{targetEn,jdbcType=VARCHAR},
       ordinary = #{ordinary,jdbcType=VARCHAR},
