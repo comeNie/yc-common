@@ -27,6 +27,7 @@ public class SysPurposeAtomSVImpl implements ISysPurposeAtomSV{
 		SysPurposeCriteria.Criteria criteria = example.createCriteria();
 		criteria.andStateEqualTo(Constants.SysPurpose.STATE_SHOW);
 		criteria.andLanguageEqualTo(language);
+		example.setOrderByClause("sort DESC ,updatetime DESC");
 		return MapperFactory.getSysPurposeMapper().selectByExample(example);
 	}
 

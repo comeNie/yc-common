@@ -25,6 +25,7 @@ public class SysDuadAtomSVImpl implements ISysDuadAtomSV {
 		criteria.andStateEqualTo(Constants.SysDuad.STATE_SHOW);
 		criteria.andLanguageEqualTo(language);
 		criteria.andOrderTypeEqualTo(orderType);
+		example.setOrderByClause("sort DESC ,updatetime DESC");
 		return MapperFactory.getSysDuadMapper().selectByExample(example);
 	}
 

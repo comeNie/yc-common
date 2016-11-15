@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysDuadMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.SysDuad" >
+<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.SysDuadMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.SysDuad" >
     <id column="duad_id" property="duadId" jdbcType="VARCHAR" />
     <result column="language" property="language" jdbcType="VARCHAR" />
     <result column="site" property="site" jdbcType="VARCHAR" />
@@ -21,6 +21,7 @@
     <result column="sort" property="sort" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="CHAR" />
     <result column="currency" property="currency" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -83,14 +84,14 @@
   <sql id="Base_Column_List" >
     duad_id, language, site, order_type, source_code, source_cn, source_en, target_code, 
     target_cn, target_en, ordinary, ordinary_urgent, professional, professional_urgent, 
-    publish, publish_urgent, sort, state, currency
+    publish, publish_urgent, sort, state, currency, updatetime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" >
     select
     <if test="distinct" >
       distinct
     </if>
-    'false' as QUERYID,
+    'true' as QUERYID,
     <include refid="Base_Column_List" />
     from sys_duad
     <if test="_parameter != null" >
@@ -113,29 +114,29 @@
     delete from sys_duad
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" >
     delete from sys_duad
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
+  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
     insert into sys_duad (duad_id, language, site, 
       order_type, source_code, source_cn, 
       source_en, target_code, target_cn, 
       target_en, ordinary, ordinary_urgent, 
       professional, professional_urgent, publish, 
       publish_urgent, sort, state, 
-      currency)
+      currency, updatetime)
     values (#{duadId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
       #{orderType,jdbcType=CHAR}, #{sourceCode,jdbcType=VARCHAR}, #{sourceCn,jdbcType=VARCHAR}, 
       #{sourceEn,jdbcType=VARCHAR}, #{targetCode,jdbcType=VARCHAR}, #{targetCn,jdbcType=VARCHAR}, 
       #{targetEn,jdbcType=VARCHAR}, #{ordinary,jdbcType=VARCHAR}, #{ordinaryUrgent,jdbcType=VARCHAR}, 
       #{professional,jdbcType=VARCHAR}, #{professionalUrgent,jdbcType=VARCHAR}, #{publish,jdbcType=VARCHAR}, 
       #{publishUrgent,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
-      #{currency,jdbcType=VARCHAR})
+      #{currency,jdbcType=VARCHAR}, #{updatetime,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
+  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
     insert into sys_duad
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="duadId != null" >
@@ -194,6 +195,9 @@
       </if>
       <if test="currency != null" >
         currency,
+      </if>
+      <if test="updatetime != null" >
+        updatetime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -254,9 +258,12 @@
       <if test="currency != null" >
         #{currency,jdbcType=VARCHAR},
       </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=BIGINT},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" resultType="java.lang.Integer" >
     select count(*) from sys_duad
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -322,6 +329,9 @@
       <if test="record.currency != null" >
         currency = #{record.currency,jdbcType=VARCHAR},
       </if>
+      <if test="record.updatetime != null" >
+        updatetime = #{record.updatetime,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -347,12 +357,13 @@
       publish_urgent = #{record.publishUrgent,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=CHAR},
-      currency = #{record.currency,jdbcType=VARCHAR}
+      currency = #{record.currency,jdbcType=VARCHAR},
+      updatetime = #{record.updatetime,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
     update sys_duad
     <set >
       <if test="language != null" >
@@ -409,10 +420,13 @@
       <if test="currency != null" >
         currency = #{currency,jdbcType=VARCHAR},
       </if>
+      <if test="updatetime != null" >
+        updatetime = #{updatetime,jdbcType=BIGINT},
+      </if>
     </set>
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
+  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
     update sys_duad
     set language = #{language,jdbcType=VARCHAR},
       site = #{site,jdbcType=VARCHAR},
@@ -431,7 +445,8 @@
       publish_urgent = #{publishUrgent,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=VARCHAR},
       state = #{state,jdbcType=CHAR},
-      currency = #{currency,jdbcType=VARCHAR}
+      currency = #{currency,jdbcType=VARCHAR},
+      updatetime = #{updatetime,jdbcType=BIGINT}
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </update>
 </mapper>

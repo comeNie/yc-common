@@ -29,6 +29,7 @@ public class SysDomainAtomSVImpl implements ISysDomainAtomSV{
 		SysDomainCriteria.Criteria criteria = example.createCriteria();
 		criteria.andStateEqualTo(Constants.SysConfig.STATE_SHOW);
 		criteria.andLanguageEqualTo(language);
+		example.setOrderByClause("sort DESC ,updatetime DESC");
 		return MapperFactory.getSysDomainMapper().selectByExample(example);
 	}
 
