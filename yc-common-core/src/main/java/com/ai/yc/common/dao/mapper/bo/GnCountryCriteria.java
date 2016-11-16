@@ -533,6 +533,126 @@ public class GnCountryCriteria {
             addCriterion("REGULAR_EXPRESSION not between", value1, value2, "regularExpression");
             return (Criteria) this;
         }
+
+        public Criteria andOrderIdIsNull() {
+            addCriterion("ORDER_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdIsNotNull() {
+            addCriterion("ORDER_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdEqualTo(Integer value) {
+            addCriterion("ORDER_ID =", value, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdNotEqualTo(Integer value) {
+            addCriterion("ORDER_ID <>", value, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdGreaterThan(Integer value) {
+            addCriterion("ORDER_ID >", value, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("ORDER_ID >=", value, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdLessThan(Integer value) {
+            addCriterion("ORDER_ID <", value, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdLessThanOrEqualTo(Integer value) {
+            addCriterion("ORDER_ID <=", value, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdIn(List<Integer> values) {
+            addCriterion("ORDER_ID in", values, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdNotIn(List<Integer> values) {
+            addCriterion("ORDER_ID not in", values, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdBetween(Integer value1, Integer value2) {
+            addCriterion("ORDER_ID between", value1, value2, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("ORDER_ID not between", value1, value2, "orderId");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeIsNull() {
+            addCriterion("OPERATION_TIME is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeIsNotNull() {
+            addCriterion("OPERATION_TIME is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeEqualTo(Long value) {
+            addCriterion("OPERATION_TIME =", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeNotEqualTo(Long value) {
+            addCriterion("OPERATION_TIME <>", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeGreaterThan(Long value) {
+            addCriterion("OPERATION_TIME >", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("OPERATION_TIME >=", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeLessThan(Long value) {
+            addCriterion("OPERATION_TIME <", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeLessThanOrEqualTo(Long value) {
+            addCriterion("OPERATION_TIME <=", value, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeIn(List<Long> values) {
+            addCriterion("OPERATION_TIME in", values, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeNotIn(List<Long> values) {
+            addCriterion("OPERATION_TIME not in", values, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeBetween(Long value1, Long value2) {
+            addCriterion("OPERATION_TIME between", value1, value2, "operationTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperationTimeNotBetween(Long value1, Long value2) {
+            addCriterion("OPERATION_TIME not between", value1, value2, "operationTime");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

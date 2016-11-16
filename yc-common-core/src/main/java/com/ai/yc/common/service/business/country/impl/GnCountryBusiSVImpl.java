@@ -49,6 +49,7 @@ public class GnCountryBusiSVImpl implements IGnCountryBusiSV {
 		if (!StringUtil.isBlank(req.getCountryCode())) {
 			c.andCountryCodeEqualTo(req.getCountryCode());
 		}
+		criteria.setOrderByClause("ORDER_ID DESC,OPERATION_TIME DESC");
 		return gnCountryAtomSV.queryCountry(criteria);
 	}
 

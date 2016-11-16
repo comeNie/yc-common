@@ -13,6 +13,10 @@ public class GnCountry {
 
     private String regularExpression;
 
+    private Integer orderId;
+
+    private Long operationTime;
+
     public Integer getId() {
         return id;
     }
@@ -59,5 +63,21 @@ public class GnCountry {
 
     public void setRegularExpression(String regularExpression) {
         this.regularExpression = regularExpression == null ? null : regularExpression.trim();
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public Long getOperationTime() {
+        return operationTime;
+    }
+
+    public void setOperationTime(Long operationTime) {
+        this.operationTime = operationTime;
     }
 }

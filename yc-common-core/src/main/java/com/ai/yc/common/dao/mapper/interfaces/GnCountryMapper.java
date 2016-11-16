@@ -1,11 +1,9 @@
 package com.ai.yc.common.dao.mapper.interfaces;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.ai.yc.common.dao.mapper.bo.GnCountry;
 import com.ai.yc.common.dao.mapper.bo.GnCountryCriteria;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface GnCountryMapper {
     int countByExample(GnCountryCriteria example);
