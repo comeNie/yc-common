@@ -1,10 +1,9 @@
 package com.ai.yc.common.dao.mapper.interfaces;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
 import com.ai.yc.common.dao.mapper.bo.SysDomain;
 import com.ai.yc.common.dao.mapper.bo.SysDomainCriteria;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysDomainMapper {
     int countByExample(SysDomainCriteria example);
