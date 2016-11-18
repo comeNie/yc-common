@@ -27,12 +27,12 @@ public class QuerySysDuadListReq implements Serializable {
     public static final String ORDER_TYPE_FAST = "0";
 
 	/**
-	 * 语言(必填)
+	 * 语言
 	 */
 	private String language;
 	
 	/**
-	 * 订单类型，文档翻译：1；口译：2；快速翻译：0 （必填）
+	 * 订单类型，文档翻译：1；口译：2；快速翻译：0 
 	 */
 	private String orderType;
 

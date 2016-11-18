@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.platform.common.dao.mapper.interfaces.SysDuadMapper" >
-  <resultMap id="BaseResultMap" type="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysDuadMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     <id column="duad_id" property="duadId" jdbcType="VARCHAR" />
     <result column="language" property="language" jdbcType="VARCHAR" />
     <result column="site" property="site" jdbcType="VARCHAR" />
@@ -18,9 +18,14 @@
     <result column="professional_urgent" property="professionalUrgent" jdbcType="VARCHAR" />
     <result column="publish" property="publish" jdbcType="VARCHAR" />
     <result column="publish_urgent" property="publishUrgent" jdbcType="VARCHAR" />
+    <result column="ordinary_dollar" property="ordinaryDollar" jdbcType="VARCHAR" />
+    <result column="ourgent_dollar" property="ourgentDollar" jdbcType="VARCHAR" />
+    <result column="professional_dollar" property="professionalDollar" jdbcType="VARCHAR" />
+    <result column="purgent_dollar" property="purgentDollar" jdbcType="VARCHAR" />
+    <result column="publish_dollar" property="publishDollar" jdbcType="VARCHAR" />
+    <result column="puburgent_dollar" property="puburgentDollar" jdbcType="VARCHAR" />
     <result column="sort" property="sort" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="CHAR" />
-    <result column="currency" property="currency" jdbcType="VARCHAR" />
     <result column="updatetime" property="updatetime" jdbcType="BIGINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -84,9 +89,10 @@
   <sql id="Base_Column_List" >
     duad_id, language, site, order_type, source_code, source_cn, source_en, target_code, 
     target_cn, target_en, ordinary, ordinary_urgent, professional, professional_urgent, 
-    publish, publish_urgent, sort, state, currency, updatetime
+    publish, publish_urgent, ordinary_dollar, ourgent_dollar, professional_dollar, purgent_dollar, 
+    publish_dollar, puburgent_dollar, sort, state, updatetime
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" >
     select
     <if test="distinct" >
       distinct
@@ -114,29 +120,33 @@
     delete from sys_duad
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" >
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" >
     delete from sys_duad
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     insert into sys_duad (duad_id, language, site, 
       order_type, source_code, source_cn, 
       source_en, target_code, target_cn, 
       target_en, ordinary, ordinary_urgent, 
       professional, professional_urgent, publish, 
-      publish_urgent, sort, state, 
-      currency, updatetime)
+      publish_urgent, ordinary_dollar, ourgent_dollar, 
+      professional_dollar, purgent_dollar, publish_dollar, 
+      puburgent_dollar, sort, state, 
+      updatetime)
     values (#{duadId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
       #{orderType,jdbcType=CHAR}, #{sourceCode,jdbcType=VARCHAR}, #{sourceCn,jdbcType=VARCHAR}, 
       #{sourceEn,jdbcType=VARCHAR}, #{targetCode,jdbcType=VARCHAR}, #{targetCn,jdbcType=VARCHAR}, 
       #{targetEn,jdbcType=VARCHAR}, #{ordinary,jdbcType=VARCHAR}, #{ordinaryUrgent,jdbcType=VARCHAR}, 
       #{professional,jdbcType=VARCHAR}, #{professionalUrgent,jdbcType=VARCHAR}, #{publish,jdbcType=VARCHAR}, 
-      #{publishUrgent,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
-      #{currency,jdbcType=VARCHAR}, #{updatetime,jdbcType=BIGINT})
+      #{publishUrgent,jdbcType=VARCHAR}, #{ordinaryDollar,jdbcType=VARCHAR}, #{ourgentDollar,jdbcType=VARCHAR}, 
+      #{professionalDollar,jdbcType=VARCHAR}, #{purgentDollar,jdbcType=VARCHAR}, #{publishDollar,jdbcType=VARCHAR}, 
+      #{puburgentDollar,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
+      #{updatetime,jdbcType=BIGINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     insert into sys_duad
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="duadId != null" >
@@ -187,14 +197,29 @@
       <if test="publishUrgent != null" >
         publish_urgent,
       </if>
+      <if test="ordinaryDollar != null" >
+        ordinary_dollar,
+      </if>
+      <if test="ourgentDollar != null" >
+        ourgent_dollar,
+      </if>
+      <if test="professionalDollar != null" >
+        professional_dollar,
+      </if>
+      <if test="purgentDollar != null" >
+        purgent_dollar,
+      </if>
+      <if test="publishDollar != null" >
+        publish_dollar,
+      </if>
+      <if test="puburgentDollar != null" >
+        puburgent_dollar,
+      </if>
       <if test="sort != null" >
         sort,
       </if>
       <if test="state != null" >
         state,
-      </if>
-      <if test="currency != null" >
-        currency,
       </if>
       <if test="updatetime != null" >
         updatetime,
@@ -249,21 +274,36 @@
       <if test="publishUrgent != null" >
         #{publishUrgent,jdbcType=VARCHAR},
       </if>
+      <if test="ordinaryDollar != null" >
+        #{ordinaryDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="ourgentDollar != null" >
+        #{ourgentDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalDollar != null" >
+        #{professionalDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="purgentDollar != null" >
+        #{purgentDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDollar != null" >
+        #{publishDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="puburgentDollar != null" >
+        #{puburgentDollar,jdbcType=VARCHAR},
+      </if>
       <if test="sort != null" >
         #{sort,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         #{state,jdbcType=CHAR},
       </if>
-      <if test="currency != null" >
-        #{currency,jdbcType=VARCHAR},
-      </if>
       <if test="updatetime != null" >
         #{updatetime,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuadCriteria" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" resultType="java.lang.Integer" >
     select count(*) from sys_duad
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -320,14 +360,29 @@
       <if test="record.publishUrgent != null" >
         publish_urgent = #{record.publishUrgent,jdbcType=VARCHAR},
       </if>
+      <if test="record.ordinaryDollar != null" >
+        ordinary_dollar = #{record.ordinaryDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ourgentDollar != null" >
+        ourgent_dollar = #{record.ourgentDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.professionalDollar != null" >
+        professional_dollar = #{record.professionalDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purgentDollar != null" >
+        purgent_dollar = #{record.purgentDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.publishDollar != null" >
+        publish_dollar = #{record.publishDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="record.puburgentDollar != null" >
+        puburgent_dollar = #{record.puburgentDollar,jdbcType=VARCHAR},
+      </if>
       <if test="record.sort != null" >
         sort = #{record.sort,jdbcType=VARCHAR},
       </if>
       <if test="record.state != null" >
         state = #{record.state,jdbcType=CHAR},
-      </if>
-      <if test="record.currency != null" >
-        currency = #{record.currency,jdbcType=VARCHAR},
       </if>
       <if test="record.updatetime != null" >
         updatetime = #{record.updatetime,jdbcType=BIGINT},
@@ -355,15 +410,20 @@
       professional_urgent = #{record.professionalUrgent,jdbcType=VARCHAR},
       publish = #{record.publish,jdbcType=VARCHAR},
       publish_urgent = #{record.publishUrgent,jdbcType=VARCHAR},
+      ordinary_dollar = #{record.ordinaryDollar,jdbcType=VARCHAR},
+      ourgent_dollar = #{record.ourgentDollar,jdbcType=VARCHAR},
+      professional_dollar = #{record.professionalDollar,jdbcType=VARCHAR},
+      purgent_dollar = #{record.purgentDollar,jdbcType=VARCHAR},
+      publish_dollar = #{record.publishDollar,jdbcType=VARCHAR},
+      puburgent_dollar = #{record.puburgentDollar,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=CHAR},
-      currency = #{record.currency,jdbcType=VARCHAR},
       updatetime = #{record.updatetime,jdbcType=BIGINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     update sys_duad
     <set >
       <if test="language != null" >
@@ -411,14 +471,29 @@
       <if test="publishUrgent != null" >
         publish_urgent = #{publishUrgent,jdbcType=VARCHAR},
       </if>
+      <if test="ordinaryDollar != null" >
+        ordinary_dollar = #{ordinaryDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="ourgentDollar != null" >
+        ourgent_dollar = #{ourgentDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="professionalDollar != null" >
+        professional_dollar = #{professionalDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="purgentDollar != null" >
+        purgent_dollar = #{purgentDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="publishDollar != null" >
+        publish_dollar = #{publishDollar,jdbcType=VARCHAR},
+      </if>
+      <if test="puburgentDollar != null" >
+        puburgent_dollar = #{puburgentDollar,jdbcType=VARCHAR},
+      </if>
       <if test="sort != null" >
         sort = #{sort,jdbcType=VARCHAR},
       </if>
       <if test="state != null" >
         state = #{state,jdbcType=CHAR},
-      </if>
-      <if test="currency != null" >
-        currency = #{currency,jdbcType=VARCHAR},
       </if>
       <if test="updatetime != null" >
         updatetime = #{updatetime,jdbcType=BIGINT},
@@ -426,7 +501,7 @@
     </set>
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ai.platform.common.dao.mapper.bo.SysDuad" >
+  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     update sys_duad
     set language = #{language,jdbcType=VARCHAR},
       site = #{site,jdbcType=VARCHAR},
@@ -443,9 +518,14 @@
       professional_urgent = #{professionalUrgent,jdbcType=VARCHAR},
       publish = #{publish,jdbcType=VARCHAR},
       publish_urgent = #{publishUrgent,jdbcType=VARCHAR},
+      ordinary_dollar = #{ordinaryDollar,jdbcType=VARCHAR},
+      ourgent_dollar = #{ourgentDollar,jdbcType=VARCHAR},
+      professional_dollar = #{professionalDollar,jdbcType=VARCHAR},
+      purgent_dollar = #{purgentDollar,jdbcType=VARCHAR},
+      publish_dollar = #{publishDollar,jdbcType=VARCHAR},
+      puburgent_dollar = #{puburgentDollar,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=VARCHAR},
       state = #{state,jdbcType=CHAR},
-      currency = #{currency,jdbcType=VARCHAR},
       updatetime = #{updatetime,jdbcType=BIGINT}
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </update>

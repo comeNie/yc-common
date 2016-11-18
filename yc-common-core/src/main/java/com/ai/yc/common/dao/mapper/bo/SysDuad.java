@@ -33,11 +33,23 @@ public class SysDuad {
 
     private String publishUrgent;
 
+    private String ordinaryDollar;
+
+    private String ourgentDollar;
+
+    private String professionalDollar;
+
+    private String purgentDollar;
+
+    private String publishDollar;
+
+    private String puburgentDollar;
+
     private String sort;
 
     private String state;
 
-    private String currency;
+    private Long updatetime;
 
     public String getDuadId() {
         return duadId;
@@ -167,6 +179,54 @@ public class SysDuad {
         this.publishUrgent = publishUrgent == null ? null : publishUrgent.trim();
     }
 
+    public String getOrdinaryDollar() {
+        return ordinaryDollar;
+    }
+
+    public void setOrdinaryDollar(String ordinaryDollar) {
+        this.ordinaryDollar = ordinaryDollar == null ? null : ordinaryDollar.trim();
+    }
+
+    public String getOurgentDollar() {
+        return ourgentDollar;
+    }
+
+    public void setOurgentDollar(String ourgentDollar) {
+        this.ourgentDollar = ourgentDollar == null ? null : ourgentDollar.trim();
+    }
+
+    public String getProfessionalDollar() {
+        return professionalDollar;
+    }
+
+    public void setProfessionalDollar(String professionalDollar) {
+        this.professionalDollar = professionalDollar == null ? null : professionalDollar.trim();
+    }
+
+    public String getPurgentDollar() {
+        return purgentDollar;
+    }
+
+    public void setPurgentDollar(String purgentDollar) {
+        this.purgentDollar = purgentDollar == null ? null : purgentDollar.trim();
+    }
+
+    public String getPublishDollar() {
+        return publishDollar;
+    }
+
+    public void setPublishDollar(String publishDollar) {
+        this.publishDollar = publishDollar == null ? null : publishDollar.trim();
+    }
+
+    public String getPuburgentDollar() {
+        return puburgentDollar;
+    }
+
+    public void setPuburgentDollar(String puburgentDollar) {
+        this.puburgentDollar = puburgentDollar == null ? null : puburgentDollar.trim();
+    }
+
     public String getSort() {
         return sort;
     }
@@ -183,11 +243,11 @@ public class SysDuad {
         this.state = state == null ? null : state.trim();
     }
 
-    public String getCurrency() {
-        return currency;
+    public Long getUpdatetime() {
+        return updatetime;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency == null ? null : currency.trim();
+    public void setUpdatetime(Long updatetime) {
+        this.updatetime = updatetime;
     }
 }

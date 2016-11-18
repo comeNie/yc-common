@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.constants.Constants;
 import com.ai.yc.common.dao.mapper.bo.SysDomain;
 import com.ai.yc.common.dao.mapper.bo.SysDomainCriteria;
@@ -28,7 +29,9 @@ public class SysDomainAtomSVImpl implements ISysDomainAtomSV{
 		SysDomainCriteria example = new SysDomainCriteria();
 		SysDomainCriteria.Criteria criteria = example.createCriteria();
 		criteria.andStateEqualTo(Constants.SysConfig.STATE_SHOW);
-		criteria.andLanguageEqualTo(language);
+		if(!StringUtil.isBlank(language)){
+			criteria.andLanguageEqualTo(language);
+		}
 		example.setOrderByClause("sort DESC ,updatetime DESC");
 		return MapperFactory.getSysDomainMapper().selectByExample(example);
 	}

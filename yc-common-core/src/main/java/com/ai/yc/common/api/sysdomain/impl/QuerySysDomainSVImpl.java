@@ -54,9 +54,6 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 	@Override
 	public QuerySysDomainListRes querySysDomainList(String language)
 			throws BusinessException, SystemException {
-		if(StringUtil.isBlank(language)){
-			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "参数语言不能为空");
-		}
 		List<SysDomain> domains = querySysDomainBusiSV.querySysDomainList(language);
 		List<SysDomainVo> vos = new ArrayList<SysDomainVo>();
 		for(SysDomain domain:domains){
