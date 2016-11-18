@@ -14,5 +14,5 @@ gradle-app.setting
 .project
 .settings/
 bin/
-opt-sdk.iml
+*.iml
 /logs/
