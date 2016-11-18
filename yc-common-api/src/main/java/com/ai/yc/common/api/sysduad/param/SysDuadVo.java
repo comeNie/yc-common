@@ -25,6 +25,10 @@ public class SysDuadVo implements Serializable {
 	 * 订单类型
 	 */
 	private String orderType;
+	
+	private String sourceCode;
+	    
+	private String targetCode;
 
 	/**
 	 * 源语言中文名称
@@ -45,9 +49,6 @@ public class SysDuadVo implements Serializable {
      * 目标语言英文名称
      */
     private String targetEn;
-    
-    private String sourceCode;
-	  private String targetCode;
 
 	public String getSourceCode() {
 		return sourceCode;

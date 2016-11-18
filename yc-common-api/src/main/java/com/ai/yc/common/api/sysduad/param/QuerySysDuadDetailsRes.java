@@ -80,6 +80,36 @@ public class QuerySysDuadDetailsRes extends BaseResponse {
 	 * 出版加急翻译价格
 	 */
 	private String publishUrgent;
+	
+	/**
+	 * 普通翻译价格美元
+	 */
+	private String ordinaryDollar;
+
+    /**
+     * 普通加急翻译价格美元
+     */
+    private String ourgentDollar;
+
+    /**
+     * 专业翻译价格美元
+     */
+    private String professionalDollar;
+
+    /**
+     * 专业加急翻译价格美元
+     */
+    private String purgentDollar;
+
+    /**
+     * 出版翻译价格美元
+     */
+    private String publishDollar;
+
+    /**
+     * 出版加急翻译价格美元
+     */
+    private String puburgentDollar;
 
 	/**
 	 * 排序
@@ -90,11 +120,6 @@ public class QuerySysDuadDetailsRes extends BaseResponse {
 	 * 状态  0显示  1不显示
 	 */
 	private String state;
-	
-	/**
-	 * 币种  1：RMB 2：$
-	 */
-	private String currency;
 	
 	private String sourceCode;
 	  private String targetCode;
@@ -243,12 +268,53 @@ public class QuerySysDuadDetailsRes extends BaseResponse {
 		this.state = state;
 	}
 
-	public String getCurrency() {
-		return currency;
+
+	public String getOrdinaryDollar() {
+		return ordinaryDollar;
 	}
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
+	public void setOrdinaryDollar(String ordinaryDollar) {
+		this.ordinaryDollar = ordinaryDollar;
+	}
+
+	public String getOurgentDollar() {
+		return ourgentDollar;
+	}
+
+	public void setOurgentDollar(String ourgentDollar) {
+		this.ourgentDollar = ourgentDollar;
+	}
+
+	public String getProfessionalDollar() {
+		return professionalDollar;
+	}
+
+	public void setProfessionalDollar(String professionalDollar) {
+		this.professionalDollar = professionalDollar;
+	}
+
+	public String getPurgentDollar() {
+		return purgentDollar;
+	}
+
+	public void setPurgentDollar(String purgentDollar) {
+		this.purgentDollar = purgentDollar;
+	}
+
+	public String getPublishDollar() {
+		return publishDollar;
+	}
+
+	public void setPublishDollar(String publishDollar) {
+		this.publishDollar = publishDollar;
+	}
+
+	public String getPuburgentDollar() {
+		return puburgentDollar;
+	}
+
+	public void setPuburgentDollar(String puburgentDollar) {
+		this.puburgentDollar = puburgentDollar;
 	}
 	
 	

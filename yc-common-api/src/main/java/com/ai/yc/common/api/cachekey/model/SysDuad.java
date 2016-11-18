@@ -30,6 +30,10 @@ public class SysDuad extends BaseResponse {
 	 * 订单类型，文档翻译：1；口译：2；快速翻译：0；
 	 */
 	private String orderType;
+	
+	private String sourceCode;
+	    
+    private String targetCode;
 
 	/**
 	 * 源语言中文名称
@@ -80,6 +84,37 @@ public class SysDuad extends BaseResponse {
 	 * 出版加急翻译价格
 	 */
 	private String publishUrgent;
+	
+	/**
+	 * 普通翻译价格美元
+	 */
+	private String ordinaryDollar;
+
+    /**
+     * 普通加急翻译价格美元
+     */
+    private String ourgentDollar;
+
+    /**
+     * 专业翻译价格美元
+     */
+    private String professionalDollar;
+
+    /**
+     * 专业加急翻译价格美元
+     */
+    private String purgentDollar;
+
+    /**
+     * 出版翻译价格美元
+     */
+    private String publishDollar;
+
+    /**
+     * 出版加急翻译价格美元
+     */
+    private String puburgentDollar;
+
 
 	/**
 	 * 排序
@@ -91,10 +126,6 @@ public class SysDuad extends BaseResponse {
 	 */
 	private String state;
 	
-	/**
-	 * 币种  1：RMB 2：$
-	 */
-	private String currency;
 
 	public String getDuadId() {
 		return duadId;
@@ -224,14 +255,70 @@ public class SysDuad extends BaseResponse {
 		this.state = state;
 	}
 
-	public String getCurrency() {
-		return currency;
+	public String getOrdinaryDollar() {
+		return ordinaryDollar;
 	}
 
-	public void setCurrency(String currency) {
-		this.currency = currency;
+	public void setOrdinaryDollar(String ordinaryDollar) {
+		this.ordinaryDollar = ordinaryDollar;
 	}
-	
+
+	public String getOurgentDollar() {
+		return ourgentDollar;
+	}
+
+	public void setOurgentDollar(String ourgentDollar) {
+		this.ourgentDollar = ourgentDollar;
+	}
+
+	public String getProfessionalDollar() {
+		return professionalDollar;
+	}
+
+	public void setProfessionalDollar(String professionalDollar) {
+		this.professionalDollar = professionalDollar;
+	}
+
+	public String getPurgentDollar() {
+		return purgentDollar;
+	}
+
+	public void setPurgentDollar(String purgentDollar) {
+		this.purgentDollar = purgentDollar;
+	}
+
+	public String getPublishDollar() {
+		return publishDollar;
+	}
+
+	public void setPublishDollar(String publishDollar) {
+		this.publishDollar = publishDollar;
+	}
+
+	public String getPuburgentDollar() {
+		return puburgentDollar;
+	}
+
+	public void setPuburgentDollar(String puburgentDollar) {
+		this.puburgentDollar = puburgentDollar;
+	}
+
+	public String getSourceCode() {
+		return sourceCode;
+	}
+
+	public void setSourceCode(String sourceCode) {
+		this.sourceCode = sourceCode;
+	}
+
+	public String getTargetCode() {
+		return targetCode;
+	}
+
+	public void setTargetCode(String targetCode) {
+		this.targetCode = targetCode;
+	}
+
 	
 
 }

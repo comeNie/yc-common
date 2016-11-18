@@ -17,6 +17,8 @@ public class SysDomain {
 
     private String state;
 
+    private Long updatetime;
+
     public String getDomainId() {
         return domainId;
     }
@@ -79,5 +81,13 @@ public class SysDomain {
 
     public void setState(String state) {
         this.state = state == null ? null : state.trim();
+    }
+
+    public Long getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Long updatetime) {
+        this.updatetime = updatetime;
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.constants.Constants;
 import com.ai.yc.common.dao.mapper.bo.SysPurpose;
 import com.ai.yc.common.dao.mapper.bo.SysPurposeCriteria;
@@ -26,7 +27,9 @@ public class SysPurposeAtomSVImpl implements ISysPurposeAtomSV{
 		SysPurposeCriteria example = new SysPurposeCriteria();
 		SysPurposeCriteria.Criteria criteria = example.createCriteria();
 		criteria.andStateEqualTo(Constants.SysPurpose.STATE_SHOW);
-		criteria.andLanguageEqualTo(language);
+		if(!StringUtil.isBlank(language)){
+			criteria.andLanguageEqualTo(language);
+		}
 		example.setOrderByClause("sort DESC ,updatetime DESC");
 		return MapperFactory.getSysPurposeMapper().selectByExample(example);
 	}

@@ -1244,6 +1244,426 @@ public class SysDuadCriteria {
             return (Criteria) this;
         }
 
+        public Criteria andOrdinaryDollarIsNull() {
+            addCriterion("ordinary_dollar is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarIsNotNull() {
+            addCriterion("ordinary_dollar is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarEqualTo(String value) {
+            addCriterion("ordinary_dollar =", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarNotEqualTo(String value) {
+            addCriterion("ordinary_dollar <>", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarGreaterThan(String value) {
+            addCriterion("ordinary_dollar >", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarGreaterThanOrEqualTo(String value) {
+            addCriterion("ordinary_dollar >=", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarLessThan(String value) {
+            addCriterion("ordinary_dollar <", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarLessThanOrEqualTo(String value) {
+            addCriterion("ordinary_dollar <=", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarLike(String value) {
+            addCriterion("ordinary_dollar like", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarNotLike(String value) {
+            addCriterion("ordinary_dollar not like", value, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarIn(List<String> values) {
+            addCriterion("ordinary_dollar in", values, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarNotIn(List<String> values) {
+            addCriterion("ordinary_dollar not in", values, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarBetween(String value1, String value2) {
+            addCriterion("ordinary_dollar between", value1, value2, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrdinaryDollarNotBetween(String value1, String value2) {
+            addCriterion("ordinary_dollar not between", value1, value2, "ordinaryDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarIsNull() {
+            addCriterion("ourgent_dollar is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarIsNotNull() {
+            addCriterion("ourgent_dollar is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarEqualTo(String value) {
+            addCriterion("ourgent_dollar =", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarNotEqualTo(String value) {
+            addCriterion("ourgent_dollar <>", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarGreaterThan(String value) {
+            addCriterion("ourgent_dollar >", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarGreaterThanOrEqualTo(String value) {
+            addCriterion("ourgent_dollar >=", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarLessThan(String value) {
+            addCriterion("ourgent_dollar <", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarLessThanOrEqualTo(String value) {
+            addCriterion("ourgent_dollar <=", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarLike(String value) {
+            addCriterion("ourgent_dollar like", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarNotLike(String value) {
+            addCriterion("ourgent_dollar not like", value, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarIn(List<String> values) {
+            addCriterion("ourgent_dollar in", values, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarNotIn(List<String> values) {
+            addCriterion("ourgent_dollar not in", values, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarBetween(String value1, String value2) {
+            addCriterion("ourgent_dollar between", value1, value2, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andOurgentDollarNotBetween(String value1, String value2) {
+            addCriterion("ourgent_dollar not between", value1, value2, "ourgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarIsNull() {
+            addCriterion("professional_dollar is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarIsNotNull() {
+            addCriterion("professional_dollar is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarEqualTo(String value) {
+            addCriterion("professional_dollar =", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarNotEqualTo(String value) {
+            addCriterion("professional_dollar <>", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarGreaterThan(String value) {
+            addCriterion("professional_dollar >", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarGreaterThanOrEqualTo(String value) {
+            addCriterion("professional_dollar >=", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarLessThan(String value) {
+            addCriterion("professional_dollar <", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarLessThanOrEqualTo(String value) {
+            addCriterion("professional_dollar <=", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarLike(String value) {
+            addCriterion("professional_dollar like", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarNotLike(String value) {
+            addCriterion("professional_dollar not like", value, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarIn(List<String> values) {
+            addCriterion("professional_dollar in", values, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarNotIn(List<String> values) {
+            addCriterion("professional_dollar not in", values, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarBetween(String value1, String value2) {
+            addCriterion("professional_dollar between", value1, value2, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andProfessionalDollarNotBetween(String value1, String value2) {
+            addCriterion("professional_dollar not between", value1, value2, "professionalDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarIsNull() {
+            addCriterion("purgent_dollar is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarIsNotNull() {
+            addCriterion("purgent_dollar is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarEqualTo(String value) {
+            addCriterion("purgent_dollar =", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarNotEqualTo(String value) {
+            addCriterion("purgent_dollar <>", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarGreaterThan(String value) {
+            addCriterion("purgent_dollar >", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarGreaterThanOrEqualTo(String value) {
+            addCriterion("purgent_dollar >=", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarLessThan(String value) {
+            addCriterion("purgent_dollar <", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarLessThanOrEqualTo(String value) {
+            addCriterion("purgent_dollar <=", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarLike(String value) {
+            addCriterion("purgent_dollar like", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarNotLike(String value) {
+            addCriterion("purgent_dollar not like", value, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarIn(List<String> values) {
+            addCriterion("purgent_dollar in", values, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarNotIn(List<String> values) {
+            addCriterion("purgent_dollar not in", values, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarBetween(String value1, String value2) {
+            addCriterion("purgent_dollar between", value1, value2, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurgentDollarNotBetween(String value1, String value2) {
+            addCriterion("purgent_dollar not between", value1, value2, "purgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarIsNull() {
+            addCriterion("publish_dollar is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarIsNotNull() {
+            addCriterion("publish_dollar is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarEqualTo(String value) {
+            addCriterion("publish_dollar =", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarNotEqualTo(String value) {
+            addCriterion("publish_dollar <>", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarGreaterThan(String value) {
+            addCriterion("publish_dollar >", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarGreaterThanOrEqualTo(String value) {
+            addCriterion("publish_dollar >=", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarLessThan(String value) {
+            addCriterion("publish_dollar <", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarLessThanOrEqualTo(String value) {
+            addCriterion("publish_dollar <=", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarLike(String value) {
+            addCriterion("publish_dollar like", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarNotLike(String value) {
+            addCriterion("publish_dollar not like", value, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarIn(List<String> values) {
+            addCriterion("publish_dollar in", values, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarNotIn(List<String> values) {
+            addCriterion("publish_dollar not in", values, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarBetween(String value1, String value2) {
+            addCriterion("publish_dollar between", value1, value2, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPublishDollarNotBetween(String value1, String value2) {
+            addCriterion("publish_dollar not between", value1, value2, "publishDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarIsNull() {
+            addCriterion("puburgent_dollar is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarIsNotNull() {
+            addCriterion("puburgent_dollar is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarEqualTo(String value) {
+            addCriterion("puburgent_dollar =", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarNotEqualTo(String value) {
+            addCriterion("puburgent_dollar <>", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarGreaterThan(String value) {
+            addCriterion("puburgent_dollar >", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarGreaterThanOrEqualTo(String value) {
+            addCriterion("puburgent_dollar >=", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarLessThan(String value) {
+            addCriterion("puburgent_dollar <", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarLessThanOrEqualTo(String value) {
+            addCriterion("puburgent_dollar <=", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarLike(String value) {
+            addCriterion("puburgent_dollar like", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarNotLike(String value) {
+            addCriterion("puburgent_dollar not like", value, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarIn(List<String> values) {
+            addCriterion("puburgent_dollar in", values, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarNotIn(List<String> values) {
+            addCriterion("puburgent_dollar not in", values, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarBetween(String value1, String value2) {
+            addCriterion("puburgent_dollar between", value1, value2, "puburgentDollar");
+            return (Criteria) this;
+        }
+
+        public Criteria andPuburgentDollarNotBetween(String value1, String value2) {
+            addCriterion("puburgent_dollar not between", value1, value2, "puburgentDollar");
+            return (Criteria) this;
+        }
+
         public Criteria andSortIsNull() {
             addCriterion("sort is null");
             return (Criteria) this;
@@ -1384,73 +1804,63 @@ public class SysDuadCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyIsNull() {
-            addCriterion("currency is null");
+        public Criteria andUpdatetimeIsNull() {
+            addCriterion("updatetime is null");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyIsNotNull() {
-            addCriterion("currency is not null");
+        public Criteria andUpdatetimeIsNotNull() {
+            addCriterion("updatetime is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyEqualTo(String value) {
-            addCriterion("currency =", value, "currency");
+        public Criteria andUpdatetimeEqualTo(Long value) {
+            addCriterion("updatetime =", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyNotEqualTo(String value) {
-            addCriterion("currency <>", value, "currency");
+        public Criteria andUpdatetimeNotEqualTo(Long value) {
+            addCriterion("updatetime <>", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyGreaterThan(String value) {
-            addCriterion("currency >", value, "currency");
+        public Criteria andUpdatetimeGreaterThan(Long value) {
+            addCriterion("updatetime >", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyGreaterThanOrEqualTo(String value) {
-            addCriterion("currency >=", value, "currency");
+        public Criteria andUpdatetimeGreaterThanOrEqualTo(Long value) {
+            addCriterion("updatetime >=", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyLessThan(String value) {
-            addCriterion("currency <", value, "currency");
+        public Criteria andUpdatetimeLessThan(Long value) {
+            addCriterion("updatetime <", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyLessThanOrEqualTo(String value) {
-            addCriterion("currency <=", value, "currency");
+        public Criteria andUpdatetimeLessThanOrEqualTo(Long value) {
+            addCriterion("updatetime <=", value, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyLike(String value) {
-            addCriterion("currency like", value, "currency");
+        public Criteria andUpdatetimeIn(List<Long> values) {
+            addCriterion("updatetime in", values, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyNotLike(String value) {
-            addCriterion("currency not like", value, "currency");
+        public Criteria andUpdatetimeNotIn(List<Long> values) {
+            addCriterion("updatetime not in", values, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyIn(List<String> values) {
-            addCriterion("currency in", values, "currency");
+        public Criteria andUpdatetimeBetween(Long value1, Long value2) {
+            addCriterion("updatetime between", value1, value2, "updatetime");
             return (Criteria) this;
         }
 
-        public Criteria andCurrencyNotIn(List<String> values) {
-            addCriterion("currency not in", values, "currency");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrencyBetween(String value1, String value2) {
-            addCriterion("currency between", value1, value2, "currency");
-            return (Criteria) this;
-        }
-
-        public Criteria andCurrencyNotBetween(String value1, String value2) {
-            addCriterion("currency not between", value1, value2, "currency");
+        public Criteria andUpdatetimeNotBetween(Long value1, Long value2) {
+            addCriterion("updatetime not between", value1, value2, "updatetime");
             return (Criteria) this;
         }
     }

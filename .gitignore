@@ -14,6 +14,6 @@ gradle-app.setting
 .project
 .settings/
 bin/
-opt-sdk.iml
+*.iml
 /yc-mgmt-system/src/main/webapp/WEB-INF/web.xml
 /yc-mgmt-system/build.gradle

@@ -41,12 +41,6 @@ public class QuerySysDuadSVImpl implements IQuerySysDuadSV {
 		if(req==null){
 			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "参数不能为空");
 		}
-		if(StringUtil.isBlank(req.getLanguage())){
-			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "参数语言不能为空");
-		}
-		if(StringUtil.isBlank(req.getOrderType())){
-			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "订单类型不能为空");
-		}
 		List<SysDuad> duads = iQuerySysDuadBusiSV.querySysDuadList(req.getLanguage(), req.getOrderType());
 		List<SysDuadVo> vos = new ArrayList<SysDuadVo>();
 		for(SysDuad duad:duads){

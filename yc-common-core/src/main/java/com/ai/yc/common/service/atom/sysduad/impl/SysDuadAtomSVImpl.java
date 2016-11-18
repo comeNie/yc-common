@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.constants.Constants;
 import com.ai.yc.common.dao.mapper.bo.SysDuad;
 import com.ai.yc.common.dao.mapper.bo.SysDuadCriteria;
@@ -23,8 +24,12 @@ public class SysDuadAtomSVImpl implements ISysDuadAtomSV {
 		SysDuadCriteria example = new SysDuadCriteria();
 		SysDuadCriteria.Criteria criteria = example.createCriteria();
 		criteria.andStateEqualTo(Constants.SysDuad.STATE_SHOW);
-		criteria.andLanguageEqualTo(language);
-		criteria.andOrderTypeEqualTo(orderType);
+		if(!StringUtil.isBlank(language)){
+			criteria.andLanguageEqualTo(language);
+		}
+		if(!StringUtil.isBlank(orderType)){
+			criteria.andOrderTypeEqualTo(orderType);
+		}
 		example.setOrderByClause("sort DESC ,updatetime DESC");
 		return MapperFactory.getSysDuadMapper().selectByExample(example);
 	}

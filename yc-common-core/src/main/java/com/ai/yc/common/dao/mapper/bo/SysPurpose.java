@@ -19,6 +19,8 @@ public class SysPurpose {
 
     private String namedFlag;
 
+    private Long updatetime;
+
     public String getPurposeId() {
         return purposeId;
     }
@@ -89,5 +91,13 @@ public class SysPurpose {
 
     public void setNamedFlag(String namedFlag) {
         this.namedFlag = namedFlag == null ? null : namedFlag.trim();
+    }
+
+    public Long getUpdatetime() {
+        return updatetime;
+    }
+
+    public void setUpdatetime(Long updatetime) {
+        this.updatetime = updatetime;
     }
 }
