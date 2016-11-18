@@ -37,9 +37,6 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 	@Override
 	public QuerySysPurposeListRes querySysPurposeList(String language)
 			throws BusinessException, SystemException {
-		if(StringUtil.isBlank(language)){
-			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "参数语言不能为空");
-		}
 		List<SysPurpose> purposes = iQuerySysPurposeBusiSV.querySysPurposeList(language);
 		List<SysPurposeVo> vos = new ArrayList<SysPurposeVo>();
 		for(SysPurpose purpose:purposes){
