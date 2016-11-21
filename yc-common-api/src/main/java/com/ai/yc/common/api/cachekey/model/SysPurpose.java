@@ -65,6 +65,8 @@ public class SysPurpose implements Serializable {
      * 是否起名标语：0：是；1：否
      */
     private String namedFlag;
+    
+    private Long updatetime;
 
 	public String getPurposeId() {
 		return purposeId;
@@ -136,6 +138,14 @@ public class SysPurpose implements Serializable {
 
 	public void setNamedFlag(String namedFlag) {
 		this.namedFlag = namedFlag;
+	}
+
+	public Long getUpdatetime() {
+		return updatetime;
+	}
+
+	public void setUpdatetime(Long updatetime) {
+		this.updatetime = updatetime;
 	}
     
     

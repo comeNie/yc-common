@@ -1,13 +1,13 @@
 package com.ai.yc.common.api.cachekey.model;
 
-import com.ai.opt.base.vo.BaseResponse;
+import java.io.Serializable;
 
 /**
  * @author hougang@asiainfo.com
  * @date 2016年11月1日 下午7:04:09
  * @version V1.0
  */
-public class SysDuad extends BaseResponse {
+public class SysDuad implements Serializable {
 
 	private static final long serialVersionUID = -4901957838597069321L;
 
@@ -125,6 +125,8 @@ public class SysDuad extends BaseResponse {
 	 * 状态  0显示  1不显示
 	 */
 	private String state;
+	
+	private Long updatetime;
 	
 
 	public String getDuadId() {
@@ -319,6 +321,13 @@ public class SysDuad extends BaseResponse {
 		this.targetCode = targetCode;
 	}
 
-	
+	public Long getUpdatetime() {
+		return updatetime;
+	}
+
+	public void setUpdatetime(Long updatetime) {
+		this.updatetime = updatetime;
+	}
+
 
 }

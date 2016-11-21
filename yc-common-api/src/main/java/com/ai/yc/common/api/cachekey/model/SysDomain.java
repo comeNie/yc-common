@@ -41,6 +41,12 @@ public class SysDomain implements Serializable{
      * 描述
      */
     private String remarks;
+    
+    private String sort;
+
+    private String state;
+
+    private Long updatetime;
 
 	public String getDomainId() {
 		return domainId;
@@ -88,6 +94,30 @@ public class SysDomain implements Serializable{
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public Long getUpdatetime() {
+		return updatetime;
+	}
+
+	public void setUpdatetime(Long updatetime) {
+		this.updatetime = updatetime;
 	}
     
     
