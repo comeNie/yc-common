@@ -35,9 +35,9 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 	private transient IQuerySysPurposeBusiSV iQuerySysPurposeBusiSV;
 
 	@Override
-	public QuerySysPurposeListRes querySysPurposeList(String language)
+	public QuerySysPurposeListRes querySysPurposeList()
 			throws BusinessException, SystemException {
-		List<SysPurpose> purposes = iQuerySysPurposeBusiSV.querySysPurposeList(language);
+		List<SysPurpose> purposes = iQuerySysPurposeBusiSV.querySysPurposeList(null);
 		List<SysPurposeVo> vos = new ArrayList<SysPurposeVo>();
 		for(SysPurpose purpose:purposes){
 			SysPurposeVo vo = new SysPurposeVo();

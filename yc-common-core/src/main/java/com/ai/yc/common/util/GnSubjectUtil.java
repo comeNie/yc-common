@@ -76,7 +76,7 @@ public final class GnSubjectUtil {
      * @ApiCode
      */
     public static JSONObject getGnSubject(String industryCode, String tenantId, Long subjectId) {
-        ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_SUBJECT);
+        ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SUBJECT);
         String data = cacheClient.hget(CacheNSMapper.CACHE_GN_SUBJECT,
                 generateKey(industryCode, tenantId, subjectId));
         if (!StringUtil.isBlank(data)) {
@@ -123,7 +123,7 @@ public final class GnSubjectUtil {
      * @author lilg
      */
     public static JSONArray getGnSubject(String industryCode, String tenantId, String subjectType) {
-        ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_SUBJECT);
+        ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SUBJECT);
         // 精确匹配
         String data1 = cacheClient.hget(CacheNSMapper.CACHE_GN_SUBJECT,
                 generateKey(industryCode, tenantId, subjectType));
@@ -187,7 +187,7 @@ public final class GnSubjectUtil {
         }
         // 获取SUBJECT_FUND
         ICacheClient cacheClient2 = CacheFactoryUtil
-                .getCacheClient(CacheNSMapper.CACHE_GN_SUBJECT_FUND);
+                .getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SUBJECT_FUND);
         String subjectFund = cacheClient2.hget(CacheNSMapper.CACHE_GN_SUBJECT_FUND,
                 generateKey(industryCode, tenantId, subjectId));
         if (StringUtil.isBlank(subjectFund)) {
@@ -218,7 +218,7 @@ public final class GnSubjectUtil {
 
     public static JSONArray getGnSettleRule(String industryCode, String tenantId, Long subjectId) {
         ICacheClient cacheClient = CacheFactoryUtil
-                .getCacheClient(CacheNSMapper.CACHE_GN_SETTLE_RULE);
+                .getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SETTLE_RULE);
         JSONArray redisData = new JSONArray();
         String data = cacheClient.hget(CacheNSMapper.CACHE_GN_SETTLE_RULE,
                 generateKey(industryCode, tenantId, subjectId));

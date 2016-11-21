@@ -19,6 +19,7 @@ import com.ai.yc.common.dao.mapper.bo.GnSubject;
 import com.ai.yc.common.service.business.subject.IGnSubjectBusiSV;
 import com.ai.yc.common.util.CacheFactoryUtil;
 import com.ai.yc.common.util.GnSubjectUtil;
+import com.ai.yc.common.util.PaaSConfUtil;
 import com.alibaba.fastjson.JSON;
 
 /**
@@ -43,7 +44,15 @@ public class GnSubjectCache extends AbstractCache {
         if (CollectionUtil.isEmpty(funSubjectList)) {
             return;
         }
-        ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_SUBJECT);
+        List<ICacheClient> cacheClientList=new ArrayList<ICacheClient>();
+        String[] areas=PaaSConfUtil.getAllSrvArea();
+        if(areas!=null&&areas.length>0){
+        	for(String srvarea:areas){
+        		ICacheClient cacheClient=CacheFactoryUtil.getCacheClient(srvarea+"."+CacheNSMapper.CACHE_GN_SUBJECT);
+        		cacheClientList.add(cacheClient);
+        	}
+        }
+      
         Map<String, List<GnSubject>> subjectTypeMap = new HashMap<String, List<GnSubject>>();
         for (GnSubject funSubject : funSubjectList) {
             logger.debug("缓存GnSubject科目:行业{},租户ID{},科目ID{},名称{}", funSubject.getIndustryCode(),
@@ -51,9 +60,11 @@ public class GnSubjectCache extends AbstractCache {
                     funSubject.getSubjectName());
             String key1 = GnSubjectUtil.generateKey(funSubject.getIndustryCode(),
                     funSubject.getTenantId(), funSubject.getSubjectId());
-            // JSONObject subjectJson = JSON.parseObject(JSON.toJSONString(funSubject));
+           
             // 缓存key1数据
-            cacheClient.hset(CacheNSMapper.CACHE_GN_SUBJECT, key1, JSON.toJSONString(funSubject));
+            for(ICacheClient cacheClient:cacheClientList){
+               cacheClient.hset(CacheNSMapper.CACHE_GN_SUBJECT, key1, JSON.toJSONString(funSubject));
+            }
             // 组装key2数据
             String key2 = GnSubjectUtil.generateKey(funSubject.getIndustryCode(),
                     funSubject.getTenantId(), funSubject.getSubjectType());
@@ -68,10 +79,10 @@ public class GnSubjectCache extends AbstractCache {
             logger.debug("缓存GnSubject科目【按照科目类型缓存】行业+租户ID+科目类型{},科目数量{}", subjectTypeEntry.getKey(),
                     subjectTypeEntry.getValue().size());
             String key2 = subjectTypeEntry.getKey();
-            // JSONArray subjectJson =
-            // JSON.parseArray(JSON.toJSONString(subjectTypeEntry.getValue()));
-            cacheClient.hset(CacheNSMapper.CACHE_GN_SUBJECT, key2,
-                    JSON.toJSONString(subjectTypeEntry.getValue()));
+            for(ICacheClient cacheClient:cacheClientList){
+            	cacheClient.hset(CacheNSMapper.CACHE_GN_SUBJECT, key2,JSON.toJSONString(subjectTypeEntry.getValue()));
+            }
+            
         }
     }
 

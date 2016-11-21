@@ -1,5 +1,6 @@
 package com.ai.yc.common.cache;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -15,6 +16,7 @@ import com.ai.yc.common.dao.mapper.bo.GnSubjectFund;
 import com.ai.yc.common.service.business.subject.IGnSubjectBusiSV;
 import com.ai.yc.common.util.CacheFactoryUtil;
 import com.ai.yc.common.util.GnSubjectUtil;
+import com.ai.yc.common.util.PaaSConfUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
@@ -40,8 +42,14 @@ public class GnSubjectFundCache extends AbstractCache {
         if (CollectionUtil.isEmpty(funSubjectFundList)) {
             return;
         }
-        ICacheClient cacheClient = CacheFactoryUtil
-                .getCacheClient(CacheNSMapper.CACHE_GN_SUBJECT_FUND);
+        List<ICacheClient> cacheClientList=new ArrayList<ICacheClient>();
+        String[] areas=PaaSConfUtil.getAllSrvArea();
+        if(areas!=null&&areas.length>0){
+        	for(String srvarea:areas){
+        		ICacheClient cacheClient=CacheFactoryUtil.getCacheClient(srvarea+"."+CacheNSMapper.CACHE_GN_SUBJECT_FUND);
+        		cacheClientList.add(cacheClient);
+        	}
+        }
         for (GnSubjectFund funSubjectFund : funSubjectFundList) {
             logger.info("缓存GnSubjectFund资金科目定义:行业{},租户ID{},科目ID{}",
                     funSubjectFund.getIndustryCode(), funSubjectFund.getTenantId(),
@@ -49,7 +57,9 @@ public class GnSubjectFundCache extends AbstractCache {
             String key = GnSubjectUtil.generateKey(funSubjectFund.getIndustryCode(),
                     funSubjectFund.getTenantId(), funSubjectFund.getSubjectId());
             JSONObject subjectJson = JSON.parseObject(JSON.toJSONString(funSubjectFund));
-            cacheClient.hset(CacheNSMapper.CACHE_GN_SUBJECT_FUND, key, subjectJson.toJSONString());
+            for(ICacheClient cacheClient:cacheClientList){
+            	cacheClient.hset(CacheNSMapper.CACHE_GN_SUBJECT_FUND, key, subjectJson.toJSONString());
+            }
         }
     }
 

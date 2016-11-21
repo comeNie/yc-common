@@ -25,7 +25,6 @@ public interface IQuerySysPurposeSV {
 
     /**
      * 用途列表查询
-     * @param language 语言
      * @return 用途列表
      * @throws BusinessException,SystemException
      * @author hougang
@@ -35,7 +34,7 @@ public interface IQuerySysPurposeSV {
 	 */
 	@POST
 	@Path("/querySysPurposeList")
-	QuerySysPurposeListRes querySysPurposeList(String language)throws BusinessException,SystemException;
+	QuerySysPurposeListRes querySysPurposeList()throws BusinessException,SystemException;
 	
 	/**
      * 用途详情查询

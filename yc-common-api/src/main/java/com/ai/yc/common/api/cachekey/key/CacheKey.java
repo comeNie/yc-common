@@ -8,39 +8,40 @@ import java.io.Serializable;
  * @date 2016年11月3日 上午10:35:19 
  * @version V1.0
  */
+/**
+ * @Description: TODO
+ * @author hougang@asiainfo.com
+ * @date 2016年11月21日 下午3:19:26 
+ * @version V1.0
+ */
 public class CacheKey implements Serializable {
 
 	private static final long serialVersionUID = 3633287499459454094L;
 	
 	/**
-	 * 中文语言对
+	 * 语言对
 	 */
-	public static final String CN_DUAD_KEY = "CN_DUAD";
+	public static final String DUAD_L_NAMESPACE = "DUAD_L";
+	
+	public static final String DUAD_D_NAMESPACE = "DUAD_D";
 	
 	/**
-	 * 英文语言对
+	 * 领域
 	 */
-	public static final String EN_DUAD_KEY = "EN_DUAD";
-	
-    /**
-     * 中文用途
-     */
-    public static final String CN_PURPOSE_KEY = "CN_DUAD";
-	
-    /**
-     * 英文用途
-     */
-	public static final String EN_PURPOSE_KEY = "EN_PURPOSE";
+    public static final String DOMAIN_L_NAMESPACE = "DOMAIN_L"; 
+    
+    public static final String DOMAIN_L_KEY = "ALL"; 
+    
+	public static final String DOMAIN_D_NAMESPACE = "DOMAIN_D";
 	
 	/**
-     * 中文领域
-     */
-    public static final String CN_DOMAIN_KEY = "CN_DOMAIN";
-	
-	/**
-	 * 英文领域
+	 * 用途
 	 */
-	public static final String EN_DOMAIN_KEY = "EN_DOMAIN";
+    public static final String PURPOSE_L_NAMESPACE = "PURPOSE_L"; 
+    
+    public static final String PURPOSE_L_KEY = "ALL"; 
+    
+	public static final String PURPOSE_D_NAMESPACE = "PURPOSE_D";
 	
 	/**
 	 * 首页数据配置

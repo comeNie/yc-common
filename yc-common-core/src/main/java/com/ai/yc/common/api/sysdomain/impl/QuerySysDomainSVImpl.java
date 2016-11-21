@@ -52,9 +52,9 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 
 
 	@Override
-	public QuerySysDomainListRes querySysDomainList(String language)
+	public QuerySysDomainListRes querySysDomainList()
 			throws BusinessException, SystemException {
-		List<SysDomain> domains = querySysDomainBusiSV.querySysDomainList(language);
+		List<SysDomain> domains = querySysDomainBusiSV.querySysDomainList(null);
 		List<SysDomainVo> vos = new ArrayList<SysDomainVo>();
 		for(SysDomain domain:domains){
 			SysDomainVo vo = new SysDomainVo();

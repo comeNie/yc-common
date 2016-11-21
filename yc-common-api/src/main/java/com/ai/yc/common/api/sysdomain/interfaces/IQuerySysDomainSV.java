@@ -24,7 +24,6 @@ public interface IQuerySysDomainSV {
 	
 	 /**
      * 领域列表查询
-     * @param language 语言
      * @return 领域列表
      * @throws BusinessException,SystemException
      * @author hougang
@@ -34,7 +33,7 @@ public interface IQuerySysDomainSV {
 	 */
 	@POST
 	@Path("/querySysDomainList")
-	QuerySysDomainListRes querySysDomainList(String language)throws BusinessException,SystemException;
+	QuerySysDomainListRes querySysDomainList()throws BusinessException,SystemException;
 	
 	/**
      * 领域详情查询

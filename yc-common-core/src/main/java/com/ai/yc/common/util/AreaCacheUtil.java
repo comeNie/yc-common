@@ -31,7 +31,7 @@ public final class AreaCacheUtil {
                 return null;
             }
             String key=areaCode.toUpperCase();
-            ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_AREA);
+            ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_AREA);
             String data=cacheClient.hget(CacheNSMapper.CACHE_GN_AREA, key);
             GnArea result = JSON.parseObject(data, GnArea.class);
             if(result!=null){
@@ -52,7 +52,7 @@ public final class AreaCacheUtil {
     			return null;
     		}
     		String key=areaCode.toUpperCase();
-    		ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_AREA);
+    		ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_AREA);
     		String data=cacheClient.hget(CacheNSMapper.CACHE_GN_AREA, key);
     		if(StringUtil.isBlank(data)){
     			return null;
@@ -66,7 +66,7 @@ public final class AreaCacheUtil {
 
     public static void updateAreaCacheData(GnArea area) {
         try {
-            ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_AREA);
+            ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_AREA);
             String key=area.getAreaCode().toUpperCase();
             cacheClient.hset(CacheNSMapper.CACHE_GN_AREA, key, JSON.toJSONString(area));
         } catch (Exception e) {

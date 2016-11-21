@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import com.ai.opt.sdk.cache.base.AbstractCache;
@@ -19,11 +17,12 @@ import com.ai.yc.common.dao.mapper.bo.GnSysParam;
 import com.ai.yc.common.dao.mapper.bo.GnSysParamCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
 import com.ai.yc.common.util.CacheFactoryUtil;
+import com.ai.yc.common.util.PaaSConfUtil;
 import com.alibaba.fastjson.JSON;
 
 @Component
 public class GnSysParamCache extends AbstractCache {
-    private static final Logger logger = LogManager.getLogger(GnSysParamCache.class);
+   // private static final Logger logger = LogManager.getLogger(GnSysParamCache.class);
 
     @Override
     public void write() throws Exception {
@@ -33,20 +32,31 @@ public class GnSysParamCache extends AbstractCache {
         if (CollectionUtil.isEmpty(paramList)) {
             return;
         }
-        ICacheClient cacheClient = CacheFactoryUtil
-                .getCacheClient(CacheNSMapper.CACHE_GN_SYS_PARAM);
+        List<ICacheClient> cacheClientList = new ArrayList<ICacheClient>();
+        String[] areas=PaaSConfUtil.getAllSrvArea();
+        if(areas!=null&&areas.length>0){
+        	for(String srvarea:areas){
+        		ICacheClient cacheClient=CacheFactoryUtil.getCacheClient(srvarea+"."+CacheNSMapper.CACHE_GN_SYS_PARAM);
+        		cacheClientList.add(cacheClient);
+        	}
+        }
+       
         Map<String, List<SysParam>> map = new HashMap<String, List<SysParam>>();
-        // List<GnTenant> gnTenants = null;
 
         for (GnSysParam gnSysParam : paramList) {
             SysParam sysParam = new SysParam();
             BeanUtils.copyProperties(sysParam, gnSysParam);
             String tenantId = gnSysParam.getTenantId();
-            setSingleCache(cacheClient, map, gnSysParam, sysParam, tenantId);
+            for(ICacheClient cacheClient:cacheClientList){
+            	 setSingleCache(cacheClient, map, gnSysParam, sysParam, tenantId);
+            }
+           
         }
         for (Map.Entry<String, List<SysParam>> entry : map.entrySet()) {
-            cacheClient.hset(CacheNSMapper.CACHE_GN_SYS_PARAM, entry.getKey(),
-                    JSON.toJSONString(entry.getValue()));
+        	 for(ICacheClient cacheClient:cacheClientList){
+        		  cacheClient.hset(CacheNSMapper.CACHE_GN_SYS_PARAM, entry.getKey(),JSON.toJSONString(entry.getValue()));
+        	 }
+          
         }
     }
 

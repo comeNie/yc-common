@@ -60,7 +60,7 @@ public class SysConfigTest {
 	@Test
 	public void testSysDuad(){
 		QuerySysDuadListReq req = new QuerySysDuadListReq();
-		req.setLanguage("china");
+		req.setLanguage("zh_CN");
 		req.setOrderType(QuerySysDuadListReq.ORDER_TYPE_DOC);
 		QuerySysDuadListRes res = iQuerySysDuadSV.querySysDuadList(req);
 		System.out.println("res:"+gson.toJson(res));
@@ -72,7 +72,7 @@ public class SysConfigTest {
 	
 	@Test
 	public void testSysDomain(){
-		QuerySysDomainListRes res = iQuerySysDomainSV.querySysDomainList("china");
+		QuerySysDomainListRes res = iQuerySysDomainSV.querySysDomainList();
 		System.out.println("res:"+gson.toJson(res));
 		
 		QuerySysDomainDetailsRes domain = iQuerySysDomainSV.querySysDomainDetails("1");
@@ -81,7 +81,7 @@ public class SysConfigTest {
 	
 	@Test
 	public void testSysPurpose(){
-		QuerySysPurposeListRes res = iQuerySysPurposeSV.querySysPurposeList("china");
+		QuerySysPurposeListRes res = iQuerySysPurposeSV.querySysPurposeList();
 		System.out.println("res:"+gson.toJson(res));
 	}
 

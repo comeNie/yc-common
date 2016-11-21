@@ -35,7 +35,7 @@ public final class ServiceNumCacheUtil {
     			serviceNumCode=serviceNumCode.substring(0, 7);
     		}
     		String key=serviceNumCode.toUpperCase();
-    		ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_SERVICE_NUM);
+    		ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SERVICE_NUM);
     		String data=cacheClient.hget(CacheNSMapper.CACHE_GN_SERVICE_NUM, key);
             return  JSON.parseObject(data, ServiceNum.class);
     	} catch (Exception e) {
@@ -58,7 +58,7 @@ public final class ServiceNumCacheUtil {
     }
     public static void updateServiceNumCacheData(ServiceNum serviceNum) {
     	try {
-    		ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(CacheNSMapper.CACHE_GN_SERVICE_NUM);
+    		ICacheClient cacheClient = CacheFactoryUtil.getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SERVICE_NUM);
     		String key=serviceNum.getServiceNumCode().toUpperCase();
     		cacheClient.hset(CacheNSMapper.CACHE_GN_SERVICE_NUM, key, JSON.toJSONString(serviceNum));
     	} catch (Exception e) {

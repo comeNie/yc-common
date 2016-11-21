@@ -16,7 +16,7 @@ public final class SysParamUtil {
 
     public static List<SysParam> getSysParams(String tenantId, String typeCode, String paramCode) {
         ICacheClient cacheClient = CacheFactoryUtil
-                .getCacheClient(CacheNSMapper.CACHE_GN_SYS_PARAM);
+                .getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SYS_PARAM);
         String key = (typeCode + "." + paramCode + "." + tenantId).toUpperCase();
         String data = cacheClient.hget(CacheNSMapper.CACHE_GN_SYS_PARAM, key);
         if(StringUtil.isBlank(data)){//若查不到数据，则查询租户为ALL的缓存
@@ -29,7 +29,7 @@ public final class SysParamUtil {
     public static SysParam getSysParam(String tenantId, String typeCode, String paramCode,
             String columnValue) {
         ICacheClient cacheClient = CacheFactoryUtil
-                .getCacheClient(CacheNSMapper.CACHE_GN_SYS_PARAM);
+                .getCacheClient(PaaSConfUtil.getCurrSrvArea()+"."+CacheNSMapper.CACHE_GN_SYS_PARAM);
         String key = (typeCode + "." + paramCode + "." + tenantId + "." + columnValue)
                 .toUpperCase();
         String data = cacheClient.hget(CacheNSMapper.CACHE_GN_SYS_PARAM, key);
