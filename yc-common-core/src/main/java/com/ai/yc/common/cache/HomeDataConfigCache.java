@@ -45,7 +45,7 @@ public class HomeDataConfigCache extends AbstractCache{
 				}
 			}
 			for (ICacheClient cacheClient : cacheClientList) {
-				cacheClient.hset(CacheNSMapper.CACHE_HOME_DATA_CONFIG_RULE, CacheKey.HOME_DATA_CONFIG_KEY,JSON.toJSONString(hConfig));
+				cacheClient.hset(CacheKey.HOME_DATA_CONFIG_KEY, CacheKey.HOME_DATA_CONFIG_KEY,JSON.toJSONString(hConfig));
 			}
 		}
 	}
