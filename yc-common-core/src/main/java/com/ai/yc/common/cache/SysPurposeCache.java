@@ -40,11 +40,11 @@ public class SysPurposeCache extends AbstractCache{
 			}
 		}
 		for (ICacheClient cacheClient : cacheClientList) {
-			cacheClient.hset(CacheKey.PURPOSE_L_NAMESPACE, CacheKey.PURPOSE_L_KEY,JSON.toJSONString(purposes));
+			cacheClient.hset(CacheKey.PURPOSE_L_KEY, CacheKey.PURPOSE_L_KEY,JSON.toJSONString(purposes));
 		}
 		for(SysPurpose purpose:purposes){
 			for (ICacheClient cacheClient : cacheClientList) {
-				cacheClient.hset(CacheKey.PURPOSE_D_NAMESPACE, purpose.getPurposeId(),JSON.toJSONString(purpose));
+				cacheClient.hset(CacheKey.PURPOSE_D_KEY, purpose.getPurposeId(),JSON.toJSONString(purpose));
 			}
 		}
 	}

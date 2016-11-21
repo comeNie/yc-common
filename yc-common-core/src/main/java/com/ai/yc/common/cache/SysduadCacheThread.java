@@ -38,11 +38,11 @@ public class SysduadCacheThread extends Thread {
 	public void run() {
 		super.run();
 		for (ICacheClient cacheClient : cacheClientList) {
-			cacheClient.hset(CacheKey.DUAD_L_NAMESPACE, orderType,JSON.toJSONString(duads));
+			cacheClient.hset(CacheKey.DUAD_L_KEY, orderType,JSON.toJSONString(duads));
 		}
 		for (SysDuad duad : duads) {
 			for (ICacheClient cacheClient : cacheClientList) {
-				cacheClient.hset(CacheKey.DUAD_D_NAMESPACE, duad.getDuadId(),JSON.toJSONString(duad));
+				cacheClient.hset(CacheKey.DUAD_D_KEY, duad.getDuadId(),JSON.toJSONString(duad));
 			}
 		}
 

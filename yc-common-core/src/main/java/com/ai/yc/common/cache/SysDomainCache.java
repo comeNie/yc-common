@@ -40,11 +40,11 @@ public class SysDomainCache extends AbstractCache {
 			}
 		}
 		for (ICacheClient cacheClient : cacheClientList) {
-			cacheClient.hset(CacheKey.DOMAIN_L_NAMESPACE, CacheKey.DOMAIN_L_KEY,JSON.toJSONString(domains));
+			cacheClient.hset(CacheKey.DOMAIN_L_KEY,CacheKey.DOMAIN_L_KEY,JSON.toJSONString(domains));
 		}
 		for(SysDomain domain:domains){
 			for (ICacheClient cacheClient : cacheClientList) {
-				cacheClient.hset(CacheKey.DOMAIN_D_NAMESPACE, domain.getDomainId(),JSON.toJSONString(domain));
+				cacheClient.hset(CacheKey.DOMAIN_D_KEY, domain.getDomainId(),JSON.toJSONString(domain));
 			}
 		}
 	}
