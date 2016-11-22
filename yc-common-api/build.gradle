@@ -81,7 +81,7 @@ for(Map<String,String> apiMap:apiList){
     apiSourceTaskMap.put(apiName,jarSourceTask);
 
     def apidocTask=task("${apiArtifactId}APIDoc",group: "APIDoc",type:com.ai.runner.gradle.plugin.APICollectorTask){
-    	//dependsOn apiJarProcessTask
+    	dependsOn apiJarProcessTask
         //esconfig = "[{ip:10.1.234.160, port:14999}]"
         esconfig = "{\"clusterName\":\"elasticsearch_for_sol\",\"ip\":\"10.1.234.160\", \"port\":14999}"
         source = fileTree(dir: 'src/main/java', include: 'com/ai/yc/common/api/'+apiName+'/**/*.java')+fileTree(dir:"$buildDir/opt-base", include:"**/*.java")
