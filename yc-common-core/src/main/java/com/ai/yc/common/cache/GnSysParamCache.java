@@ -47,9 +47,7 @@ public class GnSysParamCache extends AbstractCache {
             SysParam sysParam = new SysParam();
             BeanUtils.copyProperties(sysParam, gnSysParam);
             String tenantId = gnSysParam.getTenantId();
-            for(ICacheClient cacheClient:cacheClientList){
-            	 setSingleCache(cacheClient, map, gnSysParam, sysParam, tenantId);
-            }
+            setSingleCache(cacheClientList, map, gnSysParam, sysParam, tenantId);
            
         }
         for (Map.Entry<String, List<SysParam>> entry : map.entrySet()) {
@@ -60,7 +58,7 @@ public class GnSysParamCache extends AbstractCache {
         }
     }
 
-    private void setSingleCache(ICacheClient cacheClient, Map<String, List<SysParam>> map,
+    private void setSingleCache(List<ICacheClient> cacheClientList, Map<String, List<SysParam>> map,
             GnSysParam gnSysParam, SysParam sysParam, String tenantId) {
         StringBuilder keyOne = new StringBuilder();
         StringBuilder keyTwo;
@@ -75,7 +73,9 @@ public class GnSysParamCache extends AbstractCache {
             map.put(strKeyOne, new ArrayList<SysParam>());
         }
         map.get(strKeyOne).add(sysParam);
-
-        cacheClient.hset(CacheNSMapper.CACHE_GN_SYS_PARAM, strKeyTwo, JSON.toJSONString(sysParam));
+        for(ICacheClient cacheClient:cacheClientList){
+        	 cacheClient.hset(CacheNSMapper.CACHE_GN_SYS_PARAM, strKeyTwo, JSON.toJSONString(sysParam));
+        }
+       
     }
 }
