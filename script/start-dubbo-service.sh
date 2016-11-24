@@ -2,9 +2,8 @@
 
 #env
 APP_HOME=/dubbo-service
-APP_NAME="general.common"
+APP_NAME="yc.common"
 APP_PARM="aiopt.product.name=${APP_NAME}"
-PROCESS_PARM="general.common.dubbo.port=${REST_PORT}"
 
 for file in ${APP_HOME}/libs/**/*.jar;
 do CP=${CP}:$file;
@@ -20,7 +19,7 @@ MEM_ARGS="-Xms256m -Xmx512m -XX:PermSize=64M -XX:MaxPermSize=128M"
 JAVA_OPTIONS="-Duser.timezone=GMT -Dfile.encoding=UTF-8 -Djava.net.preferIPv4Stack=true -Dsun.net.inetaddr.ttl=10 -Ddubbo.provider.timeout=20000 -Djava.security.egd=file:/dev/./urandom"
 
 echo "TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT"
-START_CMD="${MEM_ARGS} -D${APP_PARM} -D${PROCESS_PARM}  ${JAVA_OPTIONS} com.ai.opt.sdk.appserver.DubboServiceStart  >> $LOG_PATH & 2 > 1 &"
+START_CMD="${MEM_ARGS} -D${APP_PARM}  ${JAVA_OPTIONS} com.ai.opt.sdk.appserver.DubboServiceStart  >> $LOG_PATH & 2 > 1 &"
 
 echo ${JAVA_HOME}
 echo ${CLASSPATH}
@@ -47,5 +46,3 @@ echo "-------------------${APP_NAME} dubbo service start --------------------"
 java ${START_CMD}
 echo "${APP_NAME} dubbo server started!! logs at $LOG_PATH"
 
-
-./start-cache-service.sh
