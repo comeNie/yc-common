@@ -13,7 +13,7 @@ docker push 10.19.13.18:5000/yc-common:v1.0
 #--net=host  表示为主机(host)模式  去掉该配置，默认为桥接(bridge)模式
 #-e 代表需要设置的环境变量
 docker run -d --name yc-common -p 10881:10881 \
--e "REST_REGISTRY_ADDR=10.19.13.13:29181" \
+-e "REST_REGISTRY_ADDR=10.19.13.23:29181" \
 -e "REST_PORT=10881" \
 -e "CONTEXT_PATH=yc-common" \
 -e "SDK_MODE=0" \
@@ -23,7 +23,7 @@ docker run -d --name yc-common -p 10881:10881 \
 -e "PAAS_CCS_PWD=123456" \
 -e "SRVAREA_ALL=cn.hb,us.ea"  \
 -e "SRVAREA_CURR=cn.hb"  \
-10.19.13.18:5000/yc-common:v1.0_2 
+10.19.13.18:5000/yc-common:v1.0_3 
 #查看镜像启动日志
 docker logs yc-common
 #进入容器，查看镜像内部的情况
