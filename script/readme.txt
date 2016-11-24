@@ -12,18 +12,18 @@ docker push 10.19.13.18:5000/yc-common:v1.0
 3. 运行镜像
 #--net=host  表示为主机(host)模式  去掉该配置，默认为桥接(bridge)模式
 #-e 代表需要设置的环境变量
-docker run -d --name yc-common -p 10881:10881 
--e "REST_REGISTRY_ADDR=10.19.13.13:29181" 
--e "REST_PORT=10885" 
--e "CONTEXT_PATH=yc-common" 
--e "SDK_MODE=0" 
--e "PAAS_AUTH_URL=http://10.1.245.4:19811/service-portal-uac-web/service/auth" 
--e "PAAS_AUTH_PID=D14F7D708109471AB6F3084B2ABAE9A6"
--e "PAAS_CCS_ID=CCS007" 
--e "PAAS_CCS_PWD=123456"
--e "SRVAREA_ALL=cn.hb,us.ea" 
--e "SRVAREA_CURR=cn.hb"  
-10.19.13.18:5000/yc-common:v1.0 
+docker run -d --name yc-common -p 10881:10881 \
+-e "REST_REGISTRY_ADDR=10.19.13.13:29181" \
+-e "REST_PORT=10881" \
+-e "CONTEXT_PATH=yc-common" \
+-e "SDK_MODE=0" \
+-e "PAAS_AUTH_URL=http://10.1.245.4:19811/service-portal-uac-web/service/auth" \
+-e "PAAS_AUTH_PID=D14F7D708109471AB6F3084B2ABAE9A6" \
+-e "PAAS_CCS_ID=CCS007" \
+-e "PAAS_CCS_PWD=123456" \
+-e "SRVAREA_ALL=cn.hb,us.ea"  \
+-e "SRVAREA_CURR=cn.hb"  \
+10.19.13.18:5000/yc-common:v1.0_2 
 #查看镜像启动日志
 docker logs yc-common
 #进入容器，查看镜像内部的情况
