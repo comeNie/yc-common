@@ -23,7 +23,7 @@ docker run -d --name yc-common -p 10881:10881 \
 -e "PAAS_CCS_PWD=123456" \
 -e "SRVAREA_ALL=cn.hb,us.ea"  \
 -e "SRVAREA_CURR=cn.hb"  \
-10.19.13.20:5000/yc-common:v1.0_5 
+10.19.13.20:5000/yc-common:v1.0_7 
 #查看镜像启动日志
 docker logs yc-common
 #进入容器，查看镜像内部的情况
