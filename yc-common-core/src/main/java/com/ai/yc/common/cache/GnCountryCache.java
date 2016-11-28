@@ -57,7 +57,7 @@ public class GnCountryCache  extends AbstractCache {
 		for(GnCountry country:list){
 			String countryStr = JSON.toJSONString(country);
 			String  id = String.valueOf(country.getId());
-			String countryCode = country.getCountryCode();
+			String countryCode = country.getCountryValue();
 			for (ICacheClient cacheClient : cacheClientList) {
 				cacheClient.hset(CacheKey.COUNTRY_D_KEY,id,countryStr);
 				cacheClient.hset(CacheKey.COUNTRY_D_KEY,countryCode,countryStr);
