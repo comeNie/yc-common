@@ -3,28 +3,10 @@ package com.ai.yc.common.dao.mapper.factory;
 
 import javax.annotation.PostConstruct;
 
+import com.ai.yc.common.dao.mapper.interfaces.*;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import com.ai.yc.common.dao.mapper.interfaces.GnAreaMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnCountryMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnIndustryMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnIpAddrMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnServiceNumMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnSettleRuleMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnSubjectFundMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnSubjectMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnSysParamMapper;
-import com.ai.yc.common.dao.mapper.interfaces.GnTenantMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysConfigMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysDomainMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysDuadMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysMenuMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysOfficeMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysPurposeMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysUserMapper;
-import com.ai.yc.common.dao.mapper.interfaces.SysWaitjobsMapper;
 
 @Component
 public class MapperFactory {
@@ -115,6 +97,10 @@ public class MapperFactory {
     }
     public static GnCountryMapper getGnCountryMapper() {
         return sqlSessionTemplate.getMapper(GnCountryMapper.class);
+    }
+
+    public static GnRegionMapper getGnRegionMapper(){
+        return sqlSessionTemplate.getMapper(GnRegionMapper.class);
     }
     
     
