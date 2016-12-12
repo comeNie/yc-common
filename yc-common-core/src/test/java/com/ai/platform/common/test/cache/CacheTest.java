@@ -3,6 +3,8 @@ package com.ai.platform.common.test.cache;
 import java.util.List;
 import java.util.UUID;
 
+import com.ai.yc.common.cache.GnRegionCache;
+import com.ai.yc.common.dao.mapper.bo.GnRegion;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ import com.alibaba.fastjson.JSON;
 public class CacheTest {
 	@Autowired
 	private GnSysParamCache paramSV;
+	@Autowired
+	private GnRegionCache regionCache;
 	@Autowired
 	private ICacheSV iCacheSV;
 	
@@ -127,6 +131,15 @@ public class CacheTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+    }
+
+    @Test
+    public void flushGnRegion(){
+        try {
+            regionCache.write();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     
