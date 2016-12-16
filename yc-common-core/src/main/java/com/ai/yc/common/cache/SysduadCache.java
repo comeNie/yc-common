@@ -31,9 +31,9 @@ public class SysduadCache extends AbstractCache{
 	@Override
 	public void write() throws Exception {
 		ExecutorService pool = Executors.newFixedThreadPool(3);
-		List<SysDuad> txtDuads = iSysDuadAtomSV.querySysDuadList(null, Constants.SysDuad.ORDER_TYPE_FAST);	
-		List<SysDuad> docDuads = iSysDuadAtomSV.querySysDuadList(null, Constants.SysDuad.ORDER_TYPE_DOC);	
-		List<SysDuad> oralDuads = iSysDuadAtomSV.querySysDuadList(null, Constants.SysDuad.ORDER_TYPE_ORAL);
+		List<SysDuad> txtDuads = iSysDuadAtomSV.querySysDuadList(Constants.ZH_CN, Constants.SysDuad.ORDER_TYPE_FAST);	
+		List<SysDuad> docDuads = iSysDuadAtomSV.querySysDuadList(Constants.ZH_CN, Constants.SysDuad.ORDER_TYPE_DOC);	
+		List<SysDuad> oralDuads = iSysDuadAtomSV.querySysDuadList(Constants.ZH_CN, Constants.SysDuad.ORDER_TYPE_ORAL);
 		
 		try {
 			pool.execute(new SysduadCacheThread(txtDuads,Constants.SysDuad.ORDER_TYPE_FAST));

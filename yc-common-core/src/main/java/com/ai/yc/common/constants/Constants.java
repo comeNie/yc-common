@@ -8,6 +8,8 @@ public final class Constants {
     private Constants() {
         // non
     }
+    
+    public final static String ZH_CN = "zh_CN";
 
     public final static class TenantId {
         private TenantId() {

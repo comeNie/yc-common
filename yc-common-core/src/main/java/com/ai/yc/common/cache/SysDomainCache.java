@@ -10,6 +10,7 @@ import com.ai.opt.sdk.cache.base.AbstractCache;
 import com.ai.paas.ipaas.mcs.interfaces.ICacheClient;
 import com.ai.yc.common.api.cachekey.key.CacheKey;
 import com.ai.yc.common.constants.CacheNSMapper;
+import com.ai.yc.common.constants.Constants;
 import com.ai.yc.common.dao.mapper.bo.SysDomain;
 import com.ai.yc.common.service.atom.sysdomain.ISysDomainAtomSV;
 import com.ai.yc.common.util.CacheFactoryUtil;
@@ -30,7 +31,7 @@ public class SysDomainCache extends AbstractCache {
 
 	@Override
 	public void write() throws Exception {
-	    List<SysDomain> domains =	iSysDomainAtomSV.querySysDomainList(null);
+	    List<SysDomain> domains =	iSysDomainAtomSV.querySysDomainList(Constants.ZH_CN);
 		List<ICacheClient> cacheClientList = new ArrayList<ICacheClient>();
 		String[] areas = PaaSConfUtil.getAllSrvArea();
 		if (areas != null && areas.length > 0) {

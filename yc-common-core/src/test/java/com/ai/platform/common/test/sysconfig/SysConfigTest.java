@@ -79,7 +79,7 @@ public class SysConfigTest {
 	@Test
 	public void testSysDomain(){
 		QuerySysDomainListReq req = new QuerySysDomainListReq();
-		req.setLanguage("zh_CN");
+		req.setLanguage("en_US");
 		QuerySysDomainListRes res = iQuerySysDomainSV.querySysDomainList(req);
 		System.out.println("res:"+gson.toJson(res));
 		
@@ -90,7 +90,7 @@ public class SysConfigTest {
 	@Test
 	public void testSysPurpose(){
 		QuerySysPurposeListReq req = new QuerySysPurposeListReq();
-		req.setLanguage("zh_CN");
+		req.setLanguage("");
 		QuerySysPurposeListRes res = iQuerySysPurposeSV.querySysPurposeList(req);
 		System.out.println("res:"+gson.toJson(res));
 	}
