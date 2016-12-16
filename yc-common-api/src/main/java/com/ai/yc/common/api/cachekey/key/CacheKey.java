@@ -61,5 +61,11 @@ public class CacheKey implements Serializable {
 	 * 首页数据配置
 	 */
 	public static final String HOME_DATA_CONFIG_KEY = "HOME_DATA_CONFIG";
+	/**
+	 * 国家
+	 */
+    public static final String COUNTRY_L_KEY = "COUNTRY_L"; 
+    
+	public static final String COUNTRY_D_KEY = "COUNTRY_D";
 
 }
