@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeDetailsRes;
+import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListReq;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListRes;
 
 /**
@@ -34,7 +35,7 @@ public interface IQuerySysPurposeSV {
 	 */
 	@POST
 	@Path("/querySysPurposeList")
-	QuerySysPurposeListRes querySysPurposeList()throws BusinessException,SystemException;
+	QuerySysPurposeListRes querySysPurposeList(QuerySysPurposeListReq req)throws BusinessException,SystemException;
 	
 	/**
      * 用途详情查询

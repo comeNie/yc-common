@@ -14,6 +14,7 @@ import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.api.sysdomain.interfaces.IQuerySysDomainSV;
 import com.ai.yc.common.api.sysdomain.param.QuerySysDomainDetailsRes;
+import com.ai.yc.common.api.sysdomain.param.QuerySysDomainListReq;
 import com.ai.yc.common.api.sysdomain.param.QuerySysDomainListRes;
 import com.ai.yc.common.api.sysdomain.param.SysDomainVo;
 import com.ai.yc.common.constants.ResultCodeConstants;
@@ -52,9 +53,9 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 
 
 	@Override
-	public QuerySysDomainListRes querySysDomainList()
+	public QuerySysDomainListRes querySysDomainList(QuerySysDomainListReq req)
 			throws BusinessException, SystemException {
-		List<SysDomain> domains = querySysDomainBusiSV.querySysDomainList(null);
+		List<SysDomain> domains = querySysDomainBusiSV.querySysDomainList(req.getLanguage());
 		List<SysDomainVo> vos = new ArrayList<SysDomainVo>();
 		for(SysDomain domain:domains){
 			SysDomainVo vo = new SysDomainVo();

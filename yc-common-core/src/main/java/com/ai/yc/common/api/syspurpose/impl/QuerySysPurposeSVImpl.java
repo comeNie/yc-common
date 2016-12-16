@@ -14,6 +14,7 @@ import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.api.syspurpose.interfaces.IQuerySysPurposeSV;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeDetailsRes;
+import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListReq;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListRes;
 import com.ai.yc.common.api.syspurpose.param.SysPurposeVo;
 import com.ai.yc.common.constants.ResultCodeConstants;
@@ -35,9 +36,9 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 	private transient IQuerySysPurposeBusiSV iQuerySysPurposeBusiSV;
 
 	@Override
-	public QuerySysPurposeListRes querySysPurposeList()
+	public QuerySysPurposeListRes querySysPurposeList(QuerySysPurposeListReq req)
 			throws BusinessException, SystemException {
-		List<SysPurpose> purposes = iQuerySysPurposeBusiSV.querySysPurposeList(null);
+		List<SysPurpose> purposes = iQuerySysPurposeBusiSV.querySysPurposeList(req.getLanguage());
 		List<SysPurposeVo> vos = new ArrayList<SysPurposeVo>();
 		for(SysPurpose purpose:purposes){
 			SysPurposeVo vo = new SysPurposeVo();
