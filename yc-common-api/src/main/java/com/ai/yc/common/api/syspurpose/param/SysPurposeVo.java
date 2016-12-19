@@ -35,6 +35,19 @@ public class SysPurposeVo implements Serializable {
      * 英文名称
      */
     private String purposeEn;
+    
+    /**
+     * 是否起名标语：0：是；1：否
+     */
+    private String namedFlag;
+
+	public String getNamedFlag() {
+		return namedFlag;
+	}
+
+	public void setNamedFlag(String namedFlag) {
+		this.namedFlag = namedFlag;
+	}
 
 	public String getPurposeId() {
 		return purposeId;
