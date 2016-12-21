@@ -1,6 +1,7 @@
 package com.ai.platform.common.test.ccs;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.ai.opt.sdk.components.ccs.CCSClientFactory;
@@ -18,7 +19,7 @@ public class IConfigCenterClientTest {
     }
     
     @Test
-    //@Ignore
+    @Ignore
     public void addMcsConfig() throws ConfigException {
         // 缓存服务主机
         String baasopwebRedisHost = "MCS008";
@@ -40,7 +41,7 @@ public class IConfigCenterClientTest {
         }
     }
     
-    //@Ignore
+    @Ignore
     @Test
     public void readMcsConfig() throws ConfigException {
     	
@@ -49,7 +50,7 @@ public class IConfigCenterClientTest {
     	System.out.println("cachesns:"+cachesns);
 
     }
-    
+    @Ignore
     @Test
     public void addServiceIdPwdMap() throws ConfigException {
         String cachesnsConfig = "{\"MCS008\":\"" + "123456"
@@ -64,7 +65,7 @@ public class IConfigCenterClientTest {
                     cachesnsConfig);
         }
     }
-    
+    @Ignore
     @Test
     public void addDbConfInfo() throws ConfigException {
         System.out.println("DBConf config ... start");
