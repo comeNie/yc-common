@@ -13,7 +13,7 @@ import com.ai.opt.sdk.cache.base.AbstractCache;
 import com.ai.yc.common.dao.mapper.bo.GnArea;
 import com.ai.yc.common.service.atom.area.IGnAreaAtomService;
 
-@Component
+//@Component
 public class GnAreaCache extends AbstractCache {
     private static final Logger logger = LoggerFactory.getLogger(GnAreaCache.class);
 
