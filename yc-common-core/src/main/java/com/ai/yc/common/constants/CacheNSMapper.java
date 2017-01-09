@@ -17,4 +17,5 @@ public final class CacheNSMapper {
     public static final String CACHE_HOME_DATA_CONFIG_RULE = "com.ai.yc.common.cache.homedataconfig";
     public static final String CACHE_GN_COUNTRY = "com.ai.yc.common.cache.country";
     public static final String CACHE_GN_REGION = "com.ai.yc.common.cache.gnregion";
+    public static final String CACHE_GN_T_DICT_AREA_REGION = "com.ai.yc.common.cache.gntdictarearegion";
 }
