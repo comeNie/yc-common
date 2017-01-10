@@ -21,8 +21,6 @@ import com.ai.yc.common.service.atom.sysconfig.ISysConfigAtomSV;
 @Service
 public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 
-	@Autowired
-	private SysConfigMapper sysConfigMapper;
 	
 	@Override
 	public SysConfig selectOne() {
@@ -43,7 +41,7 @@ public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 		sysConfig.setCustomNum(sysOri.getCustomNum() + (((long)Math.random())%3));
 		sysConfig.setInterpreterNum(sysOri.getInterpreterNum() + (((long)Math.random())%2));
 		sysConfig.setOrderNum(sysOri.getOrderNum() + (((long)Math.random())%2));
-		sysConfigMapper.updateByPrimaryKey(sysConfig);
+		MapperFactory.getSysConfigMapper().updateByPrimaryKey(sysConfig);
 		return sysConfig;
 	}
 	
