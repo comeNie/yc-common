@@ -28,4 +28,6 @@
     <dubbo:annotation package="com.ai.yc.common"/>
 
     <import resource="../../context/core-context.xml"/>
+
+    <import resource="../../context/elasticjob-context.xml" />
 </beans>

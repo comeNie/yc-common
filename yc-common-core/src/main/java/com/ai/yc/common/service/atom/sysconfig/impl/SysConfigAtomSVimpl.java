@@ -2,12 +2,15 @@ package com.ai.yc.common.service.atom.sysconfig.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.CollectionUtil;
+import com.ai.yc.common.api.sysconfig.param.HomeDataEidtConfig;
 import com.ai.yc.common.dao.mapper.bo.SysConfig;
 import com.ai.yc.common.dao.mapper.bo.SysConfigCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
+import com.ai.yc.common.dao.mapper.interfaces.SysConfigMapper;
 import com.ai.yc.common.service.atom.sysconfig.ISysConfigAtomSV;
 
 /**
@@ -18,6 +21,9 @@ import com.ai.yc.common.service.atom.sysconfig.ISysConfigAtomSV;
 @Service
 public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 
+	@Autowired
+	private SysConfigMapper sysConfigMapper;
+	
 	@Override
 	public SysConfig selectOne() {
 		SysConfigCriteria example = new SysConfigCriteria();
@@ -27,5 +33,21 @@ public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 		}
 		return confs.get(0);
 	}
+
+	@Override
+	public SysConfig changeOne() {
+		SysConfig sysOri = selectOne();
+		//000001
+		SysConfig sysConfig = new SysConfig();
+		sysConfig.setConfigId("000001");
+		sysConfig.setCustomNum(sysOri.getCustomNum() + (((long)Math.random())%3));
+		sysConfig.setInterpreterNum(sysOri.getInterpreterNum() + (((long)Math.random())%2));
+		sysConfig.setOrderNum(sysOri.getOrderNum() + (((long)Math.random())%2));
+		sysConfigMapper.updateByPrimaryKey(sysConfig);
+		return sysConfig;
+	}
+	
+	
+	
 
 }

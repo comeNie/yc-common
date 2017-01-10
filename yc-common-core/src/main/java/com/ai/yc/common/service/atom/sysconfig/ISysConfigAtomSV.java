@@ -1,5 +1,6 @@
 package com.ai.yc.common.service.atom.sysconfig;
 
+import com.ai.yc.common.api.sysconfig.param.HomeDataEidtConfig;
 import com.ai.yc.common.dao.mapper.bo.SysConfig;
 
 /**
@@ -9,6 +10,7 @@ import com.ai.yc.common.dao.mapper.bo.SysConfig;
  */
 public interface ISysConfigAtomSV {
 	
-	 SysConfig selectOne();
+	SysConfig selectOne();
+	SysConfig changeOne();
 
 }
