@@ -1,4 +1,4 @@
-package com.ai.yc.common.service.elasticjob.impl;
+package com.ai.yc.common.api.sysconfig.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,7 @@ import com.ai.opt.base.exception.SystemException;
 import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.base.vo.ResponseHeader;
 import com.ai.opt.sdk.constants.ExceptCodeConstants;
-import com.ai.yc.common.api.sysconfig.interfaces.ElasticJobSV;
+import com.ai.yc.common.api.sysconfig.interfaces.IElasticJobSV;
 import com.ai.yc.common.cache.HomeDataConfigCache;
 import com.ai.yc.common.constants.ResultCodeConstants;
 import com.ai.yc.common.service.atom.sysconfig.ISysConfigAtomSV;
@@ -22,7 +22,7 @@ import com.alibaba.dubbo.config.annotation.Service;
  */
 @Service
 @Component
-public class AutoIncreaseHomePageNumImpl implements ElasticJobSV {
+public class ElasticJobSVImpl implements IElasticJobSV {
 
 	@Autowired
 	private ISysConfigAtomSV iSysConfigAtomSV;

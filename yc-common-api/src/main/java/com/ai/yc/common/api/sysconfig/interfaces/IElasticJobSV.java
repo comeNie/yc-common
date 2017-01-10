@@ -23,7 +23,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/auto")
 @Consumes({ MediaType.APPLICATION_JSON })
 @Produces({ MediaType.APPLICATION_JSON, MediaType.TEXT_XML })
-public interface ElasticJobSV {
+public interface IElasticJobSV {
 
     /**
      * 自动取消（关闭）订单服务

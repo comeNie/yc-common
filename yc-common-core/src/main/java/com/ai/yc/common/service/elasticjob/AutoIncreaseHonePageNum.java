@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.sdk.dubbo.util.DubboConsumerFactory;
-import com.ai.yc.common.api.sysconfig.interfaces.ElasticJobSV;
+import com.ai.yc.common.api.sysconfig.interfaces.IElasticJobSV;
 import com.alibaba.fastjson.JSON;
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
@@ -23,7 +23,7 @@ public class AutoIncreaseHonePageNum implements SimpleJob {
     @Override
 	public void execute(ShardingContext shardingContext){
     	LOG.info("自动增长计数start.....................");
-		ElasticJobSV elasticJobSV = DubboConsumerFactory.getService(ElasticJobSV.class);
+		IElasticJobSV elasticJobSV = DubboConsumerFactory.getService(IElasticJobSV.class);
     	BaseResponse resp = elasticJobSV.autoIncreaseHomeNum();
     	LOG.info("自动增长计数消息："+JSON.toJSONString(resp));
     	
