@@ -1,4 +1,4 @@
-package com.ai.yc.common.api.elasticjbo;
+package com.ai.yc.common.api.sysconfig.interfaces;
 
 /**
  * Created by apple on 17/1/10.
