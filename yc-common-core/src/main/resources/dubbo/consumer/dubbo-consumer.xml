@@ -25,6 +25,6 @@
 
 	<!-- 自动处理定时任务 -->
 	<dubbo:reference id="elasticJobSV"
-		interface="com.ai.yc.common.api.sysconfig.interfaces.ElasticJobSV" />
+		interface="com.ai.yc.common.api.sysconfig.interfaces.IElasticJobSV" />
 
 </beans>
