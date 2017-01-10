@@ -25,7 +25,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 public class AutoIncreaseHomePageNumImpl implements ElasticJobSV {
 
 	@Autowired
-	private transient ISysConfigAtomSV iSysConfigAtomSV;
+	private ISysConfigAtomSV iSysConfigAtomSV;
 	@Autowired
 	private HomeDataConfigCache homeDataConfigCache;
 	

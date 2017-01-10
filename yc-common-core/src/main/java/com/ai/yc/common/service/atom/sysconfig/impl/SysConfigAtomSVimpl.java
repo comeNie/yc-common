@@ -10,7 +10,6 @@ import com.ai.yc.common.api.sysconfig.param.HomeDataEidtConfig;
 import com.ai.yc.common.dao.mapper.bo.SysConfig;
 import com.ai.yc.common.dao.mapper.bo.SysConfigCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
-import com.ai.yc.common.dao.mapper.interfaces.SysConfigMapper;
 import com.ai.yc.common.service.atom.sysconfig.ISysConfigAtomSV;
 
 /**
@@ -21,7 +20,6 @@ import com.ai.yc.common.service.atom.sysconfig.ISysConfigAtomSV;
 @Service
 public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 
-	
 	@Override
 	public SysConfig selectOne() {
 		SysConfigCriteria example = new SysConfigCriteria();
@@ -45,7 +43,4 @@ public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 		return sysConfig;
 	}
 	
-	
-	
-
 }
