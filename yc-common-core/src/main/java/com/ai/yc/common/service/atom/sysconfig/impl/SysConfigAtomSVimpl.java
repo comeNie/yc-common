@@ -36,9 +36,9 @@ public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 		//000001
 		SysConfig sysConfig = new SysConfig();
 		sysConfig.setConfigId("000001");
-		sysConfig.setCustomNum(sysOri.getCustomNum() + (((long)Math.random())%3));
-		sysConfig.setInterpreterNum(sysOri.getInterpreterNum() + (((long)Math.random())%2));
-		sysConfig.setOrderNum(sysOri.getOrderNum() + (((long)Math.random())%2));
+		sysConfig.setCustomNum((Integer.valueOf(sysOri.getCustomNum())+1) + "");
+		sysConfig.setInterpreterNum((Integer.valueOf(sysOri.getInterpreterNum())+1) + "");
+		sysConfig.setOrderNum((Integer.valueOf(sysOri.getOrderNum())+1) + "");
 		MapperFactory.getSysConfigMapper().updateByPrimaryKey(sysConfig);
 		return sysConfig;
 	}

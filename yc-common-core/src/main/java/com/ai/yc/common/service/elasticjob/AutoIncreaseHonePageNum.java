@@ -1,7 +1,8 @@
 package com.ai.yc.common.service.elasticjob;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.sdk.dubbo.util.DubboConsumerFactory;
@@ -18,7 +19,7 @@ import com.dangdang.ddframe.job.api.simple.SimpleJob;
  */
 public class AutoIncreaseHonePageNum implements SimpleJob {
 	
-    private static final Logger LOG = LogManager.getLogger(AutoIncreaseHonePageNum.class);
+    private static final Logger LOG = LoggerFactory.getLogger(AutoIncreaseHonePageNum.class);
     
     @Override
 	public void execute(ShardingContext shardingContext){
