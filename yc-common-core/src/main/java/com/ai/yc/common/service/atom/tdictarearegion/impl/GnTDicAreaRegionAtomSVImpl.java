@@ -8,6 +8,8 @@ import com.ai.yc.common.dao.mapper.bo.GnArea;
 import com.ai.yc.common.dao.mapper.bo.GnAreaCriteria;
 import com.ai.yc.common.dao.mapper.bo.GnTDicAreaRegion;
 import com.ai.yc.common.dao.mapper.bo.GnTDicAreaRegionCriteria;
+import com.ai.yc.common.dao.mapper.bo.SysOffice;
+import com.ai.yc.common.dao.mapper.bo.SysOfficeCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
 import com.ai.yc.common.service.atom.tdictarearegion.IGnTDicAreaRegionAtomSV;
 
@@ -34,4 +36,10 @@ public class GnTDicAreaRegionAtomSVImpl implements IGnTDicAreaRegionAtomSV {
 		return MapperFactory.getGnTDicAreaRegionMapper().selectByPrimaryKey(areacode);
 	}
 
+	@Override
+	public List<SysOffice> getAllOffice() {
+		SysOfficeCriteria example=new SysOfficeCriteria();
+		example.or().andDelFlagEqualTo("0").andUseableEqualTo("0");
+		return MapperFactory.getSysOfficeMapper().selectByExample(example);
+	}
 }

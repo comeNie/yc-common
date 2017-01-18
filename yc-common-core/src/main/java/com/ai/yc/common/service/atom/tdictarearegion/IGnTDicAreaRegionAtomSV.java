@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ai.yc.common.dao.mapper.bo.GnArea;
 import com.ai.yc.common.dao.mapper.bo.GnTDicAreaRegion;
+import com.ai.yc.common.dao.mapper.bo.SysOffice;
 
 /**
  * Created by gucl on 2017-01-09.
@@ -27,4 +28,10 @@ public interface IGnTDicAreaRegionAtomSV {
      * @return
      */
     public List<GnArea> getAllGnArea();
+    
+    /**
+     * 查询所有部门
+     * @return
+     */
+    public List<SysOffice> getAllOffice();
 }
