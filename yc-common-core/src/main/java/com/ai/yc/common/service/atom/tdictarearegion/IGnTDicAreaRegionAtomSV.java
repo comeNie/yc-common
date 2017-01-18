@@ -2,6 +2,7 @@ package com.ai.yc.common.service.atom.tdictarearegion;
 
 import java.util.List;
 
+import com.ai.yc.common.dao.mapper.bo.GnArea;
 import com.ai.yc.common.dao.mapper.bo.GnTDicAreaRegion;
 
 /**
@@ -21,6 +22,9 @@ public interface IGnTDicAreaRegionAtomSV {
      * @return
      */
     public GnTDicAreaRegion selectByAreaCode(String areacode);
-
-    
+    /**
+     * 查询所有的区域信息GnArea
+     * @return
+     */
+    public List<GnArea> getAllGnArea();
 }

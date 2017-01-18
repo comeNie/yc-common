@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Component;
 
+import com.ai.yc.common.dao.mapper.bo.GnArea;
+import com.ai.yc.common.dao.mapper.bo.GnAreaCriteria;
 import com.ai.yc.common.dao.mapper.bo.GnTDicAreaRegion;
 import com.ai.yc.common.dao.mapper.bo.GnTDicAreaRegionCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
@@ -19,6 +21,14 @@ public class GnTDicAreaRegionAtomSVImpl implements IGnTDicAreaRegionAtomSV {
 		return MapperFactory.getGnTDicAreaRegionMapper().selectByExample(example);
 	}
 
+	
+	@Override
+	public List<GnArea> getAllGnArea() {
+		GnAreaCriteria example=new GnAreaCriteria();
+		example.or().andAreaCodeIsNotNull();
+		return MapperFactory.getGnAreaMapper().selectByExample(example);
+	}
+	
 	@Override
 	public GnTDicAreaRegion selectByAreaCode(String areacode) {
 		return MapperFactory.getGnTDicAreaRegionMapper().selectByPrimaryKey(areacode);
