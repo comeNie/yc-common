@@ -2,6 +2,11 @@ package com.ai.yc.common.service.business.syspurpose;
 
 import java.util.List;
 
+import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
+import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
+import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
+import com.ai.yc.common.api.syspurpose.param.SaveSysPurpose;
 import com.ai.yc.common.dao.mapper.bo.SysPurpose;
 
 /**
@@ -17,5 +22,15 @@ public interface IQuerySysPurposeBusiSV {
 	List<SysPurpose> querySysPurposeList(String language);
 	
 	SysPurpose querySysPurposeDetails(String purposeId);
+
+	PageInfo<PurposePageVo> queryPurposePage(PurposePageQueryRequest param);
+
+	Integer saveSysPurpose(SaveSysPurpose req);
+
+	Integer deleteSysPurpose(String purposeId);
+
+	List<PurposePageVo> querySysPurposeById(DeleteSysPurpose param);
+
+	Integer updateSysPurpose(SaveSysPurpose req);
 
 }

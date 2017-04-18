@@ -2,6 +2,10 @@ package com.ai.yc.common.service.atom.sysdomain;
 
 import java.util.List;
 
+import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
+import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
+import com.ai.yc.common.api.sysdomain.param.DomainQueryRequest;
 import com.ai.yc.common.dao.mapper.bo.SysDomain;
 
 /**
@@ -17,5 +21,15 @@ public interface ISysDomainAtomSV {
 	List<SysDomain> querySysDomainList(String language);
 	
 	SysDomain selectByPrimaryKey(String domainId);
+
+	PageInfo<DomainPageVo> queryDomainPage(DomainQueryRequest param);
+
+	Integer saveSysDomain(SysDomain sysDomain);
+
+	Integer deleteSysDomain(String domainId);
+
+	List<DomainPageVo> querySysDomainById(DeleteSysDomain param);
+
+	Integer updateSysDomain(SysDomain sysDomain);
 
 }

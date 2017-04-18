@@ -5,6 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ai.opt.base.vo.PageInfo;
+import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
+import com.ai.yc.common.api.sysduad.param.DuadPageVo;
+import com.ai.yc.common.api.sysduad.param.QuerySysDuadById;
+import com.ai.yc.common.api.sysduad.param.SaveSysDuad;
+import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
 import com.ai.yc.common.dao.mapper.bo.SysDuad;
 import com.ai.yc.common.service.atom.sysduad.ISysDuadAtomSV;
 import com.ai.yc.common.service.business.sysduad.IQuerySysDuadBusiSV;
@@ -29,6 +36,31 @@ public class QuerySysDuadBusiSVImpl implements IQuerySysDuadBusiSV{
 	@Override
 	public SysDuad querySysDuadDetails(String duadId) {
 		return iSysDuadAtomSV.querySysDuadDetails(duadId);
+	}
+
+	@Override
+	public PageInfo<DuadPageVo> queryDuadPage(DuadPageQueryRequest param) {
+		PageInfo<DuadPageVo> duadPageInfo = iSysDuadAtomSV.queryDuadPage(param);
+		return duadPageInfo;
+	}
+
+	@Override
+	public Integer saveSysDuad(SaveSysDuad req) {
+		SysDuad sysDuad = new SysDuad();
+		BeanUtils.copyProperties(sysDuad, req);
+		return iSysDuadAtomSV.iSysDuadAtomSV(sysDuad);
+	}
+
+	@Override
+	public List<DuadPageVo> querySysDuadById(QuerySysDuadById param) {
+		return iSysDuadAtomSV.querySysDuadById(param);
+	}
+
+	@Override
+	public Integer updateSysDuad(SaveSysDuad req) {
+		SysDuad sysDuad = new SysDuad();
+		BeanUtils.copyProperties(sysDuad, req);
+		return iSysDuadAtomSV.updateSysDuad(sysDuad);
 	}
 
 }

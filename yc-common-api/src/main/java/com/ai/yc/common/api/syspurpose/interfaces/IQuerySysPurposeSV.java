@@ -8,9 +8,16 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseListResponse;
+import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
+import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
+import com.ai.yc.common.api.syspurpose.param.PurposePageQueryResponse;
+import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeDetailsRes;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListReq;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListRes;
+import com.ai.yc.common.api.syspurpose.param.SaveSysPurpose;
 
 /**
  * @Description: 用途查询服务
@@ -50,5 +57,67 @@ public interface IQuerySysPurposeSV {
 	@POST
 	@Path("/querySysPurposeDetails")
 	QuerySysPurposeDetailsRes querySysPurposeDetails(String purposeId)throws BusinessException,SystemException;
-
+	
+	/**
+     * 用途列表查询分页
+     * @return 用途列表
+     * @throws BusinessException,SystemException
+     * @author shancc
+     * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syspurpose/queryPurposePage
+	 */
+	@POST
+	@Path("/queryPurposePage")
+	public PurposePageQueryResponse queryPurposePage(PurposePageQueryRequest param)throws BusinessException,SystemException;
+	
+	/**
+	 * 添加用途
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syspurpose/saveSysPurpose
+     */
+	@POST
+	@Path("/saveSysPurpose")
+	public BaseResponse saveSysPurpose(SaveSysPurpose req)throws BusinessException,SystemException;
+	
+	/**
+	 * 删除用途
+	 * @param param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syspurpose/deleteSysPurpose
+     */
+	@POST
+	@Path("/deleteSysPurpose")
+	public Integer deleteSysPurpose(DeleteSysPurpose param)throws BusinessException,SystemException;
+	
+	/**
+	 * 根据用途ID查询用途
+	 * @param param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syspurpose/querySysPurposeById
+     */
+	@POST
+	@Path("/querySysPurposeById")
+	public BaseListResponse<PurposePageVo> querySysPurposeById(DeleteSysPurpose param)throws BusinessException,SystemException;
+	
+	/**
+	 * 修改用途
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syspurpose/updateSysPurpose
+     */
+	@POST
+	@Path("/updateSysPurpose")
+	public BaseResponse updateSysPurpose(SaveSysPurpose req)throws BusinessException,SystemException;
 }

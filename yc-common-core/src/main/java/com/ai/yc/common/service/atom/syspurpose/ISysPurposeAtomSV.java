@@ -2,6 +2,10 @@ package com.ai.yc.common.service.atom.syspurpose;
 
 import java.util.List;
 
+import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
+import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
+import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
 import com.ai.yc.common.dao.mapper.bo.SysPurpose;
 
 /**
@@ -17,5 +21,15 @@ public interface ISysPurposeAtomSV {
 	List<SysPurpose> querySysPurposeList(String language);
 	
 	SysPurpose selectByPrimaryKey(String purposeId);
+
+	PageInfo<PurposePageVo> queryPurposePage(PurposePageQueryRequest param);
+
+	Integer saveSysPurpose(SysPurpose sysPurpose);
+
+	Integer deleteSysPurpose(String purposeId);
+
+	List<PurposePageVo> querySysPurposeById(DeleteSysPurpose param);
+
+	Integer updateSysPurpose(SysPurpose sysPurpose);
 
 }
