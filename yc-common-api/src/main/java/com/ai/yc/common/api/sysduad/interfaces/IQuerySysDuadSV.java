@@ -38,7 +38,7 @@ public interface IQuerySysDuadSV {
      * @author hougang
      * @ApiDocMethod
      * @ApiCode GN_0509
-     * @RestRelativeURL querysysduad/querySysDuadList
+     * @RestRelativeURL sysduad/querySysDuadList
 	 */
 	@POST
 	@Path("/querySysDuadList")
@@ -52,7 +52,7 @@ public interface IQuerySysDuadSV {
      * @author hougang
      * @ApiDocMethod
      * @ApiCode GN_0510
-     * @RestRelativeURL querysysduad/querySysDuadDetails
+     * @RestRelativeURL sysduad/querySysDuadDetails
 	 */
 	@POST
 	@Path("/querySysDuadDetails")
@@ -65,7 +65,7 @@ public interface IQuerySysDuadSV {
      * @author shancc
      * @ApiDocMethod
      * @ApiCode
-     * @RestRelativeURL querysysduad/queryDuadPage
+     * @RestRelativeURL sysduad/queryDuadPage
 	 */
 	@POST
 	@Path("/queryDuadPage")
@@ -77,7 +77,7 @@ public interface IQuerySysDuadSV {
 	 * @author shancc
 	 * @ApiDocMethod
      * @ApiCode
-     * @RestRelativeURL querysysduad/saveSysDuad
+     * @RestRelativeURL sysduad/saveSysDuad
      */
 	@POST
 	@Path("/saveSysDuad")
@@ -90,7 +90,7 @@ public interface IQuerySysDuadSV {
 	 * @author shancc
 	 * @ApiDocMethod
      * @ApiCode
-     * @RestRelativeURL querysysduad/querySysDuadById
+     * @RestRelativeURL sysduad/querySysDuadById
      */
 	@POST
 	@Path("/querySysDuadById")
@@ -102,7 +102,7 @@ public interface IQuerySysDuadSV {
 	 * @author shancc
 	 * @ApiDocMethod
      * @ApiCode
-     * @RestRelativeURL querysysduad/updateSysDuad
+     * @RestRelativeURL sysduad/updateSysDuad
      */
 	@POST
 	@Path("/updateSysDuad")
