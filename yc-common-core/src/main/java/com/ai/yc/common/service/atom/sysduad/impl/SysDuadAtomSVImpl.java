@@ -55,7 +55,7 @@ public class SysDuadAtomSVImpl implements ISysDuadAtomSV {
 		String orderByClause = "duad_id desc";
 		sysDuadCriteria.setOrderByClause(orderByClause);
 		if (!StringUtil.isBlank(param.getLanguage())) {
-			criteria.andLanguageLike("%" + param.getLanguage().trim() + "%");
+			criteria.andLanguageEqualTo(param.getLanguage());
 		}
 		if (!StringUtil.isBlank(param.getSite())) {
 			criteria.andSiteEqualTo(param.getSite());
