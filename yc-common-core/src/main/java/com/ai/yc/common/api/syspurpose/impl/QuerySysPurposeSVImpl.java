@@ -16,6 +16,7 @@ import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.api.syspurpose.interfaces.IQuerySysPurposeSV;
+import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryResponse;
@@ -156,6 +157,11 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改用途失败");
 		}
 		return response;
+	}
+
+	@Override
+	public Integer checkPurposeCn(CheckPurposeCn param) throws BusinessException, SystemException {
+		return iQuerySysPurposeBusiSV.checkPurposeCn(param);
 	}
 
 }

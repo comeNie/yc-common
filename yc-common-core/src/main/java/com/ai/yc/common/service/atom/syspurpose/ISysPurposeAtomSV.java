@@ -3,6 +3,7 @@ package com.ai.yc.common.service.atom.syspurpose;
 import java.util.List;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
@@ -31,5 +32,7 @@ public interface ISysPurposeAtomSV {
 	List<PurposePageVo> querySysPurposeById(DeleteSysPurpose param);
 
 	Integer updateSysPurpose(SysPurpose sysPurpose);
+
+	Integer checkPurposeCn(CheckPurposeCn param);
 
 }

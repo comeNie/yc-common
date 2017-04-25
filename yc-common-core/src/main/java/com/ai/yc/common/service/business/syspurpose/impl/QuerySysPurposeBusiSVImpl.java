@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
@@ -75,6 +76,11 @@ public class QuerySysPurposeBusiSVImpl implements IQuerySysPurposeBusiSV {
 		SysPurpose sysPurpose = new SysPurpose();
 		BeanUtils.copyProperties(sysPurpose,req);
 		return iSysPurposeAtomSV.updateSysPurpose(sysPurpose);
+	}
+
+	@Override
+	public Integer checkPurposeCn(CheckPurposeCn param) {
+		return iSysPurposeAtomSV.checkPurposeCn(param);
 	}
 
 }

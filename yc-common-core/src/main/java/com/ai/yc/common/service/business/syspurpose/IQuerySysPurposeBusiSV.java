@@ -3,6 +3,7 @@ package com.ai.yc.common.service.business.syspurpose;
 import java.util.List;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
@@ -32,5 +33,7 @@ public interface IQuerySysPurposeBusiSV {
 	List<PurposePageVo> querySysPurposeById(DeleteSysPurpose param);
 
 	Integer updateSysPurpose(SaveSysPurpose req);
+
+	Integer checkPurposeCn(CheckPurposeCn param);
 
 }

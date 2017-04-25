@@ -10,6 +10,7 @@ import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
 import com.ai.opt.base.vo.BaseListResponse;
 import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryResponse;
@@ -120,4 +121,17 @@ public interface IQuerySysPurposeSV {
 	@POST
 	@Path("/updateSysPurpose")
 	public BaseResponse updateSysPurpose(SaveSysPurpose req)throws BusinessException,SystemException;
+	
+	/**
+	 * 同语言下的已存在相同名称的用途不可再次新建
+	 * @param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syspurpose/checkPurposeCn
+     */
+	@POST
+	@Path("/checkPurposeCn")
+    public Integer checkPurposeCn(CheckPurposeCn param) throws BusinessException,SystemException;
 }

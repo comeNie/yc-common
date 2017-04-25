@@ -34,6 +34,7 @@ import com.ai.yc.common.api.sysduad.param.QuerySysDuadListReq;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadListRes;
 import com.ai.yc.common.api.sysduad.param.SaveSysDuad;
 import com.ai.yc.common.api.syspurpose.interfaces.IQuerySysPurposeSV;
+import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryResponse;
@@ -119,6 +120,18 @@ public class SysConfigTest {
 		System.out.println("rs:"+rs);
 	}
 	/**
+     * 同语言下的已存在相同名称的用途不可再次新建
+	 */
+	@Test
+	public void checkPurposeCn(){
+		CheckPurposeCn param = new CheckPurposeCn();
+		param.setLanguage("2");
+		param.setPurposeCn("语言");
+		Integer checkPurposeCn = iQuerySysPurposeSV.checkPurposeCn(param);
+		System.out.println(checkPurposeCn);
+	}
+	
+	/**
      * 用途列表查询分页
 	 */
 	@Test
@@ -128,6 +141,7 @@ public class SysConfigTest {
 		PurposePageQueryResponse queryPurposePage = iQuerySysPurposeSV.queryPurposePage(param);
 		System.out.println(queryPurposePage);
 	}
+	
 	/**
      * 添加用途
 	 */

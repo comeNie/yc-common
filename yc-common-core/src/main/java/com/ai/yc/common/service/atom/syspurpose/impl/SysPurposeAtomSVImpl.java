@@ -11,6 +11,7 @@ import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
+import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
@@ -137,6 +138,21 @@ public class SysPurposeAtomSVImpl implements ISysPurposeAtomSV{
 		SysPurposeMapper mapper = MapperFactory.getSysPurposeMapper();
 		int updateByPrimaryKey = mapper.updateByExampleSelective(sysPurpose, sysPurposeCriteria);
 		return updateByPrimaryKey;
+	}
+
+	@Override
+	public Integer checkPurposeCn(CheckPurposeCn param) {
+		SysPurposeCriteria sysPurposeCriteria = new SysPurposeCriteria();
+		SysPurposeCriteria.Criteria criteria = sysPurposeCriteria.createCriteria();
+		if (!StringUtil.isBlank(param.getLanguage())) {
+			criteria.andLanguageEqualTo(param.getLanguage());
+		}
+		if(!StringUtil.isBlank(param.getPurposeCn())){
+			criteria.andPurposeCnEqualTo(param.getPurposeCn());
+		}
+		SysPurposeMapper mapper = MapperFactory.getSysPurposeMapper();
+		int countByExample = mapper.countByExample(sysPurposeCriteria);
+		return countByExample;
 	}
 	
 	
