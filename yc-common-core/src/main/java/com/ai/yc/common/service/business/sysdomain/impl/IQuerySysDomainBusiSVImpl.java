@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
 import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
 import com.ai.yc.common.api.sysdomain.param.DomainQueryRequest;
@@ -72,6 +73,11 @@ public class IQuerySysDomainBusiSVImpl implements IQuerySysDomainBusiSV {
 		SysDomain sysDomain = new SysDomain();
 		BeanUtils.copyProperties(sysDomain,req);
 		return iSysDomainAtomSV.updateSysDomain(sysDomain);
+	}
+
+	@Override
+	public Integer checkDomainCn(CheckDomainCn param) {
+		return iSysDomainAtomSV.checkDomainCn(param);
 	}
 
 }

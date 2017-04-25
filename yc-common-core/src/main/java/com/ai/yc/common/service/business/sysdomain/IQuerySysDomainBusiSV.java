@@ -3,6 +3,7 @@ package com.ai.yc.common.service.business.sysdomain;
 import java.util.List;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
 import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
 import com.ai.yc.common.api.sysdomain.param.DomainQueryRequest;
@@ -29,5 +30,7 @@ public interface IQuerySysDomainBusiSV {
 	List<DomainPageVo> querySysDomainById(DeleteSysDomain param);
 
 	Integer updateSysDomain(SaveSysDomain req);
+
+	Integer checkDomainCn(CheckDomainCn param);
 
 }

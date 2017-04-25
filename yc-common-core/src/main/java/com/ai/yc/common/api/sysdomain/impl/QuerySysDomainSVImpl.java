@@ -16,6 +16,7 @@ import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.api.sysdomain.interfaces.IQuerySysDomainSV;
+import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
 import com.ai.yc.common.api.sysdomain.param.DomainPageQueryResponse;
 import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
@@ -25,8 +26,6 @@ import com.ai.yc.common.api.sysdomain.param.QuerySysDomainListReq;
 import com.ai.yc.common.api.sysdomain.param.QuerySysDomainListRes;
 import com.ai.yc.common.api.sysdomain.param.SaveSysDomain;
 import com.ai.yc.common.api.sysdomain.param.SysDomainVo;
-import com.ai.yc.common.api.syspurpose.param.PurposePageQueryResponse;
-import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
 import com.ai.yc.common.constants.ResultCodeConstants;
 import com.ai.yc.common.dao.mapper.bo.SysDomain;
 import com.ai.yc.common.service.business.sysdomain.IQuerySysDomainBusiSV;
@@ -162,6 +161,12 @@ public class QuerySysDomainSVImpl implements IQuerySysDomainSV {
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改领域失败");
 		}
 		return response;
+	}
+
+
+	@Override
+	public Integer checkDomainCn(CheckDomainCn param) throws BusinessException, SystemException {
+		return querySysDomainBusiSV.checkDomainCn(param);
 	}
 
 	

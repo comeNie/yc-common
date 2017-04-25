@@ -16,6 +16,7 @@ import com.ai.yc.common.api.sysconfig.param.DonateIntegralConfig;
 import com.ai.yc.common.api.sysconfig.param.HomeDataEidtConfig;
 import com.ai.yc.common.api.sysconfig.param.MemberConfig;
 import com.ai.yc.common.api.sysdomain.interfaces.IQuerySysDomainSV;
+import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
 import com.ai.yc.common.api.sysdomain.param.DomainPageQueryResponse;
 import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
@@ -294,6 +295,17 @@ public class SysConfigTest {
 		param.setDomainCn("翻译");
 		DomainPageQueryResponse queryDomainPage = iQuerySysDomainSV.queryDomainPage(param);
 		System.out.println(queryDomainPage);
+	}
+	/**
+     * 同语言下的已存在相同名称的领域不可再次新建
+	 */
+	@Test
+	public void checkDomainCn(){
+		CheckDomainCn param = new CheckDomainCn();
+		param.setLanguage("2");
+		param.setDomainCn("翻译");
+		Integer checkDomainCn = iQuerySysDomainSV.checkDomainCn(param);
+		System.out.println(checkDomainCn);
 	}
 	/**
      * 添加领域

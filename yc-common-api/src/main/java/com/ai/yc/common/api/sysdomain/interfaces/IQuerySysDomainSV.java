@@ -10,6 +10,7 @@ import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
 import com.ai.opt.base.vo.BaseListResponse;
 import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
 import com.ai.yc.common.api.sysdomain.param.DomainPageQueryResponse;
 import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
@@ -120,5 +121,17 @@ public interface IQuerySysDomainSV {
 	@POST
 	@Path("/updateSysDomain")
 	public BaseResponse updateSysDomain(SaveSysDomain req)throws BusinessException,SystemException;
-
+	
+	/**
+	 * 同语言下的已存在相同名称的用途不可再次新建
+	 * @param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysdomain/checkDomainCn
+     */
+	@POST
+	@Path("/checkDomainCn")
+    public Integer checkDomainCn(CheckDomainCn param) throws BusinessException,SystemException;
 }

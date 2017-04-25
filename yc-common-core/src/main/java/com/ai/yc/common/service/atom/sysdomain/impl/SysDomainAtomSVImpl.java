@@ -10,6 +10,7 @@ import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
+import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
 import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
 import com.ai.yc.common.api.sysdomain.param.DomainQueryRequest;
@@ -136,6 +137,21 @@ public class SysDomainAtomSVImpl implements ISysDomainAtomSV {
 		SysDomainMapper mapper = MapperFactory.getSysDomainMapper();
 		int updateByPrimaryKey = mapper.updateByExampleSelective(sysDomain, sysDomainCriteria);
 		return updateByPrimaryKey;
+	}
+
+	@Override
+	public Integer checkDomainCn(CheckDomainCn param) {
+		SysDomainCriteria sysDomainCriteria = new SysDomainCriteria();
+		SysDomainCriteria.Criteria criteria = sysDomainCriteria.createCriteria();
+		if(!StringUtil.isBlank(param.getLanguage())){
+			criteria.andLanguageEqualTo(param.getLanguage());
+		}
+		if (!StringUtil.isBlank(param.getDomainCn())) {
+			criteria.andDomainCnEqualTo(param.getDomainCn());
+		}
+		SysDomainMapper mapper = MapperFactory.getSysDomainMapper();
+		int countByExample = mapper.countByExample(sysDomainCriteria);
+		return countByExample;
 	}
 
 }
