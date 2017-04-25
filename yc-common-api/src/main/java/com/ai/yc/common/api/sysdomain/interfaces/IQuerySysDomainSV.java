@@ -123,7 +123,7 @@ public interface IQuerySysDomainSV {
 	public BaseResponse updateSysDomain(SaveSysDomain req)throws BusinessException,SystemException;
 	
 	/**
-	 * 同语言下的已存在相同名称的用途不可再次新建
+	 * 同语言下的已存在相同名称的领域不可再次新建
 	 * @param
 	 * @throws BusinessException,SystemException
 	 * @author shancc
