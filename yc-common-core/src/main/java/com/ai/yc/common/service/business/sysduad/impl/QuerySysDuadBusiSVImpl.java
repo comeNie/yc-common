@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.yc.common.api.sysduad.param.CheckDuadCn;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
 import com.ai.yc.common.api.sysduad.param.DuadPageVo;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadById;
@@ -61,6 +62,11 @@ public class QuerySysDuadBusiSVImpl implements IQuerySysDuadBusiSV{
 		SysDuad sysDuad = new SysDuad();
 		BeanUtils.copyProperties(sysDuad, req);
 		return iSysDuadAtomSV.updateSysDuad(sysDuad);
+	}
+
+	@Override
+	public Integer checkDuadCn(CheckDuadCn param) {
+		return iSysDuadAtomSV.checkDuadCn(param);
 	}
 
 }

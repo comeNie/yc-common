@@ -26,6 +26,7 @@ import com.ai.yc.common.api.sysdomain.param.QuerySysDomainListReq;
 import com.ai.yc.common.api.sysdomain.param.QuerySysDomainListRes;
 import com.ai.yc.common.api.sysdomain.param.SaveSysDomain;
 import com.ai.yc.common.api.sysduad.interfaces.IQuerySysDuadSV;
+import com.ai.yc.common.api.sysduad.param.CheckDuadCn;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryResponse;
 import com.ai.yc.common.api.sysduad.param.DuadPageVo;
@@ -208,6 +209,18 @@ public class SysConfigTest {
 		DuadPageQueryRequest param = new DuadPageQueryRequest();
 		DuadPageQueryResponse queryDuadPage = iQuerySysDuadSV.queryDuadPage(param);
 		System.out.println(queryDuadPage);
+	}
+	/**
+     * 同语言下的已存在相同名称的语言对不可再次新建
+	 */
+	@Test
+	public void checkDuadCn(){
+		CheckDuadCn param = new CheckDuadCn();
+		param.setLanguage("2");
+		param.setSourceCn("中");
+		param.setTargetCn("日");
+		Integer checkDuadCn = iQuerySysDuadSV.checkDuadCn(param);
+		System.out.println(checkDuadCn);
 	}
 	/**
      * 添加语言对

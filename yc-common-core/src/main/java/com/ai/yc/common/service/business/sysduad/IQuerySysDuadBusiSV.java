@@ -3,6 +3,7 @@ package com.ai.yc.common.service.business.sysduad;
 import java.util.List;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.sysduad.param.CheckDuadCn;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
 import com.ai.yc.common.api.sysduad.param.DuadPageVo;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadById;
@@ -30,5 +31,7 @@ public interface IQuerySysDuadBusiSV {
 	List<DuadPageVo> querySysDuadById(QuerySysDuadById param);
 
 	Integer updateSysDuad(SaveSysDuad req);
+
+	Integer checkDuadCn(CheckDuadCn param);
 
 }

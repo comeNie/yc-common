@@ -10,6 +10,7 @@ import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
 import com.ai.opt.base.vo.BaseListResponse;
 import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.sysduad.param.CheckDuadCn;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryResponse;
 import com.ai.yc.common.api.sysduad.param.DuadPageVo;
@@ -107,5 +108,17 @@ public interface IQuerySysDuadSV {
 	@POST
 	@Path("/updateSysDuad")
 	public BaseResponse updateSysDuad(SaveSysDuad req)throws BusinessException,SystemException;
-
+	
+	/**
+	 * 同语言下已存在相同的语言对不可再次新建
+	 * @param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysduad/checkDuadCn
+     */
+	@POST
+	@Path("/checkDuadCn")
+    public Integer checkDuadCn(CheckDuadCn param) throws BusinessException,SystemException;
 }

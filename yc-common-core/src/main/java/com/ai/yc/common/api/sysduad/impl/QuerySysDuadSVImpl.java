@@ -16,6 +16,7 @@ import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.api.sysduad.interfaces.IQuerySysDuadSV;
+import com.ai.yc.common.api.sysduad.param.CheckDuadCn;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryResponse;
 import com.ai.yc.common.api.sysduad.param.DuadPageVo;
@@ -152,6 +153,11 @@ public class QuerySysDuadSVImpl implements IQuerySysDuadSV {
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改语言对失败");
 		}
 		return response;
+	}
+
+	@Override
+	public Integer checkDuadCn(CheckDuadCn param) throws BusinessException, SystemException {
+		return iQuerySysDuadBusiSV.checkDuadCn(param);
 	}
 
 }

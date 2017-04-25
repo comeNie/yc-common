@@ -9,6 +9,7 @@ import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
+import com.ai.yc.common.api.sysduad.param.CheckDuadCn;
 import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
 import com.ai.yc.common.api.sysduad.param.DuadPageVo;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadById;
@@ -128,6 +129,24 @@ public class SysDuadAtomSVImpl implements ISysDuadAtomSV {
 		SysDuadMapper mapper = MapperFactory.getSysDuadMapper();
 		int updateByPrimaryKey = mapper.updateByExampleSelective(sysDuad, sysDuadCriteria);
 		return updateByPrimaryKey;
+	}
+
+	@Override
+	public Integer checkDuadCn(CheckDuadCn param) {
+		SysDuadCriteria sysDuadCriteria = new SysDuadCriteria();
+		SysDuadCriteria.Criteria criteria = sysDuadCriteria.createCriteria();
+		if(!StringUtil.isBlank(param.getLanguage())){
+			criteria.andLanguageEqualTo(param.getLanguage());
+		}
+		if (!StringUtil.isBlank(param.getSourceCn())) {
+			criteria.andSourceCnEqualTo(param.getSourceCn());
+		}
+		if (!StringUtil.isBlank(param.getTargetCn())) {
+			criteria.andTargetCnEqualTo(param.getTargetCn());
+		}
+		SysDuadMapper mapper = MapperFactory.getSysDuadMapper();
+		int countByExample = mapper.countByExample(sysDuadCriteria);
+		return countByExample;
 	}
 
 }
