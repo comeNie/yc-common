@@ -54,7 +54,7 @@ public class IQuerySysDomainBusiSVImpl implements IQuerySysDomainBusiSV {
 		sysDomain.setSite(req.getSite());
 		sysDomain.setSort(req.getSort());
 		sysDomain.setState(req.getState());
-		/*sysPurpose.setUpdatetime(DateUtil.getSysDate());*/
+		sysDomain.setUpdatetime(req.getUpdatetime());
 		return iSysDomainAtomSV.saveSysDomain(sysDomain);
 	}
 

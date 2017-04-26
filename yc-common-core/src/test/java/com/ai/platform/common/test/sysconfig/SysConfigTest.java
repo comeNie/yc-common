@@ -1,5 +1,7 @@
 package com.ai.platform.common.test.sysconfig;
 
+import java.sql.Timestamp;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ai.opt.base.vo.BaseListResponse;
 import com.ai.opt.base.vo.BaseResponse;
+import com.ai.opt.sdk.util.DateUtil;
 import com.ai.paas.ipaas.mcs.interfaces.ICacheClient;
 import com.ai.yc.common.api.cachekey.key.CacheKey;
 import com.ai.yc.common.api.sysconfig.interfaces.IQuerySysConfigSV;
@@ -150,7 +153,7 @@ public class SysConfigTest {
 	@Test
 	public void saveSysPurpose(){
 		SaveSysPurpose req  = new SaveSysPurpose();
-		req.setPurposeId("4");
+		req.setPurposeId("8");
 		req.setLanguage("en_US");
 		req.setNamedFlag("1");
 		req.setPurposeCn("语言");
@@ -374,7 +377,21 @@ public class SysConfigTest {
 		System.out.println(updateSysDomain);
 	}
 	
-	
-	
+	/**
+	 * 时间转换
+	 */
+	@Test
+	public void date(){
+		Timestamp sysDate = DateUtil.getSysDate();
+		System.out.println("sysDate = "+sysDate);
+		
+		long sqlLastTime = sysDate.getTime();// 直接转换成long
+		System.out.println("sqlLastTime = "+sqlLastTime); //毫秒数
+		
+		
+		long i = sysDate.getTime();
+		Timestamp timestamp = new Timestamp(i);
+		System.out.println(timestamp);
+	}
 
 }
