@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.ai.slp.common.dao.mapper.interfaces.SysDomainMapper" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysDomainMapper" >
   <resultMap id="BaseResultMap" type="com.ai.slp.common.dao.mapper.bo.SysDomain" >
     <id column="domain_id" property="domainId" jdbcType="VARCHAR" />
     <result column="language" property="language" jdbcType="VARCHAR" />
