@@ -27,6 +27,7 @@
     <result column="sort" property="sort" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="CHAR" />
     <result column="updatetime" property="updatetime" jdbcType="BIGINT" />
+    <result column="create_operator" property="createOperator" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -90,14 +91,14 @@
     duad_id, language, site, order_type, source_code, source_cn, source_en, target_code, 
     target_cn, target_en, ordinary, ordinary_urgent, professional, professional_urgent, 
     publish, publish_urgent, ordinary_dollar, ourgent_dollar, professional_dollar, purgent_dollar, 
-    publish_dollar, puburgent_dollar, sort, state, updatetime
+    publish_dollar, puburgent_dollar, sort, state, updatetime, create_operator
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuadCriteria" >
     select
     <if test="distinct" >
       distinct
     </if>
-    'true' as QUERYID,
+    'false' as QUERYID,
     <include refid="Base_Column_List" />
     from sys_duad
     <if test="_parameter != null" >
@@ -135,7 +136,7 @@
       publish_urgent, ordinary_dollar, ourgent_dollar, 
       professional_dollar, purgent_dollar, publish_dollar, 
       puburgent_dollar, sort, state, 
-      updatetime)
+      updatetime, create_operator)
     values (#{duadId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
       #{orderType,jdbcType=CHAR}, #{sourceCode,jdbcType=VARCHAR}, #{sourceCn,jdbcType=VARCHAR}, 
       #{sourceEn,jdbcType=VARCHAR}, #{targetCode,jdbcType=VARCHAR}, #{targetCn,jdbcType=VARCHAR}, 
@@ -144,7 +145,7 @@
       #{publishUrgent,jdbcType=VARCHAR}, #{ordinaryDollar,jdbcType=VARCHAR}, #{ourgentDollar,jdbcType=VARCHAR}, 
       #{professionalDollar,jdbcType=VARCHAR}, #{purgentDollar,jdbcType=VARCHAR}, #{publishDollar,jdbcType=VARCHAR}, 
       #{puburgentDollar,jdbcType=VARCHAR}, #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, 
-      #{updatetime,jdbcType=BIGINT})
+      #{updatetime,jdbcType=BIGINT}, #{createOperator,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysDuad" >
     insert into sys_duad
@@ -224,6 +225,9 @@
       <if test="updatetime != null" >
         updatetime,
       </if>
+      <if test="createOperator != null" >
+        create_operator,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="duadId != null" >
@@ -300,6 +304,9 @@
       </if>
       <if test="updatetime != null" >
         #{updatetime,jdbcType=BIGINT},
+      </if>
+      <if test="createOperator != null" >
+        #{createOperator,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -387,6 +394,9 @@
       <if test="record.updatetime != null" >
         updatetime = #{record.updatetime,jdbcType=BIGINT},
       </if>
+      <if test="record.createOperator != null" >
+        create_operator = #{record.createOperator,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -418,7 +428,8 @@
       puburgent_dollar = #{record.puburgentDollar,jdbcType=VARCHAR},
       sort = #{record.sort,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=CHAR},
-      updatetime = #{record.updatetime,jdbcType=BIGINT}
+      updatetime = #{record.updatetime,jdbcType=BIGINT},
+      create_operator = #{record.createOperator,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -498,6 +509,9 @@
       <if test="updatetime != null" >
         updatetime = #{updatetime,jdbcType=BIGINT},
       </if>
+      <if test="createOperator != null" >
+        create_operator = #{createOperator,jdbcType=VARCHAR},
+      </if>
     </set>
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </update>
@@ -526,7 +540,8 @@
       puburgent_dollar = #{puburgentDollar,jdbcType=VARCHAR},
       sort = #{sort,jdbcType=VARCHAR},
       state = #{state,jdbcType=CHAR},
-      updatetime = #{updatetime,jdbcType=BIGINT}
+      updatetime = #{updatetime,jdbcType=BIGINT},
+      create_operator = #{createOperator,jdbcType=VARCHAR}
     where duad_id = #{duadId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -19,6 +19,8 @@ public class SysDomain {
 
     private Long updatetime;
 
+    private String createOperator;
+
     public String getDomainId() {
         return domainId;
     }
@@ -89,5 +91,13 @@ public class SysDomain {
 
     public void setUpdatetime(Long updatetime) {
         this.updatetime = updatetime;
+    }
+
+    public String getCreateOperator() {
+        return createOperator;
+    }
+
+    public void setCreateOperator(String createOperator) {
+        this.createOperator = createOperator == null ? null : createOperator.trim();
     }
 }

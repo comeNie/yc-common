@@ -20,6 +20,10 @@ public class DuadPageQueryRequest implements Serializable {
 	 */
 	private String state;
 	/**
+	 * 创建人
+	 */
+	private String createOperator;
+	/**
      * 分页时必填
      */
     PageInfo<DuadPageVo> pageInfo;
@@ -46,5 +50,11 @@ public class DuadPageQueryRequest implements Serializable {
 	}
 	public void setPageInfo(PageInfo<DuadPageVo> pageInfo) {
 		this.pageInfo = pageInfo;
+	}
+	public String getCreateOperator() {
+		return createOperator;
+	}
+	public void setCreateOperator(String createOperator) {
+		this.createOperator = createOperator;
 	}
 }

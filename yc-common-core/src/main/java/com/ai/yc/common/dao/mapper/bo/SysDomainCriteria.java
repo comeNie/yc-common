@@ -743,6 +743,76 @@ public class SysDomainCriteria {
             addCriterion("updatetime not between", value1, value2, "updatetime");
             return (Criteria) this;
         }
+
+        public Criteria andCreateOperatorIsNull() {
+            addCriterion("create_operator is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIsNotNull() {
+            addCriterion("create_operator is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorEqualTo(String value) {
+            addCriterion("create_operator =", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorNotEqualTo(String value) {
+            addCriterion("create_operator <>", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorGreaterThan(String value) {
+            addCriterion("create_operator >", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorGreaterThanOrEqualTo(String value) {
+            addCriterion("create_operator >=", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorLessThan(String value) {
+            addCriterion("create_operator <", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorLessThanOrEqualTo(String value) {
+            addCriterion("create_operator <=", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorLike(String value) {
+            addCriterion("create_operator like", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorNotLike(String value) {
+            addCriterion("create_operator not like", value, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIn(List<String> values) {
+            addCriterion("create_operator in", values, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorNotIn(List<String> values) {
+            addCriterion("create_operator not in", values, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorBetween(String value1, String value2) {
+            addCriterion("create_operator between", value1, value2, "createOperator");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorNotBetween(String value1, String value2) {
+            addCriterion("create_operator not between", value1, value2, "createOperator");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

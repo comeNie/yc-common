@@ -51,6 +51,8 @@ public class SysDuad {
 
     private Long updatetime;
 
+    private String createOperator;
+
     public String getDuadId() {
         return duadId;
     }
@@ -249,5 +251,13 @@ public class SysDuad {
 
     public void setUpdatetime(Long updatetime) {
         this.updatetime = updatetime;
+    }
+
+    public String getCreateOperator() {
+        return createOperator;
+    }
+
+    public void setCreateOperator(String createOperator) {
+        this.createOperator = createOperator == null ? null : createOperator.trim();
     }
 }

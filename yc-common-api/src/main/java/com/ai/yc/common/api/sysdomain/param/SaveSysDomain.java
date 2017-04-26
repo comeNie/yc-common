@@ -40,6 +40,10 @@ public class SaveSysDomain implements Serializable {
 	 * 修改时间
 	 */
 	private Long updatetime;
+	/**
+	 * 创建人
+	 */
+	private String createOperator;
 
 	public String getDomainId() {
 		return domainId;
@@ -111,5 +115,13 @@ public class SaveSysDomain implements Serializable {
 
 	public void setUpdatetime(Long updatetime) {
 		this.updatetime = updatetime;
+	}
+
+	public String getCreateOperator() {
+		return createOperator;
+	}
+
+	public void setCreateOperator(String createOperator) {
+		this.createOperator = createOperator;
 	}
 }
