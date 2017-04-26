@@ -64,6 +64,9 @@ public class SysDuadAtomSVImpl implements ISysDuadAtomSV {
 		if (!StringUtil.isBlank(param.getState())) {
 			criteria.andStateEqualTo(param.getState());
 		}
+		if (!StringUtil.isBlank(param.getCreateOperator())) {
+			criteria.andCreateOperatorLike("%" + param.getCreateOperator().trim() + "%");
+		}
 		PageInfo<DuadPageVo> pageInfo = new PageInfo<DuadPageVo>();
 		SysDuadMapper mapper = MapperFactory.getSysDuadMapper();
 		pageInfo.setCount(mapper.countByExample(sysDuadCriteria));

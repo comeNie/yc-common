@@ -66,6 +66,9 @@ public class SysPurposeAtomSVImpl implements ISysPurposeAtomSV{
 		if (!StringUtil.isBlank(param.getState())) {
 			criteria.andStateEqualTo(param.getState());
 		}
+		if (!StringUtil.isBlank(param.getCreateOperator())) {
+			criteria.andCreateOperatorLike("%" + param.getCreateOperator().trim() + "%");
+		}
 		PageInfo<PurposePageVo> pageInfo = new PageInfo<PurposePageVo>();
 		SysPurposeMapper mapper = MapperFactory.getSysPurposeMapper();
 		pageInfo.setCount(mapper.countByExample(sysPurposeCriteria));

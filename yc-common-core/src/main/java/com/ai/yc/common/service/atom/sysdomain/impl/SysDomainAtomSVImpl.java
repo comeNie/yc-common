@@ -66,6 +66,9 @@ public class SysDomainAtomSVImpl implements ISysDomainAtomSV {
 		if (!StringUtil.isBlank(param.getState())) {
 			criteria.andStateEqualTo(param.getState());
 		}
+		if (!StringUtil.isBlank(param.getCreateOperator())) {
+			criteria.andCreateOperatorLike("%" + param.getCreateOperator().trim() + "%");
+		}
 		PageInfo<DomainPageVo> pageInfo = new PageInfo<DomainPageVo>();
 		SysDomainMapper mapper = MapperFactory.getSysDomainMapper();
 		pageInfo.setCount(mapper.countByExample(sysDomainCriteria));
