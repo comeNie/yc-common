@@ -7,6 +7,11 @@ import com.ai.opt.base.vo.PageInfo;
 public class DuadPageQueryRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**
+	 * 编号
+	 */
+	private String duadId;
+
+	/**
      * 中文名称
      */
     private String language;
@@ -27,6 +32,12 @@ public class DuadPageQueryRequest implements Serializable {
      * 分页时必填
      */
     PageInfo<DuadPageVo> pageInfo;
+	public String getDuadId() {
+		return duadId;
+	}
+	public void setDuadId(String duadId) {
+		this.duadId = duadId;
+	}
 	public String getLanguage() {
 		return language;
 	}
