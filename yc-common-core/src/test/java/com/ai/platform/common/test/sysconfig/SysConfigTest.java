@@ -274,9 +274,9 @@ public class SysConfigTest {
 	@Test
 	public void updateSysDuad(){
 		SaveSysDuad req  = new SaveSysDuad();
-		req.setDuadId("113");
-		req.setLanguage("zh_CN");
-		req.setOrderType("2");
+		req.setDuadId("8");
+		req.setLanguage("1");
+		/*req.setOrderType("2");*/
 		req.setOrdinary("0.4");
 		req.setOrdinaryDollar("0.06");
 		req.setOrdinaryUrgent("0.53");
@@ -289,10 +289,10 @@ public class SysConfigTest {
 		req.setPublishUrgent("0.6");
 		req.setPurgentDollar("0.06");
 		req.setPuburgentDollar("0.09");
-		req.setSite("pc");
-		req.setSourceCode("zh");
-		req.setSourceCn("中文");
-		req.setSourceEn("Chinese");
+		req.setSite("3");
+		req.setSourceCode("ru");
+		req.setSourceCn("俄语");
+		req.setSourceEn("Russian");
 		req.setTargetEn("English");
 		req.setTargetCn("英文");
 		req.setTargetCode("en");
