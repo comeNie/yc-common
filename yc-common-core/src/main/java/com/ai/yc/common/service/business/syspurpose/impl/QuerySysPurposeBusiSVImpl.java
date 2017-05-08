@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.opt.sdk.components.sequence.util.SeqUtil;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
 import com.ai.yc.common.api.syspurpose.param.PurposePageQueryRequest;
 import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
 import com.ai.yc.common.api.syspurpose.param.SaveSysPurpose;
+import com.ai.yc.common.constants.Constants;
 import com.ai.yc.common.dao.mapper.bo.SysPurpose;
 import com.ai.yc.common.service.atom.syspurpose.ISysPurposeAtomSV;
 import com.ai.yc.common.service.business.syspurpose.IQuerySysPurposeBusiSV;
@@ -48,7 +50,8 @@ public class QuerySysPurposeBusiSVImpl implements IQuerySysPurposeBusiSV {
 	@Override
 	public Integer saveSysPurpose(SaveSysPurpose req) {
 		SysPurpose sysPurpose = new SysPurpose();
-		sysPurpose.setPurposeId(req.getPurposeId());
+		Long purposeId = SeqUtil.getNewId(Constants.SEQ.PURPOSE_ID_SEQ);
+		sysPurpose.setPurposeId(String.valueOf(purposeId));
 		sysPurpose.setLanguage(req.getLanguage());
 		sysPurpose.setNamedFlag(req.getNamedFlag());
 		sysPurpose.setPurposeCn(req.getPurposeCn());
