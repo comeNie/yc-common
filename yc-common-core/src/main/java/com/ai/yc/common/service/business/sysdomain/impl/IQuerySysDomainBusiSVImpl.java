@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.opt.sdk.components.sequence.util.SeqUtil;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
 import com.ai.yc.common.api.sysdomain.param.DomainPageVo;
 import com.ai.yc.common.api.sysdomain.param.DomainQueryRequest;
 import com.ai.yc.common.api.sysdomain.param.SaveSysDomain;
+import com.ai.yc.common.constants.Constants;
 import com.ai.yc.common.dao.mapper.bo.SysDomain;
 import com.ai.yc.common.service.atom.sysdomain.ISysDomainAtomSV;
 import com.ai.yc.common.service.business.sysdomain.IQuerySysDomainBusiSV;
@@ -46,7 +48,8 @@ public class IQuerySysDomainBusiSVImpl implements IQuerySysDomainBusiSV {
 	@Override
 	public Integer saveSysDomain(SaveSysDomain req) {
 		SysDomain sysDomain = new SysDomain();
-		sysDomain.setDomainId(req.getDomainId());
+		Long domainId = SeqUtil.getNewId(Constants.SEQ.DOMAIN_ID_SEQ);
+		sysDomain.setDomainId(String.valueOf(domainId));
 		sysDomain.setLanguage(req.getLanguage());
 		sysDomain.setDomainCn(req.getDomainCn());
 		sysDomain.setDomainEn(req.getDomainEn());

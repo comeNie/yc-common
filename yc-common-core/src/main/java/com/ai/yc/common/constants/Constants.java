@@ -103,11 +103,11 @@ public final class Constants {
 
         public static final String AREA_CODE_SEQ = "GN_AREA$AREA_CODE$SEQ";
         
-        public static final String PURPOSE_ID_SEQ = "SYS_PURPOSE$PURPOSE_ID$SEQ";
+        public static final String PURPOSE_ID_SEQ = "SYS$PURPOSE$ID";
 
-        public static final String DOMAIN_ID_SEQ = "SYS_DOMAIN$DOMAIN_ID$SEQ";
+        public static final String DOMAIN_ID_SEQ = "SYS$DOMAIN$ID";
 
-        public static final String DUAD_ID_SEQ = "SYS_DUAD$DUAD_ID$SEQ";
+        public static final String DUAD_ID_SEQ = "SYS$DUAD$ID";
     }
     
     public final static class SysConfig {

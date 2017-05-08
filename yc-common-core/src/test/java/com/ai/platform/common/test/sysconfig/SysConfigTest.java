@@ -153,10 +153,9 @@ public class SysConfigTest {
 	@Test
 	public void saveSysPurpose(){
 		SaveSysPurpose req  = new SaveSysPurpose();
-		req.setPurposeId("8");
 		req.setLanguage("en_US");
 		req.setNamedFlag("1");
-		req.setPurposeCn("语言");
+		req.setPurposeCn("译云");
 		req.setPurposeEn("language");
 		req.setRemarks("讨论");
 		req.setSite("2");
@@ -231,7 +230,6 @@ public class SysConfigTest {
 	@Test
 	public void saveSysDuad(){
 		SaveSysDuad req  = new SaveSysDuad();
-		req.setDuadId("113");
 		req.setLanguage("zh_CN");
 		req.setOrderType("2");
 		req.setOrdinary("0.4");
@@ -329,9 +327,8 @@ public class SysConfigTest {
 	@Test
 	public void saveSysDomain(){
 		SaveSysDomain req  = new SaveSysDomain();
-		req.setDomainCn("翻译3");
+		req.setDomainCn("翻译4");
 		req.setDomainEn("traslate3");
-		req.setDomainId("4");
 		req.setLanguage("en_US");
 		req.setSite("1");
 		req.setSort("1");
