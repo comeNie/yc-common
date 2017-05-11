@@ -85,7 +85,7 @@ public interface IQuerySysPurposeSV {
 	public BaseResponse saveSysPurpose(SaveSysPurpose req)throws BusinessException,SystemException;
 	
 	/**
-	 * 删除用途
+	 * 删除
 	 * @param param
 	 * @throws BusinessException,SystemException
 	 * @author shancc
