@@ -13,7 +13,6 @@ import com.ai.yc.common.api.sysduad.param.DuadPageQueryRequest;
 import com.ai.yc.common.api.sysduad.param.DuadPageVo;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadById;
 import com.ai.yc.common.api.sysduad.param.SaveSysDuad;
-import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
 import com.ai.yc.common.constants.Constants;
 import com.ai.yc.common.dao.mapper.bo.SysDuad;
 import com.ai.yc.common.service.atom.sysduad.ISysDuadAtomSV;

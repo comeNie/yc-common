@@ -58,6 +58,8 @@ public class IQuerySysDomainBusiSVImpl implements IQuerySysDomainBusiSV {
 		sysDomain.setSort(req.getSort());
 		sysDomain.setState(req.getState());
 		sysDomain.setUpdatetime(req.getUpdatetime());
+		sysDomain.setCreateOperator(req.getCreateOperator());
+		sysDomain.setCreateOperatorId(req.getCreateOperatorId());
 		return iSysDomainAtomSV.saveSysDomain(sysDomain);
 	}
 

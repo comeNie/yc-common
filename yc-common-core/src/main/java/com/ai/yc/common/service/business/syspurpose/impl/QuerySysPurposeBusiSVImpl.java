@@ -61,6 +61,8 @@ public class QuerySysPurposeBusiSVImpl implements IQuerySysPurposeBusiSV {
 		sysPurpose.setSort(req.getSort());
 		sysPurpose.setState(req.getState());
 		sysPurpose.setUpdatetime(req.getUpdatetime());
+		sysPurpose.setCreateOperator(req.getCreateOperator());
+		sysPurpose.setCreateOperatorId(req.getCreateOperatorId());
 		return iSysPurposeAtomSV.saveSysPurpose(sysPurpose);
 	}
 
