@@ -48,7 +48,10 @@ public class PurposePageVo implements Serializable {
 	 * 创建人
 	 */
     private String createOperator;
-
+    /**
+	 * 创建人ID
+	 */
+	private String createOperatorId;
 	public String getPurposeId() {
 		return purposeId;
 	}
@@ -135,5 +138,13 @@ public class PurposePageVo implements Serializable {
 
 	public void setCreateOperator(String createOperator) {
 		this.createOperator = createOperator;
+	}
+
+	public String getCreateOperatorId() {
+		return createOperatorId;
+	}
+
+	public void setCreateOperatorId(String createOperatorId) {
+		this.createOperatorId = createOperatorId;
 	}
 }
