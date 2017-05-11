@@ -21,6 +21,8 @@ public class SysDomain {
 
     private String createOperator;
 
+    private String createOperatorId;
+
     public String getDomainId() {
         return domainId;
     }
@@ -99,5 +101,13 @@ public class SysDomain {
 
     public void setCreateOperator(String createOperator) {
         this.createOperator = createOperator == null ? null : createOperator.trim();
+    }
+
+    public String getCreateOperatorId() {
+        return createOperatorId;
+    }
+
+    public void setCreateOperatorId(String createOperatorId) {
+        this.createOperatorId = createOperatorId == null ? null : createOperatorId.trim();
     }
 }

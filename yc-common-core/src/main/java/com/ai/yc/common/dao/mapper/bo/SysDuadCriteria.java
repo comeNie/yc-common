@@ -1933,6 +1933,76 @@ public class SysDuadCriteria {
             addCriterion("create_operator not between", value1, value2, "createOperator");
             return (Criteria) this;
         }
+
+        public Criteria andCreateOperatorIdIsNull() {
+            addCriterion("create_operator_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdIsNotNull() {
+            addCriterion("create_operator_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdEqualTo(String value) {
+            addCriterion("create_operator_id =", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdNotEqualTo(String value) {
+            addCriterion("create_operator_id <>", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdGreaterThan(String value) {
+            addCriterion("create_operator_id >", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdGreaterThanOrEqualTo(String value) {
+            addCriterion("create_operator_id >=", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdLessThan(String value) {
+            addCriterion("create_operator_id <", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdLessThanOrEqualTo(String value) {
+            addCriterion("create_operator_id <=", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdLike(String value) {
+            addCriterion("create_operator_id like", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdNotLike(String value) {
+            addCriterion("create_operator_id not like", value, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdIn(List<String> values) {
+            addCriterion("create_operator_id in", values, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdNotIn(List<String> values) {
+            addCriterion("create_operator_id not in", values, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdBetween(String value1, String value2) {
+            addCriterion("create_operator_id between", value1, value2, "createOperatorId");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateOperatorIdNotBetween(String value1, String value2) {
+            addCriterion("create_operator_id not between", value1, value2, "createOperatorId");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

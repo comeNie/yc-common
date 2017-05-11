@@ -53,6 +53,8 @@ public class SysDuad {
 
     private String createOperator;
 
+    private String createOperatorId;
+
     public String getDuadId() {
         return duadId;
     }
@@ -259,5 +261,13 @@ public class SysDuad {
 
     public void setCreateOperator(String createOperator) {
         this.createOperator = createOperator == null ? null : createOperator.trim();
+    }
+
+    public String getCreateOperatorId() {
+        return createOperatorId;
+    }
+
+    public void setCreateOperatorId(String createOperatorId) {
+        this.createOperatorId = createOperatorId == null ? null : createOperatorId.trim();
     }
 }

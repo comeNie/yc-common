@@ -108,7 +108,10 @@ public class SaveSysDuad implements Serializable {
     * 创建人
     */
     private String createOperator;
-    
+    /**
+	 * 创建人ID
+	 */
+	private String createOperatorId;
     public String getDuadId() {
         return duadId;
     }
@@ -315,5 +318,13 @@ public class SaveSysDuad implements Serializable {
 
 	public void setCreateOperator(String createOperator) {
 		this.createOperator = createOperator;
+	}
+
+	public String getCreateOperatorId() {
+		return createOperatorId;
+	}
+
+	public void setCreateOperatorId(String createOperatorId) {
+		this.createOperatorId = createOperatorId;
 	}
 }

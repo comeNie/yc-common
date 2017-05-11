@@ -13,6 +13,7 @@
     <result column="named_flag" property="namedFlag" jdbcType="CHAR" />
     <result column="updatetime" property="updatetime" jdbcType="BIGINT" />
     <result column="create_operator" property="createOperator" jdbcType="VARCHAR" />
+    <result column="create_operator_id" property="createOperatorId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -74,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List" >
     purpose_id, language, site, purpose_cn, purpose_en, remarks, sort, state, named_flag, 
-    updatetime, create_operator
+    updatetime, create_operator, create_operator_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurposeCriteria" >
     select
@@ -114,11 +115,11 @@
     insert into sys_purpose (purpose_id, language, site, 
       purpose_cn, purpose_en, remarks, 
       sort, state, named_flag, updatetime, 
-      create_operator)
+      create_operator, create_operator_id)
     values (#{purposeId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
       #{purposeCn,jdbcType=VARCHAR}, #{purposeEn,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
       #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, #{namedFlag,jdbcType=CHAR}, #{updatetime,jdbcType=BIGINT}, 
-      #{createOperator,jdbcType=VARCHAR})
+      #{createOperator,jdbcType=VARCHAR}, #{createOperatorId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysPurpose" >
     insert into sys_purpose
@@ -156,6 +157,9 @@
       <if test="createOperator != null" >
         create_operator,
       </if>
+      <if test="createOperatorId != null" >
+        create_operator_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="purposeId != null" >
@@ -190,6 +194,9 @@
       </if>
       <if test="createOperator != null" >
         #{createOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="createOperatorId != null" >
+        #{createOperatorId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -235,6 +242,9 @@
       <if test="record.createOperator != null" >
         create_operator = #{record.createOperator,jdbcType=VARCHAR},
       </if>
+      <if test="record.createOperatorId != null" >
+        create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -252,7 +262,8 @@
       state = #{record.state,jdbcType=CHAR},
       named_flag = #{record.namedFlag,jdbcType=CHAR},
       updatetime = #{record.updatetime,jdbcType=BIGINT},
-      create_operator = #{record.createOperator,jdbcType=VARCHAR}
+      create_operator = #{record.createOperator,jdbcType=VARCHAR},
+      create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -290,6 +301,9 @@
       <if test="createOperator != null" >
         create_operator = #{createOperator,jdbcType=VARCHAR},
       </if>
+      <if test="createOperatorId != null" >
+        create_operator_id = #{createOperatorId,jdbcType=VARCHAR},
+      </if>
     </set>
     where purpose_id = #{purposeId,jdbcType=VARCHAR}
   </update>
@@ -304,7 +318,8 @@
       state = #{state,jdbcType=CHAR},
       named_flag = #{namedFlag,jdbcType=CHAR},
       updatetime = #{updatetime,jdbcType=BIGINT},
-      create_operator = #{createOperator,jdbcType=VARCHAR}
+      create_operator = #{createOperator,jdbcType=VARCHAR},
+      create_operator_id = #{createOperatorId,jdbcType=VARCHAR}
     where purpose_id = #{purposeId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -12,6 +12,7 @@
     <result column="state" property="state" jdbcType="CHAR" />
     <result column="updatetime" property="updatetime" jdbcType="BIGINT" />
     <result column="create_operator" property="createOperator" jdbcType="VARCHAR" />
+    <result column="create_operator_id" property="createOperatorId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List" >
     domain_id, language, site, domain_cn, domain_en, remarks, sort, state, updatetime, 
-    create_operator
+    create_operator, create_operator_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysDomainCriteria" >
     select
@@ -113,11 +114,11 @@
     insert into sys_domain (domain_id, language, site, 
       domain_cn, domain_en, remarks, 
       sort, state, updatetime, 
-      create_operator)
+      create_operator, create_operator_id)
     values (#{domainId,jdbcType=VARCHAR}, #{language,jdbcType=VARCHAR}, #{site,jdbcType=VARCHAR}, 
       #{domainCn,jdbcType=VARCHAR}, #{domainEn,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, 
       #{sort,jdbcType=VARCHAR}, #{state,jdbcType=CHAR}, #{updatetime,jdbcType=BIGINT}, 
-      #{createOperator,jdbcType=VARCHAR})
+      #{createOperator,jdbcType=VARCHAR}, #{createOperatorId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysDomain" >
     insert into sys_domain
@@ -152,6 +153,9 @@
       <if test="createOperator != null" >
         create_operator,
       </if>
+      <if test="createOperatorId != null" >
+        create_operator_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="domainId != null" >
@@ -183,6 +187,9 @@
       </if>
       <if test="createOperator != null" >
         #{createOperator,jdbcType=VARCHAR},
+      </if>
+      <if test="createOperatorId != null" >
+        #{createOperatorId,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -225,6 +232,9 @@
       <if test="record.createOperator != null" >
         create_operator = #{record.createOperator,jdbcType=VARCHAR},
       </if>
+      <if test="record.createOperatorId != null" >
+        create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -241,7 +251,8 @@
       sort = #{record.sort,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=CHAR},
       updatetime = #{record.updatetime,jdbcType=BIGINT},
-      create_operator = #{record.createOperator,jdbcType=VARCHAR}
+      create_operator = #{record.createOperator,jdbcType=VARCHAR},
+      create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -276,6 +287,9 @@
       <if test="createOperator != null" >
         create_operator = #{createOperator,jdbcType=VARCHAR},
       </if>
+      <if test="createOperatorId != null" >
+        create_operator_id = #{createOperatorId,jdbcType=VARCHAR},
+      </if>
     </set>
     where domain_id = #{domainId,jdbcType=VARCHAR}
   </update>
@@ -289,7 +303,8 @@
       sort = #{sort,jdbcType=VARCHAR},
       state = #{state,jdbcType=CHAR},
       updatetime = #{updatetime,jdbcType=BIGINT},
-      create_operator = #{createOperator,jdbcType=VARCHAR}
+      create_operator = #{createOperator,jdbcType=VARCHAR},
+      create_operator_id = #{createOperatorId,jdbcType=VARCHAR}
     where domain_id = #{domainId,jdbcType=VARCHAR}
   </update>
 </mapper>

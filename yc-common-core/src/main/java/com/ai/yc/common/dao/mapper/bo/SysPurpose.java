@@ -23,6 +23,8 @@ public class SysPurpose {
 
     private String createOperator;
 
+    private String createOperatorId;
+
     public String getPurposeId() {
         return purposeId;
     }
@@ -109,5 +111,13 @@ public class SysPurpose {
 
     public void setCreateOperator(String createOperator) {
         this.createOperator = createOperator == null ? null : createOperator.trim();
+    }
+
+    public String getCreateOperatorId() {
+        return createOperatorId;
+    }
+
+    public void setCreateOperatorId(String createOperatorId) {
+        this.createOperatorId = createOperatorId == null ? null : createOperatorId.trim();
     }
 }
