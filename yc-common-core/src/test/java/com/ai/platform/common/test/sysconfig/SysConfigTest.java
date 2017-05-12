@@ -38,6 +38,9 @@ import com.ai.yc.common.api.sysduad.param.QuerySysDuadDetailsRes;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadListReq;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadListRes;
 import com.ai.yc.common.api.sysduad.param.SaveSysDuad;
+import com.ai.yc.common.api.sysitembank.interfaces.IQuerySysItemBankSV;
+import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
+import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryResponse;
 import com.ai.yc.common.api.syspurpose.interfaces.IQuerySysPurposeSV;
 import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
@@ -66,6 +69,9 @@ public class SysConfigTest {
 	
 	@Autowired
 	private IQuerySysDomainSV iQuerySysDomainSV;
+	
+	@Autowired
+	private IQuerySysItemBankSV iQuerySysItemBankSV;
 	
 	private Gson gson = new Gson();
 	
@@ -373,6 +379,20 @@ public class SysConfigTest {
 		BaseResponse updateSysDomain = iQuerySysDomainSV.updateSysDomain(req);
 		System.out.println(updateSysDomain);
 	}
+	
+	
+	/**
+     * 题库查询
+	 */
+	@Test
+	public void queryItemBankPage(){
+		ItemBankPageQueryRequest param = new ItemBankPageQueryRequest();
+		param.setSite("1");
+		ItemBankPageQueryResponse queryItemBankPage = iQuerySysItemBankSV.queryItemBankPage(param);
+		System.out.println(queryItemBankPage);
+	}
+	
+	
 	
 	/**
 	 * 时间转换

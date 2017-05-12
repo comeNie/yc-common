@@ -22,6 +22,7 @@ import com.ai.yc.common.dao.mapper.interfaces.GnTenantMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysConfigMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysDomainMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysDuadMapper;
+import com.ai.yc.common.dao.mapper.interfaces.SysItembankMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysMenuMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysOfficeMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysPurposeMapper;
@@ -110,6 +111,10 @@ public class MapperFactory {
     
     public static SysPurposeMapper getSysPurposeMapper() {
         return sqlSessionTemplate.getMapper(SysPurposeMapper.class);
+    }
+    
+    public static SysItembankMapper getSysItembankMapper() {
+        return sqlSessionTemplate.getMapper(SysItembankMapper.class);
     }
     
     public static SysDomainMapper getSysDomainMapper() {
