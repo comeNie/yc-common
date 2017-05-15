@@ -15,4 +15,6 @@ public interface ISysBasicAtomSV {
 	 * 查询基本设置
 	 */
 	List<SysBasic> querySysBasic();
+	
+	Integer updateSysBasic(SysBasic sysBasic);
 }

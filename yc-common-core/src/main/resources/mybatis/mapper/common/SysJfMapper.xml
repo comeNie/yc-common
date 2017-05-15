@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysJfMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.SysJf" >
+    <id column="DID" property="did" jdbcType="VARCHAR" />
+    <result column="ONE_DAY" property="oneDay" jdbcType="INTEGER" />
+    <result column="TWO_DAY" property="twoDay" jdbcType="INTEGER" />
+    <result column="THREE_DAY" property="threeDay" jdbcType="INTEGER" />
+    <result column="FOUR_DAY" property="fourDay" jdbcType="INTEGER" />
+    <result column="FIVE_DAY" property="fiveDay" jdbcType="INTEGER" />
+    <result column="SIX_DAY" property="sixDay" jdbcType="INTEGER" />
+    <result column="SEVEN_DAY" property="sevenDay" jdbcType="INTEGER" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    DID, ONE_DAY, TWO_DAY, THREE_DAY, FOUR_DAY, FIVE_DAY, SIX_DAY, SEVEN_DAY, STATE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysJfCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from sys_jf
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_jf
+    where DID = #{did,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_jf
+    where DID = #{did,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysJfCriteria" >
+    delete from sys_jf
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysJf" >
+    insert into sys_jf (DID, ONE_DAY, TWO_DAY, 
+      THREE_DAY, FOUR_DAY, FIVE_DAY, 
+      SIX_DAY, SEVEN_DAY, STATE
+      )
+    values (#{did,jdbcType=VARCHAR}, #{oneDay,jdbcType=INTEGER}, #{twoDay,jdbcType=INTEGER}, 
+      #{threeDay,jdbcType=INTEGER}, #{fourDay,jdbcType=INTEGER}, #{fiveDay,jdbcType=INTEGER}, 
+      #{sixDay,jdbcType=INTEGER}, #{sevenDay,jdbcType=INTEGER}, #{state,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysJf" >
+    insert into sys_jf
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="did != null" >
+        DID,
+      </if>
+      <if test="oneDay != null" >
+        ONE_DAY,
+      </if>
+      <if test="twoDay != null" >
+        TWO_DAY,
+      </if>
+      <if test="threeDay != null" >
+        THREE_DAY,
+      </if>
+      <if test="fourDay != null" >
+        FOUR_DAY,
+      </if>
+      <if test="fiveDay != null" >
+        FIVE_DAY,
+      </if>
+      <if test="sixDay != null" >
+        SIX_DAY,
+      </if>
+      <if test="sevenDay != null" >
+        SEVEN_DAY,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="did != null" >
+        #{did,jdbcType=VARCHAR},
+      </if>
+      <if test="oneDay != null" >
+        #{oneDay,jdbcType=INTEGER},
+      </if>
+      <if test="twoDay != null" >
+        #{twoDay,jdbcType=INTEGER},
+      </if>
+      <if test="threeDay != null" >
+        #{threeDay,jdbcType=INTEGER},
+      </if>
+      <if test="fourDay != null" >
+        #{fourDay,jdbcType=INTEGER},
+      </if>
+      <if test="fiveDay != null" >
+        #{fiveDay,jdbcType=INTEGER},
+      </if>
+      <if test="sixDay != null" >
+        #{sixDay,jdbcType=INTEGER},
+      </if>
+      <if test="sevenDay != null" >
+        #{sevenDay,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysJfCriteria" resultType="java.lang.Integer" >
+    select count(*) from sys_jf
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_jf
+    <set >
+      <if test="record.did != null" >
+        DID = #{record.did,jdbcType=VARCHAR},
+      </if>
+      <if test="record.oneDay != null" >
+        ONE_DAY = #{record.oneDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.twoDay != null" >
+        TWO_DAY = #{record.twoDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.threeDay != null" >
+        THREE_DAY = #{record.threeDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.fourDay != null" >
+        FOUR_DAY = #{record.fourDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.fiveDay != null" >
+        FIVE_DAY = #{record.fiveDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.sixDay != null" >
+        SIX_DAY = #{record.sixDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.sevenDay != null" >
+        SEVEN_DAY = #{record.sevenDay,jdbcType=INTEGER},
+      </if>
+      <if test="record.state != null" >
+        STATE = #{record.state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_jf
+    set DID = #{record.did,jdbcType=VARCHAR},
+      ONE_DAY = #{record.oneDay,jdbcType=INTEGER},
+      TWO_DAY = #{record.twoDay,jdbcType=INTEGER},
+      THREE_DAY = #{record.threeDay,jdbcType=INTEGER},
+      FOUR_DAY = #{record.fourDay,jdbcType=INTEGER},
+      FIVE_DAY = #{record.fiveDay,jdbcType=INTEGER},
+      SIX_DAY = #{record.sixDay,jdbcType=INTEGER},
+      SEVEN_DAY = #{record.sevenDay,jdbcType=INTEGER},
+      STATE = #{record.state,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysJf" >
+    update sys_jf
+    <set >
+      <if test="oneDay != null" >
+        ONE_DAY = #{oneDay,jdbcType=INTEGER},
+      </if>
+      <if test="twoDay != null" >
+        TWO_DAY = #{twoDay,jdbcType=INTEGER},
+      </if>
+      <if test="threeDay != null" >
+        THREE_DAY = #{threeDay,jdbcType=INTEGER},
+      </if>
+      <if test="fourDay != null" >
+        FOUR_DAY = #{fourDay,jdbcType=INTEGER},
+      </if>
+      <if test="fiveDay != null" >
+        FIVE_DAY = #{fiveDay,jdbcType=INTEGER},
+      </if>
+      <if test="sixDay != null" >
+        SIX_DAY = #{sixDay,jdbcType=INTEGER},
+      </if>
+      <if test="sevenDay != null" >
+        SEVEN_DAY = #{sevenDay,jdbcType=INTEGER},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DID = #{did,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.SysJf" >
+    update sys_jf
+    set ONE_DAY = #{oneDay,jdbcType=INTEGER},
+      TWO_DAY = #{twoDay,jdbcType=INTEGER},
+      THREE_DAY = #{threeDay,jdbcType=INTEGER},
+      FOUR_DAY = #{fourDay,jdbcType=INTEGER},
+      FIVE_DAY = #{fiveDay,jdbcType=INTEGER},
+      SIX_DAY = #{sixDay,jdbcType=INTEGER},
+      SEVEN_DAY = #{sevenDay,jdbcType=INTEGER},
+      STATE = #{state,jdbcType=VARCHAR}
+    where DID = #{did,jdbcType=VARCHAR}
+  </update>
+</mapper>

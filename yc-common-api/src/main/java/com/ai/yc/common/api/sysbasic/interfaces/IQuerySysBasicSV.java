@@ -8,7 +8,10 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.sysbasic.param.QuerySysBasicJfRegistListRes;
 import com.ai.yc.common.api.sysbasic.param.QuerySysBasicListRes;
+import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 
 /**
  * @Description: 基本设置查询服务
@@ -22,7 +25,7 @@ import com.ai.yc.common.api.sysbasic.param.QuerySysBasicListRes;
 public interface IQuerySysBasicSV {
 	
 	/**
-     * 基本设置查询分页
+     * 基本设置查询
      * @return 基本设置列表
      * @throws BusinessException,SystemException
      * @author shancc
@@ -34,4 +37,28 @@ public interface IQuerySysBasicSV {
 	@Path("/queryBasic")
 	public QuerySysBasicListRes queryBasic()throws BusinessException,SystemException;
 	
+	/**
+	 * 保存基本设置
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysbasic/saveBasic
+     */
+	@POST
+	@Path("/saveBasic")
+	public BaseResponse saveBasic(SaveSysBasic req)throws BusinessException,SystemException;
+	
+	/**
+     * 查询基本设置、活动、积分
+     * @return 基本设置列表
+     * @throws BusinessException,SystemException
+     * @author shancc
+     * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysbasic/queryBasicJfRegist
+	 */
+	@POST
+	@Path("/queryBasic")
+	public QuerySysBasicJfRegistListRes queryBasicJfRegist()throws BusinessException,SystemException;
 }

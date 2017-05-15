@@ -24,9 +24,11 @@ import com.ai.yc.common.dao.mapper.interfaces.SysConfigMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysDomainMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysDuadMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysItembankMapper;
+import com.ai.yc.common.dao.mapper.interfaces.SysJfMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysMenuMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysOfficeMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysPurposeMapper;
+import com.ai.yc.common.dao.mapper.interfaces.SysRegistMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysUserMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysWaitjobsMapper;
 
@@ -135,6 +137,14 @@ public class MapperFactory {
     
     public static SysBasicMapper getSysBasicMapper() {
         return sqlSessionTemplate.getMapper(SysBasicMapper.class);
+    }
+    
+    public static SysJfMapper getSysJfMapper() {
+        return sqlSessionTemplate.getMapper(SysJfMapper.class);
+    }
+    
+    public static SysRegistMapper getSysRegistMapper() {
+        return sqlSessionTemplate.getMapper(SysRegistMapper.class);
     }
     
 }

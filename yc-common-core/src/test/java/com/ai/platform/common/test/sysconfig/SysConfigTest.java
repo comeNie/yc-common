@@ -14,7 +14,9 @@ import com.ai.opt.sdk.util.DateUtil;
 import com.ai.paas.ipaas.mcs.interfaces.ICacheClient;
 import com.ai.yc.common.api.cachekey.key.CacheKey;
 import com.ai.yc.common.api.sysbasic.interfaces.IQuerySysBasicSV;
+import com.ai.yc.common.api.sysbasic.param.QuerySysBasicJfRegistListRes;
 import com.ai.yc.common.api.sysbasic.param.QuerySysBasicListRes;
+import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 import com.ai.yc.common.api.sysconfig.interfaces.IQuerySysConfigSV;
 import com.ai.yc.common.api.sysconfig.param.CommissionConfig;
 import com.ai.yc.common.api.sysconfig.param.DonateIntegralConfig;
@@ -406,6 +408,54 @@ public class SysConfigTest {
 		System.out.println(queryBasic);
 	}
 	
+	/**
+     * 保存基本设置
+	 */
+	@Test
+	public void saveBasic(){
+		SaveSysBasic req = new SaveSysBasic();
+		req.setId("1");
+		req.setOrdinayryMember(10);
+		req.setGoldMember(20);
+		req.setPlatinumMember(30);
+		req.setMasonyMember(40);
+		req.setCapValue(500);
+		req.setV1Points(1);
+		req.setV2Points(2);
+		req.setV3Points(3);
+		req.setLspPoints(4);
+		req.setWapNotice("公告");
+		req.setPcNotice("公告");
+		req.setLgdateNum(200);
+		req.setCustomNum(200);
+		req.setInterpreterNum(200);
+		req.setOrderNum(200);
+		req.setLanguageNum(200);
+		req.setDid("1");
+		req.setOneDay(10);
+		req.setTwoDay(20);
+		req.setThreeDay(30);
+		req.setFourDay(40);
+		req.setFiveDay(50);
+		req.setSixDay(60);
+		req.setSevenDay(70);
+		req.setDstate("0");
+		req.setActiviceName("注册送成长值");
+		req.setActiviceNum(10);
+		req.setAid("1");
+		req.setAstate("0");
+		BaseResponse saveBasic = iQuerySysBasicSV.saveBasic(req);
+		System.out.println(saveBasic);
+	}
+	
+	/**
+     * 查询基本设置、活动、积分
+	 */
+	@Test
+	public void queryBasicJfRegist(){
+		QuerySysBasicJfRegistListRes queryBasicJfRegist = iQuerySysBasicSV.queryBasicJfRegist();
+		System.out.println(queryBasicJfRegist);
+	}
 	
 	
 	/**
