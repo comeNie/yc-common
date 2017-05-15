@@ -39,9 +39,16 @@ public class SysBasicAtomSVImpl implements ISysBasicAtomSV{
 	public Integer updateSysBasic(SysBasic sysBasic) {
 		SysBasicCriteria sysBasicCriteria = new SysBasicCriteria();
 		SysBasicCriteria.Criteria criteria = sysBasicCriteria.createCriteria();
-		criteria.andIdEqualTo(sysBasic.getId());
-		SysBasicMapper mapper = MapperFactory.getSysBasicMapper();
-		int updateByPrimaryKey = mapper.updateByExampleSelective(sysBasic, sysBasicCriteria);
-		return updateByPrimaryKey;
+		if(sysBasic.getId() != null){
+			criteria.andIdEqualTo(sysBasic.getId());
+			SysBasicMapper mapper = MapperFactory.getSysBasicMapper();
+			int updateByPrimaryKey = mapper.updateByExampleSelective(sysBasic, sysBasicCriteria);
+			return updateByPrimaryKey;
+		}else{
+			SysBasicMapper mapper = MapperFactory.getSysBasicMapper();
+			sysBasic.setId("1");
+			int insertSelective = mapper.insertSelective(sysBasic);
+			return insertSelective;
+		}
 	}
 }

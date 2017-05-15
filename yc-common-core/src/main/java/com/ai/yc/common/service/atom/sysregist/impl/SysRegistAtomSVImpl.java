@@ -39,9 +39,16 @@ public class SysRegistAtomSVImpl implements ISysRegistAtomSV{
 	public Integer updateSysRegist(SysRegist sysRegist) {
 		SysRegistCriteria sysRegistCriteria = new SysRegistCriteria();
 		SysRegistCriteria.Criteria criteria = sysRegistCriteria.createCriteria();
-		criteria.andAidEqualTo(sysRegist.getAid());
-		SysRegistMapper mapper = MapperFactory.getSysRegistMapper();
-		int updateByPrimaryKey = mapper.updateByExampleSelective(sysRegist, sysRegistCriteria);
-		return updateByPrimaryKey;
+		if(sysRegist.getAid() != null){
+			criteria.andAidEqualTo(sysRegist.getAid());
+			SysRegistMapper mapper = MapperFactory.getSysRegistMapper();
+			int updateByPrimaryKey = mapper.updateByExampleSelective(sysRegist, sysRegistCriteria);
+			return updateByPrimaryKey;
+		}else{
+			SysRegistMapper mapper = MapperFactory.getSysRegistMapper();
+			sysRegist.setAid("1");
+			int insertSelective = mapper.insertSelective(sysRegist);
+			return insertSelective;
+		}
 	}
 }

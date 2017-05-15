@@ -39,19 +39,16 @@ public class SysJfAtomSVImpl implements ISysJfAtomSV{
 	public Integer updateSysJf(SysJf sysJf) {
 		SysJfCriteria sysJfCriteria = new SysJfCriteria();
 		SysJfCriteria.Criteria criteria = sysJfCriteria.createCriteria();
-		/*if(sysJf.getDid() != null){
+		if(sysJf.getDid() != null){
 			criteria.andDidEqualTo(sysJf.getDid());
 			SysJfMapper mapper = MapperFactory.getSysJfMapper();
 			int updateByPrimaryKey = mapper.updateByExampleSelective(sysJf, sysJfCriteria);
 			return updateByPrimaryKey;
 		}else{
 			SysJfMapper mapper = MapperFactory.getSysJfMapper();
+			sysJf.setDid("1");
 			int insertSelective = mapper.insertSelective(sysJf);
 			return insertSelective;
-		}*/
-		criteria.andDidEqualTo(sysJf.getDid());
-		SysJfMapper mapper = MapperFactory.getSysJfMapper();
-		int updateByPrimaryKey = mapper.updateByExampleSelective(sysJf, sysJfCriteria);
-		return updateByPrimaryKey;
+		}
 	}
 }

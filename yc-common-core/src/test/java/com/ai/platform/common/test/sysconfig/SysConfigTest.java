@@ -415,6 +415,8 @@ public class SysConfigTest {
 	public void saveBasic(){
 		SaveSysBasic req = new SaveSysBasic();
 		req.setId("1");
+		req.setAid("1");
+		req.setDid("1");
 		req.setOrdinayryMember(10);
 		req.setGoldMember(20);
 		req.setPlatinumMember(30);
@@ -431,7 +433,6 @@ public class SysConfigTest {
 		req.setInterpreterNum(200);
 		req.setOrderNum(200);
 		req.setLanguageNum(200);
-		req.setDid("1");
 		req.setOneDay(10);
 		req.setTwoDay(20);
 		req.setThreeDay(30);
@@ -440,9 +441,8 @@ public class SysConfigTest {
 		req.setSixDay(60);
 		req.setSevenDay(70);
 		req.setDstate("0");
-		req.setActiviceName("注册送成长值");
+		req.setActiviceName("注册送积分");
 		req.setActiviceNum(10);
-		req.setAid("1");
 		req.setAstate("0");
 		BaseResponse saveBasic = iQuerySysBasicSV.saveBasic(req);
 		System.out.println(saveBasic);
