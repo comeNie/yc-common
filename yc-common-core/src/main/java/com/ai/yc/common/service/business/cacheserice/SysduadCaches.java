@@ -21,9 +21,9 @@ import com.ai.yc.common.service.atom.sysduad.ISysDuadAtomSV;
  * @version V1.0
  */
 @Component
-public class SysduadCache extends AbstractCache{
+public class SysduadCaches extends AbstractCache{
 	
-   private static final Logger logger = LoggerFactory.getLogger(SysduadCache.class);
+   private static final Logger logger = LoggerFactory.getLogger(SysduadCaches.class);
 	
    @Autowired
    private ISysDuadAtomSV  iSysDuadAtomSV;
@@ -36,9 +36,9 @@ public class SysduadCache extends AbstractCache{
 		List<SysDuad> oralDuads = iSysDuadAtomSV.querySysDuadList(Constants.ZH_CN, Constants.SysDuad.ORDER_TYPE_ORAL);
 		
 		try {
-			pool.execute(new SysduadCacheThread(txtDuads,Constants.SysDuad.ORDER_TYPE_FAST));
-			pool.execute(new SysduadCacheThread(docDuads,Constants.SysDuad.ORDER_TYPE_DOC));
-			pool.execute(new SysduadCacheThread(oralDuads,Constants.SysDuad.ORDER_TYPE_ORAL));
+			pool.execute(new SysduadCacheThreads(txtDuads,Constants.SysDuad.ORDER_TYPE_FAST));
+			pool.execute(new SysduadCacheThreads(docDuads,Constants.SysDuad.ORDER_TYPE_DOC));
+			pool.execute(new SysduadCacheThreads(oralDuads,Constants.SysDuad.ORDER_TYPE_ORAL));
 		} catch (Exception e) {
 			 logger.info(e.getMessage(),e); 
 		}finally{

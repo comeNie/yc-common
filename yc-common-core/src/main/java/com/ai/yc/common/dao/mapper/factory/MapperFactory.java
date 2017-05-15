@@ -19,6 +19,7 @@ import com.ai.yc.common.dao.mapper.interfaces.GnSubjectMapper;
 import com.ai.yc.common.dao.mapper.interfaces.GnSysParamMapper;
 import com.ai.yc.common.dao.mapper.interfaces.GnTDicAreaRegionMapper;
 import com.ai.yc.common.dao.mapper.interfaces.GnTenantMapper;
+import com.ai.yc.common.dao.mapper.interfaces.SysBasicMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysConfigMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysDomainMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysDuadMapper;
@@ -132,5 +133,8 @@ public class MapperFactory {
     	return sqlSessionTemplate.getMapper(GnTDicAreaRegionMapper.class);
     }
     
+    public static SysBasicMapper getSysBasicMapper() {
+        return sqlSessionTemplate.getMapper(SysBasicMapper.class);
+    }
     
 }

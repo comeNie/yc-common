@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ai.yc.common.dao.mapper.interfaces.SysBasicMapper" >
+  <resultMap id="BaseResultMap" type="com.ai.yc.common.dao.mapper.bo.SysBasic" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ORDINAYRY_MEMBER" property="ordinayryMember" jdbcType="INTEGER" />
+    <result column="GOLD_MEMBER" property="goldMember" jdbcType="INTEGER" />
+    <result column="PLATINUM_MEMBER" property="platinumMember" jdbcType="INTEGER" />
+    <result column="MASONY_MEMBER" property="masonyMember" jdbcType="INTEGER" />
+    <result column="CAP_VALUE" property="capValue" jdbcType="INTEGER" />
+    <result column="V1_POINTS" property="v1Points" jdbcType="INTEGER" />
+    <result column="V2_POINTS" property="v2Points" jdbcType="INTEGER" />
+    <result column="V3_POINTS" property="v3Points" jdbcType="INTEGER" />
+    <result column="LSP_POINTS" property="lspPoints" jdbcType="INTEGER" />
+    <result column="LGDATE_NUM" property="lgdateNum" jdbcType="INTEGER" />
+    <result column="CUSTOM_NUM" property="customNum" jdbcType="INTEGER" />
+    <result column="INTERPRETER_NUM" property="interpreterNum" jdbcType="INTEGER" />
+    <result column="ORDER_NUM" property="orderNum" jdbcType="INTEGER" />
+    <result column="LANGUAGE_NUM" property="languageNum" jdbcType="INTEGER" />
+    <result column="PC_NOTICE" property="pcNotice" jdbcType="VARCHAR" />
+    <result column="WAP_NOTICE" property="wapNotice" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, ORDINAYRY_MEMBER, GOLD_MEMBER, PLATINUM_MEMBER, MASONY_MEMBER, CAP_VALUE, V1_POINTS, 
+    V2_POINTS, V3_POINTS, LSP_POINTS, LGDATE_NUM, CUSTOM_NUM, INTERPRETER_NUM, ORDER_NUM, 
+    LANGUAGE_NUM, PC_NOTICE, WAP_NOTICE
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysBasicCriteria" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from sys_basic
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <if test="limitStart != null and limitStart>=0" >
+      limit #{limitStart} , #{limitEnd}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_basic
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sys_basic
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysBasicCriteria" >
+    delete from sys_basic
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysBasic" >
+    insert into sys_basic (ID, ORDINAYRY_MEMBER, GOLD_MEMBER, 
+      PLATINUM_MEMBER, MASONY_MEMBER, CAP_VALUE, 
+      V1_POINTS, V2_POINTS, V3_POINTS, 
+      LSP_POINTS, LGDATE_NUM, CUSTOM_NUM, 
+      INTERPRETER_NUM, ORDER_NUM, LANGUAGE_NUM, 
+      PC_NOTICE, WAP_NOTICE)
+    values (#{id,jdbcType=VARCHAR}, #{ordinayryMember,jdbcType=INTEGER}, #{goldMember,jdbcType=INTEGER}, 
+      #{platinumMember,jdbcType=INTEGER}, #{masonyMember,jdbcType=INTEGER}, #{capValue,jdbcType=INTEGER}, 
+      #{v1Points,jdbcType=INTEGER}, #{v2Points,jdbcType=INTEGER}, #{v3Points,jdbcType=INTEGER}, 
+      #{lspPoints,jdbcType=INTEGER}, #{lgdateNum,jdbcType=INTEGER}, #{customNum,jdbcType=INTEGER}, 
+      #{interpreterNum,jdbcType=INTEGER}, #{orderNum,jdbcType=INTEGER}, #{languageNum,jdbcType=INTEGER}, 
+      #{pcNotice,jdbcType=VARCHAR}, #{wapNotice,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysBasic" >
+    insert into sys_basic
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="ordinayryMember != null" >
+        ORDINAYRY_MEMBER,
+      </if>
+      <if test="goldMember != null" >
+        GOLD_MEMBER,
+      </if>
+      <if test="platinumMember != null" >
+        PLATINUM_MEMBER,
+      </if>
+      <if test="masonyMember != null" >
+        MASONY_MEMBER,
+      </if>
+      <if test="capValue != null" >
+        CAP_VALUE,
+      </if>
+      <if test="v1Points != null" >
+        V1_POINTS,
+      </if>
+      <if test="v2Points != null" >
+        V2_POINTS,
+      </if>
+      <if test="v3Points != null" >
+        V3_POINTS,
+      </if>
+      <if test="lspPoints != null" >
+        LSP_POINTS,
+      </if>
+      <if test="lgdateNum != null" >
+        LGDATE_NUM,
+      </if>
+      <if test="customNum != null" >
+        CUSTOM_NUM,
+      </if>
+      <if test="interpreterNum != null" >
+        INTERPRETER_NUM,
+      </if>
+      <if test="orderNum != null" >
+        ORDER_NUM,
+      </if>
+      <if test="languageNum != null" >
+        LANGUAGE_NUM,
+      </if>
+      <if test="pcNotice != null" >
+        PC_NOTICE,
+      </if>
+      <if test="wapNotice != null" >
+        WAP_NOTICE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ordinayryMember != null" >
+        #{ordinayryMember,jdbcType=INTEGER},
+      </if>
+      <if test="goldMember != null" >
+        #{goldMember,jdbcType=INTEGER},
+      </if>
+      <if test="platinumMember != null" >
+        #{platinumMember,jdbcType=INTEGER},
+      </if>
+      <if test="masonyMember != null" >
+        #{masonyMember,jdbcType=INTEGER},
+      </if>
+      <if test="capValue != null" >
+        #{capValue,jdbcType=INTEGER},
+      </if>
+      <if test="v1Points != null" >
+        #{v1Points,jdbcType=INTEGER},
+      </if>
+      <if test="v2Points != null" >
+        #{v2Points,jdbcType=INTEGER},
+      </if>
+      <if test="v3Points != null" >
+        #{v3Points,jdbcType=INTEGER},
+      </if>
+      <if test="lspPoints != null" >
+        #{lspPoints,jdbcType=INTEGER},
+      </if>
+      <if test="lgdateNum != null" >
+        #{lgdateNum,jdbcType=INTEGER},
+      </if>
+      <if test="customNum != null" >
+        #{customNum,jdbcType=INTEGER},
+      </if>
+      <if test="interpreterNum != null" >
+        #{interpreterNum,jdbcType=INTEGER},
+      </if>
+      <if test="orderNum != null" >
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="languageNum != null" >
+        #{languageNum,jdbcType=INTEGER},
+      </if>
+      <if test="pcNotice != null" >
+        #{pcNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="wapNotice != null" >
+        #{wapNotice,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.ai.yc.common.dao.mapper.bo.SysBasicCriteria" resultType="java.lang.Integer" >
+    select count(*) from sys_basic
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sys_basic
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ordinayryMember != null" >
+        ORDINAYRY_MEMBER = #{record.ordinayryMember,jdbcType=INTEGER},
+      </if>
+      <if test="record.goldMember != null" >
+        GOLD_MEMBER = #{record.goldMember,jdbcType=INTEGER},
+      </if>
+      <if test="record.platinumMember != null" >
+        PLATINUM_MEMBER = #{record.platinumMember,jdbcType=INTEGER},
+      </if>
+      <if test="record.masonyMember != null" >
+        MASONY_MEMBER = #{record.masonyMember,jdbcType=INTEGER},
+      </if>
+      <if test="record.capValue != null" >
+        CAP_VALUE = #{record.capValue,jdbcType=INTEGER},
+      </if>
+      <if test="record.v1Points != null" >
+        V1_POINTS = #{record.v1Points,jdbcType=INTEGER},
+      </if>
+      <if test="record.v2Points != null" >
+        V2_POINTS = #{record.v2Points,jdbcType=INTEGER},
+      </if>
+      <if test="record.v3Points != null" >
+        V3_POINTS = #{record.v3Points,jdbcType=INTEGER},
+      </if>
+      <if test="record.lspPoints != null" >
+        LSP_POINTS = #{record.lspPoints,jdbcType=INTEGER},
+      </if>
+      <if test="record.lgdateNum != null" >
+        LGDATE_NUM = #{record.lgdateNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.customNum != null" >
+        CUSTOM_NUM = #{record.customNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.interpreterNum != null" >
+        INTERPRETER_NUM = #{record.interpreterNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderNum != null" >
+        ORDER_NUM = #{record.orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.languageNum != null" >
+        LANGUAGE_NUM = #{record.languageNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.pcNotice != null" >
+        PC_NOTICE = #{record.pcNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wapNotice != null" >
+        WAP_NOTICE = #{record.wapNotice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sys_basic
+    set ID = #{record.id,jdbcType=VARCHAR},
+      ORDINAYRY_MEMBER = #{record.ordinayryMember,jdbcType=INTEGER},
+      GOLD_MEMBER = #{record.goldMember,jdbcType=INTEGER},
+      PLATINUM_MEMBER = #{record.platinumMember,jdbcType=INTEGER},
+      MASONY_MEMBER = #{record.masonyMember,jdbcType=INTEGER},
+      CAP_VALUE = #{record.capValue,jdbcType=INTEGER},
+      V1_POINTS = #{record.v1Points,jdbcType=INTEGER},
+      V2_POINTS = #{record.v2Points,jdbcType=INTEGER},
+      V3_POINTS = #{record.v3Points,jdbcType=INTEGER},
+      LSP_POINTS = #{record.lspPoints,jdbcType=INTEGER},
+      LGDATE_NUM = #{record.lgdateNum,jdbcType=INTEGER},
+      CUSTOM_NUM = #{record.customNum,jdbcType=INTEGER},
+      INTERPRETER_NUM = #{record.interpreterNum,jdbcType=INTEGER},
+      ORDER_NUM = #{record.orderNum,jdbcType=INTEGER},
+      LANGUAGE_NUM = #{record.languageNum,jdbcType=INTEGER},
+      PC_NOTICE = #{record.pcNotice,jdbcType=VARCHAR},
+      WAP_NOTICE = #{record.wapNotice,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysBasic" >
+    update sys_basic
+    <set >
+      <if test="ordinayryMember != null" >
+        ORDINAYRY_MEMBER = #{ordinayryMember,jdbcType=INTEGER},
+      </if>
+      <if test="goldMember != null" >
+        GOLD_MEMBER = #{goldMember,jdbcType=INTEGER},
+      </if>
+      <if test="platinumMember != null" >
+        PLATINUM_MEMBER = #{platinumMember,jdbcType=INTEGER},
+      </if>
+      <if test="masonyMember != null" >
+        MASONY_MEMBER = #{masonyMember,jdbcType=INTEGER},
+      </if>
+      <if test="capValue != null" >
+        CAP_VALUE = #{capValue,jdbcType=INTEGER},
+      </if>
+      <if test="v1Points != null" >
+        V1_POINTS = #{v1Points,jdbcType=INTEGER},
+      </if>
+      <if test="v2Points != null" >
+        V2_POINTS = #{v2Points,jdbcType=INTEGER},
+      </if>
+      <if test="v3Points != null" >
+        V3_POINTS = #{v3Points,jdbcType=INTEGER},
+      </if>
+      <if test="lspPoints != null" >
+        LSP_POINTS = #{lspPoints,jdbcType=INTEGER},
+      </if>
+      <if test="lgdateNum != null" >
+        LGDATE_NUM = #{lgdateNum,jdbcType=INTEGER},
+      </if>
+      <if test="customNum != null" >
+        CUSTOM_NUM = #{customNum,jdbcType=INTEGER},
+      </if>
+      <if test="interpreterNum != null" >
+        INTERPRETER_NUM = #{interpreterNum,jdbcType=INTEGER},
+      </if>
+      <if test="orderNum != null" >
+        ORDER_NUM = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="languageNum != null" >
+        LANGUAGE_NUM = #{languageNum,jdbcType=INTEGER},
+      </if>
+      <if test="pcNotice != null" >
+        PC_NOTICE = #{pcNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="wapNotice != null" >
+        WAP_NOTICE = #{wapNotice,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ai.yc.common.dao.mapper.bo.SysBasic" >
+    update sys_basic
+    set ORDINAYRY_MEMBER = #{ordinayryMember,jdbcType=INTEGER},
+      GOLD_MEMBER = #{goldMember,jdbcType=INTEGER},
+      PLATINUM_MEMBER = #{platinumMember,jdbcType=INTEGER},
+      MASONY_MEMBER = #{masonyMember,jdbcType=INTEGER},
+      CAP_VALUE = #{capValue,jdbcType=INTEGER},
+      V1_POINTS = #{v1Points,jdbcType=INTEGER},
+      V2_POINTS = #{v2Points,jdbcType=INTEGER},
+      V3_POINTS = #{v3Points,jdbcType=INTEGER},
+      LSP_POINTS = #{lspPoints,jdbcType=INTEGER},
+      LGDATE_NUM = #{lgdateNum,jdbcType=INTEGER},
+      CUSTOM_NUM = #{customNum,jdbcType=INTEGER},
+      INTERPRETER_NUM = #{interpreterNum,jdbcType=INTEGER},
+      ORDER_NUM = #{orderNum,jdbcType=INTEGER},
+      LANGUAGE_NUM = #{languageNum,jdbcType=INTEGER},
+      PC_NOTICE = #{pcNotice,jdbcType=VARCHAR},
+      WAP_NOTICE = #{wapNotice,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

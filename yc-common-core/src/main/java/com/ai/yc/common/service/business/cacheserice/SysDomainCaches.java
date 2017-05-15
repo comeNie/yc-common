@@ -24,7 +24,7 @@ import com.alibaba.fastjson.JSON;
  * @version V1.0
  */
 @Component
-public class SysDomainCache extends AbstractCache {
+public class SysDomainCaches extends AbstractCache {
 	
 	@Autowired
 	private ISysDomainAtomSV iSysDomainAtomSV;

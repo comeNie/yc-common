@@ -13,6 +13,8 @@ import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.sdk.util.DateUtil;
 import com.ai.paas.ipaas.mcs.interfaces.ICacheClient;
 import com.ai.yc.common.api.cachekey.key.CacheKey;
+import com.ai.yc.common.api.sysbasic.interfaces.IQuerySysBasicSV;
+import com.ai.yc.common.api.sysbasic.param.QuerySysBasicListRes;
 import com.ai.yc.common.api.sysconfig.interfaces.IQuerySysConfigSV;
 import com.ai.yc.common.api.sysconfig.param.CommissionConfig;
 import com.ai.yc.common.api.sysconfig.param.DonateIntegralConfig;
@@ -72,6 +74,9 @@ public class SysConfigTest {
 	
 	@Autowired
 	private IQuerySysItemBankSV iQuerySysItemBankSV;
+	
+	@Autowired
+	private IQuerySysBasicSV iQuerySysBasicSV;
 	
 	private Gson gson = new Gson();
 	
@@ -390,6 +395,15 @@ public class SysConfigTest {
 		param.setSite("1");
 		ItemBankPageQueryResponse queryItemBankPage = iQuerySysItemBankSV.queryItemBankPage(param);
 		System.out.println(queryItemBankPage);
+	}
+	
+	/**
+     * 基本设置查询
+	 */
+	@Test
+	public void queryBasic(){
+		QuerySysBasicListRes queryBasic = iQuerySysBasicSV.queryBasic();
+		System.out.println(queryBasic);
 	}
 	
 	

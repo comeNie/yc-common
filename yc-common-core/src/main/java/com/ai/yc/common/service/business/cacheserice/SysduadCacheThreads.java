@@ -11,7 +11,7 @@ import com.ai.yc.common.util.CacheFactoryUtil;
 import com.ai.yc.common.util.PaaSConfUtil;
 import com.alibaba.fastjson.JSON;
 
-public class SysduadCacheThread extends Thread {
+public class SysduadCacheThreads extends Thread {
 	
 	
 
@@ -21,7 +21,7 @@ public class SysduadCacheThread extends Thread {
 
 	List<ICacheClient> cacheClientList = new ArrayList<ICacheClient>();
 
-	public SysduadCacheThread(List<SysDuad> duads, String orderType) {
+	public SysduadCacheThreads(List<SysDuad> duads, String orderType) {
 		super();
 		this.duads = duads;
 		this.orderType = orderType;
