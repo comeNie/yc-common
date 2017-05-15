@@ -1,7 +1,5 @@
 package com.ai.yc.common.service.business.sysregist.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +20,7 @@ public class QuerySysRegistBusiSVImpl implements IQuerySysRegistBusiSV {
 	private transient ISysRegistAtomSV  iSysRegistAtomSV;
 
 	@Override
-	public List<SysRegist> querySysRegist() {
+	public SysRegist querySysRegist() {
 		return iSysRegistAtomSV.querySysRegist();
 	}
 
@@ -32,7 +30,7 @@ public class QuerySysRegistBusiSVImpl implements IQuerySysRegistBusiSV {
 		sysRegist.setAid(req.getAid());
 		sysRegist.setActiviceName(req.getActiviceName());
 		sysRegist.setActiviceNum(req.getActiviceNum());
-		sysRegist.setState(req.getDstate());
+		sysRegist.setAstate(req.getDstate());
 		return iSysRegistAtomSV.updateSysRegist(sysRegist);
 	}
 

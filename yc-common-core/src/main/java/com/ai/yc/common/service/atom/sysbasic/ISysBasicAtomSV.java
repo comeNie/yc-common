@@ -1,6 +1,5 @@
 package com.ai.yc.common.service.atom.sysbasic;
 
-import java.util.List;
 
 import com.ai.yc.common.dao.mapper.bo.SysBasic;
 
@@ -14,7 +13,7 @@ public interface ISysBasicAtomSV {
 	/**
 	 * 查询基本设置
 	 */
-	List<SysBasic> querySysBasic();
+	SysBasic querySysBasic();
 	
 	Integer updateSysBasic(SysBasic sysBasic);
 }

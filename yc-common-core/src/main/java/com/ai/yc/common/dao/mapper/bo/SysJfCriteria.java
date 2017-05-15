@@ -614,73 +614,73 @@ public class SysJfCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andStateIsNull() {
-            addCriterion("STATE is null");
+        public Criteria andDstateIsNull() {
+            addCriterion("DSTATE is null");
             return (Criteria) this;
         }
 
-        public Criteria andStateIsNotNull() {
-            addCriterion("STATE is not null");
+        public Criteria andDstateIsNotNull() {
+            addCriterion("DSTATE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStateEqualTo(String value) {
-            addCriterion("STATE =", value, "state");
+        public Criteria andDstateEqualTo(String value) {
+            addCriterion("DSTATE =", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotEqualTo(String value) {
-            addCriterion("STATE <>", value, "state");
+        public Criteria andDstateNotEqualTo(String value) {
+            addCriterion("DSTATE <>", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateGreaterThan(String value) {
-            addCriterion("STATE >", value, "state");
+        public Criteria andDstateGreaterThan(String value) {
+            addCriterion("DSTATE >", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateGreaterThanOrEqualTo(String value) {
-            addCriterion("STATE >=", value, "state");
+        public Criteria andDstateGreaterThanOrEqualTo(String value) {
+            addCriterion("DSTATE >=", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateLessThan(String value) {
-            addCriterion("STATE <", value, "state");
+        public Criteria andDstateLessThan(String value) {
+            addCriterion("DSTATE <", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateLessThanOrEqualTo(String value) {
-            addCriterion("STATE <=", value, "state");
+        public Criteria andDstateLessThanOrEqualTo(String value) {
+            addCriterion("DSTATE <=", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateLike(String value) {
-            addCriterion("STATE like", value, "state");
+        public Criteria andDstateLike(String value) {
+            addCriterion("DSTATE like", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotLike(String value) {
-            addCriterion("STATE not like", value, "state");
+        public Criteria andDstateNotLike(String value) {
+            addCriterion("DSTATE not like", value, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateIn(List<String> values) {
-            addCriterion("STATE in", values, "state");
+        public Criteria andDstateIn(List<String> values) {
+            addCriterion("DSTATE in", values, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotIn(List<String> values) {
-            addCriterion("STATE not in", values, "state");
+        public Criteria andDstateNotIn(List<String> values) {
+            addCriterion("DSTATE not in", values, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateBetween(String value1, String value2) {
-            addCriterion("STATE between", value1, value2, "state");
+        public Criteria andDstateBetween(String value1, String value2) {
+            addCriterion("DSTATE between", value1, value2, "dstate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotBetween(String value1, String value2) {
-            addCriterion("STATE not between", value1, value2, "state");
+        public Criteria andDstateNotBetween(String value1, String value2) {
+            addCriterion("DSTATE not between", value1, value2, "dstate");
             return (Criteria) this;
         }
     }

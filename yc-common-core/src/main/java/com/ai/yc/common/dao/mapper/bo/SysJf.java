@@ -17,7 +17,7 @@ public class SysJf {
 
     private Integer sevenDay;
 
-    private String state;
+    private String dstate;
 
     public String getDid() {
         return did;
@@ -83,11 +83,11 @@ public class SysJf {
         this.sevenDay = sevenDay;
     }
 
-    public String getState() {
-        return state;
+    public String getDstate() {
+        return dstate;
     }
 
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+    public void setDstate(String dstate) {
+        this.dstate = dstate == null ? null : dstate.trim();
     }
 }

@@ -1,7 +1,5 @@
 package com.ai.yc.common.api.sysjf.impl;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,8 +13,6 @@ import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 import com.ai.yc.common.api.sysjf.interfaces.IQuerySysJfSV;
 import com.ai.yc.common.api.sysjf.param.QuerySysJfListRes;
-import com.ai.yc.common.api.sysjf.param.SysJfVo;
-import com.ai.yc.common.constants.ResultCodeConstants;
 import com.ai.yc.common.dao.mapper.bo.SysJf;
 import com.ai.yc.common.service.business.sysjf.IQuerySysJfBusiSV;
 import com.alibaba.dubbo.config.annotation.Service;
@@ -36,17 +32,25 @@ public class QuerySysJfSVImpl implements IQuerySysJfSV {
 
 	@Override
 	public QuerySysJfListRes queryJf() throws BusinessException, SystemException {
-		List<SysJf> jfs = iQuerySysJfBusiSV.querySysJf();
-		List<SysJfVo> vos = new ArrayList<SysJfVo>();
-		for(SysJf jf:jfs){
-			SysJfVo vo = new SysJfVo();
-			BeanUtils.copyProperties(vo, jf);
-			vos.add(vo);
-		}
-		QuerySysJfListRes res = new QuerySysJfListRes();
-		res.setJfs(vos);
-		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
-		return res;
+		QuerySysJfListRes querySysJfListRes = new QuerySysJfListRes();
+		ResponseHeader responseHeader = new ResponseHeader();
+		try {
+			SysJf querySysJf = iQuerySysJfBusiSV.querySysJf();
+			BeanUtils.copyProperties(querySysJfListRes, querySysJf);
+            responseHeader.setIsSuccess(true);
+            responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+            responseHeader.setResultMessage("优惠券模板查询成功");
+            querySysJfListRes.setResponseHeader(responseHeader);
+        }catch (BusinessException businessException){
+            responseHeader.setResultCode(businessException.getErrorCode());
+            responseHeader.setResultMessage(businessException.getErrorMessage());
+            querySysJfListRes.setResponseHeader(responseHeader);
+        }catch (Exception e){
+            responseHeader.setResultCode(ExceptCodeConstants.Special.SYSTEM_ERROR);
+            responseHeader.setResultMessage("优惠券模板查询失败");
+            querySysJfListRes.setResponseHeader(responseHeader);
+        }
+		return querySysJfListRes;
 	}
 	@Override
 	public BaseResponse saveJf(SaveSysBasic req) throws BusinessException, SystemException {

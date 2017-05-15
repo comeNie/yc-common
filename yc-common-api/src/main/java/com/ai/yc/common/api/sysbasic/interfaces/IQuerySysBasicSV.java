@@ -10,7 +10,6 @@ import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
 import com.ai.opt.base.vo.BaseResponse;
 import com.ai.yc.common.api.sysbasic.param.QuerySysBasicJfRegistListRes;
-import com.ai.yc.common.api.sysbasic.param.QuerySysBasicListRes;
 import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 
 /**
@@ -25,17 +24,17 @@ import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 public interface IQuerySysBasicSV {
 	
 	/**
-     * 基本设置查询
+     * 查询基本设置、活动、积分
      * @return 基本设置列表
      * @throws BusinessException,SystemException
      * @author shancc
      * @ApiDocMethod
      * @ApiCode
-     * @RestRelativeURL sysbasic/queryBasic
+     * @RestRelativeURL sysbasic/queryBasicJfRegist
 	 */
 	@POST
 	@Path("/queryBasic")
-	public QuerySysBasicListRes queryBasic()throws BusinessException,SystemException;
+	QuerySysBasicJfRegistListRes queryBasicJfRegist()throws BusinessException,SystemException;
 	
 	/**
 	 * 保存基本设置
@@ -48,17 +47,4 @@ public interface IQuerySysBasicSV {
 	@POST
 	@Path("/saveBasic")
 	public BaseResponse saveBasic(SaveSysBasic req)throws BusinessException,SystemException;
-	
-	/**
-     * 查询基本设置、活动、积分
-     * @return 基本设置列表
-     * @throws BusinessException,SystemException
-     * @author shancc
-     * @ApiDocMethod
-     * @ApiCode
-     * @RestRelativeURL sysbasic/queryBasicJfRegist
-	 */
-	@POST
-	@Path("/queryBasic")
-	public QuerySysBasicJfRegistListRes queryBasicJfRegist()throws BusinessException,SystemException;
 }

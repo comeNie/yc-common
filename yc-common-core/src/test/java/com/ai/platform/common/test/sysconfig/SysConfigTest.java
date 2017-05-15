@@ -404,8 +404,8 @@ public class SysConfigTest {
 	 */
 	@Test
 	public void queryBasic(){
-		QuerySysBasicListRes queryBasic = iQuerySysBasicSV.queryBasic();
-		System.out.println(queryBasic);
+		QuerySysBasicJfRegistListRes queryBasicJfRegist = iQuerySysBasicSV.queryBasicJfRegist();
+		System.out.println(queryBasicJfRegist);
 	}
 	
 	/**

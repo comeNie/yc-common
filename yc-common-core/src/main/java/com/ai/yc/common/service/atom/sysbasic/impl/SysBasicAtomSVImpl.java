@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.yc.common.dao.mapper.bo.SysBasic;
 import com.ai.yc.common.dao.mapper.bo.SysBasicCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
@@ -22,9 +24,15 @@ public class SysBasicAtomSVImpl implements ISysBasicAtomSV{
 	 * 查询基本设置
 	 */
 	@Override
-	public List<SysBasic> querySysBasic() {
-		SysBasicCriteria example = new SysBasicCriteria();
-		return MapperFactory.getSysBasicMapper().selectByExample(example);
+	public SysBasic querySysBasic() {
+		SysBasicCriteria sysBasicCriteria = new SysBasicCriteria();
+		SysBasicMapper mapper = MapperFactory.getSysBasicMapper();
+		List<SysBasic> selectByExample = mapper.selectByExample(sysBasicCriteria);
+		SysBasic sysBasic = new SysBasic();
+		if(!CollectionUtil.isEmpty(selectByExample)){
+			BeanUtils.copyProperties(sysBasic, selectByExample.get(0));
+		}
+		return sysBasic;
 	}
 	
 	@Override

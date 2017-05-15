@@ -1,7 +1,5 @@
 package com.ai.yc.common.service.business.sysregist;
 
-import java.util.List;
-
 import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 import com.ai.yc.common.dao.mapper.bo.SysRegist;
 
@@ -15,7 +13,7 @@ public interface IQuerySysRegistBusiSV {
 	/**
 	 * 查询基本设置
 	 */
-	List<SysRegist> querySysRegist();
+	SysRegist querySysRegist();
 	
 	Integer updateSysRegist(SaveSysBasic req);
 }

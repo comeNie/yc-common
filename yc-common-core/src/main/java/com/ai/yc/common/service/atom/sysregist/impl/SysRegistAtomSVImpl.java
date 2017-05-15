@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.yc.common.dao.mapper.bo.SysRegist;
 import com.ai.yc.common.dao.mapper.bo.SysRegistCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
@@ -22,9 +24,15 @@ public class SysRegistAtomSVImpl implements ISysRegistAtomSV{
 	 * 查询基本设置
 	 */
 	@Override
-	public List<SysRegist> querySysRegist() {
-		SysRegistCriteria example = new SysRegistCriteria();
-		return MapperFactory.getSysRegistMapper().selectByExample(example);
+	public SysRegist querySysRegist() {
+		SysRegistCriteria sysRegistCriteria = new SysRegistCriteria();
+		SysRegistMapper mapper = MapperFactory.getSysRegistMapper();
+		List<SysRegist> selectByExample = mapper.selectByExample(sysRegistCriteria);
+		SysRegist sysRegist = new SysRegist();
+		if(!CollectionUtil.isEmpty(selectByExample)){
+			BeanUtils.copyProperties(sysRegist, selectByExample.get(0));
+		}
+		return sysRegist;
 	}
 	
 	@Override

@@ -7,7 +7,7 @@ public class SysRegist {
 
     private Integer activiceNum;
 
-    private String state;
+    private String astate;
 
     public String getAid() {
         return aid;
@@ -33,11 +33,11 @@ public class SysRegist {
         this.activiceNum = activiceNum;
     }
 
-    public String getState() {
-        return state;
+    public String getAstate() {
+        return astate;
     }
 
-    public void setState(String state) {
-        this.state = state == null ? null : state.trim();
+    public void setAstate(String astate) {
+        this.astate = astate == null ? null : astate.trim();
     }
 }

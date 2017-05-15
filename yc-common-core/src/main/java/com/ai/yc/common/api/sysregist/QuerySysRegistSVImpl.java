@@ -1,7 +1,5 @@
 package com.ai.yc.common.api.sysregist;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,8 +13,6 @@ import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 import com.ai.yc.common.api.sysregist.interfaces.IQuerySysRegistSV;
 import com.ai.yc.common.api.sysregist.param.QuerySysRegistListRes;
-import com.ai.yc.common.api.sysregist.param.SysRegistVo;
-import com.ai.yc.common.constants.ResultCodeConstants;
 import com.ai.yc.common.dao.mapper.bo.SysRegist;
 import com.ai.yc.common.service.business.sysregist.IQuerySysRegistBusiSV;
 import com.alibaba.dubbo.config.annotation.Service;
@@ -36,17 +32,25 @@ public class QuerySysRegistSVImpl implements IQuerySysRegistSV {
 
 	@Override
 	public QuerySysRegistListRes queryRegist() throws BusinessException, SystemException {
-		List<SysRegist> regists = iQuerySysRegistBusiSV.querySysRegist();
-		List<SysRegistVo> vos = new ArrayList<SysRegistVo>();
-		for(SysRegist regist:regists){
-			SysRegistVo vo = new SysRegistVo();
-			BeanUtils.copyProperties(vo, regist);
-			vos.add(vo);
-		}
-		QuerySysRegistListRes res = new QuerySysRegistListRes();
-		res.setRegists(vos);
-		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
-		return res;
+		QuerySysRegistListRes querySysRegistListRes = new QuerySysRegistListRes();
+		ResponseHeader responseHeader = new ResponseHeader();
+		try {
+			SysRegist querySysRegist = iQuerySysRegistBusiSV.querySysRegist();
+			BeanUtils.copyProperties(querySysRegistListRes, querySysRegist);
+            responseHeader.setIsSuccess(true);
+            responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+            responseHeader.setResultMessage("优惠券模板查询成功");
+            querySysRegistListRes.setResponseHeader(responseHeader);
+        }catch (BusinessException businessException){
+            responseHeader.setResultCode(businessException.getErrorCode());
+            responseHeader.setResultMessage(businessException.getErrorMessage());
+            querySysRegistListRes.setResponseHeader(responseHeader);
+        }catch (Exception e){
+            responseHeader.setResultCode(ExceptCodeConstants.Special.SYSTEM_ERROR);
+            responseHeader.setResultMessage("优惠券模板查询失败");
+            querySysRegistListRes.setResponseHeader(responseHeader);
+        }
+		return querySysRegistListRes;
 	}
 
 	@Override

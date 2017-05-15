@@ -1,6 +1,5 @@
 package com.ai.yc.common.service.business.sysjf.impl;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,7 @@ public class QuerySysJfBusiSVImpl implements IQuerySysJfBusiSV {
 	private transient ISysJfAtomSV  iSysJfAtomSV;
 
 	@Override
-	public List<SysJf> querySysJf() {
+	public SysJf querySysJf() {
 		return iSysJfAtomSV.querySysJf();
 	}
 
@@ -37,7 +36,7 @@ public class QuerySysJfBusiSVImpl implements IQuerySysJfBusiSV {
 		sysJf.setFiveDay(req.getFiveDay());
 		sysJf.setSixDay(req.getSixDay());
 		sysJf.setSevenDay(req.getSevenDay());
-		sysJf.setState(req.getDstate());
+		sysJf.setDstate(req.getDstate());
 		return iSysJfAtomSV.updateSysJf(sysJf);
 	}
 

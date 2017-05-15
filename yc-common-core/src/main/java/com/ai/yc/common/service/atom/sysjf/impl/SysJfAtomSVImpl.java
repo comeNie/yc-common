@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.yc.common.dao.mapper.bo.SysJf;
 import com.ai.yc.common.dao.mapper.bo.SysJfCriteria;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
@@ -22,9 +24,15 @@ public class SysJfAtomSVImpl implements ISysJfAtomSV{
 	 * 查询基本设置
 	 */
 	@Override
-	public List<SysJf> querySysJf() {
-		SysJfCriteria example = new SysJfCriteria();
-		return MapperFactory.getSysJfMapper().selectByExample(example);
+	public SysJf querySysJf() {
+		SysJfCriteria sysJfCriteria = new SysJfCriteria();
+		SysJfMapper mapper = MapperFactory.getSysJfMapper();
+		List<SysJf> selectByExample = mapper.selectByExample(sysJfCriteria);
+		SysJf sysJf = new SysJf();
+		if(!CollectionUtil.isEmpty(selectByExample)){
+			BeanUtils.copyProperties(sysJf, selectByExample.get(0));
+		}
+		return sysJf;
 	}
 	
 	@Override

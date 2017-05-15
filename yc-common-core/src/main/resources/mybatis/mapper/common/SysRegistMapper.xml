@@ -5,7 +5,7 @@
     <id column="AID" property="aid" jdbcType="VARCHAR" />
     <result column="ACTIVICE_NAME" property="activiceName" jdbcType="VARCHAR" />
     <result column="ACTIVICE_NUM" property="activiceNum" jdbcType="INTEGER" />
-    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="ASTATE" property="astate" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,7 +66,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    AID, ACTIVICE_NAME, ACTIVICE_NUM, STATE
+    AID, ACTIVICE_NAME, ACTIVICE_NUM, ASTATE
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysRegistCriteria" >
     select
@@ -104,9 +104,9 @@
   </delete>
   <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysRegist" >
     insert into sys_regist (AID, ACTIVICE_NAME, ACTIVICE_NUM, 
-      STATE)
+      ASTATE)
     values (#{aid,jdbcType=VARCHAR}, #{activiceName,jdbcType=VARCHAR}, #{activiceNum,jdbcType=INTEGER}, 
-      #{state,jdbcType=VARCHAR})
+      #{astate,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysRegist" >
     insert into sys_regist
@@ -120,8 +120,8 @@
       <if test="activiceNum != null" >
         ACTIVICE_NUM,
       </if>
-      <if test="state != null" >
-        STATE,
+      <if test="astate != null" >
+        ASTATE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -134,8 +134,8 @@
       <if test="activiceNum != null" >
         #{activiceNum,jdbcType=INTEGER},
       </if>
-      <if test="state != null" >
-        #{state,jdbcType=VARCHAR},
+      <if test="astate != null" >
+        #{astate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -157,8 +157,8 @@
       <if test="record.activiceNum != null" >
         ACTIVICE_NUM = #{record.activiceNum,jdbcType=INTEGER},
       </if>
-      <if test="record.state != null" >
-        STATE = #{record.state,jdbcType=VARCHAR},
+      <if test="record.astate != null" >
+        ASTATE = #{record.astate,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -170,7 +170,7 @@
     set AID = #{record.aid,jdbcType=VARCHAR},
       ACTIVICE_NAME = #{record.activiceName,jdbcType=VARCHAR},
       ACTIVICE_NUM = #{record.activiceNum,jdbcType=INTEGER},
-      STATE = #{record.state,jdbcType=VARCHAR}
+      ASTATE = #{record.astate,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -184,8 +184,8 @@
       <if test="activiceNum != null" >
         ACTIVICE_NUM = #{activiceNum,jdbcType=INTEGER},
       </if>
-      <if test="state != null" >
-        STATE = #{state,jdbcType=VARCHAR},
+      <if test="astate != null" >
+        ASTATE = #{astate,jdbcType=VARCHAR},
       </if>
     </set>
     where AID = #{aid,jdbcType=VARCHAR}
@@ -194,7 +194,7 @@
     update sys_regist
     set ACTIVICE_NAME = #{activiceName,jdbcType=VARCHAR},
       ACTIVICE_NUM = #{activiceNum,jdbcType=INTEGER},
-      STATE = #{state,jdbcType=VARCHAR}
+      ASTATE = #{astate,jdbcType=VARCHAR}
     where AID = #{aid,jdbcType=VARCHAR}
   </update>
 </mapper>

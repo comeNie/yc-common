@@ -324,73 +324,73 @@ public class SysRegistCriteria {
             return (Criteria) this;
         }
 
-        public Criteria andStateIsNull() {
-            addCriterion("STATE is null");
+        public Criteria andAstateIsNull() {
+            addCriterion("ASTATE is null");
             return (Criteria) this;
         }
 
-        public Criteria andStateIsNotNull() {
-            addCriterion("STATE is not null");
+        public Criteria andAstateIsNotNull() {
+            addCriterion("ASTATE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStateEqualTo(String value) {
-            addCriterion("STATE =", value, "state");
+        public Criteria andAstateEqualTo(String value) {
+            addCriterion("ASTATE =", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotEqualTo(String value) {
-            addCriterion("STATE <>", value, "state");
+        public Criteria andAstateNotEqualTo(String value) {
+            addCriterion("ASTATE <>", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateGreaterThan(String value) {
-            addCriterion("STATE >", value, "state");
+        public Criteria andAstateGreaterThan(String value) {
+            addCriterion("ASTATE >", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateGreaterThanOrEqualTo(String value) {
-            addCriterion("STATE >=", value, "state");
+        public Criteria andAstateGreaterThanOrEqualTo(String value) {
+            addCriterion("ASTATE >=", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateLessThan(String value) {
-            addCriterion("STATE <", value, "state");
+        public Criteria andAstateLessThan(String value) {
+            addCriterion("ASTATE <", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateLessThanOrEqualTo(String value) {
-            addCriterion("STATE <=", value, "state");
+        public Criteria andAstateLessThanOrEqualTo(String value) {
+            addCriterion("ASTATE <=", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateLike(String value) {
-            addCriterion("STATE like", value, "state");
+        public Criteria andAstateLike(String value) {
+            addCriterion("ASTATE like", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotLike(String value) {
-            addCriterion("STATE not like", value, "state");
+        public Criteria andAstateNotLike(String value) {
+            addCriterion("ASTATE not like", value, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateIn(List<String> values) {
-            addCriterion("STATE in", values, "state");
+        public Criteria andAstateIn(List<String> values) {
+            addCriterion("ASTATE in", values, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotIn(List<String> values) {
-            addCriterion("STATE not in", values, "state");
+        public Criteria andAstateNotIn(List<String> values) {
+            addCriterion("ASTATE not in", values, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateBetween(String value1, String value2) {
-            addCriterion("STATE between", value1, value2, "state");
+        public Criteria andAstateBetween(String value1, String value2) {
+            addCriterion("ASTATE between", value1, value2, "astate");
             return (Criteria) this;
         }
 
-        public Criteria andStateNotBetween(String value1, String value2) {
-            addCriterion("STATE not between", value1, value2, "state");
+        public Criteria andAstateNotBetween(String value1, String value2) {
+            addCriterion("ASTATE not between", value1, value2, "astate");
             return (Criteria) this;
         }
     }

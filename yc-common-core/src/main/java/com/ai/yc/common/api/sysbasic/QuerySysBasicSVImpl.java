@@ -1,7 +1,5 @@
 package com.ai.yc.common.api.sysbasic;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,11 +12,7 @@ import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.yc.common.api.sysbasic.interfaces.IQuerySysBasicSV;
 import com.ai.yc.common.api.sysbasic.param.QuerySysBasicJfRegistListRes;
-import com.ai.yc.common.api.sysbasic.param.QuerySysBasicListRes;
 import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
-import com.ai.yc.common.api.sysbasic.param.SysBasicJfRegistVo;
-import com.ai.yc.common.api.sysbasic.param.SysBasicVo;
-import com.ai.yc.common.constants.ResultCodeConstants;
 import com.ai.yc.common.dao.mapper.bo.SysBasic;
 import com.ai.yc.common.dao.mapper.bo.SysJf;
 import com.ai.yc.common.dao.mapper.bo.SysRegist;
@@ -47,21 +41,6 @@ public class QuerySysBasicSVImpl implements IQuerySysBasicSV {
 	private transient IQuerySysRegistBusiSV iQuerySysRegistBusiSV;
 
 	@Override
-	public QuerySysBasicListRes queryBasic() throws BusinessException, SystemException {
-		List<SysBasic> basics = iQuerySysBasicBusiSV.querySysBasic();
-		List<SysBasicVo> vos = new ArrayList<SysBasicVo>();
-		for(SysBasic basic:basics){
-			SysBasicVo vo = new SysBasicVo();
-			BeanUtils.copyProperties(vo, basic);
-			vos.add(vo);
-		}
-		QuerySysBasicListRes res = new QuerySysBasicListRes();
-		res.setBasics(vos);
-		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
-		return res;
-	}
-
-	@Override
 	public BaseResponse saveBasic(SaveSysBasic req) throws BusinessException, SystemException {
 		BaseResponse response = new BaseResponse();
 		ResponseHeader responseHeader = new ResponseHeader();
@@ -81,55 +60,30 @@ public class QuerySysBasicSVImpl implements IQuerySysBasicSV {
 
 	@Override
 	public QuerySysBasicJfRegistListRes queryBasicJfRegist() throws BusinessException, SystemException {
-		List<SysBasic> basics = iQuerySysBasicBusiSV.querySysBasic();
-		List<SysJf> jfs = iQuerySysJfBusiSV.querySysJf();
-		List<SysRegist> regists = iQuerySysRegistBusiSV.querySysRegist();
-		
-		List<SysBasicJfRegistVo> vos = new ArrayList<SysBasicJfRegistVo>();
-		SysBasicJfRegistVo vo = new SysBasicJfRegistVo();
-		for(SysBasic basic:basics){
-			vo.setId(basic.getId());
-			vo.setOrdinayryMember(basic.getOrdinayryMember());
-			vo.setGoldMember(basic.getGoldMember());
-			vo.setPlatinumMember(basic.getPlatinumMember());
-			vo.setMasonyMember(basic.getMasonyMember());
-			vo.setCapValue(basic.getCapValue());
-			vo.setV1Points(basic.getV1Points());
-			vo.setV2Points(basic.getV2Points());
-			vo.setV3Points(basic.getV3Points());
-			vo.setLspPoints(basic.getLspPoints());
-			vo.setLgdateNum(basic.getLgdateNum());
-			vo.setCustomNum(basic.getCustomNum());
-			vo.setInterpreterNum(basic.getInterpreterNum());
-			vo.setOrderNum(basic.getOrderNum());
-			vo.setLanguageNum(basic.getLanguageNum());
-			vo.setPcNotice(basic.getPcNotice());
-			vo.setWapNotice(basic.getWapNotice());
-			vos.add(vo);
-		}
-		for (SysJf jf:jfs) {
-			vo.setDid(jf.getDid());
-			vo.setOneDay(jf.getOneDay());
-			vo.setTwoDay(jf.getTwoDay());
-			vo.setThreeDay(jf.getThreeDay());
-			vo.setFourDay(jf.getFourDay());
-			vo.setFiveDay(jf.getFiveDay());
-			vo.setSixDay(jf.getSixDay());
-			vo.setSevenDay(jf.getSevenDay());
-			vo.setDstate(jf.getState());
-			vos.add(vo);
-		}
-		for (SysRegist regist:regists) {
-			vo.setActiviceName(regist.getActiviceName());
-			vo.setActiviceNum(regist.getActiviceNum());
-			vo.setAid(regist.getAid());
-			vo.setAstate(regist.getState());
-			vos.add(vo);
-		}
-		QuerySysBasicJfRegistListRes res = new QuerySysBasicJfRegistListRes();
-		res.setBasicjfregists(vos);
-		res.setResponseHeader(new ResponseHeader(true, ResultCodeConstants.SUCCESS_CODE, "查询成功"));
-		return res;
+		QuerySysBasicJfRegistListRes querySysBasicJfRegistListRes = new QuerySysBasicJfRegistListRes();
+		ResponseHeader responseHeader = new ResponseHeader();
+		try {
+            SysBasic querySysBasic = iQuerySysBasicBusiSV.querySysBasic();
+            SysJf querySysJf = iQuerySysJfBusiSV.querySysJf();
+            SysRegist querySysRegist = iQuerySysRegistBusiSV.querySysRegist();
+            BeanUtils.copyProperties(querySysBasicJfRegistListRes, querySysBasic);
+            BeanUtils.copyProperties(querySysBasicJfRegistListRes, querySysJf);
+            BeanUtils.copyProperties(querySysBasicJfRegistListRes, querySysRegist);
+            
+            responseHeader.setIsSuccess(true);
+            responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+            responseHeader.setResultMessage("查询成功");
+            querySysBasicJfRegistListRes.setResponseHeader(responseHeader);
+        }catch (BusinessException businessException){
+            responseHeader.setResultCode(businessException.getErrorCode());
+            responseHeader.setResultMessage(businessException.getErrorMessage());
+            querySysBasicJfRegistListRes.setResponseHeader(responseHeader);
+        }catch (Exception e){
+            responseHeader.setResultCode(ExceptCodeConstants.Special.SYSTEM_ERROR);
+            responseHeader.setResultMessage("查询失败");
+            querySysBasicJfRegistListRes.setResponseHeader(responseHeader);
+        }
+		return querySysBasicJfRegistListRes;
 	}
 
 }

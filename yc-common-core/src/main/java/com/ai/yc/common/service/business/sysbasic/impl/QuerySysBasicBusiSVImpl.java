@@ -1,7 +1,5 @@
 package com.ai.yc.common.service.business.sysbasic.impl;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +20,7 @@ public class QuerySysBasicBusiSVImpl implements IQuerySysBasicBusiSV {
 	private transient ISysBasicAtomSV  iSysBasicAtomSV;
 
 	@Override
-	public List<SysBasic> querySysBasic() {
+	public SysBasic querySysBasic() {
 		return iSysBasicAtomSV.querySysBasic();
 	}
 

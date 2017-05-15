@@ -10,7 +10,7 @@
     <result column="FIVE_DAY" property="fiveDay" jdbcType="INTEGER" />
     <result column="SIX_DAY" property="sixDay" jdbcType="INTEGER" />
     <result column="SEVEN_DAY" property="sevenDay" jdbcType="INTEGER" />
-    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="DSTATE" property="dstate" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    DID, ONE_DAY, TWO_DAY, THREE_DAY, FOUR_DAY, FIVE_DAY, SIX_DAY, SEVEN_DAY, STATE
+    DID, ONE_DAY, TWO_DAY, THREE_DAY, FOUR_DAY, FIVE_DAY, SIX_DAY, SEVEN_DAY, DSTATE
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysJfCriteria" >
     select
@@ -110,11 +110,11 @@
   <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysJf" >
     insert into sys_jf (DID, ONE_DAY, TWO_DAY, 
       THREE_DAY, FOUR_DAY, FIVE_DAY, 
-      SIX_DAY, SEVEN_DAY, STATE
+      SIX_DAY, SEVEN_DAY, DSTATE
       )
     values (#{did,jdbcType=VARCHAR}, #{oneDay,jdbcType=INTEGER}, #{twoDay,jdbcType=INTEGER}, 
       #{threeDay,jdbcType=INTEGER}, #{fourDay,jdbcType=INTEGER}, #{fiveDay,jdbcType=INTEGER}, 
-      #{sixDay,jdbcType=INTEGER}, #{sevenDay,jdbcType=INTEGER}, #{state,jdbcType=VARCHAR}
+      #{sixDay,jdbcType=INTEGER}, #{sevenDay,jdbcType=INTEGER}, #{dstate,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysJf" >
@@ -144,8 +144,8 @@
       <if test="sevenDay != null" >
         SEVEN_DAY,
       </if>
-      <if test="state != null" >
-        STATE,
+      <if test="dstate != null" >
+        DSTATE,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -173,8 +173,8 @@
       <if test="sevenDay != null" >
         #{sevenDay,jdbcType=INTEGER},
       </if>
-      <if test="state != null" >
-        #{state,jdbcType=VARCHAR},
+      <if test="dstate != null" >
+        #{dstate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -211,8 +211,8 @@
       <if test="record.sevenDay != null" >
         SEVEN_DAY = #{record.sevenDay,jdbcType=INTEGER},
       </if>
-      <if test="record.state != null" >
-        STATE = #{record.state,jdbcType=VARCHAR},
+      <if test="record.dstate != null" >
+        DSTATE = #{record.dstate,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -229,7 +229,7 @@
       FIVE_DAY = #{record.fiveDay,jdbcType=INTEGER},
       SIX_DAY = #{record.sixDay,jdbcType=INTEGER},
       SEVEN_DAY = #{record.sevenDay,jdbcType=INTEGER},
-      STATE = #{record.state,jdbcType=VARCHAR}
+      DSTATE = #{record.dstate,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -258,8 +258,8 @@
       <if test="sevenDay != null" >
         SEVEN_DAY = #{sevenDay,jdbcType=INTEGER},
       </if>
-      <if test="state != null" >
-        STATE = #{state,jdbcType=VARCHAR},
+      <if test="dstate != null" >
+        DSTATE = #{dstate,jdbcType=VARCHAR},
       </if>
     </set>
     where DID = #{did,jdbcType=VARCHAR}
@@ -273,7 +273,7 @@
       FIVE_DAY = #{fiveDay,jdbcType=INTEGER},
       SIX_DAY = #{sixDay,jdbcType=INTEGER},
       SEVEN_DAY = #{sevenDay,jdbcType=INTEGER},
-      STATE = #{state,jdbcType=VARCHAR}
+      DSTATE = #{dstate,jdbcType=VARCHAR}
     where DID = #{did,jdbcType=VARCHAR}
   </update>
 </mapper>
