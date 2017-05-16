@@ -1,5 +1,7 @@
 package com.ai.yc.common.dao.mapper.bo;
 
+import java.sql.Timestamp;
+
 public class SysQuestions {
     private String qid;
 
@@ -24,6 +26,8 @@ public class SysQuestions {
     private String createOperator;
 
     private String createOperatorId;
+
+    private Timestamp createTime;
 
     public String getQid() {
         return qid;
@@ -119,5 +123,13 @@ public class SysQuestions {
 
     public void setCreateOperatorId(String createOperatorId) {
         this.createOperatorId = createOperatorId == null ? null : createOperatorId.trim();
+    }
+
+    public Timestamp getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Timestamp createTime) {
+        this.createTime = createTime;
     }
 }
