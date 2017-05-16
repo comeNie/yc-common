@@ -51,6 +51,9 @@ import com.ai.yc.common.api.syspurpose.param.PurposePageVo;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListReq;
 import com.ai.yc.common.api.syspurpose.param.QuerySysPurposeListRes;
 import com.ai.yc.common.api.syspurpose.param.SaveSysPurpose;
+import com.ai.yc.common.api.sysquestions.interfaces.IQuerySysQuestionsSV;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
 import com.ai.yc.common.constants.CacheNSMapper;
 import com.ai.yc.common.util.CacheFactoryUtil;
 import com.google.gson.Gson;
@@ -73,6 +76,9 @@ public class SysConfigTest {
 	
 	@Autowired
 	private IQuerySysItemBankSV iQuerySysItemBankSV;
+	
+	@Autowired
+	private IQuerySysQuestionsSV iQuerySysQuestionsSV;
 	
 	private Gson gson = new Gson();
 	
@@ -393,6 +399,18 @@ public class SysConfigTest {
 		param.setSite("1");
 		ItemBankPageQueryResponse queryItemBankPage = iQuerySysItemBankSV.queryItemBankPage(param);
 		System.out.println(queryItemBankPage);
+	}
+	
+	/**
+     * 题目查询
+	 */
+	@Test
+	public void queryQuestionsPage(){
+		QuestionsPageQueryRequest param = new QuestionsPageQueryRequest();
+		param.setBid("1");
+		param.setQtype("1");
+		QuestionsPageQueryResponse queryQuestionsPage = iQuerySysQuestionsSV.queryQuestionsPage(param);
+		System.out.println(queryQuestionsPage);
 	}
 	
 	
