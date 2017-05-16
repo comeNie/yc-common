@@ -11,6 +11,7 @@
     <result column="state" property="state" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="create_operator_id" property="createOperatorId" jdbcType="VARCHAR" />
+    <result column="flag" property="flag" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -71,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    bid, qname, lang_dir, site, question_type, aditor, state, create_time, create_operator_id
+    bid, qname, lang_dir, site, question_type, aditor, state, create_time, create_operator_id, 
+    flag
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysItembankCriteria" >
     select
@@ -100,12 +102,12 @@
   <insert id="insert" parameterType="com.ai.yc.common.dao.mapper.bo.SysItembank" >
     insert into sys_itembank (bid, qname, lang_dir, 
       site, question_type, aditor, 
-      state, create_time, create_operator_id
-      )
+      state, create_time, create_operator_id, 
+      flag)
     values (#{bid,jdbcType=VARCHAR}, #{qname,jdbcType=VARCHAR}, #{langDir,jdbcType=VARCHAR}, 
       #{site,jdbcType=VARCHAR}, #{questionType,jdbcType=VARCHAR}, #{aditor,jdbcType=VARCHAR}, 
-      #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createOperatorId,jdbcType=VARCHAR}
-      )
+      #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createOperatorId,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysItembank" >
     insert into sys_itembank
@@ -137,6 +139,9 @@
       <if test="createOperatorId != null" >
         create_operator_id,
       </if>
+      <if test="flag != null" >
+        flag,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="bid != null" >
@@ -165,6 +170,9 @@
       </if>
       <if test="createOperatorId != null" >
         #{createOperatorId,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -204,6 +212,9 @@
       <if test="record.createOperatorId != null" >
         create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR},
       </if>
+      <if test="record.flag != null" >
+        flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -219,7 +230,8 @@
       aditor = #{record.aditor,jdbcType=VARCHAR},
       state = #{record.state,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
-      create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR}
+      create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR},
+      flag = #{record.flag,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

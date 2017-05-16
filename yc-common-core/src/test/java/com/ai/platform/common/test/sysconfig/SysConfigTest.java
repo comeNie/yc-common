@@ -40,8 +40,10 @@ import com.ai.yc.common.api.sysduad.param.QuerySysDuadListReq;
 import com.ai.yc.common.api.sysduad.param.QuerySysDuadListRes;
 import com.ai.yc.common.api.sysduad.param.SaveSysDuad;
 import com.ai.yc.common.api.sysitembank.interfaces.IQuerySysItemBankSV;
+import com.ai.yc.common.api.sysitembank.param.DeleteSysItemBank;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryResponse;
+import com.ai.yc.common.api.sysitembank.param.SaveSysItemBank;
 import com.ai.yc.common.api.syspurpose.interfaces.IQuerySysPurposeSV;
 import com.ai.yc.common.api.syspurpose.param.CheckPurposeCn;
 import com.ai.yc.common.api.syspurpose.param.DeleteSysPurpose;
@@ -399,6 +401,31 @@ public class SysConfigTest {
 		param.setSite("1");
 		ItemBankPageQueryResponse queryItemBankPage = iQuerySysItemBankSV.queryItemBankPage(param);
 		System.out.println(queryItemBankPage);
+	}
+	
+	/**
+     * 添加题库
+	 */
+	@Test
+	public void saveSysItemBank(){
+		SaveSysItemBank param = new SaveSysItemBank();
+		param.setState("1");
+		param.setSite("2");
+		param.setQuestionType("2");
+		param.setQname("翻译题");
+		
+		BaseResponse saveSysItemBank = iQuerySysItemBankSV.saveSysItemBank(param);
+		System.out.println(saveSysItemBank);
+	}
+	/**
+     * 逻辑删除题库
+	 */
+	@Test
+	public void deleteSysItemBank(){
+		DeleteSysItemBank param = new DeleteSysItemBank();
+		param.setBid("5");
+		Integer deleteSysItemBank = iQuerySysItemBankSV.deleteSysItemBank(param);
+		System.out.println(deleteSysItemBank);
 	}
 	
 	/**

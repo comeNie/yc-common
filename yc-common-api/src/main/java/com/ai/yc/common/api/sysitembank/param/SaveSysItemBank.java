@@ -3,7 +3,10 @@ package com.ai.yc.common.api.sysitembank.param;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class ItemBankPageVo implements Serializable {
+public class SaveSysItemBank implements Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	/**
 	 * 主键

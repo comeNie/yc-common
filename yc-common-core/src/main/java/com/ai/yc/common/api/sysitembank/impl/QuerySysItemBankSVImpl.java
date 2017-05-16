@@ -6,13 +6,16 @@ import org.springframework.stereotype.Component;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.base.vo.ResponseHeader;
 import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.yc.common.api.sysitembank.interfaces.IQuerySysItemBankSV;
+import com.ai.yc.common.api.sysitembank.param.DeleteSysItemBank;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryResponse;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageVo;
+import com.ai.yc.common.api.sysitembank.param.SaveSysItemBank;
 import com.ai.yc.common.service.business.sysitembank.IQuerySysItemBankBusiSV;
 import com.alibaba.dubbo.config.annotation.Service;
 
@@ -53,6 +56,29 @@ public class QuerySysItemBankSVImpl implements IQuerySysItemBankSV {
             itemBankPageQueryResponse.setResponseHeader(responseHeader);
         }
 		return itemBankPageQueryResponse;
+	}
+
+
+	@Override
+	public BaseResponse saveSysItemBank(SaveSysItemBank req) throws BusinessException, SystemException {
+		BaseResponse response = new BaseResponse();
+		ResponseHeader responseHeader = new ResponseHeader();
+		try {
+			iQuerySysItemBankBusiSV.saveSysItemBank(req);
+			responseHeader.setIsSuccess(true);
+			responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+			responseHeader.setResultMessage("添加用途成功");
+			response.setResponseHeader(responseHeader);
+		}catch (Exception e) {
+			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"添加用途失败");
+		}
+		return response;
+	}
+
+
+	@Override
+	public Integer deleteSysItemBank(DeleteSysItemBank param) throws BusinessException, SystemException {
+		return iQuerySysItemBankBusiSV.deleteSysItemBank(param.getBid());
 	}
 
 

@@ -21,6 +21,8 @@ public class SysItembank {
 
     private String createOperatorId;
 
+    private String flag;
+
     public String getBid() {
         return bid;
     }
@@ -91,5 +93,13 @@ public class SysItembank {
 
     public void setCreateOperatorId(String createOperatorId) {
         this.createOperatorId = createOperatorId == null ? null : createOperatorId.trim();
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag == null ? null : flag.trim();
     }
 }

@@ -51,6 +51,7 @@ public class SysItemBankAtomSVImpl implements ISysItemBankAtomSV{
 		if (!StringUtil.isBlank(param.getQuestionType())) {
 			criteria.andQuestionTypeEqualTo(param.getQuestionType());
 		}
+		criteria.andFlagEqualTo("1");
 		PageInfo<ItemBankPageVo> pageInfo = new PageInfo<ItemBankPageVo>();
 		SysItembankMapper mapper = MapperFactory.getSysItembankMapper();
 		pageInfo.setCount(mapper.countByExample(sysItemBankCriteria));
@@ -80,6 +81,25 @@ public class SysItemBankAtomSVImpl implements ISysItemBankAtomSV{
 		pageInfo.setPageCount((pageInfo.getCount() + pageInfo.getPageSize() - 1) / pageInfo.getPageSize());
 		pageInfo.setResult(itemBankPageVos);
 		return pageInfo;
+	}
+
+	@Override
+	public Integer deleteSysItemBank(String bid) {
+		SysItembankCriteria sysItemBankCriteria = new SysItembankCriteria();
+		SysItembankCriteria.Criteria criteria = sysItemBankCriteria.createCriteria();
+		criteria.andBidEqualTo(bid);
+		SysItembankMapper mapper = MapperFactory.getSysItembankMapper();
+		SysItembank sysItembank = new SysItembank();
+		sysItembank.setFlag("0");
+		return mapper.updateByExampleSelective(sysItembank, sysItemBankCriteria);
+	}
+
+	@Override
+	public Integer saveSysItemBank(SysItembank sysItembank) {
+		SysItembankMapper mapper = MapperFactory.getSysItembankMapper();
+		sysItembank.setFlag("1");
+		int insert = mapper.insert(sysItembank);
+		return insert;
 	}
 
 

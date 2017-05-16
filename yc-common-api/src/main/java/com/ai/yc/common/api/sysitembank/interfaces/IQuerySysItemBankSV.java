@@ -8,8 +8,11 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.sysitembank.param.DeleteSysItemBank;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryResponse;
+import com.ai.yc.common.api.sysitembank.param.SaveSysItemBank;
 
 /**
  * @Description: 题库管理服务
@@ -33,5 +36,30 @@ public interface IQuerySysItemBankSV {
 	@POST
 	@Path("/queryItemBankPage")
 	public ItemBankPageQueryResponse queryItemBankPage(ItemBankPageQueryRequest param)throws BusinessException,SystemException;
+	
+	/**
+	 * 添加题库
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysitembank/saveSysItemBank
+     */
+	@POST
+	@Path("/saveSysItemBank")
+	public BaseResponse saveSysItemBank(SaveSysItemBank req)throws BusinessException,SystemException;
+	
+	/**
+	 * 删除
+	 * @param param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysitembank/deleteSysItemBank
+     */
+	@POST
+	@Path("/deleteSysItemBank")
+	public Integer deleteSysItemBank(DeleteSysItemBank param)throws BusinessException,SystemException;
 	
 }
