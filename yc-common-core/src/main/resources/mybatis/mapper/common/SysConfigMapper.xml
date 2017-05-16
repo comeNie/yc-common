@@ -29,6 +29,12 @@
     <result column="reg_integration" property="regIntegration" jdbcType="VARCHAR" />
     <result column="reg_growth" property="regGrowth" jdbcType="VARCHAR" />
     <result column="invite_integrati" property="inviteIntegrati" jdbcType="VARCHAR" />
+    <result column="rstate" property="rstate" jdbcType="VARCHAR" />
+    <result column="gstate" property="gstate" jdbcType="VARCHAR" />
+    <result column="istate" property="istate" jdbcType="VARCHAR" />
+    <result column="PC_NOTICE" property="pcNotice" jdbcType="VARCHAR" />
+    <result column="WAP_NOTICE" property="wapNotice" jdbcType="VARCHAR" />
+    <result column="lstate" property="lstate" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -92,14 +98,15 @@
     config_id, ordinary_member, gold_member, platinum_member, masonry_member, cap_value, 
     v1_points, v2_points, v3_points, lsp_points, lgdata_num, custom_num, Interpreter_num, 
     order_num, language_num, oneday, twoday, threeday, fourday, fiveday, sixday, sevenday, 
-    eightday, reg_onoff, reg_integration, reg_growth, invite_integrati
+    eightday, reg_onoff, reg_integration, reg_growth, invite_integrati, rstate, gstate, 
+    istate, PC_NOTICE, WAP_NOTICE, lstate
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfigCriteria" >
     select
     <if test="distinct" >
       distinct
     </if>
-    'true' as QUERYID,
+    'false' as QUERYID,
     <include refid="Base_Column_List" />
     from sys_config
     <if test="_parameter != null" >
@@ -137,7 +144,9 @@
       oneday, twoday, threeday, 
       fourday, fiveday, sixday, 
       sevenday, eightday, reg_onoff, 
-      reg_integration, reg_growth, invite_integrati
+      reg_integration, reg_growth, invite_integrati, 
+      rstate, gstate, istate, 
+      PC_NOTICE, WAP_NOTICE, lstate
       )
     values (#{configId,jdbcType=VARCHAR}, #{ordinaryMember,jdbcType=VARCHAR}, #{goldMember,jdbcType=VARCHAR}, 
       #{platinumMember,jdbcType=VARCHAR}, #{masonryMember,jdbcType=VARCHAR}, #{capValue,jdbcType=VARCHAR}, 
@@ -147,7 +156,9 @@
       #{oneday,jdbcType=VARCHAR}, #{twoday,jdbcType=VARCHAR}, #{threeday,jdbcType=VARCHAR}, 
       #{fourday,jdbcType=VARCHAR}, #{fiveday,jdbcType=VARCHAR}, #{sixday,jdbcType=VARCHAR}, 
       #{sevenday,jdbcType=VARCHAR}, #{eightday,jdbcType=VARCHAR}, #{regOnoff,jdbcType=VARCHAR}, 
-      #{regIntegration,jdbcType=VARCHAR}, #{regGrowth,jdbcType=VARCHAR}, #{inviteIntegrati,jdbcType=VARCHAR}
+      #{regIntegration,jdbcType=VARCHAR}, #{regGrowth,jdbcType=VARCHAR}, #{inviteIntegrati,jdbcType=VARCHAR}, 
+      #{rstate,jdbcType=VARCHAR}, #{gstate,jdbcType=VARCHAR}, #{istate,jdbcType=VARCHAR}, 
+      #{pcNotice,jdbcType=VARCHAR}, #{wapNotice,jdbcType=VARCHAR}, #{lstate,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysConfig" >
@@ -234,6 +245,24 @@
       <if test="inviteIntegrati != null" >
         invite_integrati,
       </if>
+      <if test="rstate != null" >
+        rstate,
+      </if>
+      <if test="gstate != null" >
+        gstate,
+      </if>
+      <if test="istate != null" >
+        istate,
+      </if>
+      <if test="pcNotice != null" >
+        PC_NOTICE,
+      </if>
+      <if test="wapNotice != null" >
+        WAP_NOTICE,
+      </if>
+      <if test="lstate != null" >
+        lstate,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="configId != null" >
@@ -316,6 +345,24 @@
       </if>
       <if test="inviteIntegrati != null" >
         #{inviteIntegrati,jdbcType=VARCHAR},
+      </if>
+      <if test="rstate != null" >
+        #{rstate,jdbcType=VARCHAR},
+      </if>
+      <if test="gstate != null" >
+        #{gstate,jdbcType=VARCHAR},
+      </if>
+      <if test="istate != null" >
+        #{istate,jdbcType=VARCHAR},
+      </if>
+      <if test="pcNotice != null" >
+        #{pcNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="wapNotice != null" >
+        #{wapNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="lstate != null" >
+        #{lstate,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -409,6 +456,24 @@
       <if test="record.inviteIntegrati != null" >
         invite_integrati = #{record.inviteIntegrati,jdbcType=VARCHAR},
       </if>
+      <if test="record.rstate != null" >
+        rstate = #{record.rstate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gstate != null" >
+        gstate = #{record.gstate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.istate != null" >
+        istate = #{record.istate,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pcNotice != null" >
+        PC_NOTICE = #{record.pcNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wapNotice != null" >
+        WAP_NOTICE = #{record.wapNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lstate != null" >
+        lstate = #{record.lstate,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -442,7 +507,13 @@
       reg_onoff = #{record.regOnoff,jdbcType=VARCHAR},
       reg_integration = #{record.regIntegration,jdbcType=VARCHAR},
       reg_growth = #{record.regGrowth,jdbcType=VARCHAR},
-      invite_integrati = #{record.inviteIntegrati,jdbcType=VARCHAR}
+      invite_integrati = #{record.inviteIntegrati,jdbcType=VARCHAR},
+      rstate = #{record.rstate,jdbcType=VARCHAR},
+      gstate = #{record.gstate,jdbcType=VARCHAR},
+      istate = #{record.istate,jdbcType=VARCHAR},
+      PC_NOTICE = #{record.pcNotice,jdbcType=VARCHAR},
+      WAP_NOTICE = #{record.wapNotice,jdbcType=VARCHAR},
+      lstate = #{record.lstate,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -528,6 +599,24 @@
       <if test="inviteIntegrati != null" >
         invite_integrati = #{inviteIntegrati,jdbcType=VARCHAR},
       </if>
+      <if test="rstate != null" >
+        rstate = #{rstate,jdbcType=VARCHAR},
+      </if>
+      <if test="gstate != null" >
+        gstate = #{gstate,jdbcType=VARCHAR},
+      </if>
+      <if test="istate != null" >
+        istate = #{istate,jdbcType=VARCHAR},
+      </if>
+      <if test="pcNotice != null" >
+        PC_NOTICE = #{pcNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="wapNotice != null" >
+        WAP_NOTICE = #{wapNotice,jdbcType=VARCHAR},
+      </if>
+      <if test="lstate != null" >
+        lstate = #{lstate,jdbcType=VARCHAR},
+      </if>
     </set>
     where config_id = #{configId,jdbcType=VARCHAR}
   </update>
@@ -558,7 +647,13 @@
       reg_onoff = #{regOnoff,jdbcType=VARCHAR},
       reg_integration = #{regIntegration,jdbcType=VARCHAR},
       reg_growth = #{regGrowth,jdbcType=VARCHAR},
-      invite_integrati = #{inviteIntegrati,jdbcType=VARCHAR}
+      invite_integrati = #{inviteIntegrati,jdbcType=VARCHAR},
+      rstate = #{rstate,jdbcType=VARCHAR},
+      gstate = #{gstate,jdbcType=VARCHAR},
+      istate = #{istate,jdbcType=VARCHAR},
+      PC_NOTICE = #{pcNotice,jdbcType=VARCHAR},
+      WAP_NOTICE = #{wapNotice,jdbcType=VARCHAR},
+      lstate = #{lstate,jdbcType=VARCHAR}
     where config_id = #{configId,jdbcType=VARCHAR}
   </update>
 </mapper>

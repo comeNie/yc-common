@@ -1,8 +1,8 @@
-package com.ai.yc.common.api.sysbasic.param;
+package com.ai.yc.common.api.sysconfig.param;
 
 import java.io.Serializable;
 
-public class SaveSysBasic implements Serializable {
+public class SaveSysConfig implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**
 	 * 编码ID

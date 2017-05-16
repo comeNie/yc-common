@@ -1,5 +1,6 @@
 package com.ai.yc.common.service.business.sysconfig;
 
+import com.ai.yc.common.api.sysconfig.param.SaveSysConfig;
 import com.ai.yc.common.dao.mapper.bo.SysConfig;
 
 /**
@@ -10,5 +11,7 @@ import com.ai.yc.common.dao.mapper.bo.SysConfig;
 public interface IQuerySysConfigBusiSV {
 	
 	SysConfig getSysCong();
+
+	Integer saveSysConfig(SaveSysConfig req);
 
 }

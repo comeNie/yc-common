@@ -55,6 +55,18 @@ public class SysConfig {
 
     private String inviteIntegrati;
 
+    private String rstate;
+
+    private String gstate;
+
+    private String istate;
+
+    private String pcNotice;
+
+    private String wapNotice;
+
+    private String lstate;
+
     public String getConfigId() {
         return configId;
     }
@@ -269,5 +281,53 @@ public class SysConfig {
 
     public void setInviteIntegrati(String inviteIntegrati) {
         this.inviteIntegrati = inviteIntegrati == null ? null : inviteIntegrati.trim();
+    }
+
+    public String getRstate() {
+        return rstate;
+    }
+
+    public void setRstate(String rstate) {
+        this.rstate = rstate == null ? null : rstate.trim();
+    }
+
+    public String getGstate() {
+        return gstate;
+    }
+
+    public void setGstate(String gstate) {
+        this.gstate = gstate == null ? null : gstate.trim();
+    }
+
+    public String getIstate() {
+        return istate;
+    }
+
+    public void setIstate(String istate) {
+        this.istate = istate == null ? null : istate.trim();
+    }
+
+    public String getPcNotice() {
+        return pcNotice;
+    }
+
+    public void setPcNotice(String pcNotice) {
+        this.pcNotice = pcNotice == null ? null : pcNotice.trim();
+    }
+
+    public String getWapNotice() {
+        return wapNotice;
+    }
+
+    public void setWapNotice(String wapNotice) {
+        this.wapNotice = wapNotice == null ? null : wapNotice.trim();
+    }
+
+    public String getLstate() {
+        return lstate;
+    }
+
+    public void setLstate(String lstate) {
+        this.lstate = lstate == null ? null : lstate.trim();
     }
 }

@@ -2013,6 +2013,426 @@ public class SysConfigCriteria {
             addCriterion("invite_integrati not between", value1, value2, "inviteIntegrati");
             return (Criteria) this;
         }
+
+        public Criteria andRstateIsNull() {
+            addCriterion("rstate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateIsNotNull() {
+            addCriterion("rstate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateEqualTo(String value) {
+            addCriterion("rstate =", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateNotEqualTo(String value) {
+            addCriterion("rstate <>", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateGreaterThan(String value) {
+            addCriterion("rstate >", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateGreaterThanOrEqualTo(String value) {
+            addCriterion("rstate >=", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateLessThan(String value) {
+            addCriterion("rstate <", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateLessThanOrEqualTo(String value) {
+            addCriterion("rstate <=", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateLike(String value) {
+            addCriterion("rstate like", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateNotLike(String value) {
+            addCriterion("rstate not like", value, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateIn(List<String> values) {
+            addCriterion("rstate in", values, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateNotIn(List<String> values) {
+            addCriterion("rstate not in", values, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateBetween(String value1, String value2) {
+            addCriterion("rstate between", value1, value2, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andRstateNotBetween(String value1, String value2) {
+            addCriterion("rstate not between", value1, value2, "rstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateIsNull() {
+            addCriterion("gstate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateIsNotNull() {
+            addCriterion("gstate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateEqualTo(String value) {
+            addCriterion("gstate =", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateNotEqualTo(String value) {
+            addCriterion("gstate <>", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateGreaterThan(String value) {
+            addCriterion("gstate >", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateGreaterThanOrEqualTo(String value) {
+            addCriterion("gstate >=", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateLessThan(String value) {
+            addCriterion("gstate <", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateLessThanOrEqualTo(String value) {
+            addCriterion("gstate <=", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateLike(String value) {
+            addCriterion("gstate like", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateNotLike(String value) {
+            addCriterion("gstate not like", value, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateIn(List<String> values) {
+            addCriterion("gstate in", values, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateNotIn(List<String> values) {
+            addCriterion("gstate not in", values, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateBetween(String value1, String value2) {
+            addCriterion("gstate between", value1, value2, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andGstateNotBetween(String value1, String value2) {
+            addCriterion("gstate not between", value1, value2, "gstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateIsNull() {
+            addCriterion("istate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateIsNotNull() {
+            addCriterion("istate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateEqualTo(String value) {
+            addCriterion("istate =", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateNotEqualTo(String value) {
+            addCriterion("istate <>", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateGreaterThan(String value) {
+            addCriterion("istate >", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateGreaterThanOrEqualTo(String value) {
+            addCriterion("istate >=", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateLessThan(String value) {
+            addCriterion("istate <", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateLessThanOrEqualTo(String value) {
+            addCriterion("istate <=", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateLike(String value) {
+            addCriterion("istate like", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateNotLike(String value) {
+            addCriterion("istate not like", value, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateIn(List<String> values) {
+            addCriterion("istate in", values, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateNotIn(List<String> values) {
+            addCriterion("istate not in", values, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateBetween(String value1, String value2) {
+            addCriterion("istate between", value1, value2, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andIstateNotBetween(String value1, String value2) {
+            addCriterion("istate not between", value1, value2, "istate");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeIsNull() {
+            addCriterion("PC_NOTICE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeIsNotNull() {
+            addCriterion("PC_NOTICE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeEqualTo(String value) {
+            addCriterion("PC_NOTICE =", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeNotEqualTo(String value) {
+            addCriterion("PC_NOTICE <>", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeGreaterThan(String value) {
+            addCriterion("PC_NOTICE >", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeGreaterThanOrEqualTo(String value) {
+            addCriterion("PC_NOTICE >=", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeLessThan(String value) {
+            addCriterion("PC_NOTICE <", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeLessThanOrEqualTo(String value) {
+            addCriterion("PC_NOTICE <=", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeLike(String value) {
+            addCriterion("PC_NOTICE like", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeNotLike(String value) {
+            addCriterion("PC_NOTICE not like", value, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeIn(List<String> values) {
+            addCriterion("PC_NOTICE in", values, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeNotIn(List<String> values) {
+            addCriterion("PC_NOTICE not in", values, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeBetween(String value1, String value2) {
+            addCriterion("PC_NOTICE between", value1, value2, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andPcNoticeNotBetween(String value1, String value2) {
+            addCriterion("PC_NOTICE not between", value1, value2, "pcNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeIsNull() {
+            addCriterion("WAP_NOTICE is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeIsNotNull() {
+            addCriterion("WAP_NOTICE is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeEqualTo(String value) {
+            addCriterion("WAP_NOTICE =", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeNotEqualTo(String value) {
+            addCriterion("WAP_NOTICE <>", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeGreaterThan(String value) {
+            addCriterion("WAP_NOTICE >", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeGreaterThanOrEqualTo(String value) {
+            addCriterion("WAP_NOTICE >=", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeLessThan(String value) {
+            addCriterion("WAP_NOTICE <", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeLessThanOrEqualTo(String value) {
+            addCriterion("WAP_NOTICE <=", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeLike(String value) {
+            addCriterion("WAP_NOTICE like", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeNotLike(String value) {
+            addCriterion("WAP_NOTICE not like", value, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeIn(List<String> values) {
+            addCriterion("WAP_NOTICE in", values, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeNotIn(List<String> values) {
+            addCriterion("WAP_NOTICE not in", values, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeBetween(String value1, String value2) {
+            addCriterion("WAP_NOTICE between", value1, value2, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andWapNoticeNotBetween(String value1, String value2) {
+            addCriterion("WAP_NOTICE not between", value1, value2, "wapNotice");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateIsNull() {
+            addCriterion("lstate is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateIsNotNull() {
+            addCriterion("lstate is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateEqualTo(String value) {
+            addCriterion("lstate =", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateNotEqualTo(String value) {
+            addCriterion("lstate <>", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateGreaterThan(String value) {
+            addCriterion("lstate >", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateGreaterThanOrEqualTo(String value) {
+            addCriterion("lstate >=", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateLessThan(String value) {
+            addCriterion("lstate <", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateLessThanOrEqualTo(String value) {
+            addCriterion("lstate <=", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateLike(String value) {
+            addCriterion("lstate like", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateNotLike(String value) {
+            addCriterion("lstate not like", value, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateIn(List<String> values) {
+            addCriterion("lstate in", values, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateNotIn(List<String> values) {
+            addCriterion("lstate not in", values, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateBetween(String value1, String value2) {
+            addCriterion("lstate between", value1, value2, "lstate");
+            return (Criteria) this;
+        }
+
+        public Criteria andLstateNotBetween(String value1, String value2) {
+            addCriterion("lstate not between", value1, value2, "lstate");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

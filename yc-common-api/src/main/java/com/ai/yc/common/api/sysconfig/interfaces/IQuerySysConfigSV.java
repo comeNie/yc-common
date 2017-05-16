@@ -8,10 +8,13 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseResponse;
 import com.ai.yc.common.api.sysconfig.param.CommissionConfig;
 import com.ai.yc.common.api.sysconfig.param.DonateIntegralConfig;
 import com.ai.yc.common.api.sysconfig.param.HomeDataEidtConfig;
 import com.ai.yc.common.api.sysconfig.param.MemberConfig;
+import com.ai.yc.common.api.sysconfig.param.NoticeConfig;
+import com.ai.yc.common.api.sysconfig.param.SaveSysConfig;
 
 /**
  * @Description: 会员基本配置查询服务
@@ -79,5 +82,31 @@ public interface IQuerySysConfigSV {
 	@POST
 	@Path("/getDonateIntegralConfig")
 	DonateIntegralConfig getDonateIntegralConfig()throws BusinessException,SystemException;
+	
+	 /**
+     * 获取通告查询
+     * @param 
+     * @return 
+     * @throws BusinessException,SystemException
+     * @author hougang
+     * @ApiDocMethod
+     * @ApiCode GN_0507
+     * @RestRelativeURL sysconfig/getNoticeConfig
+	 */
+	@POST
+	@Path("/getNoticeConfig")
+	NoticeConfig getNoticeConfig()throws BusinessException,SystemException;
+	
+	/**
+	 * 保存基本设置
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysconfig/saveSysConfig
+     */
+	@POST
+	@Path("/saveSysConfig")
+	public BaseResponse saveSysConfig(SaveSysConfig req)throws BusinessException,SystemException;
 
 }

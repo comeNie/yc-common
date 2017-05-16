@@ -13,15 +13,12 @@ import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.sdk.util.DateUtil;
 import com.ai.paas.ipaas.mcs.interfaces.ICacheClient;
 import com.ai.yc.common.api.cachekey.key.CacheKey;
-import com.ai.yc.common.api.sysbasic.interfaces.IQuerySysBasicSV;
-import com.ai.yc.common.api.sysbasic.param.QuerySysBasicJfRegistListRes;
-import com.ai.yc.common.api.sysbasic.param.QuerySysBasicListRes;
-import com.ai.yc.common.api.sysbasic.param.SaveSysBasic;
 import com.ai.yc.common.api.sysconfig.interfaces.IQuerySysConfigSV;
 import com.ai.yc.common.api.sysconfig.param.CommissionConfig;
 import com.ai.yc.common.api.sysconfig.param.DonateIntegralConfig;
 import com.ai.yc.common.api.sysconfig.param.HomeDataEidtConfig;
 import com.ai.yc.common.api.sysconfig.param.MemberConfig;
+import com.ai.yc.common.api.sysconfig.param.NoticeConfig;
 import com.ai.yc.common.api.sysdomain.interfaces.IQuerySysDomainSV;
 import com.ai.yc.common.api.sysdomain.param.CheckDomainCn;
 import com.ai.yc.common.api.sysdomain.param.DeleteSysDomain;
@@ -77,9 +74,6 @@ public class SysConfigTest {
 	@Autowired
 	private IQuerySysItemBankSV iQuerySysItemBankSV;
 	
-	@Autowired
-	private IQuerySysBasicSV iQuerySysBasicSV;
-	
 	private Gson gson = new Gson();
 	
 	@Test
@@ -97,6 +91,8 @@ public class SysConfigTest {
 		DonateIntegralConfig conf4= iQuerySysConfigSV.getDonateIntegralConfig();
 		System.out.println(conf4==null?null:gson.toJson(conf4));
 		
+		NoticeConfig conf5= iQuerySysConfigSV.getNoticeConfig();
+		System.out.println(conf5==null?null:gson.toJson(conf5));
 	}
 	
 	@Test
@@ -397,64 +393,6 @@ public class SysConfigTest {
 		param.setSite("1");
 		ItemBankPageQueryResponse queryItemBankPage = iQuerySysItemBankSV.queryItemBankPage(param);
 		System.out.println(queryItemBankPage);
-	}
-	
-	/**
-     * 基本设置查询
-	 */
-	@Test
-	public void queryBasic(){
-		QuerySysBasicJfRegistListRes queryBasicJfRegist = iQuerySysBasicSV.queryBasicJfRegist();
-		System.out.println(queryBasicJfRegist);
-	}
-	
-	/**
-     * 保存基本设置
-	 */
-	@Test
-	public void saveBasic(){
-		SaveSysBasic req = new SaveSysBasic();
-		req.setId("1");
-		req.setAid("1");
-		req.setDid("1");
-		req.setOrdinayryMember(10);
-		req.setGoldMember(20);
-		req.setPlatinumMember(30);
-		req.setMasonyMember(40);
-		req.setCapValue(500);
-		req.setV1Points(1);
-		req.setV2Points(2);
-		req.setV3Points(3);
-		req.setLspPoints(4);
-		req.setWapNotice("公告");
-		req.setPcNotice("公告");
-		req.setLgdateNum(200);
-		req.setCustomNum(200);
-		req.setInterpreterNum(200);
-		req.setOrderNum(200);
-		req.setLanguageNum(200);
-		req.setOneDay(10);
-		req.setTwoDay(20);
-		req.setThreeDay(30);
-		req.setFourDay(40);
-		req.setFiveDay(50);
-		req.setSixDay(60);
-		req.setSevenDay(70);
-		req.setDstate("0");
-		req.setActiviceName("注册送积分");
-		req.setActiviceNum(10);
-		req.setAstate("0");
-		BaseResponse saveBasic = iQuerySysBasicSV.saveBasic(req);
-		System.out.println(saveBasic);
-	}
-	
-	/**
-     * 查询基本设置、活动、积分
-	 */
-	@Test
-	public void queryBasicJfRegist(){
-		QuerySysBasicJfRegistListRes queryBasicJfRegist = iQuerySysBasicSV.queryBasicJfRegist();
-		System.out.println(queryBasicJfRegist);
 	}
 	
 	

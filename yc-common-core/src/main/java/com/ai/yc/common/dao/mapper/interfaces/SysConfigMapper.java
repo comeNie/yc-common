@@ -1,10 +1,9 @@
 package com.ai.yc.common.dao.mapper.interfaces;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
 import com.ai.yc.common.dao.mapper.bo.SysConfig;
 import com.ai.yc.common.dao.mapper.bo.SysConfigCriteria;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysConfigMapper {
     int countByExample(SysConfigCriteria example);
