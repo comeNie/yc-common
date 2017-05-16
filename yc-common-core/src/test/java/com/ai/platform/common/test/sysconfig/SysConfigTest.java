@@ -473,6 +473,17 @@ public class SysConfigTest {
 		BaseResponse saveSysQuestions = iQuerySysQuestionsSV.saveSysQuestions(param);
 		System.out.println(saveSysQuestions);
 	}
+	/**
+     * 添加选择题目
+	 */
+	@Test
+	public void updateSysQuestions(){
+		SaveSysQuestions param = new SaveSysQuestions();
+		param.setQid("1");
+		param.setChoiceQuestion("数学选择题11");
+		BaseResponse updateSysQuestions = iQuerySysQuestionsSV.updateSysQuestions(param);
+		System.out.println(updateSysQuestions);
+	}
 	
 	
 	/**

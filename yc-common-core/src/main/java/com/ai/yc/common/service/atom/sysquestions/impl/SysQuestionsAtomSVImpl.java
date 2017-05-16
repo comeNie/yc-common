@@ -39,6 +39,7 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 		if (!StringUtil.isBlank(param.getQtype())) {
 			criteria.andQtypeEqualTo(param.getQtype());
 		}
+		criteria.andFlagEqualTo("1");
 		PageInfo<QuestionsPageVo> pageInfo = new PageInfo<QuestionsPageVo>();
 		SysQuestionsMapper mapper = MapperFactory.getSysQuestionsMapper();
 		pageInfo.setCount(mapper.countByExample(sysQuestionsCriteria));
@@ -53,6 +54,7 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 			sysQuestionsCriteria.setLimitStart(param.getPageInfo().getStartRowIndex());
 			sysQuestionsCriteria.setLimitEnd(param.getPageInfo().getPageSize());
 		}
+		
 		 List<SysQuestionsWithBLOBs> selectByExampleWithBLOBs = mapper.selectByExampleWithBLOBs(sysQuestionsCriteria);
 		if (!CollectionUtil.isEmpty(selectByExampleWithBLOBs)) {
 			for (int i = 0; i < selectByExampleWithBLOBs.size(); i++) {
