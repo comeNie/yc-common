@@ -435,7 +435,7 @@ public class SysConfigTest {
 	@Test
 	public void queryQuestionsPage(){
 		QuestionsPageQueryRequest param = new QuestionsPageQueryRequest();
-		param.setBid("1");
+		param.setBid("10");
 		param.setQtype("1");
 		QuestionsPageQueryResponse queryQuestionsPage = iQuerySysQuestionsSV.queryQuestionsPage(param);
 		System.out.println(queryQuestionsPage);

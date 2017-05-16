@@ -13,7 +13,6 @@ import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
-import com.ai.yc.common.dao.mapper.bo.SysQuestions;
 import com.ai.yc.common.dao.mapper.bo.SysQuestionsCriteria;
 import com.ai.yc.common.dao.mapper.bo.SysQuestionsWithBLOBs;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
@@ -54,13 +53,11 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 			sysQuestionsCriteria.setLimitStart(param.getPageInfo().getStartRowIndex());
 			sysQuestionsCriteria.setLimitEnd(param.getPageInfo().getPageSize());
 		}
-		List<SysQuestions> questionsListPage = mapper.selectByExample(sysQuestionsCriteria);
-
-		if (!CollectionUtil.isEmpty(questionsListPage)) {
-
-			for (int i = 0; i < questionsListPage.size(); i++) {
+		 List<SysQuestionsWithBLOBs> selectByExampleWithBLOBs = mapper.selectByExampleWithBLOBs(sysQuestionsCriteria);
+		if (!CollectionUtil.isEmpty(selectByExampleWithBLOBs)) {
+			for (int i = 0; i < selectByExampleWithBLOBs.size(); i++) {
 				QuestionsPageVo questionsPageVo = new QuestionsPageVo();
-				BeanUtils.copyProperties(questionsPageVo, questionsListPage.get(i));
+				BeanUtils.copyProperties(questionsPageVo, selectByExampleWithBLOBs.get(i));
 				questionsPageVos.add(questionsPageVo);
 			}
 		}
