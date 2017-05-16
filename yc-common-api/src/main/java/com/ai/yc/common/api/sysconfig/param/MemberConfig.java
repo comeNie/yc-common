@@ -12,6 +12,7 @@ public class MemberConfig extends BaseResponse {
 	
 	private static final long serialVersionUID = -7909193094634505463L;
 
+	private String configId;
 	/**
 	 * 普通会员
 	 */
@@ -31,6 +32,14 @@ public class MemberConfig extends BaseResponse {
 	 * 钻石会员
 	 */
 	private String masonryMember;
+
+	public String getConfigId() {
+		return configId;
+	}
+
+	public void setConfigId(String configId) {
+		this.configId = configId;
+	}
 
 	public String getOrdinaryMember() {
 		return ordinaryMember;
