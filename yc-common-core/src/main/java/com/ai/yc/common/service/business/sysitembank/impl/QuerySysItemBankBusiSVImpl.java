@@ -48,4 +48,12 @@ public class QuerySysItemBankBusiSVImpl implements IQuerySysItemBankBusiSV {
 	public Integer deleteSysItemBank(String bid) {
 		return iSysItemBankAtomSV.deleteSysItemBank(bid);
 	}
+
+
+	@Override
+	public Integer updateSysItemBank(SaveSysItemBank req) {
+		SysItembank sysItembank = new SysItembank();
+		BeanUtils.copyProperties(sysItembank,req);
+		return iSysItemBankAtomSV.updateSysItemBank(sysItembank);
+	}
 }

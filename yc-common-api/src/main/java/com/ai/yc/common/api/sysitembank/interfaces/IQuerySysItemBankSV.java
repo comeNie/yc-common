@@ -62,4 +62,15 @@ public interface IQuerySysItemBankSV {
 	@Path("/deleteSysItemBank")
 	public Integer deleteSysItemBank(DeleteSysItemBank param)throws BusinessException,SystemException;
 	
+	/**
+	 * 修改用途
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysitembank/updateSysItemBank
+     */
+	@POST
+	@Path("/updateSysItemBank")
+	public BaseResponse updateSysItemBank(SaveSysItemBank req)throws BusinessException,SystemException;
 }

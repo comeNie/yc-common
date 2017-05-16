@@ -20,4 +20,6 @@ public interface ISysItemBankAtomSV {
 
 	Integer saveSysItemBank(SysItembank sysItembank);
 
+	Integer updateSysItemBank(SysItembank sysItembank);
+
 }

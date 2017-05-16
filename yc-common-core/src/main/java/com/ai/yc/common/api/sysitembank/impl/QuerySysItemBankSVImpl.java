@@ -82,5 +82,22 @@ public class QuerySysItemBankSVImpl implements IQuerySysItemBankSV {
 	}
 
 
+	@Override
+	public BaseResponse updateSysItemBank(SaveSysItemBank req) throws BusinessException, SystemException {
+		BaseResponse response = new BaseResponse();
+		ResponseHeader responseHeader = new ResponseHeader();
+		try {
+			iQuerySysItemBankBusiSV.updateSysItemBank(req);
+			responseHeader.setIsSuccess(true);
+			responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+			responseHeader.setResultMessage("修改用途成功");
+			response.setResponseHeader(responseHeader);
+		}catch (Exception e) {
+			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改用途失败");
+		}
+		return response;
+	}
+
+
 
 }

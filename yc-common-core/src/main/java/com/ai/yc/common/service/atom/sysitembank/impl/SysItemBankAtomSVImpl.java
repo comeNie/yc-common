@@ -102,5 +102,15 @@ public class SysItemBankAtomSVImpl implements ISysItemBankAtomSV{
 		return insert;
 	}
 
+	@Override
+	public Integer updateSysItemBank(SysItembank sysItembank) {
+		SysItembankCriteria sysItemBankCriteria = new SysItembankCriteria();
+		SysItembankCriteria.Criteria criteria = sysItemBankCriteria.createCriteria();
+		criteria.andBidEqualTo(sysItembank.getBid());
+		SysItembankMapper mapper = MapperFactory.getSysItembankMapper();
+		int updateByPrimaryKey = mapper.updateByExampleSelective(sysItembank, sysItemBankCriteria);
+		return updateByPrimaryKey;
+	}
+
 
 }

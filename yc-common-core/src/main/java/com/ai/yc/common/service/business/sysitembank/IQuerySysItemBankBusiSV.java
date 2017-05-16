@@ -19,4 +19,6 @@ public interface IQuerySysItemBankBusiSV {
 
 	Integer deleteSysItemBank(String bid);
 
+	Integer updateSysItemBank(SaveSysItemBank req);
+
 }
