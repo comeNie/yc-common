@@ -29,6 +29,8 @@ public class SysQuestions {
 
     private Timestamp createTime;
 
+    private String flag;
+
     public String getQid() {
         return qid;
     }
@@ -131,5 +133,13 @@ public class SysQuestions {
 
     public void setCreateTime(Timestamp createTime) {
         this.createTime = createTime;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag == null ? null : flag.trim();
     }
 }

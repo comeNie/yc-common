@@ -67,10 +67,10 @@ public class QuerySysItemBankSVImpl implements IQuerySysItemBankSV {
 			iQuerySysItemBankBusiSV.saveSysItemBank(req);
 			responseHeader.setIsSuccess(true);
 			responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
-			responseHeader.setResultMessage("添加用途成功");
+			responseHeader.setResultMessage("添加题库成功");
 			response.setResponseHeader(responseHeader);
 		}catch (Exception e) {
-			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"添加用途失败");
+			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"添加题库失败");
 		}
 		return response;
 	}
@@ -90,10 +90,10 @@ public class QuerySysItemBankSVImpl implements IQuerySysItemBankSV {
 			iQuerySysItemBankBusiSV.updateSysItemBank(req);
 			responseHeader.setIsSuccess(true);
 			responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
-			responseHeader.setResultMessage("修改用途成功");
+			responseHeader.setResultMessage("修改题库成功");
 			response.setResponseHeader(responseHeader);
 		}catch (Exception e) {
-			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改用途失败");
+			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改题库失败");
 		}
 		return response;
 	}

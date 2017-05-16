@@ -4,6 +4,7 @@ package com.ai.yc.common.service.business.sysquestions;
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
+import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
 
 /**
  * @author shancc
@@ -13,6 +14,12 @@ import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
 public interface IQuerySysQuestionsBusiSV {
 
 	PageInfo<QuestionsPageVo> queryQuestionsPage(QuestionsPageQueryRequest param);
+
+	Integer saveSysQuestions(SaveSysQuestions req);
+
+	Integer updateSysQuestions(SaveSysQuestions req);
+
+	Integer deleteSysQuestions(String qid);
 
 
 }

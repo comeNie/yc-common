@@ -15,6 +15,7 @@ import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
 import com.ai.yc.common.dao.mapper.bo.SysQuestions;
 import com.ai.yc.common.dao.mapper.bo.SysQuestionsCriteria;
+import com.ai.yc.common.dao.mapper.bo.SysQuestionsWithBLOBs;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
 import com.ai.yc.common.dao.mapper.interfaces.SysQuestionsMapper;
 import com.ai.yc.common.service.atom.sysquestions.ISysQuestionsAtomSV;
@@ -68,6 +69,35 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 		pageInfo.setPageCount((pageInfo.getCount() + pageInfo.getPageSize() - 1) / pageInfo.getPageSize());
 		pageInfo.setResult(questionsPageVos);
 		return pageInfo;
+	}
+
+	@Override
+	public Integer saveSysItemBank(SysQuestionsWithBLOBs sysQuestionsWithBLOBs) {
+		SysQuestionsMapper mapper = MapperFactory.getSysQuestionsMapper();
+		sysQuestionsWithBLOBs.setFlag("1");
+		int insert = mapper.insert(sysQuestionsWithBLOBs);
+		return insert;
+	}
+
+	@Override
+	public Integer updateSysQuestions(SysQuestionsWithBLOBs sysQuestionsWithBLOBs) {
+		SysQuestionsCriteria sysQuestionsCriteria = new SysQuestionsCriteria();
+		SysQuestionsCriteria.Criteria criteria = sysQuestionsCriteria.createCriteria();
+		criteria.andQidEqualTo(sysQuestionsWithBLOBs.getQid());
+		SysQuestionsMapper mapper = MapperFactory.getSysQuestionsMapper();
+		int updateByPrimaryKey = mapper.updateByExampleSelective(sysQuestionsWithBLOBs, sysQuestionsCriteria);
+		return updateByPrimaryKey;
+	}
+
+	@Override
+	public Integer deleteSysQuestions(String qid) {
+		SysQuestionsCriteria sysQuestionsCriteria = new SysQuestionsCriteria();
+		SysQuestionsCriteria.Criteria criteria = sysQuestionsCriteria.createCriteria();
+		criteria.andQidEqualTo(qid);
+		SysQuestionsMapper mapper = MapperFactory.getSysQuestionsMapper();
+		SysQuestionsWithBLOBs sysQuestionsWithBLOBs = new SysQuestionsWithBLOBs();
+		sysQuestionsWithBLOBs.setFlag("0");
+		return mapper.updateByExampleSelective(sysQuestionsWithBLOBs, sysQuestionsCriteria);
 	}
 
 

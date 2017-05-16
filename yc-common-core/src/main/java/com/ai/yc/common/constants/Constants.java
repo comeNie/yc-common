@@ -110,6 +110,8 @@ public final class Constants {
         public static final String DUAD_ID_SEQ = "SYS$DUAD$ID";
         
         public static final String ITEMBANK_BID_SEQ = "SYS$ITEMBANK$BID";
+        
+        public static final String QUESTIONS_QID_SEQ = "SYS$QUESTIONS$QID";
     }
     
     public final static class SysConfig {

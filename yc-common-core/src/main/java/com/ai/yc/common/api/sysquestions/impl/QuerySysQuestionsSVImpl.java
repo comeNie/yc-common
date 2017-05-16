@@ -6,13 +6,16 @@ import org.springframework.stereotype.Component;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.base.vo.ResponseHeader;
 import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.yc.common.api.sysquestions.interfaces.IQuerySysQuestionsSV;
+import com.ai.yc.common.api.sysquestions.param.DeleteSysQuestions;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
+import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
 import com.ai.yc.common.service.business.sysquestions.IQuerySysQuestionsBusiSV;
 import com.alibaba.dubbo.config.annotation.Service;
 
@@ -52,5 +55,45 @@ public class QuerySysQuestionsSVImpl implements IQuerySysQuestionsSV {
             questionsPageQueryResponse.setResponseHeader(responseHeader);
         }
 		return questionsPageQueryResponse;
+	}
+
+
+	@Override
+	public BaseResponse saveSysQuestions(SaveSysQuestions req) throws BusinessException, SystemException {
+		BaseResponse response = new BaseResponse();
+		ResponseHeader responseHeader = new ResponseHeader();
+		try {
+			iQuerySysQuestionsBusiSV.saveSysQuestions(req);
+			responseHeader.setIsSuccess(true);
+			responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+			responseHeader.setResultMessage("添加题目成功");
+			response.setResponseHeader(responseHeader);
+		}catch (Exception e) {
+			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"添加题目失败");
+		}
+		return response;
+	}
+
+
+	@Override
+	public Integer deleteSysQuestions(DeleteSysQuestions param) throws BusinessException, SystemException {
+		return iQuerySysQuestionsBusiSV.deleteSysQuestions(param.getQid());
+	}
+
+
+	@Override
+	public BaseResponse updateSysQuestions(SaveSysQuestions req) throws BusinessException, SystemException {
+		BaseResponse response = new BaseResponse();
+		ResponseHeader responseHeader = new ResponseHeader();
+		try {
+			iQuerySysQuestionsBusiSV.updateSysQuestions(req);
+			responseHeader.setIsSuccess(true);
+			responseHeader.setResultCode(ExceptCodeConstants.Special.SUCCESS);
+			responseHeader.setResultMessage("修改题目成功");
+			response.setResponseHeader(responseHeader);
+		}catch (Exception e) {
+			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改题目失败");
+		}
+		return response;
 	}
 }

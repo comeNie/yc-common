@@ -8,8 +8,11 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.sysquestions.param.DeleteSysQuestions;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
+import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
 
 /**
  * @Description: 题目查询服务
@@ -34,5 +37,40 @@ public interface IQuerySysQuestionsSV {
 	@POST
 	@Path("/queryQuestionsPage")
 	public QuestionsPageQueryResponse queryQuestionsPage(QuestionsPageQueryRequest param)throws BusinessException,SystemException;
+	/**
+	 * 添加选择题目
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysquestions/saveSysQuestions
+     */
+	@POST
+	@Path("/saveSysQuestions")
+	public BaseResponse saveSysQuestions(SaveSysQuestions req)throws BusinessException,SystemException;
 	
+	/**
+	 * 删除
+	 * @param param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysquestions/deleteSysQuestions
+     */
+	@POST
+	@Path("/deleteSysQuestions")
+	public Integer deleteSysQuestions(DeleteSysQuestions param)throws BusinessException,SystemException;
+	
+	/**
+	 * 修改题目
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysquestions/updateSysQuestions
+     */
+	@POST
+	@Path("/updateSysQuestions")
+	public BaseResponse updateSysQuestions(SaveSysQuestions req)throws BusinessException,SystemException;
 }

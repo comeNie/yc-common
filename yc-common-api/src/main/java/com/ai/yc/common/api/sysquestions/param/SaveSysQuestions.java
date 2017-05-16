@@ -3,7 +3,10 @@ package com.ai.yc.common.api.sysquestions.param;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-public class QuestionsPageVo implements Serializable {
+public class SaveSysQuestions implements Serializable {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	/**
 	 * 主键
@@ -42,14 +45,6 @@ public class QuestionsPageVo implements Serializable {
 	 */
 	private String answer;
 	/**
-	 * 原文
-	 */
-	private String original;
-	/**
-	 * 译文
-	 */
-    private String translation;
-	/**
 	 * 状态
 	 */
 	private String status;
@@ -61,9 +56,21 @@ public class QuestionsPageVo implements Serializable {
 	 * 创建人ID
 	 */
 	private String createOperatorId;
-	
+	/**
+	 * 创建人时间
+	 */
 	private Timestamp createTime;
-	
+	/**
+	 * 原文
+	 */
+	private String original;
+	/**
+	 * 译文
+	 */
+    private String translation;
+    /**
+	 * 删除标识
+	 */
 	private String flag;
 	public String getQid() {
 		return qid;
@@ -161,22 +168,6 @@ public class QuestionsPageVo implements Serializable {
 		this.createOperatorId = createOperatorId == null ? null : createOperatorId.trim();
 	}
 
-	public String getOriginal() {
-		return original;
-	}
-
-	public void setOriginal(String original) {
-		this.original = original;
-	}
-
-	public String getTranslation() {
-		return translation;
-	}
-
-	public void setTranslation(String translation) {
-		this.translation = translation;
-	}
-
 	public Timestamp getCreateTime() {
 		return createTime;
 	}
@@ -191,5 +182,21 @@ public class QuestionsPageVo implements Serializable {
 
 	public void setFlag(String flag) {
 		this.flag = flag;
+	}
+
+	public String getOriginal() {
+		return original;
+	}
+
+	public void setOriginal(String original) {
+		this.original = original;
+	}
+
+	public String getTranslation() {
+		return translation;
+	}
+
+	public void setTranslation(String translation) {
+		this.translation = translation;
 	}
 }

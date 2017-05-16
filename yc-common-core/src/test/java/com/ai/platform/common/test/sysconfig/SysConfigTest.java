@@ -56,6 +56,7 @@ import com.ai.yc.common.api.syspurpose.param.SaveSysPurpose;
 import com.ai.yc.common.api.sysquestions.interfaces.IQuerySysQuestionsSV;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
+import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
 import com.ai.yc.common.constants.CacheNSMapper;
 import com.ai.yc.common.util.CacheFactoryUtil;
 import com.google.gson.Gson;
@@ -438,6 +439,39 @@ public class SysConfigTest {
 		param.setQtype("1");
 		QuestionsPageQueryResponse queryQuestionsPage = iQuerySysQuestionsSV.queryQuestionsPage(param);
 		System.out.println(queryQuestionsPage);
+	}
+	/**
+     * 添加简答题目
+	 */
+	@Test
+	public void saveSysQuestions(){
+		SaveSysQuestions param = new SaveSysQuestions();
+		param.setBid("11");
+		param.setOriginal("目");
+		param.setTranslation("mu");
+		param.setQtype("1");
+		BaseResponse saveSysQuestions = iQuerySysQuestionsSV.saveSysQuestions(param);
+		System.out.println(saveSysQuestions);
+	}
+	/**
+     * 添加选择题目
+	 */
+	@Test
+	public void saveSysChioceQuestions(){
+		SaveSysQuestions param = new SaveSysQuestions();
+		param.setBid("11");
+		param.setAnswer("A");
+		param.setQtype("1");
+		param.setChoiceQuestion("选择标题");
+		param.setOptiona("1");
+		param.setOptionb("2");
+		param.setOptionc("3");
+		param.setOptiond("4");
+		param.setOptiona("5");
+		param.setOptiona("6");
+		param.setStatus("1");
+		BaseResponse saveSysQuestions = iQuerySysQuestionsSV.saveSysQuestions(param);
+		System.out.println(saveSysQuestions);
 	}
 	
 	

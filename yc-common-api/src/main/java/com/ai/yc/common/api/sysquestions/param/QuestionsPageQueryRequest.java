@@ -7,7 +7,7 @@ import com.ai.opt.base.vo.PageInfo;
 public class QuestionsPageQueryRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**
-     * 中文名称
+     *  
      */
     private String bid;
 
