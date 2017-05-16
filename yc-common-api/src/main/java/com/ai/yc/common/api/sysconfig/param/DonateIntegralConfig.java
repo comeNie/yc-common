@@ -51,6 +51,10 @@ public class DonateIntegralConfig extends BaseResponse {
 	 * 连续登陆8天
 	 */
     private String eightday;
+    /**
+	 * 登录送积分状态
+	 */
+    private String lstate;
 
     /**
 	 * 注册活动
@@ -71,6 +75,20 @@ public class DonateIntegralConfig extends BaseResponse {
      * 邀请注册送积分
      */
     private String inviteIntegrati;
+    /**
+     * 注册送积分状态
+     */
+    private String rstate;
+
+    /**
+     * 注册送成长值
+     */
+    private String gstate;
+
+    /**
+     * 邀请注册送积分
+     */
+    private String istate;
 
 	public String getOneday() {
 		return oneday;
@@ -167,7 +185,36 @@ public class DonateIntegralConfig extends BaseResponse {
 	public void setInviteIntegrati(String inviteIntegrati) {
 		this.inviteIntegrati = inviteIntegrati;
 	}
-    
-    
 
+	public String getLstate() {
+		return lstate;
+	}
+
+	public void setLstate(String lstate) {
+		this.lstate = lstate;
+	}
+
+	public String getRstate() {
+		return rstate;
+	}
+
+	public void setRstate(String rstate) {
+		this.rstate = rstate;
+	}
+
+	public String getGstate() {
+		return gstate;
+	}
+
+	public void setGstate(String gstate) {
+		this.gstate = gstate;
+	}
+
+	public String getIstate() {
+		return istate;
+	}
+
+	public void setIstate(String istate) {
+		this.istate = istate;
+	}
 }
