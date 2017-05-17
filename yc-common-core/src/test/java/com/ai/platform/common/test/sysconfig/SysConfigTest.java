@@ -57,6 +57,9 @@ import com.ai.yc.common.api.sysquestions.interfaces.IQuerySysQuestionsSV;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
 import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
+import com.ai.yc.common.api.syssensitive.interfaces.IQuerySysSensitiveSV;
+import com.ai.yc.common.api.syssensitive.param.SensitivePageQueryRequest;
+import com.ai.yc.common.api.syssensitive.param.SensitivePageQueryResponse;
 import com.ai.yc.common.constants.CacheNSMapper;
 import com.ai.yc.common.util.CacheFactoryUtil;
 import com.google.gson.Gson;
@@ -82,6 +85,9 @@ public class SysConfigTest {
 	
 	@Autowired
 	private IQuerySysQuestionsSV iQuerySysQuestionsSV;
+	
+	@Autowired
+	private IQuerySysSensitiveSV iQuerySysSensitiveSV;
 	
 	private Gson gson = new Gson();
 	
@@ -491,6 +497,18 @@ public class SysConfigTest {
 		System.out.println(updateSysQuestions);
 	}
 	
+	/**
+     * 题目查询
+	 */
+	@Test
+	public void querySensitivePage(){
+		SensitivePageQueryRequest param = new SensitivePageQueryRequest();
+		param.setSensitiveWords("狗");
+		param.setSite("1");
+		param.setState("1");
+		SensitivePageQueryResponse querySensitivePage = iQuerySysSensitiveSV.querySensitivePage(param);
+		System.out.println(querySensitivePage);
+	}
 	
 	/**
 	 * 时间转换

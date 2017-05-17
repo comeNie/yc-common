@@ -27,6 +27,7 @@ import com.ai.yc.common.dao.mapper.interfaces.SysMenuMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysOfficeMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysPurposeMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysQuestionsMapper;
+import com.ai.yc.common.dao.mapper.interfaces.SysSensitiveMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysUserMapper;
 import com.ai.yc.common.dao.mapper.interfaces.SysWaitjobsMapper;
 
@@ -135,5 +136,9 @@ public class MapperFactory {
     
     public static SysQuestionsMapper getSysQuestionsMapper() {
         return sqlSessionTemplate.getMapper(SysQuestionsMapper.class);
+    }
+    
+    public static SysSensitiveMapper getSysSensitiveMapper() {
+        return sqlSessionTemplate.getMapper(SysSensitiveMapper.class);
     }
 }
