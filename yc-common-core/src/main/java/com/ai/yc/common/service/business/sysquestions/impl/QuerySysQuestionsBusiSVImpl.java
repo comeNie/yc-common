@@ -55,4 +55,10 @@ public class QuerySysQuestionsBusiSVImpl implements IQuerySysQuestionsBusiSV {
 	public Integer deleteSysQuestions(String qid) {
 		return iSysQuestionsAtomSV.deleteSysQuestions(qid);
 	}
+
+
+	@Override
+	public Integer queryQuestionsNumber(QuestionsPageQueryRequest param) {
+		return iSysQuestionsAtomSV.queryQuestionsNumber(param);
+	}
 }

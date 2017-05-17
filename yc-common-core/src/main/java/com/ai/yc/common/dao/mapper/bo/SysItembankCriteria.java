@@ -814,6 +814,76 @@ public class SysItembankCriteria {
             addCriterion("flag not between", value1, value2, "flag");
             return (Criteria) this;
         }
+
+        public Criteria andQnumberIsNull() {
+            addCriterion("qnumber is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberIsNotNull() {
+            addCriterion("qnumber is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberEqualTo(String value) {
+            addCriterion("qnumber =", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberNotEqualTo(String value) {
+            addCriterion("qnumber <>", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberGreaterThan(String value) {
+            addCriterion("qnumber >", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberGreaterThanOrEqualTo(String value) {
+            addCriterion("qnumber >=", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberLessThan(String value) {
+            addCriterion("qnumber <", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberLessThanOrEqualTo(String value) {
+            addCriterion("qnumber <=", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberLike(String value) {
+            addCriterion("qnumber like", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberNotLike(String value) {
+            addCriterion("qnumber not like", value, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberIn(List<String> values) {
+            addCriterion("qnumber in", values, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberNotIn(List<String> values) {
+            addCriterion("qnumber not in", values, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberBetween(String value1, String value2) {
+            addCriterion("qnumber between", value1, value2, "qnumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andQnumberNotBetween(String value1, String value2) {
+            addCriterion("qnumber not between", value1, value2, "qnumber");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

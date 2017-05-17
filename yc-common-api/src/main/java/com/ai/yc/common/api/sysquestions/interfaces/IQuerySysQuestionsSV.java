@@ -37,6 +37,20 @@ public interface IQuerySysQuestionsSV {
 	@POST
 	@Path("/queryQuestionsPage")
 	public QuestionsPageQueryResponse queryQuestionsPage(QuestionsPageQueryRequest param)throws BusinessException,SystemException;
+	
+	/**
+     * 题目数量查询
+     * @return 题目数量
+     * @throws BusinessException,SystemException
+     * @author shancc
+     * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysquestions/queryQuestionsNumber
+	 */
+	@POST
+	@Path("/queryQuestionsNumber")
+	public Integer queryQuestionsNumber(QuestionsPageQueryRequest param)throws BusinessException,SystemException;
+	
 	/**
 	 * 添加选择题目
 	 * @throws BusinessException,SystemException

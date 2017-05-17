@@ -443,8 +443,8 @@ public class SysConfigTest {
 		QuestionsPageQueryRequest param = new QuestionsPageQueryRequest();
 		param.setBid("10");
 		param.setQtype("1");
-		QuestionsPageQueryResponse queryQuestionsPage = iQuerySysQuestionsSV.queryQuestionsPage(param);
-		System.out.println(queryQuestionsPage);
+		Integer queryQuestionsNumber = iQuerySysQuestionsSV.queryQuestionsNumber(param);
+		System.out.println(queryQuestionsNumber);
 	}
 	/**
      * 添加简答题目

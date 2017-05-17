@@ -99,5 +99,20 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 		return mapper.updateByExampleSelective(sysQuestionsWithBLOBs, sysQuestionsCriteria);
 	}
 
+	@Override
+	public Integer queryQuestionsNumber(QuestionsPageQueryRequest param) {
+		SysQuestionsCriteria sysQuestionsCriteria = new SysQuestionsCriteria();
+		SysQuestionsCriteria.Criteria criteria = sysQuestionsCriteria.createCriteria();
+		if (!StringUtil.isBlank(param.getBid())) {
+			criteria.andBidEqualTo(param.getBid());
+		}
+		if (!StringUtil.isBlank(param.getQtype())) {
+			criteria.andQtypeEqualTo(param.getQtype());
+		}
+		SysQuestionsMapper mapper = MapperFactory.getSysQuestionsMapper();
+		int countByExample = mapper.countByExample(sysQuestionsCriteria);
+		return countByExample;
+	}
+
 
 }

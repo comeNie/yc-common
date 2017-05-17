@@ -46,7 +46,10 @@ public class ItemBankPageVo implements Serializable {
 	 * 删除标识
 	 */
 	private String flag;
-	
+	/**
+	 * 题目数量
+	 */
+	private String qnumber;
 	public String getBid() {
 		return bid;
 	}
@@ -126,4 +129,12 @@ public class ItemBankPageVo implements Serializable {
     public void setFlag(String flag) {
         this.flag = flag == null ? null : flag.trim();
     }
+
+	public String getQnumber() {
+		return qnumber;
+	}
+
+	public void setQnumber(String qnumber) {
+		this.qnumber = qnumber;
+	}
 }

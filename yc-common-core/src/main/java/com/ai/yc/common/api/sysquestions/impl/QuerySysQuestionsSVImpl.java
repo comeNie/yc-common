@@ -96,4 +96,10 @@ public class QuerySysQuestionsSVImpl implements IQuerySysQuestionsSV {
 		}
 		return response;
 	}
+
+
+	@Override
+	public Integer queryQuestionsNumber(QuestionsPageQueryRequest param) throws BusinessException, SystemException {
+		return iQuerySysQuestionsBusiSV.queryQuestionsNumber(param);
+	}
 }

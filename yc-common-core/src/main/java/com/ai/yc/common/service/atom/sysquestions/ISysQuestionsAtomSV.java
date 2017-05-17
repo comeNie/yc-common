@@ -20,6 +20,8 @@ public interface ISysQuestionsAtomSV {
 	Integer updateSysQuestions(SysQuestionsWithBLOBs sysQuestionsWithBLOBs);
 
 	Integer deleteSysQuestions(String qid);
+
+	Integer queryQuestionsNumber(QuestionsPageQueryRequest param);
 	
 
 }

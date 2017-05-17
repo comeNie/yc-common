@@ -21,5 +21,7 @@ public interface IQuerySysQuestionsBusiSV {
 
 	Integer deleteSysQuestions(String qid);
 
+	Integer queryQuestionsNumber(QuestionsPageQueryRequest param);
+
 
 }

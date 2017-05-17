@@ -12,6 +12,7 @@
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="create_operator_id" property="createOperatorId" jdbcType="VARCHAR" />
     <result column="flag" property="flag" jdbcType="VARCHAR" />
+    <result column="qnumber" property="qnumber" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,7 +74,7 @@
   </sql>
   <sql id="Base_Column_List" >
     bid, qname, lang_dir, site, question_type, aditor, state, create_time, create_operator_id, 
-    flag
+    flag, qnumber
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.ai.yc.common.dao.mapper.bo.SysItembankCriteria" >
     select
@@ -103,11 +104,11 @@
     insert into sys_itembank (bid, qname, lang_dir, 
       site, question_type, aditor, 
       state, create_time, create_operator_id, 
-      flag)
+      flag, qnumber)
     values (#{bid,jdbcType=VARCHAR}, #{qname,jdbcType=VARCHAR}, #{langDir,jdbcType=VARCHAR}, 
       #{site,jdbcType=VARCHAR}, #{questionType,jdbcType=VARCHAR}, #{aditor,jdbcType=VARCHAR}, 
       #{state,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createOperatorId,jdbcType=VARCHAR}, 
-      #{flag,jdbcType=VARCHAR})
+      #{flag,jdbcType=VARCHAR}, #{qnumber,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.ai.yc.common.dao.mapper.bo.SysItembank" >
     insert into sys_itembank
@@ -142,6 +143,9 @@
       <if test="flag != null" >
         flag,
       </if>
+      <if test="qnumber != null" >
+        qnumber,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="bid != null" >
@@ -173,6 +177,9 @@
       </if>
       <if test="flag != null" >
         #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="qnumber != null" >
+        #{qnumber,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -215,6 +222,9 @@
       <if test="record.flag != null" >
         flag = #{record.flag,jdbcType=VARCHAR},
       </if>
+      <if test="record.qnumber != null" >
+        qnumber = #{record.qnumber,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -231,7 +241,8 @@
       state = #{record.state,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       create_operator_id = #{record.createOperatorId,jdbcType=VARCHAR},
-      flag = #{record.flag,jdbcType=VARCHAR}
+      flag = #{record.flag,jdbcType=VARCHAR},
+      qnumber = #{record.qnumber,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

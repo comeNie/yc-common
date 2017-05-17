@@ -23,6 +23,8 @@ public class SysItembank {
 
     private String flag;
 
+    private String qnumber;
+
     public String getBid() {
         return bid;
     }
@@ -101,5 +103,13 @@ public class SysItembank {
 
     public void setFlag(String flag) {
         this.flag = flag == null ? null : flag.trim();
+    }
+
+    public String getQnumber() {
+        return qnumber;
+    }
+
+    public void setQnumber(String qnumber) {
+        this.qnumber = qnumber == null ? null : qnumber.trim();
     }
 }

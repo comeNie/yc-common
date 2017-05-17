@@ -7,12 +7,12 @@ import com.ai.opt.base.vo.PageInfo;
 public class QuestionsPageQueryRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 	/**
-     *  
+     *  题库ID
      */
     private String bid;
 
 	/**
-	 * 站点
+	 * 题型
 	 */
 	private String qtype;
 	/**
