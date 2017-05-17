@@ -479,8 +479,14 @@ public class SysConfigTest {
 	@Test
 	public void updateSysQuestions(){
 		SaveSysQuestions param = new SaveSysQuestions();
-		param.setQid("1");
-		param.setChoiceQuestion("数学选择题11");
+		param.setQid("8");
+		param.setOptiona("a");
+		param.setOptionb("s");
+		param.setOptionc("d");
+		param.setOptiond("b");
+		param.setAnswer("A");
+		param.setStatus("0");
+		param.setChoiceQuestion("选择标题11");
 		BaseResponse updateSysQuestions = iQuerySysQuestionsSV.updateSysQuestions(param);
 		System.out.println(updateSysQuestions);
 	}
