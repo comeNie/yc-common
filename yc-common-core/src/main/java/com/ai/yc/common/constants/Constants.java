@@ -112,6 +112,8 @@ public final class Constants {
         public static final String ITEMBANK_BID_SEQ = "SYS$ITEMBANK$BID";
         
         public static final String QUESTIONS_QID_SEQ = "SYS$QUESTIONS$QID";
+        
+        public static final String SENSITIVE_ID_SEQ = "SYS$SENSITIVE$ID";
     }
     
     public final static class SysConfig {
