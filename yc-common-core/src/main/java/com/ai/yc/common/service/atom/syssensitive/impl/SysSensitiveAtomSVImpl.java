@@ -77,4 +77,28 @@ public class SysSensitiveAtomSVImpl implements ISysSensitiveAtomSV{
 		return pageInfo;
 	}
 
+	@Override
+	public Integer saveSysItemBank(SysSensitive sysSensitive) {
+		SysSensitiveMapper mapper = MapperFactory.getSysSensitiveMapper();
+		int insert = mapper.insert(sysSensitive);
+		return insert;
+	}
+
+	@Override
+	public Integer deleteSysSensitive(String id) {
+		SysSensitiveMapper mapper = MapperFactory.getSysSensitiveMapper();
+		int deleteByPrimaryKey = mapper.deleteByPrimaryKey(id);
+		return deleteByPrimaryKey;
+	}
+
+	@Override
+	public Integer updateSysSensitive(SysSensitive sysSensitive) {
+		SysSensitiveCriteria sysSensitiveCriteria = new SysSensitiveCriteria();
+		SysSensitiveCriteria.Criteria criteria = sysSensitiveCriteria.createCriteria();
+		criteria.andIdEqualTo(sysSensitive.getId());
+		SysSensitiveMapper mapper = MapperFactory.getSysSensitiveMapper();
+		int updateByPrimaryKey = mapper.updateByExampleSelective(sysSensitive, sysSensitiveCriteria);
+		return updateByPrimaryKey;
+	}
+
 }

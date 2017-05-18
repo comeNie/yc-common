@@ -2,6 +2,7 @@ package com.ai.yc.common.service.business.syssensitive;
 
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.syssensitive.param.SaveSysSensitive;
 import com.ai.yc.common.api.syssensitive.param.SensitivePageQueryRequest;
 import com.ai.yc.common.api.syssensitive.param.SensitivePageVo;
 
@@ -13,4 +14,10 @@ import com.ai.yc.common.api.syssensitive.param.SensitivePageVo;
 public interface IQuerySysSensitiveBusiSV {
 
 	PageInfo<SensitivePageVo> querySensitivePage(SensitivePageQueryRequest param);
+
+	Integer saveSysSensitive(SaveSysSensitive req);
+
+	Integer updateSysSensitive(SaveSysSensitive req);
+
+	Integer deleteSysSensitive(String id);
 }

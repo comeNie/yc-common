@@ -8,6 +8,9 @@ import javax.ws.rs.core.MediaType;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
+import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.syssensitive.param.DeleteSysSensitive;
+import com.ai.yc.common.api.syssensitive.param.SaveSysSensitive;
 import com.ai.yc.common.api.syssensitive.param.SensitivePageQueryRequest;
 import com.ai.yc.common.api.syssensitive.param.SensitivePageQueryResponse;
 
@@ -34,4 +37,41 @@ public interface IQuerySysSensitiveSV {
 	@POST
 	@Path("/querySensitivePage")
 	public SensitivePageQueryResponse querySensitivePage(SensitivePageQueryRequest param)throws BusinessException,SystemException;
+	
+	/**
+	 * 添加敏感词
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syssensitive/saveSysSensitive
+     */
+	@POST
+	@Path("/saveSysSensitive")
+	public BaseResponse saveSysSensitive(SaveSysSensitive req)throws BusinessException,SystemException;
+	
+	/**
+	 * 删除敏感词
+	 * @param param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syssensitive/deleteSysSensitive
+     */
+	@POST
+	@Path("/deleteSysSensitive")
+	public Integer deleteSysSensitive(DeleteSysSensitive param)throws BusinessException,SystemException;
+	
+	/**
+	 * 修改敏感词
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL syssensitive/updateSysSensitive
+     */
+	@POST
+	@Path("/updateSysSensitive")
+	public BaseResponse updateSysSensitive(SaveSysSensitive req)throws BusinessException,SystemException;
 }
