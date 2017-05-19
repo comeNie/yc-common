@@ -109,6 +109,7 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 		if (!StringUtil.isBlank(param.getQtype())) {
 			criteria.andQtypeEqualTo(param.getQtype());
 		}
+		criteria.andFlagEqualTo("1");
 		SysQuestionsMapper mapper = MapperFactory.getSysQuestionsMapper();
 		int countByExample = mapper.countByExample(sysQuestionsCriteria);
 		return countByExample;
