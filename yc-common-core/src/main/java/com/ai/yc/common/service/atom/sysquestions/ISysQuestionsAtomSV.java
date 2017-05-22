@@ -1,9 +1,13 @@
 package com.ai.yc.common.service.atom.sysquestions;
 
 
+import java.util.List;
+
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersResponse;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersVo;
 import com.ai.yc.common.dao.mapper.bo.SysQuestionsWithBLOBs;
 
 /**
@@ -22,6 +26,10 @@ public interface ISysQuestionsAtomSV {
 	Integer deleteSysQuestions(String qid);
 
 	Integer queryQuestionsNumber(QuestionsPageQueryRequest param);
+
+	List<QuestionsPapersVo> questionsChoicePapers(String bid);
+
+	QuestionsPapersResponse questionsPapers(String bid);
 	
 
 }

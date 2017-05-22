@@ -9,9 +9,11 @@ import javax.ws.rs.core.MediaType;
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
 import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.DeleteSysQuestions;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersResponse;
 import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
 
 /**
@@ -87,4 +89,18 @@ public interface IQuerySysQuestionsSV {
 	@POST
 	@Path("/updateSysQuestions")
 	public BaseResponse updateSysQuestions(SaveSysQuestions req)throws BusinessException,SystemException;
+	
+	
+	/**
+     * 生成试卷服务
+     * @return 题目
+     * @throws BusinessException,SystemException
+     * @author shancc
+     * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysquestions/questionsPapers
+	 */
+	@POST
+	@Path("/questionsPapers")
+	public QuestionsPapersResponse questionsPapers(ItemBankPageQueryRequest param)throws BusinessException,SystemException;
 }

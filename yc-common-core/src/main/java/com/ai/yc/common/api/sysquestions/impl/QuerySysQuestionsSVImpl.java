@@ -1,6 +1,8 @@
 package com.ai.yc.common.api.sysquestions.impl;
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -10,12 +12,17 @@ import com.ai.opt.base.vo.BaseResponse;
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.base.vo.ResponseHeader;
 import com.ai.opt.sdk.constants.ExceptCodeConstants;
+import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
+import com.ai.yc.common.api.sysitembank.param.ItemBankPageVo;
 import com.ai.yc.common.api.sysquestions.interfaces.IQuerySysQuestionsSV;
 import com.ai.yc.common.api.sysquestions.param.DeleteSysQuestions;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersResponse;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersVo;
 import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
+import com.ai.yc.common.service.business.sysitembank.IQuerySysItemBankBusiSV;
 import com.ai.yc.common.service.business.sysquestions.IQuerySysQuestionsBusiSV;
 import com.alibaba.dubbo.config.annotation.Service;
 
@@ -30,6 +37,9 @@ public class QuerySysQuestionsSVImpl implements IQuerySysQuestionsSV {
 	
 	@Autowired
 	private transient IQuerySysQuestionsBusiSV iQuerySysQuestionsBusiSV;
+	
+	@Autowired
+	private transient IQuerySysItemBankBusiSV iQuerySysItemBankBusiSV;
 
 
 	@Override
@@ -101,5 +111,26 @@ public class QuerySysQuestionsSVImpl implements IQuerySysQuestionsSV {
 	@Override
 	public Integer queryQuestionsNumber(QuestionsPageQueryRequest param) throws BusinessException, SystemException {
 		return iQuerySysQuestionsBusiSV.queryQuestionsNumber(param);
+	}
+
+
+	@Override
+	public QuestionsPapersResponse questionsPapers(ItemBankPageQueryRequest param) throws BusinessException, SystemException {
+		if(param==null){
+			throw new BusinessException(ExceptCodeConstants.Special.PARAM_IS_NULL, "参数不能为空");
+		}
+		QuestionsPapersResponse questionsPapersResponses = new QuestionsPapersResponse();
+		PageInfo<ItemBankPageVo> queryItemBankPage = iQuerySysItemBankBusiSV.queryItemBankPage(param);
+		List<ItemBankPageVo> result = queryItemBankPage.getResult();
+		for (ItemBankPageVo itemBankPageVo : result) {
+			List<QuestionsPapersVo> questionsPapersVoList = iQuerySysQuestionsBusiSV.questionsChoicePapers(itemBankPageVo.getBid());
+			questionsPapersResponses.setQiestionsParpersVoList(questionsPapersVoList);
+			QuestionsPapersResponse questionsPapersResponse = iQuerySysQuestionsBusiSV.questionsPapers(itemBankPageVo.getBid());
+			if(questionsPapersResponse.getOriginal() != null && questionsPapersResponse.getQid()!= null){
+				questionsPapersResponses.setOriginal(questionsPapersResponse.getOriginal());
+				questionsPapersResponses.setQid(questionsPapersResponse.getQid());
+			}
+		}
+		return questionsPapersResponses;
 	}
 }

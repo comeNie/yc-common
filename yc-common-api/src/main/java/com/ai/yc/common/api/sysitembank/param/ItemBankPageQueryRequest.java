@@ -23,6 +23,10 @@ public class ItemBankPageQueryRequest implements Serializable {
 	 */
 	private String aditor;
 	/**
+	 * 语言方向
+	 */
+	private String langDir;
+	/**
 	 *题型
 	 */
 	private String questionType;
@@ -30,6 +34,12 @@ public class ItemBankPageQueryRequest implements Serializable {
      * 分页时必填
      */
     PageInfo<ItemBankPageVo> pageInfo;
+	public String getLangDir() {
+		return langDir;
+	}
+	public void setLangDir(String langDir) {
+		this.langDir = langDir;
+	}
 	public String getQname() {
 		return qname;
 	}

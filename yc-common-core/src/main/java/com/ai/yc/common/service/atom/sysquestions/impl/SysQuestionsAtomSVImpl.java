@@ -3,7 +3,8 @@ package com.ai.yc.common.service.atom.sysquestions.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
@@ -13,6 +14,9 @@ import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageVo;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersResponse;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersVo;
+import com.ai.yc.common.dao.mapper.attach.QuestionsAttachMapper;
 import com.ai.yc.common.dao.mapper.bo.SysQuestionsCriteria;
 import com.ai.yc.common.dao.mapper.bo.SysQuestionsWithBLOBs;
 import com.ai.yc.common.dao.mapper.factory.MapperFactory;
@@ -24,9 +28,11 @@ import com.ai.yc.common.service.atom.sysquestions.ISysQuestionsAtomSV;
  * @date 2017年5月16日 
  * @version V1.0.1
  */
-@Service
+@Component
 public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 
+	@Autowired
+	private QuestionsAttachMapper questionsAttachMapper;
 
 	@Override
 	public PageInfo<QuestionsPageVo> queryQuestionsPage(QuestionsPageQueryRequest param) throws BusinessException, SystemException{
@@ -113,6 +119,22 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 		SysQuestionsMapper mapper = MapperFactory.getSysQuestionsMapper();
 		int countByExample = mapper.countByExample(sysQuestionsCriteria);
 		return countByExample;
+	}
+
+	@Override
+	public List<QuestionsPapersVo> questionsChoicePapers(String bid) {
+		List<QuestionsPapersVo> queryQuestionsPapersVo = questionsAttachMapper.getQuestionsChoicePapers(bid);
+		return queryQuestionsPapersVo;
+	}
+
+	@Override
+	public QuestionsPapersResponse questionsPapers(String bid) {
+		QuestionsPapersResponse questionsPapersResponse = new QuestionsPapersResponse();
+		SysQuestionsWithBLOBs sysQuestionsWithBLOBs = questionsAttachMapper.questionsPapers(bid);
+		if(sysQuestionsWithBLOBs != null){
+			BeanUtils.copyProperties(questionsPapersResponse, sysQuestionsWithBLOBs);
+		}
+		return questionsPapersResponse;
 	}
 
 

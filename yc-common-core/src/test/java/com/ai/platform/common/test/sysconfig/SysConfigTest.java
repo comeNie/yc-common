@@ -56,6 +56,7 @@ import com.ai.yc.common.api.syspurpose.param.SaveSysPurpose;
 import com.ai.yc.common.api.sysquestions.interfaces.IQuerySysQuestionsSV;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryRequest;
 import com.ai.yc.common.api.sysquestions.param.QuestionsPageQueryResponse;
+import com.ai.yc.common.api.sysquestions.param.QuestionsPapersResponse;
 import com.ai.yc.common.api.sysquestions.param.SaveSysQuestions;
 import com.ai.yc.common.api.syssensitive.interfaces.IQuerySysSensitiveSV;
 import com.ai.yc.common.api.syssensitive.param.SensitivePageQueryRequest;
@@ -498,7 +499,19 @@ public class SysConfigTest {
 	}
 	
 	/**
-     * 题目查询
+     * 试卷生成
+	 */
+	@Test
+	public void questionsPapers(){
+		ItemBankPageQueryRequest param = new ItemBankPageQueryRequest();
+		param.setLangDir("8");
+		param.setSite("1");
+		QuestionsPapersResponse questionsPapers = iQuerySysQuestionsSV.questionsPapers(param);
+		System.out.println(questionsPapers);
+	}
+	
+	/**
+     * 敏感词查询
 	 */
 	@Test
 	public void querySensitivePage(){

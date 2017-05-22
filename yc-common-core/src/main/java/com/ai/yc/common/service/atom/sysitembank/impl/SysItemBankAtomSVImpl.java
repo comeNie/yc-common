@@ -45,6 +45,9 @@ public class SysItemBankAtomSVImpl implements ISysItemBankAtomSV{
 		if (!StringUtil.isBlank(param.getState())) {
 			criteria.andStateEqualTo(param.getState());
 		}
+		if (!StringUtil.isBlank(param.getLangDir())) {
+			criteria.andLangDirEqualTo(param.getLangDir());
+		}
 		if (!StringUtil.isBlank(param.getAditor())) {
 			criteria.andAditorLike("%" + param.getAditor().trim() + "%");
 		}
