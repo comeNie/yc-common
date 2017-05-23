@@ -2,6 +2,7 @@ package com.ai.yc.common.service.atom.sysitembank;
 
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.sysitembank.param.CheckDuad;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageVo;
 import com.ai.yc.common.dao.mapper.bo.SysItembank;
@@ -21,5 +22,7 @@ public interface ISysItemBankAtomSV {
 	Integer saveSysItemBank(SysItembank sysItembank);
 
 	Integer updateSysItemBank(SysItembank sysItembank);
+
+	Integer checkDuadCn(CheckDuad param);
 
 }

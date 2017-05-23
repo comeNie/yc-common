@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 import com.ai.opt.base.exception.BusinessException;
 import com.ai.opt.base.exception.SystemException;
 import com.ai.opt.base.vo.BaseResponse;
+import com.ai.yc.common.api.sysitembank.param.CheckDuad;
 import com.ai.yc.common.api.sysitembank.param.DeleteSysItemBank;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryResponse;
@@ -73,4 +74,17 @@ public interface IQuerySysItemBankSV {
 	@POST
 	@Path("/updateSysItemBank")
 	public BaseResponse updateSysItemBank(SaveSysItemBank req)throws BusinessException,SystemException;
+	
+	/**
+	 * 已存在的语言对不可再次新建
+	 * @param
+	 * @throws BusinessException,SystemException
+	 * @author shancc
+	 * @ApiDocMethod
+     * @ApiCode
+     * @RestRelativeURL sysitembank/checkDuadCn
+     */
+	@POST
+	@Path("/checkDuadCn")
+    public Integer checkDuadCn(CheckDuad param) throws BusinessException,SystemException;
 }

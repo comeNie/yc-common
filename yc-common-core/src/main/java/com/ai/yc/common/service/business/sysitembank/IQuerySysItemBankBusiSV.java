@@ -2,6 +2,7 @@ package com.ai.yc.common.service.business.sysitembank;
 
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.yc.common.api.sysitembank.param.CheckDuad;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageVo;
 import com.ai.yc.common.api.sysitembank.param.SaveSysItemBank;
@@ -20,5 +21,7 @@ public interface IQuerySysItemBankBusiSV {
 	Integer deleteSysItemBank(String bid);
 
 	Integer updateSysItemBank(SaveSysItemBank req);
+
+	Integer checkDuadCn(CheckDuad param);
 
 }

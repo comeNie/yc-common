@@ -11,6 +11,7 @@ import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.BeanUtils;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
+import com.ai.yc.common.api.sysitembank.param.CheckDuad;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageVo;
 import com.ai.yc.common.dao.mapper.bo.SysItembank;
@@ -113,6 +114,18 @@ public class SysItemBankAtomSVImpl implements ISysItemBankAtomSV{
 		SysItembankMapper mapper = MapperFactory.getSysItembankMapper();
 		int updateByPrimaryKey = mapper.updateByExampleSelective(sysItembank, sysItemBankCriteria);
 		return updateByPrimaryKey;
+	}
+
+	@Override
+	public Integer checkDuadCn(CheckDuad param) {
+		SysItembankCriteria sysItemBankCriteria = new SysItembankCriteria();
+		SysItembankCriteria.Criteria criteria = sysItemBankCriteria.createCriteria();
+		if (!StringUtil.isBlank(param.getLangDir())) {
+			criteria.andLangDirEqualTo(param.getLangDir());
+		}
+		SysItembankMapper mapper = MapperFactory.getSysItembankMapper();
+		int countByExample = mapper.countByExample(sysItemBankCriteria);
+		return countByExample;
 	}
 
 

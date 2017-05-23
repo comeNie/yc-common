@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.components.sequence.util.SeqUtil;
 import com.ai.opt.sdk.util.BeanUtils;
+import com.ai.yc.common.api.sysitembank.param.CheckDuad;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageVo;
 import com.ai.yc.common.api.sysitembank.param.SaveSysItemBank;
@@ -55,5 +56,11 @@ public class QuerySysItemBankBusiSVImpl implements IQuerySysItemBankBusiSV {
 		SysItembank sysItembank = new SysItembank();
 		BeanUtils.copyProperties(sysItembank,req);
 		return iSysItemBankAtomSV.updateSysItemBank(sysItembank);
+	}
+
+
+	@Override
+	public Integer checkDuadCn(CheckDuad param) {
+		return iSysItemBankAtomSV.checkDuadCn(param);
 	}
 }

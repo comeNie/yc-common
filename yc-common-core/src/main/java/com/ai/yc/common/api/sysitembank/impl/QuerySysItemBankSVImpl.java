@@ -11,6 +11,7 @@ import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.base.vo.ResponseHeader;
 import com.ai.opt.sdk.constants.ExceptCodeConstants;
 import com.ai.yc.common.api.sysitembank.interfaces.IQuerySysItemBankSV;
+import com.ai.yc.common.api.sysitembank.param.CheckDuad;
 import com.ai.yc.common.api.sysitembank.param.DeleteSysItemBank;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryRequest;
 import com.ai.yc.common.api.sysitembank.param.ItemBankPageQueryResponse;
@@ -96,6 +97,12 @@ public class QuerySysItemBankSVImpl implements IQuerySysItemBankSV {
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改题库失败");
 		}
 		return response;
+	}
+
+
+	@Override
+	public Integer checkDuadCn(CheckDuad param) throws BusinessException, SystemException {
+		return iQuerySysItemBankBusiSV.checkDuadCn(param);
 	}
 
 
