@@ -2,6 +2,7 @@ package com.ai.yc.common.service.business.syspurpose.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ import com.ai.yc.common.service.business.syspurpose.IQuerySysPurposeBusiSV;
  */
 @Service
 public class QuerySysPurposeBusiSVImpl implements IQuerySysPurposeBusiSV {
-	
+	private static final Logger logger = Logger.getLogger(QuerySysPurposeBusiSVImpl.class);
 	@Autowired 
 	private transient ISysPurposeAtomSV  iSysPurposeAtomSV;
 
@@ -43,6 +44,7 @@ public class QuerySysPurposeBusiSVImpl implements IQuerySysPurposeBusiSV {
 
 	@Override
 	public PageInfo<PurposePageVo> queryPurposePage(PurposePageQueryRequest param) {
+		logger.info("Busis查询用途》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》");
 		PageInfo<PurposePageVo> purposePageInfo = iSysPurposeAtomSV.queryPurposePage(param);
 		return purposePageInfo;
 	}
@@ -63,6 +65,7 @@ public class QuerySysPurposeBusiSVImpl implements IQuerySysPurposeBusiSV {
 		sysPurpose.setUpdatetime(req.getUpdatetime());
 		sysPurpose.setCreateOperator(req.getCreateOperator());
 		sysPurpose.setCreateOperatorId(req.getCreateOperatorId());
+		logger.info("Busis添加查询用途》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》"+sysPurpose);
 		return iSysPurposeAtomSV.saveSysPurpose(sysPurpose);
 	}
 

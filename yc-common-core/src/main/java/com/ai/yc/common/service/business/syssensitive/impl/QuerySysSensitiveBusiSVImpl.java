@@ -1,5 +1,6 @@
 package com.ai.yc.common.service.business.syssensitive.impl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +22,7 @@ import com.ai.yc.common.service.business.syssensitive.IQuerySysSensitiveBusiSV;
  */
 @Service
 public class QuerySysSensitiveBusiSVImpl implements IQuerySysSensitiveBusiSV {
-	
+	private static final Logger logger = Logger.getLogger(QuerySysSensitiveBusiSVImpl.class);
 	@Autowired 
 	private transient ISysSensitiveAtomSV  iSysSensitiveAtomSV;
 
@@ -39,6 +40,7 @@ public class QuerySysSensitiveBusiSVImpl implements IQuerySysSensitiveBusiSV {
 		BeanUtils.copyProperties(sysSensitive,req);
 		Long id = SeqUtil.getNewId(Constants.SEQ.SENSITIVE_ID_SEQ);
 		sysSensitive.setId(id.toString());
+		logger.info("Busis添加敏感词》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》");
 		return iSysSensitiveAtomSV.saveSysItemBank(sysSensitive);
 	}
 

@@ -1,6 +1,7 @@
 package com.ai.yc.common.service.business.sysitembank.impl;
 
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ import com.ai.yc.common.service.business.sysitembank.IQuerySysItemBankBusiSV;
  */
 @Service
 public class QuerySysItemBankBusiSVImpl implements IQuerySysItemBankBusiSV {
-	
+	private static final Logger logger = Logger.getLogger(QuerySysItemBankBusiSVImpl.class);
 	@Autowired 
 	private transient ISysItemBankAtomSV  iSysItemBankAtomSV;
 
@@ -41,6 +42,7 @@ public class QuerySysItemBankBusiSVImpl implements IQuerySysItemBankBusiSV {
 		BeanUtils.copyProperties(sysItembank,req);
 		Long bId = SeqUtil.getNewId(Constants.SEQ.ITEMBANK_BID_SEQ);
 		sysItembank.setBid(String.valueOf(bId));
+		logger.info("Busis添加查询题目》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》"+sysItembank);
 		return iSysItemBankAtomSV.saveSysItemBank(sysItembank);
 	}
 

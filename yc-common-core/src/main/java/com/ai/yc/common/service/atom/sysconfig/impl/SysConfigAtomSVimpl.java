@@ -2,6 +2,7 @@ package com.ai.yc.common.service.atom.sysconfig.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.CollectionUtil;
@@ -18,7 +19,7 @@ import com.ai.yc.common.service.atom.sysconfig.ISysConfigAtomSV;
  */
 @Service
 public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
-
+	private static final Logger logger = Logger.getLogger(SysConfigAtomSVimpl.class);
 	@Override
 	public SysConfig selectOne() {
 		SysConfigCriteria example = new SysConfigCriteria();
@@ -46,11 +47,13 @@ public class SysConfigAtomSVimpl implements ISysConfigAtomSV{
 		SysConfigCriteria sysConfigCriteria = new SysConfigCriteria();
 		SysConfigCriteria.Criteria criteria = sysConfigCriteria.createCriteria();
 		if(sysConfig.getConfigId() != null){
+			logger.info("Atom保存基本设置ID不为空》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》");
 			criteria.andConfigIdEqualTo(sysConfig.getConfigId());
 			SysConfigMapper mapper = MapperFactory.getSysConfigMapper();
 			int updateByPrimaryKey = mapper.updateByExampleSelective(sysConfig, sysConfigCriteria);
 			return updateByPrimaryKey;
 		}else{
+			logger.info("Atom保存基本设置ID为空》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》");
 			SysConfigMapper mapper = MapperFactory.getSysConfigMapper();
 			sysConfig.setConfigId("1");
 			int insertSelective = mapper.insertSelective(sysConfig);

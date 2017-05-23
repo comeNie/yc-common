@@ -2,6 +2,7 @@ package com.ai.yc.common.service.business.sysduad.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ import com.ai.yc.common.service.business.sysduad.IQuerySysDuadBusiSV;
  */
 @Service
 public class QuerySysDuadBusiSVImpl implements IQuerySysDuadBusiSV{
-	
+	private static final Logger logger = Logger.getLogger(QuerySysDuadBusiSVImpl.class);
 	@Autowired
 	private transient ISysDuadAtomSV iSysDuadAtomSV;
 
@@ -42,6 +43,7 @@ public class QuerySysDuadBusiSVImpl implements IQuerySysDuadBusiSV{
 
 	@Override
 	public PageInfo<DuadPageVo> queryDuadPage(DuadPageQueryRequest param) {
+		logger.info("Busis查询语言对》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》");
 		PageInfo<DuadPageVo> duadPageInfo = iSysDuadAtomSV.queryDuadPage(param);
 		return duadPageInfo;
 	}
@@ -52,6 +54,7 @@ public class QuerySysDuadBusiSVImpl implements IQuerySysDuadBusiSV{
 		Long duadId = SeqUtil.getNewId(Constants.SEQ.DUAD_ID_SEQ);
 		BeanUtils.copyProperties(sysDuad, req);
 		sysDuad.setDuadId(String.valueOf(duadId));
+		logger.info("Busis添加语言对》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》"+sysDuad);
 		return iSysDuadAtomSV.iSysDuadAtomSV(sysDuad);
 	}
 

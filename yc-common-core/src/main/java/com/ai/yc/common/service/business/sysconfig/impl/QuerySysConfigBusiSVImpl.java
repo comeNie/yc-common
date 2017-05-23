@@ -1,5 +1,6 @@
 package com.ai.yc.common.service.business.sysconfig.impl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import com.ai.yc.common.service.business.sysconfig.IQuerySysConfigBusiSV;
  */
 @Service
 public class QuerySysConfigBusiSVImpl implements IQuerySysConfigBusiSV{
-	
+	private static final Logger logger = Logger.getLogger(QuerySysConfigBusiSVImpl.class);
 	@Autowired
 	private transient ISysConfigAtomSV iSysConfigAtomSV;
 
@@ -30,6 +31,7 @@ public class QuerySysConfigBusiSVImpl implements IQuerySysConfigBusiSV{
 	public Integer saveSysConfig(SaveSysConfig req) {
 		SysConfig sysConfig = new SysConfig();
 		BeanUtils.copyProperties(sysConfig,req);
+		logger.info("Busis保存基本设置》》》》》》》》》》》》》》》》》》》》》》》》》》》》》》"+sysConfig);
 		return iSysConfigAtomSV.saveSysConfig(sysConfig);
 	}
 
