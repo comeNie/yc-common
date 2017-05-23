@@ -3,6 +3,7 @@ package com.ai.yc.common.api.syspurpose.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -40,6 +41,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 @Service
 @Component
 public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
+	private static final Logger logger = Logger.getLogger(QuerySysPurposeSVImpl.class);
 	
 	@Autowired
 	private transient IQuerySysPurposeBusiSV iQuerySysPurposeBusiSV;
@@ -94,6 +96,7 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
             responseHeader.setResultMessage(businessException.getErrorMessage());
             purposePageQueryResponse.setResponseHeader(responseHeader);
         }catch (Exception e){
+        	logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
             responseHeader.setResultCode(ExceptCodeConstants.Special.SYSTEM_ERROR);
             responseHeader.setResultMessage("用途列表查询失败");
             purposePageQueryResponse.setResponseHeader(responseHeader);
@@ -112,6 +115,7 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 			responseHeader.setResultMessage("添加用途成功");
 			response.setResponseHeader(responseHeader);
 		}catch (Exception e) {
+			logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"添加用途失败");
 		}
 		return response;
@@ -135,6 +139,7 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 			querySysPurposeByIds.setResponseHeader(responseHeader);
 			querySysPurposeByIds.setResult(querySysPurposeById);
 		}catch(Exception e){
+			logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
 			responseHeader.setIsSuccess(false);
 			responseHeader.setResultCode(ExceptCodeConstants.Special.SYSTEM_ERROR);
 			responseHeader.setResultMessage("用途列表查询失败!");
@@ -154,6 +159,7 @@ public class QuerySysPurposeSVImpl implements IQuerySysPurposeSV {
 			responseHeader.setResultMessage("修改用途成功");
 			response.setResponseHeader(responseHeader);
 		}catch (Exception e) {
+			logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改用途失败");
 		}
 		return response;

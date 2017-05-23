@@ -1,6 +1,7 @@
 package com.ai.yc.common.api.syssensitive.impl;
 
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +28,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 @Service
 @Component
 public class QuerySysSensitiveSVImpl implements IQuerySysSensitiveSV {
-	
+	private static final Logger logger = Logger.getLogger(QuerySysSensitiveSVImpl.class);
 	@Autowired
 	private transient IQuerySysSensitiveBusiSV iQuerySysSensitiveBusiSV;
 
@@ -50,6 +51,7 @@ public class QuerySysSensitiveSVImpl implements IQuerySysSensitiveSV {
             responseHeader.setResultMessage(businessException.getErrorMessage());
             sensitivePageQueryResponse.setResponseHeader(responseHeader);
         }catch (Exception e){
+        	logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
             responseHeader.setResultCode(ExceptCodeConstants.Special.SYSTEM_ERROR);
             responseHeader.setResultMessage("敏感词查询失败");
             sensitivePageQueryResponse.setResponseHeader(responseHeader);
@@ -69,6 +71,7 @@ public class QuerySysSensitiveSVImpl implements IQuerySysSensitiveSV {
 			responseHeader.setResultMessage("添加敏感词成功");
 			response.setResponseHeader(responseHeader);
 		}catch (Exception e) {
+			logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"添加敏感词失败");
 		}
 		return response;
@@ -92,6 +95,7 @@ public class QuerySysSensitiveSVImpl implements IQuerySysSensitiveSV {
 			responseHeader.setResultMessage("修改敏感词成功");
 			response.setResponseHeader(responseHeader);
 		}catch (Exception e) {
+			logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"修改敏感词失败");
 		}
 		return response;

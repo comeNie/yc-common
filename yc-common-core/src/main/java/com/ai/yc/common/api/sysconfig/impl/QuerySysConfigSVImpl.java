@@ -1,5 +1,6 @@
 package com.ai.yc.common.api.sysconfig.impl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +31,7 @@ import com.alibaba.dubbo.config.annotation.Service;
 @Service
 @Component
 public class QuerySysConfigSVImpl implements IQuerySysConfigSV {
-	
+	private static final Logger logger = Logger.getLogger(QuerySysConfigSVImpl.class);
 	@Autowired
 	private transient IQuerySysConfigBusiSV iQuerySysConfigBusiSV;
 
@@ -111,6 +112,7 @@ public class QuerySysConfigSVImpl implements IQuerySysConfigSV {
 			responseHeader.setResultMessage("保存基本设置成功");
 			response.setResponseHeader(responseHeader);
 		}catch (Exception e) {
+			logger.error(ExceptCodeConstants.Special.SYSTEM_ERROR, e);
 			throw new SystemException(ExceptCodeConstants.Special.SYSTEM_ERROR,"保存基本设置失败");
 		}
 		return response;
