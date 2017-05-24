@@ -33,12 +33,13 @@ public class SysSensitiveAtomSVImpl implements ISysSensitiveAtomSV{
 		List<SensitivePageVo> sensitivePageVos = new ArrayList<SensitivePageVo>();
 		SysSensitiveCriteria sysSensitiveCriteria = new SysSensitiveCriteria();
 		SysSensitiveCriteria.Criteria criteria = sysSensitiveCriteria.createCriteria();
-		
+		String orderByClause = "id desc";
+		sysSensitiveCriteria.setOrderByClause(orderByClause);
 		if (!StringUtil.isBlank(param.getCreatPeople())) {
-			criteria.andCreatPeopleLike(param.getCreatPeople());
+			criteria.andCreatPeopleLike("%" + param.getCreatPeople().trim() + "%");
 		}
 		if (!StringUtil.isBlank(param.getSensitiveWords())) {
-			criteria.andSensitiveWordsLike(param.getSensitiveWords());
+			criteria.andSensitiveWordsLike("%" + param.getSensitiveWords().trim() + "%");
 		}
 		if (!StringUtil.isBlank(param.getSite())) {
 			criteria.andSiteEqualTo(param.getSite());

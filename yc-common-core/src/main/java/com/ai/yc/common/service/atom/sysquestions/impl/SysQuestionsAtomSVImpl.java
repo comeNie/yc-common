@@ -39,6 +39,8 @@ public class SysQuestionsAtomSVImpl implements ISysQuestionsAtomSV{
 		List<QuestionsPageVo> questionsPageVos = new ArrayList<QuestionsPageVo>();
 		SysQuestionsCriteria sysQuestionsCriteria = new SysQuestionsCriteria();
 		SysQuestionsCriteria.Criteria criteria = sysQuestionsCriteria.createCriteria();
+		String orderByClause = "qid desc";
+		sysQuestionsCriteria.setOrderByClause(orderByClause);
 		if (!StringUtil.isBlank(param.getBid())) {
 			criteria.andBidEqualTo(param.getBid());
 		}
